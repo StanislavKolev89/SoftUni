@@ -1,7 +1,7 @@
 package com.example.moblilelele.model.entity.enums;
 
-public class UserRoleEnum<ADMIN, MODERATOR, USER> {
+public enum UserRoleEnum {
     ADMIN,
     MODERATOR,
-    USER;
+    USER
 }
