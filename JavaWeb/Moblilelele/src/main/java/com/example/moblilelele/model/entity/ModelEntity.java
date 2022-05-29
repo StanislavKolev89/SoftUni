@@ -1,10 +1,9 @@
 package com.example.moblilelele.model.entity;
 
-import com.example.moblilelele.model.entity.enums.Category;
+import com.example.moblilelele.model.entity.enums.CategoryEnum;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Locale;
 
 @Entity
 @Table(name = "models")
@@ -12,7 +11,7 @@ public class ModelEntity extends BaseEntity {
     @Column(nullable = false)
     private String name;
     @Enumerated
-    private Category category;
+    private CategoryEnum category;
     @Column(name = "image-url", nullable = false)
     private String imageUrl;
     @Column(name = "start-year", precision = 6, nullable = false)
@@ -35,11 +34,11 @@ public class ModelEntity extends BaseEntity {
         this.name = name;
     }
 
-    public Category getCategory() {
+    public CategoryEnum getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(CategoryEnum category) {
         this.category = category;
     }
 
