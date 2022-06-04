@@ -16,16 +16,19 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false, name = "full_name")
     private String fullName;
 
+    @Column(nullable = false,name = "user_name")
+    private String username;
+
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String email;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Level level;
 
-    @ManyToMany(mappedBy = "users",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToMany
     private Set<RoleEntity> roles;
 
     @OneToMany(mappedBy = "author",fetch = FetchType.EAGER)
@@ -33,6 +36,15 @@ public class UserEntity extends BaseEntity {
 
     @OneToMany(mappedBy = "author")
     private Set<RouteEntity> routes;
+
+
+    public UserEntity() {
+        this.comments = new HashSet<>();
+        this.roles = new HashSet<>();
+        this.routes = new HashSet<>();
+    }
+
+
 
     public Set<CommentEntity> getComments() {
         return comments;
@@ -90,11 +102,19 @@ public class UserEntity extends BaseEntity {
         this.roles = roles;
     }
 
-    public UserEntity() {
-        this.comments = new HashSet<>();
-        this.roles = new HashSet<>();
-        this.routes = new HashSet<>();
+    public String getUsername() {
+        return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
+    public Set<RouteEntity> getRoutes() {
+        return routes;
+    }
+
+    public void setRoutes(Set<RouteEntity> routes) {
+        this.routes = routes;
+    }
 }

@@ -8,13 +8,13 @@ import java.util.Set;
 
 @Entity
 @Table(name = "roles")
-public class RoleEntity extends BaseEntity{
+public class RoleEntity extends BaseEntity {
 
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     @Enumerated(EnumType.STRING)
-    private RoleEnum name;
+    private RoleEnum role;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "roles", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<UserEntity> users;
 
     public Set<UserEntity> getUsers() {
@@ -28,11 +28,13 @@ public class RoleEntity extends BaseEntity{
     public RoleEntity() {
     }
 
-    public RoleEnum getName() {
-        return name;
+    public RoleEnum getRole() {
+        return role;
     }
 
-    public void setName(RoleEnum name) {
-        this.name = name;
+    public void setRole(RoleEnum role) {
+        this.role = role;
     }
 }
+
+
