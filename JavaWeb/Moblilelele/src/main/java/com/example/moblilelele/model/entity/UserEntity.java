@@ -25,7 +25,7 @@ public class UserEntity extends BaseEntity {
     @Column(name = "is_active")
     private boolean isActive;
 
-    @Column(nullable = false, name = "image_url")
+    @Column( name = "image_url",columnDefinition = "LONGTEXT")
     private String imageUrl;
 
     @Column
