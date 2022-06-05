@@ -12,11 +12,11 @@ public class ModelEntity extends BaseEntity {
     private String name;
     @Enumerated
     private CategoryEnum category;
-    @Column(name = "image-url", nullable = false)
+    @Column(name = "image_url", nullable = false)
     private String imageUrl;
-    @Column(name = "start-year", precision = 6, nullable = false)
+    @Column(name = "start_year", precision = 6, nullable = false)
     private int startYear;
-    @Column(name = "end-year", precision = 6, nullable = false)
+    @Column(name = "end_year", precision = 6, nullable = false)
     private int endYear;
     @Column(precision = 11, nullable = false)
     private LocalDateTime created;
@@ -93,5 +93,17 @@ public class ModelEntity extends BaseEntity {
     public ModelEntity() {
     }
 
-
+    @Override
+    public String toString() {
+        return "ModelEntity{" +
+                "name='" + name + '\'' +
+                ", category=" + category +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", startYear=" + startYear +
+                ", endYear=" + endYear +
+                ", created=" + created +
+                ", modified=" + modified +
+                ", brand=" + brand +
+                '}';
+    }
 }

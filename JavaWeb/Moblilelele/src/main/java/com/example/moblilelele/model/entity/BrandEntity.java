@@ -44,4 +44,14 @@ public class BrandEntity extends BaseEntity {
     }
 
 
+    @Override
+    public String toString() {
+        return "BrandEntity{" +
+                "name='" + name + '\'' +
+                ", created=" + created +
+                ", modified=" + modified +
+                '}';
+    }
+
+
 }
