@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 @Service
 public class UserService {
@@ -60,14 +61,14 @@ public class UserService {
     }
 
     public void userLogout() {
-       currentUser.clear();
+        currentUser.clear();
     }
 
     public void userRegister(RegisterDto registerDto) {
         UserEntity regUser = modelMapper.map(registerDto, UserEntity.class);
         passwordEncoder.encode(registerDto.getPassword());
-        regUser.setPassword( passwordEncoder.encode(registerDto.getPassword()));
-        System.out.println();
+        regUser.setPassword(passwordEncoder.encode(registerDto.getPassword()));
+
         userRepository.save(regUser);
         login(regUser);
     }

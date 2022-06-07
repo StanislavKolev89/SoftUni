@@ -13,8 +13,10 @@ public class CurrentUser {
         return name;
     }
 
-    public void setName(String name) {
+    public CurrentUser setName(String name) {
         this.name = name;
+        return this;
+
     }
 
     public boolean isLogged() {
@@ -31,10 +33,6 @@ public class CurrentUser {
         name = null;
     }
 
-    public CurrentUser logIn(boolean isLogged){
-        this.isLogged = isLogged;
-        return this;
-    }
 
     public boolean isAnonymous(){
         return !isLogged();
