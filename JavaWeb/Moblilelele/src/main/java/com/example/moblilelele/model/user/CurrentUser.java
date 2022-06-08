@@ -1,4 +1,4 @@
-package com.example.moblilelele.model;
+package com.example.moblilelele.model.user;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;

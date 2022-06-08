@@ -3,7 +3,6 @@ package com.example.moblilelele.web;
 import com.example.moblilelele.model.dto.RegisterDto;
 import com.example.moblilelele.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,10 +18,12 @@ public class RegisterController {
 
     private UserService userService;
 
+
     @ModelAttribute("userModel")
-    public void initModel(Model model){
-        model.addAttribute("userModel", new RegisterDto());
+    public RegisterDto initUserModel() {
+        return new RegisterDto();
     }
+
 
     public RegisterController(UserService userService) {
         this.userService = userService;

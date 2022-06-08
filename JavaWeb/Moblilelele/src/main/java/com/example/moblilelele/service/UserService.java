@@ -1,6 +1,6 @@
 package com.example.moblilelele.service;
 
-import com.example.moblilelele.model.CurrentUser;
+import com.example.moblilelele.model.user.CurrentUser;
 import com.example.moblilelele.model.dto.LoginDto;
 import com.example.moblilelele.model.dto.RegisterDto;
 import com.example.moblilelele.model.entity.UserEntity;
@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 @Service
 public class UserService {
@@ -57,7 +56,6 @@ public class UserService {
 
     private void login(UserEntity userFound) {
         currentUser.setLogged(true).setName(userFound.getFirstName() + " " + userFound.getLastName());
-
     }
 
     public void userLogout() {
@@ -72,4 +70,5 @@ public class UserService {
         userRepository.save(regUser);
         login(regUser);
     }
+
 }
