@@ -29,6 +29,7 @@ private final CurrentUser currentUser;
         userToBeRegistered.setLevel(LevelEnum.BEGINNER);
         currentUser.setId(userToBeRegistered.getId());
         currentUser.setName(userToBeRegistered.getFullName());
+        currentUser.setRoles(userToBeRegistered.getRoles());
         userRepository.save(userToBeRegistered);
     }
 
@@ -48,7 +49,15 @@ private final CurrentUser currentUser;
     public void loginUser(String username, String password) {
         currentUser.setId(userRepository.findByUsernameAndPassword(username,password).getId());
         currentUser.setName(userRepository.findByUsernameAndPassword(username,password).getFullName());
+        currentUser.setRoles(userRepository.findByUsernameAndPassword(username,password).getRoles());
         System.out.println();
+    }
+
+    @Override
+    public void logoutUser() {
+        currentUser.setId(null);
+        currentUser.setName(null);
+        currentUser.setRoles(null);
     }
 
 

@@ -38,7 +38,9 @@ public class UserController {
 
     @GetMapping("/logout")
     public String logout() {
-        return "about";
+
+        userService.logoutUser();
+        return "index";
     }
 
     @GetMapping("/register")
