@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-private final UserRepository userRepository;
-private final ModelMapper modelMapper;
-private final CurrentUser currentUser;
+    private final UserRepository userRepository;
+    private final ModelMapper modelMapper;
+    private final CurrentUser currentUser;
 
     public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, CurrentUser currentUser) {
         this.userRepository = userRepository;
@@ -47,9 +47,9 @@ private final CurrentUser currentUser;
 
     @Override
     public void loginUser(String username, String password) {
-        currentUser.setId(userRepository.findByUsernameAndPassword(username,password).getId());
-        currentUser.setName(userRepository.findByUsernameAndPassword(username,password).getFullName());
-        currentUser.setRoles(userRepository.findByUsernameAndPassword(username,password).getRoles());
+        currentUser.setId(userRepository.findByUsernameAndPassword(username, password).getId());
+        currentUser.setName(userRepository.findByUsernameAndPassword(username, password).getFullName());
+        currentUser.setRoles(userRepository.findByUsernameAndPassword(username, password).getRoles());
         System.out.println();
     }
 
@@ -58,6 +58,11 @@ private final CurrentUser currentUser;
         currentUser.setId(null);
         currentUser.setName(null);
         currentUser.setRoles(null);
+    }
+
+    @Override
+    public UserEntity findById(Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 
 

@@ -3,13 +3,11 @@ package bg.softuni.pathfinder.web;
 import bg.softuni.pathfinder.model.dto.UserLoginDto;
 import bg.softuni.pathfinder.model.dto.UserRegisterDto;
 import bg.softuni.pathfinder.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -19,9 +17,11 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
+    private final ModelMapper modelMapper;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ModelMapper modelMapper) {
         this.userService = userService;
+        this.modelMapper = modelMapper;
     }
 
     @ModelAttribute("userRegisterDto")
@@ -78,6 +78,15 @@ public class UserController {
         }
         userService.loginUser(userLoginDto.getUsername(),userLoginDto.getPassword());
         return "index";
+    }
+
+    @GetMapping("/profile/{id}")
+    private String profile(@PathVariable Long id, Model model){
+
+        model
+                .addAttribute("user", userService.findById(id));
+
+        return "profile";
     }
 
 
