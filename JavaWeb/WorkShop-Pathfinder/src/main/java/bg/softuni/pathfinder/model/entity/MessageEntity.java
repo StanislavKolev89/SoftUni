@@ -1,6 +1,4 @@
-package bg.softuni.pathfinder.model;
-
-import org.apache.catalina.User;
+package bg.softuni.pathfinder.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

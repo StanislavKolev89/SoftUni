@@ -1,4 +1,4 @@
-package bg.softuni.pathfinder.model;
+package bg.softuni.pathfinder.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
