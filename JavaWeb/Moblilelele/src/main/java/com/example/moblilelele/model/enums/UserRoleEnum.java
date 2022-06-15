@@ -1,4 +1,4 @@
-package com.example.moblilelele.model.entity.enums;
+package com.example.moblilelele.model.enums;
 
 public enum UserRoleEnum {
     ADMIN,

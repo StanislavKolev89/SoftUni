@@ -1,7 +1,7 @@
 package com.example.moblilelele.model.entity;
 
-import com.example.moblilelele.model.entity.enums.EngineType;
-import com.example.moblilelele.model.entity.enums.TransmissionType;
+import com.example.moblilelele.model.enums.EngineType;
+import com.example.moblilelele.model.enums.TransmissionType;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

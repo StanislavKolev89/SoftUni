@@ -22,6 +22,6 @@ public class HomeController {
     @GetMapping("/routes")
     public String showRoutes(Model model){
         model.addAttribute("routes" ,routeService.findAllRoutes());
-        return "route-details";
+        return "routes";
     }
 }

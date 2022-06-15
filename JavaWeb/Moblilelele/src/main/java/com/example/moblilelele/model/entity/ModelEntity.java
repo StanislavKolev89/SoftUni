@@ -1,6 +1,6 @@
 package com.example.moblilelele.model.entity;
 
-import com.example.moblilelele.model.entity.enums.CategoryEnum;
+import com.example.moblilelele.model.enums.CategoryEnum;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

@@ -63,6 +63,7 @@ public class UserService {
     }
 
     public void userRegister(RegisterDto registerDto) {
+
         UserEntity regUser = modelMapper.map(registerDto, UserEntity.class);
         passwordEncoder.encode(registerDto.getPassword());
         regUser.setPassword(passwordEncoder.encode(registerDto.getPassword()));

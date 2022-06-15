@@ -1,6 +1,6 @@
 package com.example.moblilelele.model.entity;
 
-import com.example.moblilelele.model.entity.enums.UserRoleEnum;
+import com.example.moblilelele.model.enums.UserRoleEnum;
 
 import javax.persistence.*;
 import java.util.Set;

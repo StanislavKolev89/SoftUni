@@ -1,12 +1,24 @@
 package com.example.moblilelele.model.dto;
 
+import com.example.moblilelele.model.validation.FieldsValueMatch;
+import com.example.moblilelele.model.validation.ValidEmail;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+
 import javax.validation.constraints.Size;
 
+
+@FieldsValueMatch(
+        field = "password",
+        fieldMatch = "confirmPassword",
+        message = "Passwords do not match."
+)
 public class RegisterDto {
 
-    @Email
+
+    @Email(message = "User email should be valid.")
+    @ValidEmail
     private String email;
     @NotBlank
     @Size(min = 2, max = 20)
@@ -15,9 +27,10 @@ public class RegisterDto {
     @Size(min = 2, max = 20)
     private String lastName;
 
-    @NotBlank
+    @NotBlank(message = "Password is too short.")
     @Size(min = 5)
     private String password;
+
     private String confirmPassword;
 
     public String getEmail() {
