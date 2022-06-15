@@ -1,6 +1,8 @@
 package com.example.moblilelele.web;
 
 import com.example.moblilelele.model.dto.OfferDto;
+import com.example.moblilelele.service.BrandService;
+import com.example.moblilelele.service.OfferService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +18,14 @@ import javax.validation.Valid;
 @RequestMapping("/offers")
 public class OfferController {
 
+    private final OfferService offerService;
+    private final BrandService brandService;
+
+    public OfferController(OfferService offerService, BrandService brandService) {
+        this.offerService = offerService;
+        this.brandService = brandService;
+    }
+
     @ModelAttribute("offerModel")
     public OfferDto offerDtoInit() {
         return new OfferDto();
@@ -28,6 +38,8 @@ public class OfferController {
 
     @GetMapping("/add")
     public String addOfferBlank(Model model){
+        model.addAttribute("brands",brandService.getAllBrands());
+
         return "offer-add";
     }
 
@@ -38,6 +50,7 @@ public class OfferController {
                     addFlashAttribute("org.springframework.validation.BindingResult.offerDto", bindingResult);
             return "redirect:/offers/add";
         }
+        offerService.addOffer(offerDto);
         return "offers";
     }
 
