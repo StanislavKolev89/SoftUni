@@ -17,7 +17,9 @@
 
 <div class="container">
     <h2 class="text-center text-white">Upload Offer</h2>
-    <form method="POST" 
+    <form   th:object="${offerModel}"
+            th:action="@{/offers/add}"
+            th:method="post"
           class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
         <div class="row">
 
@@ -25,7 +27,7 @@
                 <label class="text-center text-white font-weight-bold" for="model">Model</label>
                 <select id="model" class="form-control">
                     <option value="">- Select a model -</option>
-                    <optgroup label="Brand name">
+                    <optgroup >
                         <option>Model</option>
                     </optgroup>
                 </select>
@@ -36,7 +38,7 @@
             <div class="form-group col-md-6 mb-3">
                 <label for="price" class="text-white font-weight-bold">Price</label>
                 <input id="price"
-                       th:field="price"
+                       th:field="*{price}"
                        type="number" min="0" step="100" class="form-control"
                        placeholder="Suggested price"/>
                 <p  class="errors alert alert-danger">
@@ -49,7 +51,10 @@
                 <label class="text-center text-white font-weight-bold" for="engine">Engine</label>
                 <select id="engine" class="form-control">
                     <option value="">- Select engine type -</option>
-                    <option>
+                    <option th:each="engine : ${T(com.example.moblilelele.model.enums.EngineType).values()}"
+                            th:text="${engine}"
+                            th:value="${engine}"
+                            th:selected="${engine} == *{engine}">>
                         Engine type
                     </option>
 
@@ -62,7 +67,10 @@
                 <label class="text-center text-white font-weight-bold" for="transmission">Transmission</label>
                 <select id="transmission" class="form-control">
                     <option value="">- Select transmission type -</option>
-                    <option> Transmission type
+                    <option th:each="trans: ${T(com.example.moblilelele.model.enums.TransmissionType).values()}"
+                            th:value="${trans}"
+                            th:text="${trans}"
+                    th:selected="${trans}"> Transmission type
                     </option>
                 </select>
                 <p class="errors alert alert-danger">
