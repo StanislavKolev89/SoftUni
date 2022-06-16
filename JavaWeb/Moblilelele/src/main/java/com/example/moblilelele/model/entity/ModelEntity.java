@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class ModelEntity extends BaseEntity {
     @Column(nullable = false)
     private String name;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private CategoryEnum category;
     @Column(name = "image_url", nullable = false)
     private String imageUrl;
@@ -18,9 +18,9 @@ public class ModelEntity extends BaseEntity {
     private int startYear;
     @Column(name = "end_year", precision = 6, nullable = false)
     private int endYear;
-    @Column(precision = 11, nullable = false)
+    @Column(precision = 11)
     private LocalDateTime created;
-    @Column(precision = 11, nullable = false)
+    @Column(precision = 11)
     private LocalDateTime modified;
 
     @ManyToOne

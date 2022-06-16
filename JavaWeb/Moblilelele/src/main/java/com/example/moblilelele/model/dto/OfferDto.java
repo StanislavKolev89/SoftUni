@@ -8,6 +8,10 @@ import java.math.BigDecimal;
 
 public class OfferDto {
 
+    @Positive
+    private Long modelId;
+
+
     @NotNull(message = "Model is required.")
     private ModelDto modelDto;
 
@@ -89,6 +93,14 @@ public class OfferDto {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getModelId() {
+        return modelId;
+    }
+
+    public void setModelId(Long modelId) {
+        this.modelId = modelId;
     }
 
 

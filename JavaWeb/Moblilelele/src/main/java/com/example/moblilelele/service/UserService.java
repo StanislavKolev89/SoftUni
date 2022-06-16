@@ -55,7 +55,7 @@ public class UserService {
     }
 
     private void login(UserEntity userFound) {
-        currentUser.setLogged(true).setName(userFound.getFirstName() + " " + userFound.getLastName());
+        currentUser.setLogged(true).setName(userFound.getFirstName() + " " + userFound.getLastName()).setEmail(userFound.getEmail());
     }
 
     public void userLogout() {

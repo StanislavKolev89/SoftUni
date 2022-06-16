@@ -10,9 +10,9 @@ import java.util.List;
 public class BrandEntity extends BaseEntity {
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false,precision = 6)
+    @Column(precision = 6)
     private LocalDateTime created;
-    @Column(nullable = false,precision = 6)
+    @Column(precision = 6)
     private LocalDateTime modified;
 
 
