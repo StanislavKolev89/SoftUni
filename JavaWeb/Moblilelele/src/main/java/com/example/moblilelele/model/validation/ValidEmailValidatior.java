@@ -5,11 +5,11 @@ import com.example.moblilelele.repository.UserRepository;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class ValidEmalValidatior implements ConstraintValidator<ValidEmail, String> {
+public class ValidEmailValidatior implements ConstraintValidator<ValidEmail, String> {
 
     private final UserRepository userRepository;
 
-    public ValidEmalValidatior(UserRepository userRepository) {
+    public ValidEmailValidatior(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

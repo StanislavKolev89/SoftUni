@@ -1,5 +1,4 @@
-package com.example.moblilelele.model.validation;
-
+package com.example.battleship.validation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -8,12 +7,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Constraint(validatedBy = ValidEmailValidatior.class)
-@Target(  ElementType.FIELD )
 @Retention(RetentionPolicy.RUNTIME)
-
-public @interface ValidEmail {
+@Target(ElementType.FIELD)
+@Constraint(validatedBy = UsernameExistingValidator.class)
+public @interface UsernameExisting {
     String message() default "Username already taken.";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }
