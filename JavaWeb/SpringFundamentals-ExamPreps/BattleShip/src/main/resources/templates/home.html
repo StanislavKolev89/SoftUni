@@ -4,7 +4,7 @@
 <head th:replace="fragments/commons::head"></head>
 <body class="body-main">
 <header th:replace="fragments/commons::nav"></header>
-<main role="main"> 
+<main role="main">
     <div class="jumbotron">
         <h1 class="text-center p-5 text-white font-weight-bold">Battle</h1>
         <form th:action="@{/home/battle/}" method="post" th:object="${battleBindingModel}" class="row mb-2">
@@ -21,7 +21,7 @@
                             <option
                                     th:each="ship :${userShips}"
                                     th:text="${ship.getName()}"
-                                    th:value="${ship.getName()}"
+                                    th:va lue="${ship.getName()}"
                             >User
                             </option>
 
