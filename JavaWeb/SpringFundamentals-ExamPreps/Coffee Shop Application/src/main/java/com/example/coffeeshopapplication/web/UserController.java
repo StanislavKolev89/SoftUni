@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -28,27 +29,37 @@ public class UserController {
         this.modelMapper = modelMapper;
     }
 
+    @GetMapping("/logout")
+    private String logoutUser(HttpSession httpSession){
+        userService.logoutUser();
+        return "index";
+    }
+
     @GetMapping("/login")
-    public String loginPage(Model model){
-        model.addAttribute("badCredentials",true);
+    public String loginPage(Model model) {
+        model.addAttribute("badCredentials", false);
         return "login";
     }
 
     @GetMapping("/register")
-    public String registerPage(){
+    public String registerPage() {
         return "register";
     }
 
     @PostMapping("/login")
     public String loginConfirm(@Valid LoginPageBindingModel loginPageBindingModel, BindingResult bindingResult,
-                               RedirectAttributes redirectAttributes){
+                               RedirectAttributes redirectAttributes) {
 
-        if(bindingResult.hasErrors()){
-            redirectAttributes.addFlashAttribute("loginPageBindingModel",loginPageBindingModel);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.loginPageBindingModel",bindingResult);
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("loginPageBindingModel", loginPageBindingModel);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.loginPageBindingModel", bindingResult);
             return "redirect:login";
         }
-        //TODO Check if username And Password Combination is Valid           redirectAttributes.addFlashAttribute("badCredentials",true);
+
+        if (userService.findByUsernameAndPassword(loginPageBindingModel.getUsername(), loginPageBindingModel.getPassword())) {
+            redirectAttributes.addFlashAttribute("badCredentials", true);
+            return"redirect:login";
+        }
         userService.loginUser(modelMapper.map(loginPageBindingModel, LoginUserServiceModel.class));
 
         return "redirect:/";
@@ -56,16 +67,16 @@ public class UserController {
 
     @PostMapping("/register")
     public String registerConfirm(@Valid RegisterPageBindingModel registerPageBindingModel, BindingResult bindingResult,
-                                  RedirectAttributes redirectAttributes){
-        if(bindingResult.hasErrors() || !registerPageBindingModel.getPassword().equals(registerPageBindingModel.getConfirmPassword())){
-            redirectAttributes.addFlashAttribute("registerPageBindingModel",registerPageBindingModel);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.registerPageBindingModel",bindingResult);
+                                  RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors() || !registerPageBindingModel.getPassword().equals(registerPageBindingModel.getConfirmPassword())) {
+            redirectAttributes.addFlashAttribute("registerPageBindingModel", registerPageBindingModel);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.registerPageBindingModel", bindingResult);
 
             return "redirect:register";
         }
-        //TODO Check if username And Password Combination is Valid
+
         userService.registerUser(modelMapper.map(registerPageBindingModel, RegisterUserServiceModel.class));
-        return"redirect:login";
+        return "redirect:login";
     }
 
     @ModelAttribute("loginPageBindingModel")
@@ -74,7 +85,7 @@ public class UserController {
     }
 
     @ModelAttribute("registerPageBindingModel")
-    public RegisterPageBindingModel registerPageBindingModel(){
+    public RegisterPageBindingModel registerPageBindingModel() {
         return new RegisterPageBindingModel();
     }
 

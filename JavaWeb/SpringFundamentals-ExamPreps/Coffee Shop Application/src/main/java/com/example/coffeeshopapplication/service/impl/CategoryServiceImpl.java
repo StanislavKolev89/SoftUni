@@ -25,6 +25,11 @@ public class CategoryServiceImpl implements CategoryService {
         Arrays.stream(CategoryEnum.values()).forEach(categoryEnum -> createAndSaveCategory(categoryEnum));
     }
 
+    @Override
+    public CategoryEntity findCategoryByEnumName(CategoryEnum name) {
+        return categoryRepository.findByName(name).orElse(null);
+    }
+
     private void createAndSaveCategory(CategoryEnum categoryEnum) {
         CategoryEntity categoryEntity = new CategoryEntity();
         switch (categoryEnum) {

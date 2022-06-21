@@ -8,8 +8,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class OrderAddServiceModel {
-    @NotNull
-    private Long id;
 
     @NotBlank
     @Size(min=3,max=20)
@@ -52,13 +50,6 @@ public class OrderAddServiceModel {
         this.orderTime = orderTime;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public CategoryEnum getCategory() {
         return category;
