@@ -16,12 +16,12 @@ public class HomeController {
         this.userService = userService;
     }
 
-    @GetMapping()
+    @GetMapping("/")
     public String indexPage() {
         return "index";
     }
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String homePage(Model model) {
         model.addAttribute("allOrders", orderService.getAllOrders());
         model.addAttribute("empOrders", userService.getOrdersByUser());

@@ -40,14 +40,14 @@ public class OrderController {
             return "redirect:orders/add";
         }
      orderService.addOrder(modelMapper.map(orderPageBindingModel, OrderAddServiceModel.class));
-        return "redirect:/";
+        return "redirect:/home";
 
     }
 
     @GetMapping("/orders/delete/{id}")
     public String deleteOrder(@PathVariable Long id){
         orderService.deleteOrder(id);
-        return "redirect:/";
+        return "redirect:/home";
     }
 
 
