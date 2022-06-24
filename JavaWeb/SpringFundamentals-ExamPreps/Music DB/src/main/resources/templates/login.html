@@ -18,10 +18,9 @@
         </div>
         <div class="row g-3 align-items-center">
             <form th:action="@{/users/login}" method="post" th:object="${loginUserBindingModel}">
+                    <h5 th:text="${notExisting}?'User doesn\'t exists':'' "class="text-center text-light form-text bg-danger rounded">User doesn't
+                    exists</h5>
 
-                    <h5  th:if="$   {notExisting}"
-                            class="text-center text-light form-text bg-danger rounded">User doesn't
-                        exists</h5>
                 <div>
                     <div class="col-auto">
                         <label for="inputUsername" class="col-form-label text-light">Username</label>

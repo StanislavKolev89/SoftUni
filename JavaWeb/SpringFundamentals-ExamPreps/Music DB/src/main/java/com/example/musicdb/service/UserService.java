@@ -14,4 +14,6 @@ public interface UserService {
      void registerUser(registerUserService map);
 
      UserEntity findById(Long id);
+
+     void logout();
 }
