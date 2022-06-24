@@ -25,7 +25,9 @@ public class AlbumAddBindingModel {
     @Min(10)
     private int copies;
 
+
     @Positive
+    @NotNull
     private BigDecimal price;
 
     @PastOrPresent
@@ -34,10 +36,10 @@ public class AlbumAddBindingModel {
 
     private String producer;
 
-    @NotNull
+    @NotNull(message = "you must enter genre")
     private GenreEnum genre;
 
-    @NotNull
+    @Positive(message = "please enter Artist")
     private long artist;
 
     public long getArtist() {

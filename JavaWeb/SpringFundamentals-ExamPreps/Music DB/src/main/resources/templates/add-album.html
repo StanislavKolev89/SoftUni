@@ -74,6 +74,7 @@
                     <select th:field="*{artist}"
                             th:errorclass="bg-danger"
                             ame="artist" id="artist" class="custom-select">
+                        <option value="-1" selected>Select Artist</option>
                         <option th:each="a : ${allArtists}"
                                 th:text="${a.name}"
                                 th:value="${a.id}"
@@ -87,10 +88,11 @@
                     <select th:field="*{genre}"
                             th:errorclass="bg-danger"
                             name="genre" id="genre" class="custom-select">
+                        <option value="" selected>Select genre</option>
                         <option th:each="g : ${T(com.example.musicdb.model.enums.GenreEnum).values()}"
                                 th:text="${g}"
                                 th:value="${g}"
-                                selected="Select genre">Select genre</option>
+                               >Select genre</option>
                     </select>
                     <small th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"
                            id="genreError" class="form-text bg-danger rounded">You must select genre</small>
