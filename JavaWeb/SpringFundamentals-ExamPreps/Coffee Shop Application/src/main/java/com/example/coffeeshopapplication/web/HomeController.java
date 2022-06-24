@@ -26,6 +26,8 @@ public class HomeController {
         model.addAttribute("allOrders", orderService.getAllOrders());
         model.addAttribute("empOrders", userService.getOrdersByUser());
         model.addAttribute("timeNeeded",orderService.findNeededTime());
+
+        System.out.println();
         return "home";
     }
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/commons::head"></head>
+<body>
+<header th:replace="fragments/commons::nav"></header>
+<main class="p-5 align-content-center bg-blur my-main">
+    <h2 th:text="|Total sold copies
+        of all albums: ${sumAllAlbums}|"class="text-light border-bottom">Total sold copies
+        of all albums: 10000</h2>
+    <div class="row">
+        <div   class="col-md-3">
+            <div  th:each="a  :${allAlbums}" class="card mb-4 box-shadow">
+                <img th:src="@{'/img/'+${a.picSource}+'.jpg'}" class="card-img-top" alt="Thumbnail [100%x225]"
+                     data-holder-rendered="true"
+                     style="height: 225px; width: 100%; display: block;">
+                <div class="card-body">
+                    <div class="text-center">
+                        <p th:text="|Name: ${a.name}|"class="card-text border-bottom ">Name: Name of album</p>
+                        <p th:text="|Artist: ${a.artistName}|"class="card-text border-bottom ">Artist: Metallica</p>
+                        <p th:text="|Genre: ${a.genre}|"class="card-text border-bottom ">Genre: Metal</p>
+                        <p th:text="|Price: ${a.price}|" class="card-text border-bottom ">Price: 19.99</p>
+                        <p th:text="|Release Date: ${a.releaseDate}|"class="card-text border-bottom">Release Date: </p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a th:href="@{album/delete/{id}(id=${a.albumId})}"type="button" class="btn btn-sm btn-outline-secondary">Delete</a>
+                        </div>
+                        <small th:text="|${a.copies} copies|"class="text-muted">1000 copies</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
+</body>
+</html>

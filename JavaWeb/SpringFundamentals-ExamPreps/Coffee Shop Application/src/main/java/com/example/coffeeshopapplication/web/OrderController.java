@@ -1,6 +1,6 @@
 package com.example.coffeeshopapplication.web;
 
-import com.example.coffeeshopapplication.model.binding.OrderPageBindingModel;
+import com.example.coffeeshopapplication.model.binding.AddAlbumPageBindingModel;
 import com.example.coffeeshopapplication.model.service.OrderAddServiceModel;
 import com.example.coffeeshopapplication.service.OrderService;
 import org.modelmapper.ModelMapper;
@@ -31,15 +31,15 @@ public class OrderController {
     }
 
     @PostMapping("/orders/add")
-    public String offerConfirm(@Valid OrderPageBindingModel orderPageBindingModel, BindingResult bindingResult,
+    public String offerConfirm(@Valid AddAlbumPageBindingModel addAlbumPageBindingModel, BindingResult bindingResult,
                                RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("orderPageBindingModel", orderPageBindingModel);
+            redirectAttributes.addFlashAttribute("addAlbumPageBindingModel", addAlbumPageBindingModel);
             redirectAttributes.
-                    addFlashAttribute("org.springframework.validation.BindingResult.orderPageBindingModel", bindingResult);
+                    addFlashAttribute("org.springframework.validation.BindingResult.addAlbumP   ageBindingModel", bindingResult);
             return "redirect:orders/add";
         }
-     orderService.addOrder(modelMapper.map(orderPageBindingModel, OrderAddServiceModel.class));
+     orderService.addOrder(modelMapper.map(addAlbumPageBindingModel, OrderAddServiceModel.class));
         return "redirect:/home";
 
     }
@@ -51,8 +51,8 @@ public class OrderController {
     }
 
 
-    @ModelAttribute("orderPageBindingModel")
-    public OrderPageBindingModel orderPageBindingModel() {
-        return new OrderPageBindingModel();
+    @ModelAttribute("addAlbumPageBindingModel")
+    public AddAlbumPageBindingModel addAlbumPageBindingModel() {
+        return new AddAlbumPageBindingModel();
     }
 }

@@ -7,7 +7,7 @@ import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class OrderPageBindingModel {
+public class AddAlbumPageBindingModel {
     @NotBlank
     @Size(min=3,max=20)
     private String name;
@@ -65,7 +65,7 @@ public class OrderPageBindingModel {
         this.description = description;
     }
 
-    public OrderPageBindingModel() {
+    public AddAlbumPageBindingModel() {
     }
 
 
