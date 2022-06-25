@@ -36,7 +36,7 @@ public class OrderController {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("addAlbumPageBindingModel", addAlbumPageBindingModel);
             redirectAttributes.
-                    addFlashAttribute("org.springframework.validation.BindingResult.addAlbumP   ageBindingModel", bindingResult);
+                    addFlashAttribute("org.springframework.validation.BindingResult.addAlbumPageBindingModel", bindingResult);
             return "redirect:orders/add";
         }
      orderService.addOrder(modelMapper.map(addAlbumPageBindingModel, OrderAddServiceModel.class));
