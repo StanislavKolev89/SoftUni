@@ -1,5 +1,8 @@
 package com.example.coffeeshopapplication.model.service;
 
+import lombok.Data;
+
+@Data
 public class UserServiceModel {
     private String username;
     private int numberOfOrders;
@@ -10,16 +13,5 @@ public class UserServiceModel {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public int getNumberOfOrders() {
-        return numberOfOrders;
-    }
-
-    public void setNumberOfOrders(int numberOfOrders) {
-        this.numberOfOrders = numberOfOrders;
-    }
-
-    public UserServiceModel() {
     }
 }

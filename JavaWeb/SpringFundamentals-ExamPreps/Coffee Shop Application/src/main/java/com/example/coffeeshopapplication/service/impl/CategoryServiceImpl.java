@@ -31,13 +31,18 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     private void createAndSaveCategory(CategoryEnum categoryEnum) {
-        CategoryEntity categoryEntity = new CategoryEntity();
         switch (categoryEnum) {
-            case CAKE -> categoryEntity.setName(CategoryEnum.CAKE).setNeededTime(10);
-            case DRINK -> categoryEntity.setName(CategoryEnum.DRINK).setNeededTime(1);
-            case COFFEE -> categoryEntity.setName(CategoryEnum.COFFEE).setNeededTime(2);
-            case OTHER -> categoryEntity.setName(CategoryEnum.OTHER).setNeededTime(5);
+            case CAKE -> createCategory(CategoryEnum.CAKE, 10);
+            case DRINK -> createCategory(CategoryEnum.DRINK, 1);
+            case COFFEE -> createCategory(CategoryEnum.COFFEE, 2);
+            case OTHER -> createCategory(CategoryEnum.OTHER, 5);
         }
-        categoryRepository.save(categoryEntity);
+    }
+
+    private void createCategory(CategoryEnum other, int neededTime) {
+        categoryRepository.save(CategoryEntity.builder()
+                .name(other)
+                .neededTime(neededTime)
+                .build());
     }
 }
