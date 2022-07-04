@@ -1,13 +1,14 @@
-package bg.softuni.personalproject.service;
+package bg.softuni.personalproject.web;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-
-    @GetMapping("/test")
+    @CrossOrigin
+    @GetMapping("/")
     public String testPage(){
-        return "test";
+        return "index";
     }
 }
