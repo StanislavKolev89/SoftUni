@@ -43,27 +43,7 @@
         padding-top: 100px;
     }
 
-    /* .right{
-        float: right;
-    }
-     */
-
   
-    /* small,strong {
-        display: block;
-        text-align: center;
-        margin-left: 50px;
-        margin-right: 50px;
-
-        
-    } */
-
- /* strong {
-        display: block;
-        margin-left: 50px;
-        margin-right: 50px;
-        text-align: center;
-} */
 
 form{
     text-align: center;
@@ -213,3 +193,4 @@ body {
   background-color: rgb(87, 128, 0);
   border-radius: 10px;
 }
+
