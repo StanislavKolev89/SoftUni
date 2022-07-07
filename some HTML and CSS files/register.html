@@ -47,47 +47,119 @@
         </div>
       </nav>
     
-    <div class="container center">
-        <h1 class="text-center text-white">Login</h1>
-        <div class="row g-3 align-items-center">
-            <div class="form">
-                <strong class="bg-danger"> ALELUQ</strong>
-                <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Username</label>
-                    <small class="bg-danger text-center">DANGER</small>
-        
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">First Name</label>
-                    <small class="bg-danger text-center justify-self">DANGER</small>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Last Name</label>
-                    <small class="bg-danger text-center justify-self">DANGER</small>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Email</label>
-                    <small class="bg-danger text-center justify-self">DANGER</small>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                    <small class="bg-danger text-center justify-self">DANGER</small>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Confirm Password</label>
-                    <small class="bg-danger text-center justify-self">DANGER</small>
-                </div>
-            </div>   
-            <button class="btn btn-primary btn-sm   " type="submit">Login</button>
-        </div>   
-    </div>
+  
+<div id="main-wrapper">
 
+  <div class="unix-login">
+
+    <div class="container-fluid">
+
+      <div class="row justify-content-center">
+
+        <div class="col-lg-4">
+
+          <div class="login-content card">
+
+            <center>
+              <h3>Register Account</h3>
+
+              <p><strong>Create Account</strong> » Purchase » Begin</p>
+            </center>
+
+            <div class="login-form">
+
+              <form data-toggle="validator" method="post" id="register_form">
+
+                <div class="form-group">
+
+                  <input id="firstName" type="name" name="name" class="form-control" placeholder="First Name" required>
+                  <div class="col-auto">
+                    <small th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                           id="usernameError" class="text-light form-text bg-danger rounded">Length must between 3
+                        and 20 characters</small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+
+                  <input id="lastName" type="name" name="name" class="form-control" placeholder="Last Name" required>
+                  <div class="col-auto">
+                    <small th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                           id="usernameError" class="text-light form-text bg-danger rounded">Length must between 3
+                        and 20 characters</small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+
+                  <input id="username" type="name" name="name" class="form-control" placeholder="Username" required>
+                  <div class="col-auto">
+                    <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+                           id="usernameError" class="text-light form-text bg-danger rounded">Length must between 3
+                        and 20 characters</small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+
+                  <input id="email" type="name" name="name" class="form-control" placeholder="Email" required>
+                  <div class="col-auto">
+                    <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                           id="usernameError" class="text-light form-text bg-danger rounded">Length must between 3
+                        and 20 characters</small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+
+                  <input id="address" type="name" name="name" class="form-control" placeholder="Address" required>
+                  <div class="col-auto">
+                    <small th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
+                           id="usernameError" class="text-light form-text bg-danger rounded">Length must between 3
+                        and 20 characters</small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+
+                  <input id="password" type="name" name="name" class="form-control" placeholder="Password" required>
+                  <div class="col-auto">
+                    <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+                           id="usernameError" class="text-light form-text bg-danger rounded">Length must between 3
+                        and 20 characters</small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+
+                  <input id="confirmPassword" type="name" name="name" class="form-control" placeholder="Confirm password" required>
+                  <div class="col-auto">
+                    <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+                           id="usernameError" class="text-light form-text bg-danger rounded">Length must between 3
+                        and 20 characters</small>
+                  </div>
+                </div>
+                
+      
+                <button name="register" type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+
+                <div class="register-link m-t-15 text-center">
+
+                  <p>Already have account? <a href="page-login.php?refer=<?php echo $refer?>"> Sign in</a></p>
+
+                </div>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
      
 
             

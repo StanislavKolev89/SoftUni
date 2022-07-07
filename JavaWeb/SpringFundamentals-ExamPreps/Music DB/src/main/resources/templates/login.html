@@ -16,7 +16,7 @@
         <div class="row g-3 align-items-center">
             <img alt="Metallica image" src="/img/metallica.jpg" class="w-50 rounded">
         </div>
-        <div class="row g-3 align-items-center">
+            <div class="row g-3 align-items-center">
             <form th:action="@{/users/login}" method="post" th:object="${loginUserBindingModel}">
                     <h5 th:text="${notExisting}?'User doesn\'t exists':'' "class="text-center text-light form-text bg-danger rounded">User doesn't
                     exists</h5>
