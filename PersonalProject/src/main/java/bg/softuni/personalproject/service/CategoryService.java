@@ -1,6 +1,6 @@
 package bg.softuni.personalproject.service;
 
-import bg.softuni.personalproject.model.entity.CategoryEntity;
+import bg.softuni.personalproject.model.entity.model.CategoryEntity;
 import bg.softuni.personalproject.model.enums.CategoryEnum;
 import bg.softuni.personalproject.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class CategoryService {
 
     public void initCategories() {
         Arrays.stream(CategoryEnum.values()).forEach(categoryEnum -> {
-            categoryRepository.save(new CategoryEntity().name(categoryEnum));
+            categoryRepository.save(new CategoryEntity().setName(categoryEnum));
         });
     }
 }

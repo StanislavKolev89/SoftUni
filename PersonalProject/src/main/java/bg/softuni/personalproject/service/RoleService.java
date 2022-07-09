@@ -1,6 +1,6 @@
 package bg.softuni.personalproject.service;
 
-import bg.softuni.personalproject.model.entity.RoleEntity;
+import bg.softuni.personalproject.model.entity.model.RoleEntity;
 import bg.softuni.personalproject.model.enums.RoleEnum;
 import bg.softuni.personalproject.repository.RoleRepository;
 import org.springframework.stereotype.Service;
@@ -16,8 +16,10 @@ public class RoleService {
     }
 
     public void initRoles() {
-        Arrays.stream(RoleEnum.values()).forEach(roleEnum -> {
-            roleRepository.save(new RoleEntity().name(roleEnum));
-        });
+        if(roleRepository.count()==0) {
+            Arrays.stream(RoleEnum.values()).forEach(roleEnum -> {
+                roleRepository.save(new RoleEntity().setName(roleEnum));
+            });
+        }
     }
 }

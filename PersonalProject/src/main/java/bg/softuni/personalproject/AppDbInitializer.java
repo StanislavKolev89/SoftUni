@@ -1,11 +1,6 @@
 package bg.softuni.personalproject;
 
 
-import bg.softuni.personalproject.model.entity.OrderEntity;
-import bg.softuni.personalproject.model.entity.OrderProductEntity;
-import bg.softuni.personalproject.model.entity.ProductEntity;
-import bg.softuni.personalproject.model.entity.UserEntity;
-import bg.softuni.personalproject.repository.OrderProductRepository;
 import bg.softuni.personalproject.service.CategoryService;
 import bg.softuni.personalproject.service.RoleService;
 import org.springframework.boot.CommandLineRunner;

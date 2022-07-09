@@ -1,16 +1,12 @@
-package bg.softuni.personalproject.model.entity;
+package bg.softuni.personalproject.model.entity.model;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@Accessors(fluent = true,chain = true)
+
 @Entity
 @Table(name = "ordered_products")
 public class OrderProductEntity {
@@ -31,4 +27,15 @@ public class OrderProductEntity {
     @Column(nullable = false)
     private int quantity;
 
+    public OrderProductEntity() {
+    }
+
+    public OrderProductKey getId() {
+        return id;
+    }
+
+    public OrderProductEntity setId(OrderProductKey id) {
+        this.id = id;
+        return this;
+    }
 }

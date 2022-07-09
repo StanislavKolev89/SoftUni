@@ -34,7 +34,7 @@
     }
    
     body {
-        background-image: url(/2808562.webp);
+        background-image: url(/images/2808562.webp);
         background-size: cover;
         background-attachment: fixed;
         width: auto;
@@ -202,12 +202,20 @@ body {
   transform: translate(-50%, -50%);
 }
 
-    #main-wrapper {
+#main-wrapper {
 
     top:40%;
     left:40%;
-      position: absolute;
-      /*it can be fixed too*/
+    position: absolute;
+    overflow: auto;
+}
 
-      overflow: auto;
-    }
+.footer-page {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+   color: white;
+    text-align: center;
+}
