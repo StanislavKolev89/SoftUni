@@ -219,3 +219,8 @@ body {
    color: white;
     text-align: center;
 }
+
+.photo{
+    width: 600px;
+    height: 100%;
+}
