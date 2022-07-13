@@ -16,6 +16,17 @@ public class CategoryEntity {
     @Enumerated(EnumType.STRING)
     private CategoryEnum name;
 
+    private String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public CategoryEntity setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
+    }
+
     public CategoryEntity() {
     }
 

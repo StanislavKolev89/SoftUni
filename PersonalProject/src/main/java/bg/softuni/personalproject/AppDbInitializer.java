@@ -20,8 +20,8 @@ public class AppDbInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        roleService.initRoles();
-        categoryService.initCategories();
+//        roleService.initRoles();
+//        categoryService.initCategories();
 
     }
 }

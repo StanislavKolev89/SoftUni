@@ -49,7 +49,7 @@ public class UserController {
 
 
     @GetMapping("/register")
-    public String registerPage() {
+    public String registerPage(Model model) {
         return "register";
     }
 
@@ -57,12 +57,14 @@ public class UserController {
     public String registerConfirm(@Valid UserRegisterDTO userRegisterDTO, BindingResult bindingResult,
                                   RedirectAttributes redirectAttributes) {
 
-        if (bindingResult.hasErrors() || !userRegisterDTO.getPassword().equals(userRegisterDTO.getConfirmPassword())) {
+        if (bindingResult.hasErrors() ||!userRegisterDTO.getPassword().equals(userRegisterDTO.getConfirmPassword())) {
             redirectAttributes.addFlashAttribute("userRegisterDTO", userRegisterDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegisterDTO", bindingResult);
 
             return "redirect:register";
         }
+
+
 
         userService.registerUser(userRegisterDTO);
         return "redirect:login";

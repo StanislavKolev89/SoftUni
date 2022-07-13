@@ -19,20 +19,25 @@
 
             <div class="login-content card">
 
-              <center>
+              <div style="text-align: center;">
                 <h3 class="bg-info">Register Account</h3>
 
-                <p><strong>Create Account</strong> » Purchase » Begin</p>
-              </center>
+                <p><strong>Create Account</strong></p>
+              </div>
 
               <div class="login-form bg">
+                <div style="text-align: center;">
+
+
+                  <<strong th:if="${passwordsMatch} == false "class="bg-danger">Passwords do not match!</strong><
+                </div>
 
                 <form data-toggle="validator" th:action ="@{/users/register}" method="post"  th:object="${userRegisterDTO}" id="register_form">
 
                   <div class="form-group">
 
                     <input    th:field="*{firstName}"
-                              id="firstName" type="name" name="name" class="form-control" placeholder="First Name" required>
+                              id="firstName" type="text" name="name" class="form-control" placeholder="First Name" required>
                     <div class="col-auto">
                       <small th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
                              id="firstNameError" class="text-light form-text bg-danger rounded">Length must between 3
@@ -43,7 +48,7 @@
                   <div class="form-group">
 
                     <input    th:field="*{lastName}"
-                              id="lastName" type="name" name="name" class="form-control" placeholder="Last Name" required>
+                              id="lastName" type="text" name="name" class="form-control" placeholder="Last Name" required>
                     <div class="col-auto">
                       <small th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
                              id="lastNameError" class="text-light form-text bg-danger rounded">Length must between 3
@@ -54,7 +59,7 @@
                   <div class="form-group">
 
                     <input   th:field="*{username}"
-                             id="username" type="name" name="name" class="form-control" placeholder="Username" required>
+                             id="username" type="text" name="name" class="form-control" placeholder="Username" required>
                     <div class="col-auto">
                       <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
                              id="usernameError" class="text-light form-text bg-danger rounded">Length must between 3
@@ -65,7 +70,7 @@
                   <div class="form-group">
 
                     <input   th:field="*{email}"
-                             id="email" type="name" name="name" class="form-control" placeholder="Email" required>
+                             id="email" type="text" name="name" class="form-control" placeholder="Email" required>
                     <div class="col-auto">
                       <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
                              id="emailError" class="text-light form-text bg-danger rounded">Length must between 3
@@ -76,7 +81,7 @@
                   <div class="form-group">
 
                     <input   th:field="*{address}"
-                             id="address" type="name" name="name" class="form-control" placeholder="Address" required>
+                             id="address" type="text" name="name" class="form-control" placeholder="Address" required>
                     <div class="col-auto">
                       <small th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
                              id="addressError" class="text-light form-text bg-danger rounded">Length must between 3
@@ -87,7 +92,7 @@
                   <div class="form-group">
 
                     <input   th:field="*{password}"
-                             id="password" type="name" name="name" class="form-control" placeholder="Password" required>
+                             id="password" type="password" name="name" class="form-control" placeholder="Password" required>
                     <div class="col-auto">
                       <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
                              id="passwordError" class="text-light form-text bg-danger rounded">Length must between 3
@@ -98,7 +103,7 @@
                   <div class="form-group">
 
                     <input   th:field="*{confirmPassword}"
-                             id="confirmPassword" type="name" name="name" class="form-control" placeholder="Confirm password" required>
+                             id="confirmPassword" type="password" name="name" class="form-control" placeholder="Confirm password" required>
                     <div class="col-auto">
                       <small th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"
                              id="confirmPasswordError" class="text-light form-text bg-danger rounded">Length must between 3

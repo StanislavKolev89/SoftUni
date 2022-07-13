@@ -9,10 +9,10 @@
         <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Login</span></h1>
         <hr class="hr-3 w-25 bg-white"/>
         <form class="mx-auto w-25 bg-blur"  th:method="post" th:action="@{/users/login}" th:object="${loginUserBindingModel}" >
-            <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-                   class="text-danger new-line">Email cant be empty</small>
-            <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-                   class="text-danger new-line">Password length must be between 3 and 20 characters!</small>
+                <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                       class="text-danger new-line">Email cant be empty</small>
+                <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                       class="text-danger new-line">Password length must be between 3 and 20 characters!</small>
             <br/>
             <small th:if="${notExisting}" class="text-danger new-line">Incorrect email or password!</small>
             <div class="form-group input-container">
