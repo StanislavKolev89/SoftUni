@@ -28,6 +28,16 @@ public class ProductController {
         this.categoryService = categoryService;
     }
 
+    @GetMapping("/products/{category}")
+    public String oneCategoryPage(@PathVariable String category, Model model){
+        System.out.println();
+
+        model.addAttribute("chosenCategoryProducts",productService.getfilteredProducts(category));
+
+        model.addAttribute("categoryName",category);
+        return "one-category-products";
+    }
+
     @GetMapping("/products/all")
     public String productsPage( Model model) {
         model.addAttribute("products", productService.getAllProducts());

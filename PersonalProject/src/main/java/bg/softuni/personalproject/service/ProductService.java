@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -29,5 +30,9 @@ public class ProductService {
     public ProductEntity findProductById(Long id) {
 
         return productRepository.findById(id).orElse(null);
+    }
+
+    public List<ProductEntity> getfilteredProducts(String category) {
+        return productRepository.findAll().stream().filter(product->product.getCategory().getName().name().equals(category)).collect(Collectors.toList());
     }
 }

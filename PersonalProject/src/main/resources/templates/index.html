@@ -19,7 +19,7 @@
                 <h5 th:text="${firstCategoryItem.name.name()}">First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
               </div>
-            <a class="photo" href="https://mdbootstrap.com/" target="_blank">
+            <a class="photo" th:href="@{/products/{category}(category=${firstCategoryItem.getName().name()})}" target="_blank">
                      <img   class="d-block w-400"
                            th:src="${firstCategoryItem.imageUrl}" alt="...">
              </a>
@@ -30,7 +30,7 @@
                 <h5 th:text="${category.name.name()}">First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
               </div>
-            <a class="photo" href="https://mdbootstrap.com/" target="_blank">
+            <a class="photo" th:href="@{/products/{category}(category=${category.getName().name()})}" target="_blank">
                 <img   class="d-block w-400" alt="..."
                 th:src="${category.imageUrl}">
         </a>
