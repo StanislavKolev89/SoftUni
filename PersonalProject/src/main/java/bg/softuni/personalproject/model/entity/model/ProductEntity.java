@@ -1,13 +1,10 @@
 package bg.softuni.personalproject.model.entity.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -27,9 +24,15 @@ public class ProductEntity {
     @Column(nullable = false)
     private BigDecimal price;
 
+    @Column(name="imageUrl",nullable = false)
+    private String imageUrl;
+
     @ManyToOne
     @JoinColumn(name = "category_ID")
     private CategoryEntity category;
+
+    @OneToMany(mappedBy ="product")
+    private List<OrderProductEntity> orders=new ArrayList<>();
 
     public ProductEntity() {
     }
@@ -70,12 +73,30 @@ public class ProductEntity {
         return this;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public ProductEntity setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
+    }
+
     public CategoryEntity getCategory() {
         return category;
     }
 
     public ProductEntity setCategory(CategoryEntity category) {
         this.category = category;
+        return this;
+    }
+
+    public List<OrderProductEntity> getOrders() {
+        return orders;
+    }
+
+    public ProductEntity setOrders(List<OrderProductEntity> orders) {
+        this.orders = orders;
         return this;
     }
 }

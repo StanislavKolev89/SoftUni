@@ -4,85 +4,45 @@
 <body>
 <nav th:replace="fragments/commons::nav"></nav>
 
-<div id="main-wrapper">
+<div class="p-5 bg-blur text-center my-main"     th:object="${session.cartItems}">
+
     <table class="table table-responsive table-hover bg-light text-dark rounded" style="overflow-x:scroll">
         <thead>
         <tr>
-            <th>#
-            </th>
-            <th>
-            </th>
-            <th>Product
-            </th>
-            <th>Quantity
-            </th>
-            <th>Price
-            </th>
-            <th>
-                <a class="card-link text-white" href="">Back to orders</a>
-            </th>
+            <th scope="col">Category</th>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col"><a class="card-link text-white" href="/products/all">Back to products</a>   </th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td>1
-            </td>
+        <tbody class="table-primary">
+        <tr scope="row" th:each="item: ${session.cartItems}">
+            <td th:text = "${item.key.category.name.name()}"></td>
             <td>
-                <img src="/images/63165.jpg" alt="" style="width:30px ; height: 30px;">
+                <img th:src="${item.key.imageUrl}" alt="" style="width:30px ; height: 30px;">
 
             </td>
-            <td>Filler 2.5l
+            <td th:text="${item.key.description}">Filler 2.5l
             </td>
-            <td>3
+            <td th:text="${item.value}">3
             </td>
-            <td>22.45 $
+            <td th:text="|${item.key.price} $|">22.45 $
             </td>
 
         </tr>
-        <tr>
-            <td>2
-            </td>
-            <td>
-                <img src="/images/63165.jpg" alt="" style="width:30px ; height: 30px;">
-            </td>
-            <td>Spray gun
-            </td>
-            <td> 1
-            </td>
-            <td>3,56 $
-            </td>
 
-        </tr>
-        <tr>
-            <td>2
-            </td>
-            <td>
-                <img src="/images/63165.jpg" alt="" style="width:30px ; height: 30px;">
-            </td>
-            <td>John
-            </td>
-            <td>Doe
-            </td>
-            <td>22.45 $
-            </td>
-
-        </tr>
         </tbody>
         <tr>
-            <th>
-            </th>
-            <th>
-            </th>
-            <th>
-            </th>
-            <th>Total
-            </th>
-            <th>
-                223.45 $
-            </th>
-            <th>
-            </th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Total:</th>
+            <th scope="col"th:text="|${totalPrice} $|">223.45 $</th>
+            <th scope="col"></th>
         </tr>
+
+        <tr scope="col"> <a lass="card-link text-white" href="/orders/finishOrder">Finish Order</a></tr>
     </table>
 
 </div>

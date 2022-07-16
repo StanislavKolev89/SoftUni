@@ -6,6 +6,7 @@ import bg.softuni.personalproject.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class CategoryService {
@@ -21,4 +22,11 @@ public class CategoryService {
             categoryRepository.save(new CategoryEntity().setName(categoryEnum));
         });
     }
+
+
+    public List<CategoryEntity> getAllCategories() {
+        return categoryRepository.findAll();
+    }
+
+
 }

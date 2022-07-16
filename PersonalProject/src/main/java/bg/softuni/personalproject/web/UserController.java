@@ -49,7 +49,7 @@ public class UserController {
 
 
     @GetMapping("/register")
-    public String registerPage(Model model) {
+    public String registerPage() {
         return "register";
     }
 

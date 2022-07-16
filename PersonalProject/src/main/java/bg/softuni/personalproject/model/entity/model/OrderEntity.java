@@ -3,6 +3,9 @@ package bg.softuni.personalproject.model.entity.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -14,10 +17,26 @@ public class OrderEntity {
     private Long id;
 
     @Column(nullable = false)
-    private LocalDate date;
+    private LocalDateTime date;
 
     @ManyToOne
     private UserEntity user;
+
+    @OneToMany(mappedBy="order")
+    private List<OrderProductEntity> products = new ArrayList<>();
+
+    public OrderEntity() {
+    }
+
+
+    public List<OrderProductEntity> getProducts() {
+        return products;
+    }
+
+    public OrderEntity setProducts(List<OrderProductEntity> orders) {
+        this.products = orders;
+        return this;
+    }
 
     public Long getId() {
         return id;
@@ -28,11 +47,11 @@ public class OrderEntity {
         return this;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public OrderEntity setDate(LocalDate date) {
+    public OrderEntity setDate(LocalDateTime date) {
         this.date = date;
         return this;
     }

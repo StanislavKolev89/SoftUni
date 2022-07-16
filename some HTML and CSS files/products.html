@@ -35,17 +35,19 @@
 
       
     <div class="p-5 bg-blur text-center my-main">
-        <div class="row">
-            <h2 class="text-white">SELECT CATEGORY</h2>
-            <label for="exampleSelect">Example select</label>
-            <select class="form-control" id="exampleSelect">
-              <option >Putties</option>
-              <option>Clears</option>
-              <option>Primers</option>
-              <option>Undercoat</option>
-              <option></option>
-            </select>
-        </div>
+      <div class="row">
+        <h2 c lass="text-success">SELECT CATEGORY</h2>
+        <form action="" method="post">
+        <select  class="form-control" id="category">
+          <option value="0" selected>Choose category</option>
+          <option th:each="c:${allCategories}"
+          th:value="${c.id}"
+          th:text="${c.name.name()}">
+          </option>
+        </select>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
 
         <div class="row">
 
