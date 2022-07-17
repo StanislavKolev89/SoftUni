@@ -19,15 +19,16 @@ public class OrderService {
         this.orderProductService = orderProductService;
     }
 
-
-    public void addOrder(Map<ProductEntity, Integer> cartItems) {
-        OrderEntity order= new OrderEntity().setDate(LocalDateTime.now());
+//    ToDO Pass user To The Order and make (nullable=false) User in OrderEntity
+    public void createOrder(Map<ProductEntity, Integer> cartItems) {
+        OrderEntity order = new OrderEntity().setDate(LocalDateTime.now());
         orderRepository.save(order);
-        cartItems.entrySet().stream().forEach(product-> {
+        cartItems.entrySet().stream().forEach(product -> {
 
-            orderProductService.addOrderAndProduct(order,product.getKey(),product.getValue());
+            orderProductService.addOrderAndProduct(order, product.getKey(), product.getValue());
         });
 
-
     }
+
+
 }

@@ -4,7 +4,7 @@
 <body>
 <nav th:replace="fragments/commons::nav"></nav>
 
-<div class="p-5 bg-blur text-center my-main"     th:object="${session.cartItems}">
+<div class="p-5 bg-blur text-center my-main"     th:object="${cartItems}">
 
     <table class="table table-responsive table-hover bg-light text-dark rounded" style="overflow-x:scroll">
         <thead>
@@ -16,8 +16,16 @@
             <th scope="col"><a class="card-link text-white" href="/products/all">Back to products</a>   </th>
         </tr>
         </thead>
+        <div th:if="${cartItems.isEmpty()}" class="jumbotron">
+            <h1 class="display-4 text-white">You don't have any products in your cart!</h1>
+            <hr class="my-4">
+            <p class="text-white">If you want to buy some go to section Products</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="/products/all" role="button">All Products</a>
+            </p>
+        </div>
         <tbody class="table-primary">
-        <tr scope="row" th:each="item: ${session.cartItems}">
+        <tr scope="row" th:each="item: ${cartItems}">
             <td th:text = "${item.key.category.name.name()}"></td>
             <td>
                 <img th:src="${item.key.imageUrl}" alt="" style="width:30px ; height: 30px;">
@@ -29,6 +37,7 @@
             </td>
             <td th:text="|${item.key.price} $|">22.45 $
             </td>
+            <td><a th:href="@{/shoppingCart/removeProduct/{id}(id=${item.key.id})}" class="text-danger rounded">Remove from Cart</a></td>
 
         </tr>
 
@@ -42,7 +51,7 @@
             <th scope="col"></th>
         </tr>
 
-        <tr scope="col"> <a lass="card-link text-white" href="/orders/finishOrder">Finish Order</a></tr>
+        <tr th:if="${!cartItems.isEmpty()}"scope="col"> <a lass="card-link text-white" href="/shoppingCart/finishOrder">Finish Order</a></tr>
     </table>
 
 </div>

@@ -13,6 +13,7 @@ public class AppDbInitializer implements CommandLineRunner {
     private final CategoryService categoryService;
 
 
+
     public AppDbInitializer(RoleService roleService, CategoryService categoryService) {
         this.roleService = roleService;
         this.categoryService = categoryService;
@@ -20,7 +21,7 @@ public class AppDbInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        roleService.initRoles();
+        roleService.initRoles();
 //        categoryService.initCategories();
 
     }

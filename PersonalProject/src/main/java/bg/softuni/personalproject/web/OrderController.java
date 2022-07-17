@@ -23,18 +23,6 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @GetMapping("/order/details")
-    public String orderDetails(HttpSession httpSession, Model model) {
-
-        if (httpSession.getAttribute("cartItems") == null) {
-            return "redirect:/";
-        }
-
-        HashMap<ProductEntity, Integer> map = (HashMap<ProductEntity, Integer>) httpSession.getAttribute("cartItems");
-        model.addAttribute("totalPrice", countTotalSum(map));
-
-        return "order-details";
-    }
 
 
 
@@ -44,24 +32,9 @@ public class OrderController {
     }
 
 
-    private BigDecimal countTotalSum(HashMap<ProductEntity, Integer> map) {System.out.println();
-       List<BigDecimal> total = new ArrayList<>();
-        map.entrySet().stream().forEach(product -> {
-           total.add(product.getKey().getPrice().multiply(BigDecimal.valueOf(product.getValue())));
-        });
-
-        return total.stream().reduce(BigDecimal.ZERO,BigDecimal::add);
-
-    }
 
 
-    @GetMapping("orders/finishOrder")
-    public String finishOrders(HttpSession httpSession){
-        orderService.addOrder((Map<ProductEntity, Integer>) httpSession.getAttribute("cartItems"));
-        System.out.println();
-        httpSession.removeAttribute("cartItems");
-        return "redirect:/";
-    }
+
 
 }
 

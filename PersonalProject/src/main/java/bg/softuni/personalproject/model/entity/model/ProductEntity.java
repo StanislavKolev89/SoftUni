@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 @Entity
@@ -98,5 +99,18 @@ public class ProductEntity {
     public ProductEntity setOrders(List<OrderProductEntity> orders) {
         this.orders = orders;
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductEntity that = (ProductEntity) o;
+        return id.equals(that.id) && title.equals(that.title) && description.equals(that.description) && category.equals(that.category);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description, category);
     }
 }

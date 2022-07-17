@@ -22,4 +22,13 @@ public class RoleService {
             });
         }
     }
+
+    public RoleEntity getAdminRole() {
+        return roleRepository.findRoleEntityByName(RoleEnum.ADMIN);
+    }
+
+
+    public RoleEntity getUserRole() {
+        return roleRepository.findRoleEntityByName(RoleEnum.USER);
+    }
 }

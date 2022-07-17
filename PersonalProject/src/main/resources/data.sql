@@ -10,3 +10,4 @@ INSERT INTO products(id,description,image_url,price,title,category_id)
 values(1,'first description','/images/wallpaper.jpg',22,'Spraygun',1),
       (2,'second description','/images/CategoryClearcoat.jpg',44,'Clearcoat',2),
       (3,'third description','/ images/CategoryBasecoat.jpg',33,'Basecoat',3);
+
