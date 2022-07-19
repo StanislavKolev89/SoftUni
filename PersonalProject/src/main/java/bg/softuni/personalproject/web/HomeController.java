@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.stream.Collectors;
 
-@EnableWebMvc
+
 @Controller
 public class HomeController {
 
