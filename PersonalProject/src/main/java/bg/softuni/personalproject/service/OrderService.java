@@ -2,6 +2,7 @@ package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.entity.model.OrderEntity;
 import bg.softuni.personalproject.model.entity.model.ProductEntity;
+import bg.softuni.personalproject.model.entity.model.UserEntity;
 import bg.softuni.personalproject.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +21,9 @@ public class OrderService {
     }
 
 //    ToDO Pass user To The Order and make (nullable=false) User in OrderEntity
-    public void createOrder(Map<ProductEntity, Integer> cartItems) {
+    public void createOrder(Map<ProductEntity, Integer> cartItems, UserEntity buyer) {
         OrderEntity order = new OrderEntity().setDate(LocalDateTime.now());
+        order.setUser(buyer);
         orderRepository.save(order);
         cartItems.entrySet().stream().forEach(product -> {
 

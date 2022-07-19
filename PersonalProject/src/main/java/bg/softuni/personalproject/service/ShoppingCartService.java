@@ -2,6 +2,7 @@ package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.entity.dto.QuantityHolderDTO;
 import bg.softuni.personalproject.model.entity.model.ProductEntity;
+import bg.softuni.personalproject.model.entity.model.UserEntity;
 import bg.softuni.personalproject.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
@@ -15,11 +16,13 @@ import java.util.stream.Collectors;
 public class ShoppingCartService {
     private final ProductRepository productRepository;
     private final OrderService orderService;
+    private final UserService userService;
     private Map<ProductEntity, Integer> cartProducts = new HashMap<>();
 
-    public ShoppingCartService(ProductRepository productRepository, OrderService orderService) {
+    public ShoppingCartService(ProductRepository productRepository, OrderService orderService, UserService userService) {
         this.productRepository = productRepository;
         this.orderService = orderService;
+        this.userService = userService;
     }
 
 
@@ -36,8 +39,9 @@ public class ShoppingCartService {
 
 
 
-    public void finishOrder() {
-        orderService.createOrder(cartProducts);
+    public void finishOrder(String principalName) {
+        UserEntity buyer = userService.findByName(principalName);
+        orderService.createOrder(cartProducts,buyer);
         cartProducts.clear();
     }
 

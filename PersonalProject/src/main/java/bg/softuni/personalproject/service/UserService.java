@@ -47,4 +47,7 @@ public class UserService {
     }
 
 
+    public UserEntity findByName(String principalName) {
+       return userRepository.findByEmail(principalName).orElse(null);
+    }
 }

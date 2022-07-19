@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
+import java.security.Principal;
 
 
 @Controller
@@ -42,8 +42,8 @@ public class ShoppingCartController {
     }
 
     @GetMapping("/shoppingCart/finishOrder")
-    public String finishOrders() {
-        shoppingCartService.finishOrder();
+    public String finishOrders(Principal principal) {
+        shoppingCartService.finishOrder(principal.getName());
         System.out.println();
 
         return "redirect:/";
