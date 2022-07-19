@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+
+
 public class AppUserDetailsService implements UserDetailsService {
 
    private final UserRepository userRepository;
@@ -24,8 +26,9 @@ public class AppUserDetailsService implements UserDetailsService {
         return userRepository.
                 findByEmail(username).
                 map(this::map).
-                orElseThrow(() -> new UsernameNotFoundException("User not found!"   ));
+                orElseThrow(() -> new UsernameNotFoundException("User not found!" ));
     }
+
     private UserDetails map(UserEntity userEntity) {
         return
                 User.builder().

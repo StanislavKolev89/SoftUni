@@ -3,48 +3,42 @@ package bg.softuni.personalproject.web;
 import bg.softuni.personalproject.model.entity.dto.UserLoginDTO;
 import bg.softuni.personalproject.model.entity.dto.UserRegisterDTO;
 import bg.softuni.personalproject.service.UserService;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
-@EnableWebMvc
+
 @Controller
 @RequestMapping("/users")
 public class UserController {
 
+
     private final UserService userService;
 
-    public UserController(UserService userService) {
+    public UserController( UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping("/login")
-    public String loginPage(Model model) {
-        model.addAttribute("badCredentials", true);
+    public String loginPage() {
+
         return "login";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/login-error")
+    public String onFailedLogin(
+            @ModelAttribute(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY) String userName,
+            RedirectAttributes redirectAttributes) {
 
-    public String loginConfirm(@Valid UserLoginDTO userLoginDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-        if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("userLoginDTO", userLoginDTO);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userLoginDTO", bindingResult);
-            return "redirect:login";
-        }
-        System.out.println();
-        if (userService.findByEmailAndPassword(userLoginDTO.getEmail(), userLoginDTO.getPassword())) {
-            redirectAttributes.addFlashAttribute("badCredentials", true);
-            return "redirect:login";
-        }
-        userService.loginUser(userLoginDTO);
+        redirectAttributes.addFlashAttribute(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY, userName);
+        redirectAttributes.addFlashAttribute("bad_credentials",
+                true);
 
-        return "redirect:/";
+        return "redirect:/users/login";
     }
 
 

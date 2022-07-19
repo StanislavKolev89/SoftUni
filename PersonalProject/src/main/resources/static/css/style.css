@@ -189,6 +189,10 @@ body {
         padding: .5rem 1rem;
     }
 
+    .navbar-links ul li form {
+        padding: .5rem 1rem;
+    }
+
     .navbar-links.active {
         display: flex;
     }

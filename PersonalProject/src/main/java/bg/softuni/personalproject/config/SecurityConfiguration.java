@@ -4,7 +4,7 @@ package bg.softuni.personalproject.config;
 import bg.softuni.personalproject.model.enums.RoleEnum;
 import bg.softuni.personalproject.repository.UserRepository;
 import bg.softuni.personalproject.service.AppUserDetailsService;
-import org.springframework.boot.autoconfigure.security.reactive.PathRequest;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -33,7 +33,7 @@ public class SecurityConfiguration {
                 // everyone can download static resources (css, js, images)
                         requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
                 // everyone can login and register
-                        antMatchers("/", "/users/login", "/users/register").permitAll().
+                        antMatchers("/", "/users/login","/users/register","shoppingCart/details").permitAll().
                 // pages available only for admins
                         antMatchers("/admin").hasRole(RoleEnum.ADMIN.name()).
                 // all other pages are available for logger in users
@@ -57,7 +57,7 @@ public class SecurityConfiguration {
                         logout().
                 // which is the logout url
                         logoutUrl("/users/logout").
-                // invalidate the session and delete the cookies
+        // invalidate the session and delete the cookies
                         invalidateHttpSession(true).
                 deleteCookies("JSESSIONID");
 
