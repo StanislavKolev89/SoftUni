@@ -27,7 +27,7 @@ public class ShoppingCartService {
 
     public void addToCart(Long productById, QuantityHolderDTO quantityHolderDTO) {
         productRepository.findById(productById).ifPresent(productEntity ->
-              cartProducts.computeIfAbsent(productEntity, key -> quantityHolderDTO.getQuantity()));
+              cartProducts.put(productEntity, quantityHolderDTO.getQuantity()));
     }
 
     public void finishOrder(String principalName) {
