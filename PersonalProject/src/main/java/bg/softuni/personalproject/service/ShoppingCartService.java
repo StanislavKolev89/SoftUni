@@ -29,19 +29,18 @@ public class ShoppingCartService {
     public void addToCart(Long productById, QuantityHolderDTO quantityHolderDTO) {
         System.out.println();
         ProductEntity product = productRepository.findById(productById).get();
-      if(hasMatch(productById)){
-          ProductEntity productKey=findProductEntity(productById);
-          cartProducts.replace(productKey,cartProducts.get(productKey)+ quantityHolderDTO.getQuantity());
-      }else{
-          cartProducts.put(product, quantityHolderDTO.getQuantity());
-      }
+        if (hasMatch(productById)) {
+            ProductEntity productKey = findProductEntity(productById);
+            cartProducts.replace(productKey, cartProducts.get(productKey) + quantityHolderDTO.getQuantity());
+        } else {
+            cartProducts.put(product, quantityHolderDTO.getQuantity());
+        }
     }
-
 
 
     public void finishOrder(String principalName) {
         UserEntity buyer = userService.findByName(principalName);
-        orderService.createOrder(cartProducts,buyer);
+        orderService.createOrder(cartProducts, buyer);
         cartProducts.clear();
     }
 
@@ -62,10 +61,10 @@ public class ShoppingCartService {
     }
 
     public void removeProduct(Long productById) {
-        ProductEntity productEntity =null;
-        for (Map.Entry<ProductEntity,Integer> product: cartProducts.entrySet()) {
-            if(product.getKey().getId()==productById){
-                productEntity=product.getKey();
+        ProductEntity productEntity = null;
+        for (Map.Entry<ProductEntity, Integer> product : cartProducts.entrySet()) {
+            if (product.getKey().getId() == productById) {
+                productEntity = product.getKey();
                 break;
             }
         }
@@ -75,11 +74,11 @@ public class ShoppingCartService {
     }
 
     private boolean hasMatch(Long productId) {
-        return !cartProducts.entrySet().stream().filter(productEntity -> productEntity.getKey().getId()==productId).collect(Collectors.toList()).isEmpty();
+        return !cartProducts.entrySet().stream().filter(productEntity -> productEntity.getKey().getId() == productId).collect(Collectors.toList()).isEmpty();
     }
 
     private ProductEntity findProductEntity(Long productId) {
-       return cartProducts.entrySet().stream().filter(productEntity -> productEntity.getKey().getId()==productId).collect(Collectors.toList()).get(0).getKey();
+        return cartProducts.entrySet().stream().filter(productEntity -> productEntity.getKey().getId() == productId).collect(Collectors.toList()).get(0).getKey();
     }
 
 }

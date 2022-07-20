@@ -49,7 +49,7 @@ public class ProductController {
     }
 
 
-    @GetMapping
+    @GetMapping("/used/products/forSale")
     private String secondHandProducts(){
         return "second-hand-products";
     }
