@@ -9,7 +9,7 @@ import org.springframework.web.context.annotation.SessionScope;
 
 import java.math.BigDecimal;
 import java.util.*;
-
+import java.util.stream.Collectors;
 
 @Service
 @SessionScope
@@ -25,18 +25,10 @@ public class ShoppingCartService {
         this.userService = userService;
     }
 
-
     public void addToCart(Long productById, QuantityHolderDTO quantityHolderDTO) {
-        System.out.println();
-        ProductEntity product = productRepository.findById(productById).get();
-        if (hasMatch(productById)) {
-            ProductEntity productKey = findProductEntity(productById);
-            cartProducts.replace(productKey, cartProducts.get(productKey) + quantityHolderDTO.getQuantity());
-        } else {
-            cartProducts.put(product, quantityHolderDTO.getQuantity());
-        }
+        productRepository.findById(productById).ifPresent(productEntity ->
+              cartProducts.put(productEntity, quantityHolderDTO.getQuantity()));
     }
-
 
     public void finishOrder(String principalName) {
         UserEntity buyer = userService.findByName(principalName);
@@ -44,15 +36,11 @@ public class ShoppingCartService {
         cartProducts.clear();
     }
 
-    public boolean isEmpty() {
-        return cartProducts.isEmpty();
-    }
-
     public BigDecimal findTotalSum() {
         return cartProducts.entrySet().stream()
-                .map(entry -> entry.getKey().getPrice().multiply(BigDecimal.valueOf(entry.getValue())))
-                .reduce(BigDecimal::add)
-                .orElse(BigDecimal.ZERO);
+              .map(entry -> entry.getKey().getPrice().multiply(BigDecimal.valueOf(entry.getValue())))
+              .reduce(BigDecimal::add)
+              .orElse(BigDecimal.ZERO);
 
     }
 
@@ -70,15 +58,5 @@ public class ShoppingCartService {
         }
 
         cartProducts.remove(productEntity);
-
     }
-
-    private boolean hasMatch(Long productId) {
-        return !cartProducts.entrySet().stream().filter(productEntity -> productEntity.getKey().getId() == productId).collect(Collectors.toList()).isEmpty();
-    }
-
-    private ProductEntity findProductEntity(Long productId) {
-        return cartProducts.entrySet().stream().filter(productEntity -> productEntity.getKey().getId() == productId).collect(Collectors.toList()).get(0).getKey();
-    }
-
 }
