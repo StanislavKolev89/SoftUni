@@ -19,7 +19,7 @@ public class CategoryService {
 
     public void initCategories() {
         Arrays.stream(CategoryEnum.values()).forEach(categoryEnum -> {
-            categoryRepository.save(new CategoryEntity().setName(categoryEnum));
+            categoryRepository.save(new CategoryEntity().name(categoryEnum));
         });
     }
 

@@ -10,8 +10,10 @@
     <table class="table table-responsive table-hover bg-light text-dark rounded" style="overflow-x:scroll">
         <thead>
         <tr>
+
             <th scope="col">Category</th>
             <th scope="col">Product</th>
+            <th scope="col">Description</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
             <th scope="col"><a class="card-link text-white bg-info" href="/products/all">Back to products</a>   </th>
@@ -29,8 +31,9 @@
         <tr scope="row" th:each="item: ${cartItems}">
             <td th:text = "${item.key.category.name.name()}"></td>
             <td>
+                <a class="photo" th:href="@{/products/fromCart/{id}/{quantity}(id=${item.key.id},quantity=${item.value})}" target="_blank">
                 <img th:src="${item.key.imageUrl}" alt="" style="width:30px ; height: 30px;">
-
+                </a>
             </td>
             <td th:text="${item.key.description}">Filler 2.5l
             </td>

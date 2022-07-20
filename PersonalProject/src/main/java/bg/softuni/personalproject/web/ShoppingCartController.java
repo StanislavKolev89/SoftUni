@@ -25,9 +25,16 @@ public class ShoppingCartController {
     }
 
     @PostMapping("/products/addToCart/{id}")
-    public String cartItemAdd(@PathVariable Long id, QuantityHolderDTO quantityHolderDTO) {;
+    public String cartItemAdd(@PathVariable Long id, QuantityHolderDTO quantityHolderDTO) {
         shoppingCartService.addToCart(id, quantityHolderDTO);
         return "redirect:/products/all";
+    }
+
+    @GetMapping("/products/fromCart/{id}/{quantity}")
+    public String productDetails(@PathVariable Long id ,@PathVariable int quantity, Model model,QuantityHolderDTO quantityHolderDTO) {
+        model.addAttribute("productViewModel",productService.findProductById(id));
+        quantityHolderDTO.setQuantity(quantity);
+        return "product-details";
     }
 
     @GetMapping("/shoppingCart/details")

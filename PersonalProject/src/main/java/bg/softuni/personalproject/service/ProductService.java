@@ -35,7 +35,7 @@ public class ProductService {
     }
     //ToDO -Make method return ProductViewModel
     public List<ProductEntity> getfilteredProducts(String category) {
-        return productRepository.findAll().stream().filter(product->product.getCategory().getName().name().equals(category)).collect(Collectors.toList());
+        return productRepository.findAll().stream().filter(product->product.getCategory().name().name().equals(category)).collect(Collectors.toList());
     }
 
     public boolean isExisting(Long id) {

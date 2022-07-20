@@ -43,13 +43,16 @@ public class ProductController {
     }
 
 
+
+
+
     @ModelAttribute
     public QuantityHolderDTO quantityHolderDTO(){
         return new QuantityHolderDTO();
     }
 
 
-    @GetMapping("/used/products/forSale")
+    @GetMapping("/users/products/forSale")
     private String secondHandProducts(){
         return "second-hand-products";
     }
