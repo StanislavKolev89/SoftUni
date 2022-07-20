@@ -49,5 +49,9 @@ public class ProductController {
     }
 
 
+    @GetMapping
+    private String secondHandProducts(){
+        return "second-hand-products";
+    }
 
 }

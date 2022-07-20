@@ -14,13 +14,13 @@
             <th scope="col">Product</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
-            <th scope="col"><a class="card-link text-white" href="/products/all">Back to products</a>   </th>
+            <th scope="col"><a class="card-link text-white bg-info" href="/products/all">Back to products</a>   </th>
         </tr>
         </thead>
         <div th:if="${cartItems.isEmpty()}" class="jumbotron">
             <h1 class="display-4 text-white">You don't have any products in your cart!</h1>
             <hr class="my-4">
-            <p class="text-white">If you want to buy some go to section Products</p>
+            <p class="text-white">If you want to buy something go to section Products</p>
             <p class="lead">
                 <a class="btn btn-primary btn-lg" href="/products/all" role="button">All Products</a>
             </p>
@@ -52,7 +52,7 @@
             <th scope="col"></th>
         </tr>
 
-        <tr th:if="${!cartItems.isEmpty()}"scope="col"> <a lass="card-link text-white" href="/shoppingCart/finishOrder">Finish Order</a></tr>
+        <tr th:if="${!cartItems.isEmpty()}"scope="col"> <a lass="card-link text-white bg-success rounded" href="/shoppingCart/finishOrder">Finish Order</a></tr>
     </table>
 
 </div>
