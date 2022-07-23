@@ -1,0 +1,8 @@
+spring:
+datasource:
+  password: 12345
+  username: root
+  driverClassName: org.h2.Driver
+  url: "jdbc:h2:mem:PERSONAL_DATA_BASE;DB_CLOSE_DELAY=-1"
+jpa:
+  database-platform: org.hibernate.dialect.H2Dialect
