@@ -20,10 +20,15 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String testPage(Model model){
+    public String indexPage(Model model){
         model.addAttribute("firstCategoryItem",categoryService.getAllCategories().get(0));
         model.addAttribute("allOtherItems",categoryService.getAllCategories().stream().skip(1).collect(Collectors.toList()));
 
         return "index";
+    }
+
+    @GetMapping("/contacts")
+    public String contactsPage(){
+        return "contacts-page";
     }
 }

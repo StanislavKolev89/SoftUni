@@ -26,7 +26,7 @@
             <th scope="col">Description</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
-            <th scope="col">Total per product</th>
+            <th scope="col">Total</th>
 
             <th scope="col"><a class="card-link text-white bg-info" href="/products/all">Back to products</a></th>
         </tr>
@@ -51,7 +51,8 @@
             <td th:text="|${service.pricePerProduct(item)} $|">
             </td>
             <td><a th:href="@{/shoppingCart/removeProduct/{id}(id=${item.key.id})}" class="text-danger rounded">Remove
-                from Cart</a></td>
+                product
+                from cart</a></td>
 
         </tr>
 
@@ -60,10 +61,11 @@
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
-            <th scope="col">Total:</th>
+            <th scope="col"></th>
+            <th scope="col">Estimated Total:</th>
             <th scope="col" th:text="|${totalPrice} $|">223.45 $</th>
             <th scope="col"><a lass="card-link text-white bg-success rounded"
-                               href="/shoppingCart/finishOrder">Finish Order</a></th>
+                               href="/shoppingCart/finishOrder">Finish Your Order</a></th>
         </tr>
 
     </table>
