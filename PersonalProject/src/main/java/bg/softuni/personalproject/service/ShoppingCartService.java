@@ -35,6 +35,10 @@ public class ShoppingCartService {
         cartProducts.clear();
     }
 
+    public BigDecimal pricePerProduct(Map.Entry<ProductEntity,Integer> singleProduct){
+        return singleProduct.getKey().getPrice().multiply(BigDecimal.valueOf(singleProduct.getValue()));
+    }
+
     public BigDecimal findTotalSum() {
         return cartProducts.entrySet().stream()
               .map(entry -> entry.getKey().getPrice().multiply(BigDecimal.valueOf(entry.getValue())))

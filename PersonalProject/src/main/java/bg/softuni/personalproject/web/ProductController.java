@@ -23,7 +23,7 @@ public class ProductController {
     @GetMapping("/products/{category}")
     public String oneCategoryPage(@PathVariable String category, Model model){
 
-        model.addAttribute("chosenCategoryProducts",productService.getfilteredProducts(category));
+        model.addAttribute("chosenCategoryProducts",productService.getFilteredProducts(category));
         model.addAttribute("categoryName",category);
         return "one-category-products";
     }

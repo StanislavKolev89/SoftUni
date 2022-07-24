@@ -3,7 +3,6 @@ package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.entity.model.ProductEntity;
 import bg.softuni.personalproject.repository.ProductRepository;
-import com.sun.xml.bind.v2.TODO;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -34,7 +33,7 @@ public class ProductService {
         return productRepository.findById(id).orElse(null);
     }
     //ToDO -Make method return ProductViewModel
-    public List<ProductEntity> getfilteredProducts(String category) {
+    public List<ProductEntity> getFilteredProducts(String category) {
         return productRepository.findAll().stream().filter(product->product.getCategory().name().name().equals(category)).collect(Collectors.toList());
     }
 

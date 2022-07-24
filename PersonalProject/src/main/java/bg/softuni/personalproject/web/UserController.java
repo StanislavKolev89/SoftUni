@@ -58,10 +58,8 @@ public class UserController {
             return "redirect:register";
         }
 
-
-
-        userService.registerUser(userRegisterDTO);
-        return "redirect:login";
+        userService.registerAndLoginUser(userRegisterDTO);
+        return "redirect:/";
     }
 
     @ModelAttribute

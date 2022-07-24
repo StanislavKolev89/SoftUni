@@ -32,6 +32,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -99,6 +100,16 @@
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.7.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: mysql:mysql-connector-java:8.0.29" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.24" level="project" />
+    <orderEntry type="library" name="Maven: org.modelmapper:modelmapper:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-security:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.21" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.7.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.7.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:5.7.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.7.2" level="project" />
+    <orderEntry type="library" name="Maven: org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:2.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test:2.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test-autoconfigure:2.7.1" level="project" />
@@ -128,15 +139,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.21" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.3.21" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.9.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.24" level="project" />
-    <orderEntry type="library" name="Maven: org.modelmapper:modelmapper:3.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-security:2.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.21" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.7.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.7.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:5.7.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.7.2" level="project" />
-    <orderEntry type="library" name="Maven: org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.h2database:h2:2.1.214" level="project" />
   </component>
 </module>

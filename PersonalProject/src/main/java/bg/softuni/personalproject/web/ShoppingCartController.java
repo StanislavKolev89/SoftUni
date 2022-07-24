@@ -31,19 +31,17 @@ public class ShoppingCartController {
     }
 
     @GetMapping("/products/fromCart/{id}/{quantity}")
-    public String productDetails(@PathVariable Long id ,@PathVariable int quantity, Model model,QuantityHolderDTO quantityHolderDTO) {
-        model.addAttribute("productViewModel",productService.findProductById(id));
+    public String productDetails(@PathVariable Long id, @PathVariable int quantity, Model model, QuantityHolderDTO quantityHolderDTO) {
+        model.addAttribute("productViewModel", productService.findProductById(id));
         quantityHolderDTO.setQuantity(quantity);
         return "product-details";
     }
 
     @GetMapping("/shoppingCart/details")
     public String orderDetails(Model model) {
-//        if (shoppingCartService.isEmpty()) {
-//            return "redirect:/";
-//        }
         model.addAttribute("cartItems", shoppingCartService.getAllProducts());
         model.addAttribute("totalPrice", shoppingCartService.findTotalSum());
+        model.addAttribute("service",shoppingCartService);
 
         return "cart-details";
     }
