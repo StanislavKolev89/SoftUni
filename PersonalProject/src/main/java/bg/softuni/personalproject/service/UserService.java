@@ -1,8 +1,9 @@
 package bg.softuni.personalproject.service;
 
-import bg.softuni.personalproject.model.entity.dto.UserRegisterDTO;
-import bg.softuni.personalproject.model.entity.model.UserEntity;
+import bg.softuni.personalproject.model.dto.UserRegisterDTO;
+import bg.softuni.personalproject.model.entity.UserEntity;
 import bg.softuni.personalproject.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -12,6 +13,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@RequiredArgsConstructor
 @Service
 public class UserService {
 
@@ -21,18 +25,9 @@ public class UserService {
     private final UserDetailsService userDetailsService;
     private final ModelMapper modelMapper;
 
-    public UserService(PasswordEncoder passwordEncoder, UserRepository userRepository, RoleService roleService, UserDetailsService userDetailsService, ModelMapper modelMapper) {
-        this.passwordEncoder = passwordEncoder;
-        this.userRepository = userRepository;
-        this.roleService = roleService;
-        this.userDetailsService = userDetailsService;
-
-        this.modelMapper = modelMapper;
-    }
-
-    public boolean findByEmailAndPassword(String email, String password) {
-        return userRepository.findByEmailAndPassword(email, password) == null;
-    }
+//    public boolean findByEmailAndPassword(String email, String password) {
+//        return userRepository.findByEmailAndPassword(email, password) == null;
+//    }
 
 
     private void loginUser(UserEntity userEntity){
@@ -60,5 +55,9 @@ public class UserService {
 
     public UserEntity findByName(String principalName) {
        return userRepository.findByEmail(principalName).orElse(null);
+    }
+
+    public List<UserEntity> findAll() {
+        return userRepository.findAll();
     }
 }

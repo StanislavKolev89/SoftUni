@@ -1,8 +1,8 @@
 package bg.softuni.personalproject.service;
 
 
-import bg.softuni.personalproject.model.entity.model.RoleEntity;
-import bg.softuni.personalproject.model.entity.model.UserEntity;
+import bg.softuni.personalproject.model.entity.RoleEntity;
+import bg.softuni.personalproject.model.entity.UserEntity;
 import bg.softuni.personalproject.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -41,6 +41,6 @@ public class AppUserDetailsService implements UserDetailsService {
    private GrantedAuthority map(RoleEntity userRole) {
         return new SimpleGrantedAuthority("ROLE_" +
                userRole.
-                       getName().name());
+                       name().name());
    }
 }

@@ -1,4 +1,4 @@
-package bg.softuni.personalproject.model.entity.dto;
+package bg.softuni.personalproject.model.dto;
 
 import lombok.Data;
 import lombok.Getter;

@@ -1,15 +1,17 @@
 package bg.softuni.personalproject.service;
 
-import bg.softuni.personalproject.model.entity.dto.QuantityHolderDTO;
-import bg.softuni.personalproject.model.entity.model.ProductEntity;
-import bg.softuni.personalproject.model.entity.model.UserEntity;
+import bg.softuni.personalproject.model.dto.QuantityHolderDTO;
+import bg.softuni.personalproject.model.entity.ProductEntity;
+import bg.softuni.personalproject.model.entity.UserEntity;
 import bg.softuni.personalproject.repository.ProductRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.math.BigDecimal;
 import java.util.*;
 
+@RequiredArgsConstructor
 @Service
 @SessionScope
 public class ShoppingCartService {
@@ -17,12 +19,6 @@ public class ShoppingCartService {
     private final OrderService orderService;
     private final UserService userService;
     private Map<ProductEntity, Integer> cartProducts = new HashMap<>();
-
-    public ShoppingCartService(ProductRepository productRepository, OrderService orderService, UserService userService) {
-        this.productRepository = productRepository;
-        this.orderService = orderService;
-        this.userService = userService;
-    }
 
     public void addToCart(Long productById, QuantityHolderDTO quantityHolderDTO) {
         productRepository.findById(productById).ifPresent(productEntity ->
@@ -36,12 +32,12 @@ public class ShoppingCartService {
     }
 
     public BigDecimal pricePerProduct(Map.Entry<ProductEntity,Integer> singleProduct){
-        return singleProduct.getKey().getPrice().multiply(BigDecimal.valueOf(singleProduct.getValue()));
+        return singleProduct.getKey().price().multiply(BigDecimal.valueOf(singleProduct.getValue()));
     }
 
     public BigDecimal findTotalSum() {
         return cartProducts.entrySet().stream()
-              .map(entry -> entry.getKey().getPrice().multiply(BigDecimal.valueOf(entry.getValue())))
+              .map(entry -> entry.getKey().price().multiply(BigDecimal.valueOf(entry.getValue())))
               .reduce(BigDecimal::add)
               .orElse(BigDecimal.ZERO);
 
@@ -54,7 +50,7 @@ public class ShoppingCartService {
     public void removeProduct(Long productById) {
         ProductEntity productEntity = null;
         for (Map.Entry<ProductEntity, Integer> product : cartProducts.entrySet()) {
-            if (product.getKey().getId() == productById) {
+            if (product.getKey().id() == productById) {
                 productEntity = product.getKey();
                 break;
             }

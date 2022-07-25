@@ -1,6 +1,6 @@
 package bg.softuni.personalproject.web;
 
-import bg.softuni.personalproject.model.entity.dto.QuantityHolderDTO;
+import bg.softuni.personalproject.model.dto.QuantityHolderDTO;
 import bg.softuni.personalproject.service.ProductService;
 import bg.softuni.personalproject.service.ShoppingCartService;
 import org.springframework.stereotype.Controller;

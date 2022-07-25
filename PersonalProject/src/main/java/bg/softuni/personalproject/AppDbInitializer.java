@@ -23,8 +23,7 @@ public class AppDbInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         roleService.initRoles();
-        //Categories inserted from data.sql
-//     categoryService.initCategories();
+
 
 
     }

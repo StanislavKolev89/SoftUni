@@ -1,15 +1,18 @@
-package bg.softuni.personalproject.model.entity.model;
+package bg.softuni.personalproject.model.entity;
 
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 
 import javax.persistence.*;
 
 @Data
+@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "users")
+
 public class UserEntity {
 
     @Id

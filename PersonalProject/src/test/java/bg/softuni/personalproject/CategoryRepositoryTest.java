@@ -1,6 +1,6 @@
 package bg.softuni.personalproject;
 
-import bg.softuni.personalproject.model.entity.model.CategoryEntity;
+import bg.softuni.personalproject.model.entity.CategoryEntity;
 import bg.softuni.personalproject.repository.CategoryRepository;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;

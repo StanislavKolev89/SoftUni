@@ -28,21 +28,19 @@
                             <form data-toggle="validator"
                                   th:action="@{/users/login}"
                                   th:method="post"
+                                  th:object="${categoryDTO}"
                                    id="login_form">
 
 
                                 <div class="form-group">
-                                    <strong class="bg-danger" th:if="${bad_credentials} ">Wrong username or
-                                        password!</strong>
+<!--                                    <strong class="bg-danger" th:if="${bad_credentials} ">Wrong username or-->
+<!--                                        password!</strong>-->
                                     <input
-                                            id="email" type="text" name="username" class="form-control" placeholder="Email"
-                                            data-error="This email is invalid" required>
+                                            id="name" type="text" name="name" class="form-control" placeholder="Email" data-error="This email is invalid" required>
 
                                     <div class="col-auto">
-<!--                                        <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"-->
-<!--                                               id="emailError" class="text-light form-text bg-danger rounded">Length-->
-<!--                                            must between 3-->
-<!--                                            and 20 characters</small>-->
+    <!--                                        <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}"-->
+    <!--                                               id="emailError" class="text-light form-text bg-danger rounded"></small>-->
                                     </div>
 
                                 </div>

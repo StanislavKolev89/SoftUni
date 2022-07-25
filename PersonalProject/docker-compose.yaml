@@ -10,3 +10,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 12345
       MYSQL_DATABASE: '[personal_data_base]'
+
+  mailhog:
+        image: mailhog/mailhog
+        container_name: 'mailhog'
+        ports:
+          - "1025:1025"
+          - "8025:8025"

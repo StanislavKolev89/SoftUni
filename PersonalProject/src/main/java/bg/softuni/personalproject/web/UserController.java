@@ -1,7 +1,7 @@
 package bg.softuni.personalproject.web;
 
-import bg.softuni.personalproject.model.entity.dto.UserLoginDTO;
-import bg.softuni.personalproject.model.entity.dto.UserRegisterDTO;
+import bg.softuni.personalproject.model.dto.UserLoginDTO;
+import bg.softuni.personalproject.model.dto.UserRegisterDTO;
 import bg.softuni.personalproject.service.UserService;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ public class UserController {
 
     private final UserService userService;
 
-    public UserController( UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
@@ -50,8 +50,8 @@ public class UserController {
     @PostMapping("/register")
     public String registerConfirm(@Valid UserRegisterDTO userRegisterDTO, BindingResult bindingResult,
                                   RedirectAttributes redirectAttributes) {
-
-        if (bindingResult.hasErrors() ||!userRegisterDTO.getPassword().equals(userRegisterDTO.getConfirmPassword())) {
+        System.out.println();
+        if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("userRegisterDTO", userRegisterDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegisterDTO", bindingResult);
 
@@ -62,10 +62,10 @@ public class UserController {
         return "redirect:/";
     }
 
-    @ModelAttribute
-    public UserLoginDTO userLoginDto() {
-        return new UserLoginDTO();
-    }
+//    @ModelAttribute
+//    public UserLoginDTO userLoginDto() {
+//        return new UserLoginDTO();
+//    }
 
     @ModelAttribute
     public UserRegisterDTO userRegisterDTO() {
