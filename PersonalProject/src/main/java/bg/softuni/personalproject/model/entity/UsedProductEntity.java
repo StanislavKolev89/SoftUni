@@ -1,25 +1,23 @@
 package bg.softuni.personalproject.model.entity;
 
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.*;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
-@Accessors(fluent = true)
+    @Accessors(fluent = true)
 @Entity
-@Table(name = "products")
+@Table(name = "used_products")
 
-public class ProductEntity {
-
+public class UsedProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -39,9 +37,8 @@ public class ProductEntity {
     @ManyToOne
     private CategoryEntity category;
 
-    //ToDO have to decide if we want to use cascade= cascadeType.ALL
-//    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
-    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
+    @ManyToOne
+    private UserEntity user;
 
-    private List<OrderProductEntity> orders = new ArrayList<>();
+
 }

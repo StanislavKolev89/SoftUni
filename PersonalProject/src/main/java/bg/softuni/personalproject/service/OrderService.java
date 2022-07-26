@@ -19,17 +19,19 @@ public class OrderService {
     private final OrderProductService orderProductService;
 
     //    ToDO Pass user To The Order and make (nullable=false) User in OrderEntity
+    //      if buyer is null do nothing! Not so sure about that
     public void createOrder(Map<ProductEntity, Integer> cartItems, UserEntity buyer) {
         OrderEntity order = new OrderEntity().date(LocalDateTime.now());
-        order.user(buyer);
-        orderRepository.save(order);
-        cartItems.entrySet().stream().forEach(product -> {
+        if (buyer != null) {
+            order.user(buyer);
+            orderRepository.save(order);
+            cartItems.entrySet().stream().forEach(product -> {
 
-            orderProductService.addOrderAndProduct(order, product.getKey(), product.getValue());
-        });
+                orderProductService.addOrderAndProduct(order, product.getKey(), product.getValue());
+            });
 
+        }
     }
-
 
     public List<OrderEntity> getAllOrders() {
         return orderRepository.findAll();

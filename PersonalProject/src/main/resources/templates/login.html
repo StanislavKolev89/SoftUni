@@ -28,15 +28,16 @@
                             <form data-toggle="validator"
                                   th:action="@{/users/login}"
                                   th:method="post"
-                                  th:object="${categoryDTO}"
                                    id="login_form">
 
 
                                 <div class="form-group">
-<!--                                    <strong class="bg-danger" th:if="${bad_credentials} ">Wrong username or-->
-<!--                                        password!</strong>-->
+                                    <strong class="bg-danger" th:if="${bad_credentials} ">Wrong username or
+                                        password!</strong>
                                     <input
-                                            id="name" type="text" name="name" class="form-control" placeholder="Email" data-error="This email is invalid" required>
+                                            id="username"
+                                            th:value="${username}"
+                                            type="text" name="username" class="form-control" placeholder="Email" data-error="This email is invalid" required>
 
                                     <div class="col-auto">
     <!--                                        <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}"-->

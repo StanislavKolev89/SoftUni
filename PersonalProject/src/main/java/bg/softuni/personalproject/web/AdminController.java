@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 
 @Controller
@@ -38,15 +39,14 @@ public class AdminController {
 
     @GetMapping
     public String adminPage(Model model) {
-        model.addAttribute("categories", categoryService.getAllCategories());
-        model.addAttribute("users", userService.findAll());
+
         model.addAttribute("products", productService.getAllProducts());
         model.addAttribute("orders", orderService.getAllOrders());
         return "admin-panel";
     }
 
     @GetMapping("/category/edit/{id}")
-    private String categoryEdit(@PathVariable("id") Long id, Model model) {
+    private String categoryEditPage(@PathVariable("id") Long id, Model model) {
         //ToDo make category View Model
         model.addAttribute("categoryData", categoryService.getCategoryDTO(id));
         return "change-category";
@@ -54,7 +54,7 @@ public class AdminController {
 
     @PostMapping("/category/edit/{id}")
 
-    private String categoryConfirm(@PathVariable("id") Long id, @Valid CategoryDTO categoryDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    private String categoryEditConfirm(@PathVariable("id") Long id, @Valid CategoryDTO categoryDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
 
         if (bindingResult.hasErrors()) {
@@ -70,8 +70,55 @@ public class AdminController {
     @GetMapping("/category/delete/{id}")
     public String deleteCategory(@PathVariable("id") Long id) {
         categoryService.deleteCategory(id);
+        return "redirect:/admin/categories/all";
+    }
+
+
+    @GetMapping("/category/add")
+    public String categoryAddPage(){
+        return "add-category";
+    }
+
+    @GetMapping("/categories/all")
+    public String allCategoriesPage(Model model){
+        model.addAttribute("categories", categoryService.getAllCategories());
+        return "category-admin";
+    }
+
+    @PostMapping("/category/add")
+    public String categoryAddConfirm(@Valid CategoryDTO categoryDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes){
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("categoryDTO", categoryDTO);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.categoryDTO", bindingResult);
+
+            return "redirect:/admin/category/add";
+        }
+        categoryService.addCategory(categoryDTO);
         return "redirect:/admin";
     }
+
+
+    @GetMapping("/users/all")
+    public String allUsersPage(Model model, Principal principal){
+        userService.userPurchaseTotal(userService.findByName(principal.getName()));
+        model.addAttribute("users", userService.findAll());
+        model.addAttribute("userService",userService);
+        model.addAttribute("count",userService.findAll().size());
+        return "users-admin";
+    }
+
+    @GetMapping("/users/delete/{id}")
+    public String deleteUser(@PathVariable("id") Long id){
+        userService.deleteUser(id);
+        return "redirect:/admin/users/all";
+    }
+
+    @GetMapping("/users/record/{id}")
+    public String makeUserActive(@PathVariable("id") Long id){
+        userService.makeUserActive(id);
+        return "redirect:/admin/users/all";
+    }
+
 
     @ModelAttribute
     public CategoryDTO categoryDTO() {

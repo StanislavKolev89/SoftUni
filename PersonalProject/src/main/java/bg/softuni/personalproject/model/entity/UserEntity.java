@@ -5,6 +5,7 @@ import lombok.*;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @EqualsAndHashCode(of = "id")
@@ -34,11 +35,21 @@ public class UserEntity {
     @Column(nullable = false)
     private String password;
 
-    @Column
+    @Column(nullable = false)
     private String address;
+
+    @Column(nullable = false)
+
+    private boolean active=true;
 
     @ManyToOne
     private RoleEntity role;
 
+//    ToDO Not so sure about cascading
+    @OneToMany(mappedBy = "user")
+    private List<OrderEntity> orders;
+
+    @OneToMany(mappedBy = "user")
+    private List<UsedProductEntity> usedProducts;
 
 }
