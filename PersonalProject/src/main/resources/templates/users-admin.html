@@ -5,25 +5,27 @@
 <body>
 <nav th:replace="fragments/commons::nav"></nav>
 
-<div class="container-fluid">
+<div class="container-fluid" style="overflow: auto">
 
-        <table id="AdminCategories" class="table table-responsive table-hover bg-light text-dark rounded"
-            style="overflow-x:scroll">
+    <table id="AdminCategories" class="table table-responsive table-hover bg-light text-dark rounded"
+           style="overflow-x:scroll">
         <thead>
 
-        <h1 class="display-4 text-white">ALL USERS <th:block th:text="|( ${count} )|"></th:block></h1>
+        <h1 class="display-4 text-white">ALL USERS
+            <th:block th:text="|( ${count} )|"></th:block>
+        </h1>
         <tr scope="row" class="bg-transparent">
 
-            <th scope="col" >Username</th>
-            <th scope="col" >First Name</th>
-            <th scope="col" >Last Name</th>
-            <th scope="col" >Email</th>
-            <th scope="col" >Address</th>
-            <th scope="col" >STATUS</th>
-            <th scope="col" >Purchase Amount</th>
+            <th scope="col">Username</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">STATUS</th>
+            <th scope="col">Purchase Amount</th>
 
 
-            <th scope="col" ><a class="card-link text-white bg-success" href="/admin">Back to Admin panel</a></th>
+            <th scope="col"><a class="card-link text-white bg-success" href="/admin">Back to Admin panel</a></th>
         </tr>
         </thead>
 
@@ -35,7 +37,7 @@
             <td th:text="${user.email}"></td>
             <td th:text="${user.address}"></td>
             <td th:if="${user.id}!=1" th:text="${user.active}==false? DEACTIVATED : ACTIVE"></td>
-            <td th:if="${user.id}==1" >------</td>
+            <td th:if="${user.id}==1">------</td>
             <td th:text="|$ ${userService.userPurchaseTotal(user)}|"></td>
             <td th:if="${user.id}==1" class="text-danger"> ADMIN</td>
             <td th:if="${user.id}!=1" class="text-info"> USER</td>
@@ -43,8 +45,16 @@
             </td>
 
             <td th:if="${user.id}==1" class="text-info rounded"></td>
-            <td th:if="${user.active==true} and ${user.id!=1}"><a th:href="@{/admin/users/delete/{id}(id=${user.id})}" class="text-danger rounded">Deactivate  Rights</a></td>-->
-            <td th:if="${user.active}==false"><a th:href="@{/admin/users/record/{id}(id=${user.id})}" class="text-success rounded">Activate Rights</a></td>-->
+            <td th:if="${user.active==true} and ${user.id!=1}">
+                <a th:href="@{/admin/users/deactivate/{id}(id=${user.id})}" class="text-danger rounded">Deactivate
+                    Rights</a>
+            </td>
+            <td th:if="${user.active}==false">
+                <a th:href="@{/admin/users/activate/{id}(id=${user.id})}" class="text-success rounded">Activate Rights</a>
+            </td>
+            <td th:if="${user.id!=1}">
+                <a th:href="@{/admin/users/delete/{id}(id=${user.id})}" class="text-success rounded">Delete User</a>
+            </td>
         </tr>
 
         </tbody>
@@ -55,9 +65,7 @@
             <td></td>
             <td>Gross sales:</td>
             <td th:text="| ${userService.grossSales} $|"></td>
-
         </tr>
-
     </table>
 </div>
 

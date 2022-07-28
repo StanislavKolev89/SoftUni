@@ -26,21 +26,23 @@
     <div class="row">
 
         <div th:each="product :${products}" class="col-md-4">
-            <div class="filter" th:id="${product.category.getName()}">
-                <div class="card-body" style="width: 19rem;">
-                    <img th:src="${product.imageUrl}" class="w-80 " style="border: none;" alt="...">
-                    <div class="card-body bg-success">
-                        <h5 th:text="${product.title}" class="card-title"></h5>
-                        <p th:text="${product.description}" class="card-text">Here is some example text to make up the
-                            card's content. Replace it with your own text anytime.</p>
-                    </div>
-                    <div class="card-body bg-white">
-                        <a th:href="@{/products/all/{id}(id=${product.id})}" class="card-link text-white">Product
-                            Details</a>
+                <div class="filter" th:id="${product.category.getName()}">
+                    <div class="card-body" style="width: 20rem">
+                        <img  th:src="${product.imageUrl}" class="w-80 rounded" style="border: none;" alt="...">
+                        <div class="card-body bg-success">
+                            <h5 th:text="${product.title}" class="card-title"></h5>
+                            <p th:text="${product.description}" class="card-text">Here is some example text to make up
+                                the
+                                card's content. Replace it with your own text anytime.</p>
+                        </div>
+                        <div class="card-body bg-white rounded">
+                            <a th:href="@{/products/all/{id}(id=${product.id})}" class="card-link text-white rounded">Product
+                                Details</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+
 
     </div>
 </div>

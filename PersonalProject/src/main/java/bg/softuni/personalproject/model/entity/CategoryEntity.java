@@ -27,7 +27,10 @@ public class CategoryEntity {
     @Lob
     private String imageUrl;
 
+    @Column(nullable = false)
+    private boolean deleted = false;
+
     //ToDo have to decide if we want ot delete all products related to this category.
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category")
     private Set<ProductEntity> products;
 }

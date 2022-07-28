@@ -30,7 +30,7 @@ public class ShoppingCartService {
         orderService.createOrder(cartProducts, buyer);
         cartProducts.clear();
     }
-
+    //Usage in template
     public BigDecimal pricePerProduct(Map.Entry<ProductEntity,Integer> singleProduct){
         return singleProduct.getKey().price().multiply(BigDecimal.valueOf(singleProduct.getValue()));
     }

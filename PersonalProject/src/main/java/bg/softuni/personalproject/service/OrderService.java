@@ -7,6 +7,7 @@ import bg.softuni.personalproject.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -35,5 +36,19 @@ public class OrderService {
 
     public List<OrderEntity> getAllOrders() {
         return orderRepository.findAll();
+    }
+    //ToDo decide what exception to throw
+
+    //Usage in template
+    public BigDecimal getTotalPriceOfOrder(Long orderId){
+        return orderProductService.findAllOrderProducts(orderId).stream().
+                 map(order -> order.product().price().multiply(BigDecimal.valueOf(order.quantity())))
+                .reduce(BigDecimal::add)
+                .orElse(BigDecimal.ZERO);
+
+    }
+
+    public void deleteOrder(Long id) {
+        orderRepository.deleteById(id);
     }
 }

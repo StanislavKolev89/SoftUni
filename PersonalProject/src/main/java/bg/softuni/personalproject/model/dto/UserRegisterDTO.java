@@ -18,7 +18,6 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @PasswordMatch(field = "password",fieldMatch = "confirmPassword",message = "Passwords do not match!")
 public class UserRegisterDTO {
 

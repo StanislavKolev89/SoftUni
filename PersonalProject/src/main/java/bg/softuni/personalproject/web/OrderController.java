@@ -18,13 +18,6 @@ public class OrderController {
     }
 
 
-    @GetMapping("orders/all")
-    public String allOrders() {
-        return "all-orders";
-    }
-
-
-
 
 
 

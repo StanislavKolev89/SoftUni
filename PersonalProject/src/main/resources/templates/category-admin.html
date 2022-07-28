@@ -4,7 +4,7 @@
 <head th:replace="fragments/commons::head"></head>
 <body>
 <nav th:replace="fragments/commons::nav"></nav>
-    <div class="container-fluid">
+    <div class="container-fluid" style="overflow: auto">
     <table  id="AdminCategories" class="table table-responsive table-hover bg-light text-dark rounded"
             style="overflow-x:scroll">
         <thead>
@@ -13,6 +13,7 @@
         <tr scope="row" class="bg-transparent">
 
             <th scope="col" >CategoryName</th>
+            <th scope="col" ></th>
             <th scope="col" >ImageURl</th>
 
             <th scope="col" ><a class="card-link text-white bg-success" href="/admin    ">Back to Admin panel</a></th>
@@ -22,7 +23,12 @@
         <tbody class="table-primary">
         <tr scope="row" th:each="cat: ${categories}">
             <td th:text="${cat.name}"></td>
-
+            <td>
+                <a class="photo"
+                   target="_blank">
+                    <img class="rounded" th:src="${cat.imageUrl}" alt="" style="width:30px ; height: 30px;">
+                </a>
+            </td>
             <td th:text="${cat.imageUrl}">Category Name
             </td>
             <td><a th:href="@{/admin/category/edit/{id}(id=${cat.id})}" class="text-info rounded">Edit category</a></td>
@@ -39,7 +45,7 @@
     </table>
 </div>
 
-<div class="container" id="content"></div>
+
 <footer th:replace="fragments/commons::footer"></footer>
 
 

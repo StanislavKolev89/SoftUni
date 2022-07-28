@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/commons::head"></head>
+<body>
+<nav th:replace="fragments/commons::nav"></nav>
+
+<div class="container-fluid" style="overflow: auto">
+
+    <table id="AdminCategories" class="table table-responsive table-hover bg-light text-dark rounded"
+           style="overflow-x:scroll">
+        <thead>
+
+        <h1 class="display-4 text-white">ALL PRODUCTS
+            <th:block th:text="|( ${count} )|"></th:block>
+        </h1>
+        <tr scope="row" class="bg-transparent">
+
+            <th scope="col">Product</th>
+            <th scope="col"></th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+
+
+            <th scope="col"><a class="card-link text-white bg-success" href="/admin">Back to Admin panel</a></th>
+        </tr>
+        </thead>
+
+        <tbody class="table-primary">
+        <tr scope="row" th:each="product: ${products}">
+            <td th:text="${product.title}"></td>
+            <td >
+                <a class="photo "
+                   target="_blank">
+                    <img th:src="${product.imageUrl}" alt="" style="width:30px ; height: 30px;">
+                </a>
+            </td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.category.name}"></td>
+            <td>
+                <a th:href="@{/admin/products/edit/{id}(id=${product.id})}" class="text-info rounded">Edit Product</a>
+            </td>
+            <td>
+                <a th:href="@{/admin/products/delete/{id}(id=${product.id})}" class="text-danger  rounded">Delete Product</a>
+            </td>
+        </tr>
+
+        </tbody>
+
+    </table>
+</div>
+
+<div class="container" id="content"></div>
+<footer th:replace="fragments/commons::footer"></footer>
+
+
+</body>
+
+</html>

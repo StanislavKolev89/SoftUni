@@ -31,9 +31,7 @@ public class OrderEntity {
     private UserEntity user;
 
     //ToDO have to decide if we want to use cascade= cascadeType.ALL
-//    @OneToMany(mappedBy="order",cascade = CascadeType.ALL)
-    @OneToMany(mappedBy = "order",fetch = FetchType.EAGER)
-
+  @OneToMany(mappedBy="order",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<OrderProductEntity> products = new ArrayList<>();
 
 

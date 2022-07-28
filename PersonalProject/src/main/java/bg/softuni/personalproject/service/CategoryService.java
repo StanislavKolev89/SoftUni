@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -19,17 +20,10 @@ public class CategoryService {
 
 
     public List<CategoryEntity> getAllCategories() {
-        return categoryRepository.findAll();
+        return categoryRepository.findAll().stream().filter(categoryEntity -> categoryEntity.isDeleted()==false).collect(Collectors.toList());
     }
 
 
-    public List<CategoryEntity> findAll() {
-        return categoryRepository.findAll();
-    }
-
-    public CategoryEntity findById(Long id) {
-        return categoryRepository.findById(id).orElse(null);
-    }
 
     public CategoryDTO getCategoryDTO(Long id) {
         CategoryEntity categoryEntity = categoryRepository.findById(id).get();
@@ -47,7 +41,9 @@ public class CategoryService {
     }
 
     public void deleteCategory(Long id) {
-        categoryRepository.deleteById(id);
+        CategoryEntity categoryEntity = categoryRepository.findById(id).get();
+        categoryEntity.setDeleted(true);
+        categoryRepository.save(categoryEntity);
     }
 
     public void addCategory(CategoryDTO categoryDTO) {

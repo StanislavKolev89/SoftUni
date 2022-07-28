@@ -7,13 +7,12 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Data
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
-    @Accessors(fluent = true)
+@Accessors(fluent = true)
 @Entity
 @Table(name = "used_products")
 
@@ -31,7 +30,10 @@ public class UsedProductEntity {
     @Column(nullable = false)
     private BigDecimal price;
 
-    @Column(name = "imageUrl", nullable = false)
+    @Column(name="phone_number",nullable = false)
+    private String phoneNumber;
+
+    @Column(name = "image_url" )
     private String imageUrl;
 
     @ManyToOne
@@ -39,6 +41,5 @@ public class UsedProductEntity {
 
     @ManyToOne
     private UserEntity user;
-
 
 }

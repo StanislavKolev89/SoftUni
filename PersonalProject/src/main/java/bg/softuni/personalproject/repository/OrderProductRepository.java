@@ -14,4 +14,7 @@ public interface OrderProductRepository extends JpaRepository<OrderProductEntity
 
     @Query("SELECT o FROM OrderProductEntity o where o.order.user.id=:id")
     List<OrderProductEntity> findAllOrdersByUserId(@Param("id") Long id);
+
+
+    List<OrderProductEntity> findOrderProductEntitiesByOrder_Id(Long orderId);
 }

@@ -1,7 +1,6 @@
 package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.dto.UserRegisterDTO;
-import bg.softuni.personalproject.model.entity.OrderProductEntity;
 import bg.softuni.personalproject.model.entity.UserEntity;
 import bg.softuni.personalproject.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RequiredArgsConstructor
@@ -28,11 +28,6 @@ public class UserService {
     private final UserDetailsService userDetailsService;
     private final ModelMapper modelMapper;
     private final OrderProductService orderProductService;
-
-//    public boolean findByEmailAndPassword(String email, String password) {
-//        return userRepository.findByEmailAndPassword(email, password) == null;
-//    }
-
 
     private void loginUser(UserEntity userEntity) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(userEntity.getEmail());
@@ -63,7 +58,7 @@ public class UserService {
 
     public List<UserEntity> findAll() {
         //ToDo
-        return userRepository.findAll();
+        return userRepository.findAll().stream().filter(userEntity -> userEntity.isDeleted()==false).collect(Collectors.toList());
 //        return userRepository.findAll().stream().skip(1).collect(Collectors.toList());
     }
 
@@ -75,6 +70,7 @@ public class UserService {
                .orElse(BigDecimal.ZERO);
     }
 
+    //Usage in template
     public BigDecimal grossSales(){
         return orderProductService.findAll().stream().filter(order->order.order().user().getId()!=1)
                 .map(order -> order.product().price().multiply(BigDecimal.valueOf(order.quantity())))
@@ -82,7 +78,7 @@ public class UserService {
                 .orElse(BigDecimal.ZERO);
     }
         //ToDO SOFT DELETE
-    public void deleteUser(Long id) {
+    public void makeUserNotActive(Long id) {
         UserEntity user = userRepository.findById(id).orElseThrow();
         user.setActive(false);
         userRepository.save(user);
@@ -91,6 +87,12 @@ public class UserService {
     public void makeUserActive(Long id) {
         UserEntity user = userRepository.findById(id).orElseThrow();
         user.setActive(true);
+        userRepository.save(user);
+    }
+
+    public void deleteUser(Long id) {
+        UserEntity user = userRepository.findById(id).get();
+        user.setDeleted(true);
         userRepository.save(user);
     }
 }

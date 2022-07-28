@@ -12,7 +12,6 @@ import javax.validation.constraints.Size;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class CategoryDTO {
 
     @Positive

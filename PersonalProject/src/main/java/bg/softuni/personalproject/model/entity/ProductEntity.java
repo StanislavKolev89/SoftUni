@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -33,15 +34,18 @@ public class ProductEntity {
     @Column(nullable = false)
     private BigDecimal price;
 
-    @Column(name = "imageUrl", nullable = false)
+    @Column(name = "image_url", nullable = false)
     private String imageUrl;
 
     @ManyToOne
     private CategoryEntity category;
 
+    @Column(nullable = false)
+    private boolean deleted=false;
+
     //ToDO have to decide if we want to use cascade= cascadeType.ALL
-//    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
-    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+//    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
 
     private List<OrderProductEntity> orders = new ArrayList<>();
 }
