@@ -24,7 +24,6 @@ public class CategoryEntity {
     private String name;
 
     @Column(nullable = false, name = "image_url")
-    @Lob
     private String imageUrl;
 
     @Column(nullable = false)
