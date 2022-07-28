@@ -3,7 +3,7 @@ package bg.softuni.personalproject.web;
 import bg.softuni.personalproject.model.dto.QuantityHolderDTO;
 import bg.softuni.personalproject.service.CategoryService;
 import bg.softuni.personalproject.service.ProductService;
-import bg.softuni.personalproject.service.UsedProductService;
+
 import bg.softuni.personalproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

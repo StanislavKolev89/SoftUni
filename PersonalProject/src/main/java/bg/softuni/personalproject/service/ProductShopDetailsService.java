@@ -11,11 +11,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-public class AppUserDetailsService implements UserDetailsService {
+public class ProductShopDetailsService implements UserDetailsService {
 
    private final UserRepository userRepository;
 
-   public AppUserDetailsService(UserRepository userRepository) {
+   public ProductShopDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
    }
 
@@ -39,6 +39,6 @@ public class AppUserDetailsService implements UserDetailsService {
    private GrantedAuthority map(RoleEntity userRole) {
         return new SimpleGrantedAuthority("ROLE_" +
                userRole.
-                       name().name());
+                       getName().name());
    }
 }

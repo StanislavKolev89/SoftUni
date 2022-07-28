@@ -1,9 +1,7 @@
 package bg.softuni.personalproject.model.entity;
 
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -14,7 +12,8 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
-@Accessors(fluent = true)
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "orders")
 
@@ -30,8 +29,12 @@ public class OrderEntity {
     @ManyToOne
     private UserEntity user;
 
+    @Column(nullable = false)
+    private boolean deleted=false;
+
+
     //ToDO have to decide if we want to use cascade= cascadeType.ALL
-  @OneToMany(mappedBy="order",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+  @OneToMany(mappedBy="order",fetch = FetchType.EAGER)
     private List<OrderProductEntity> products = new ArrayList<>();
 
 

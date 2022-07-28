@@ -19,7 +19,11 @@ public class OrderProductService {
 
     public void addOrderAndProduct(OrderEntity order, ProductEntity product, Integer quantity) {
 
-        orderProductRepository.save(new OrderProductEntity().order(order).product(product).quantity(quantity));
+        OrderProductEntity orderProductEntity = new OrderProductEntity();
+        orderProductEntity.setOrder(order);
+        orderProductEntity.setProduct(product);
+        orderProductEntity.setQuantity(quantity);
+        orderProductRepository.save(orderProductEntity);
     }
 
 
@@ -37,12 +41,12 @@ public class OrderProductService {
 
     //Usage in template
     public BigDecimal pricePerProduct(OrderProductEntity orderProductEntity) {
-        return orderProductEntity.product().price().multiply(BigDecimal.valueOf(orderProductEntity.quantity()));
+        return orderProductEntity.getProduct().getPrice().multiply(BigDecimal.valueOf(orderProductEntity.getQuantity()));
     }
 
     public BigDecimal findTurnover() {
-        return orderProductRepository.findAll().stream().filter(orderProductEntity -> orderProductEntity.order().user().getId() != 1).
-                map(order -> order.product().price().multiply(BigDecimal.valueOf(order.quantity())))
+        return orderProductRepository.findAll().stream().filter(orderProductEntity -> orderProductEntity.getOrder().getUser().getId() != 1).
+                map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
     }

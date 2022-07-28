@@ -11,6 +11,7 @@ import java.util.List;
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "users")
 
@@ -47,7 +48,7 @@ public class UserEntity {
     @ManyToOne
     private RoleEntity role;
 
-//    ToDO Not so sure about cascading
+
     @OneToMany(mappedBy = "user")
     private List<OrderEntity> orders;
 

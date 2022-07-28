@@ -6,16 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 @Data
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
-@Accessors(fluent = true)
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "products")
 

@@ -65,15 +65,15 @@ public class UserService {
     public BigDecimal userPurchaseTotal(UserEntity userEntity) {
 
       return orderProductService.findAllUsersProducts(userEntity.getId()).stream()
-               .map(order -> order.product().price().multiply(BigDecimal.valueOf(order.quantity())))
+               .map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
                .reduce(BigDecimal::add)
                .orElse(BigDecimal.ZERO);
     }
 
     //Usage in template
     public BigDecimal grossSales(){
-        return orderProductService.findAll().stream().filter(order->order.order().user().getId()!=1)
-                .map(order -> order.product().price().multiply(BigDecimal.valueOf(order.quantity())))
+        return orderProductService.findAll().stream().filter(order->order.getOrder().getUser().getId()!=1)
+                .map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
     }

@@ -9,7 +9,8 @@ import javax.persistence.*;
 @Data
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
-@Accessors(fluent = true)
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name="roles")
 

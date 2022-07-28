@@ -17,15 +17,15 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
         this.localeChangeInterceptor = localeChangeInterceptor;
     }
 
-    @Override
-        public void addResourceHandlers(ResourceHandlerRegistry registry){
-            registry.addResourceHandler("/**")
-                    .addResourceLocations("classpath:/static/");
-        }
+//    @Override
+//        public void addResourceHandlers(ResourceHandlerRegistry registry){
+//            registry.addResourceHandler("/**")
+//                    .addResourceLocations("classpath:/static/");
+//        }
 
         @Override
          public void addInterceptors(InterceptorRegistry registry) {
-          registry.addInterceptor(localeChangeInterceptor).addPathPatterns("/*");
+          registry.addInterceptor(localeChangeInterceptor);
         }
 
 

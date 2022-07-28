@@ -3,6 +3,8 @@ package bg.softuni.personalproject.web;
 
 import bg.softuni.personalproject.model.dto.CategoryDTO;
 import bg.softuni.personalproject.model.dto.ProductDTO;
+import bg.softuni.personalproject.model.view.OrderViewModel;
+import bg.softuni.personalproject.model.view.ProductViewModel;
 import bg.softuni.personalproject.service.*;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Controller
@@ -116,7 +119,9 @@ public class AdminController {
 
     @GetMapping("/orders/all")
     public String allOrdersPage(Model model) {
-        model.addAttribute("allOrders", orderService.getAllOrders());
+        model.addAttribute("allOrders", orderService.getAllOrders().stream()
+                .map(orderDTO -> modelMapper.map(orderDTO, OrderViewModel.class)).
+                collect(Collectors.toList()));
         model.addAttribute("count", orderService.getAllOrders().size());
         model.addAttribute("orderService", orderService);
         model.addAttribute("totalTurnover", orderProductService.findTurnover());
@@ -140,16 +145,18 @@ public class AdminController {
 
     @GetMapping("/products/all")
     public String allProductsPage(Model model) {
-        model.addAttribute("products", productService.getAllProducts());
+        model.addAttribute("products", productService.getAllProducts()
+                .stream().map(productDTO->modelMapper.map(productDTO,ProductViewModel.class)).collect(Collectors.toList()));
         model.addAttribute("count", productService.getAllProducts().size());
         return "products-admin";
     }
 
     @GetMapping("/products/edit/{id}")
-    private String editProduct(@PathVariable("id") Long id,Model model){
-        model.addAttribute("productData",productService.getViewModel(id));
+    private String editProduct(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("productData",
+                modelMapper.map(productService.getViewModel(id), ProductViewModel.class));
         model.addAttribute("categories", categoryService.getAllCategories());
-    return "change-product";
+        return "change-product";
     }
 
 //    @GetMapping("/products/edit/{id}")
@@ -157,13 +164,21 @@ public class AdminController {
 //
 //    }
 
+
+    @GetMapping("/products/delete/{id}")
+
+    public String deleteProduct(@PathVariable("id") Long id) {
+        productService.deleteProduct(id);
+    return "redirect:/admin/products/all";
+    }
+
     @ModelAttribute
     public CategoryDTO categoryDTO() {
         return new CategoryDTO();
     }
 
     @ModelAttribute
-    public ProductDTO productDTO(){
+    public ProductDTO productDTO() {
         return new ProductDTO();
     }
 }

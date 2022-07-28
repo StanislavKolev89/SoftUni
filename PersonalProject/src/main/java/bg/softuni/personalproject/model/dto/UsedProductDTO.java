@@ -1,4 +1,4 @@
-package bg.softuni.personalproject.model.view;
+package bg.softuni.personalproject.model.dto;
 
 
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductViewModel {
+public class UsedProductDTO {
 
     private Long id;
 

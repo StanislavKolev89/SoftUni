@@ -51,6 +51,4 @@ public class UserRegisterDTO {
     @Size(min = 5, max = 20,message = "Password must be between 5 and 20 characters!")
     private String confirmPassword;
 
-
-
 }

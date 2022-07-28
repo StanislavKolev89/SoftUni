@@ -32,12 +32,12 @@ public class ShoppingCartService {
     }
     //Usage in template
     public BigDecimal pricePerProduct(Map.Entry<ProductEntity,Integer> singleProduct){
-        return singleProduct.getKey().price().multiply(BigDecimal.valueOf(singleProduct.getValue()));
+        return singleProduct.getKey().getPrice().multiply(BigDecimal.valueOf(singleProduct.getValue()));
     }
 
     public BigDecimal findTotalSum() {
         return cartProducts.entrySet().stream()
-              .map(entry -> entry.getKey().price().multiply(BigDecimal.valueOf(entry.getValue())))
+              .map(entry -> entry.getKey().getPrice().multiply(BigDecimal.valueOf(entry.getValue())))
               .reduce(BigDecimal::add)
               .orElse(BigDecimal.ZERO);
 
@@ -50,7 +50,7 @@ public class ShoppingCartService {
     public void removeProduct(Long productById) {
         ProductEntity productEntity = null;
         for (Map.Entry<ProductEntity, Integer> product : cartProducts.entrySet()) {
-            if (product.getKey().id() == productById) {
+            if (product.getKey().getId() == productById) {
                 productEntity = product.getKey();
                 break;
             }

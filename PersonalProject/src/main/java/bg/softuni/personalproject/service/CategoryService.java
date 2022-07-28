@@ -19,8 +19,12 @@ public class CategoryService {
     private final ModelMapper modelMapper;
 
 
-    public List<CategoryEntity> getAllCategories() {
-        return categoryRepository.findAll().stream().filter(categoryEntity -> categoryEntity.isDeleted()==false).collect(Collectors.toList());
+    public List<CategoryDTO> getAllCategories() {
+        return categoryRepository.findAll().stream().filter(categoryEntity -> categoryEntity.isDeleted()==false).
+        map(categoryEntity -> {
+            CategoryDTO dto = modelMapper.map(categoryEntity, CategoryDTO.class);
+            return dto;
+        }).collect(Collectors.toList());
     }
 
 

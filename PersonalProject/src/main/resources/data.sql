@@ -15,3 +15,9 @@ values (1, 'first description', '/images/New-Spray-Gun.webp', 22.99, 'Spraygun',
        (4, 'forth description', '/images/CategoryBasecoat.jpg', 33.99, 'Basecoat', 4,false),
        (5, 'fifth description', '/images/protectionGoggles.jpg', 33.99, 'Protection', 5,false);;
 
+INSERT INTO used_products(id, description, image_url, phone_number, price, title, category_id, user_id)
+
+values (1, 'first description', '/images/New-Spray-Gun.webp','1123123213121', 21.99, 'SPRAYGUN',1,null ),
+       (2, 'second description', '/images/New-Spray-Gun.webp','1123123213122', 22.99, 'DRILL',1,null ),
+       (3, 'third description', '/images/New-Spray-Gun.webp','1123123213a123', 23.99, 'Glasses',1,null ),
+       (4, 'first description', '/images/New-Spray-Gun.webp','1123123213124', 24.99, 'Filler',1,null );

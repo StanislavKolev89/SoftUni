@@ -1,8 +1,6 @@
 package bg.softuni.personalproject.model.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -12,7 +10,8 @@ import java.math.BigDecimal;
 @Data
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
-@Accessors(fluent = true)
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "used_products")
 

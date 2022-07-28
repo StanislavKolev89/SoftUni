@@ -21,8 +21,6 @@
             <th:block th:text="|( ${count} )|"></th:block>
         </h1>
         <tr scope="row" class="bg-transparent">
-
-            <th scope="col">Order Number</th>
             <th scope="col">Order Date</th>
             <th scope="col">Buyer Username</th>
             <th scope="col">Purchase Amount</th>
@@ -32,7 +30,7 @@
 
         <tbody class="table-primary">
         <tr scope="row" th:each="order: ${allOrders}">
-            <td th:text="${order.id}"></td>
+
             <td th:text="${order.date}"></td>
             <td th:text="${order.user.email}"></td>
             <td th:text="|${orderService.getTotalPriceOfOrder(order.id)} $|"></td>

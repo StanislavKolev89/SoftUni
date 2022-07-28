@@ -1,6 +1,7 @@
 package bg.softuni.personalproject.model.dto;
 
 import bg.softuni.personalproject.model.entity.CategoryEntity;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +14,10 @@ import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class ProductDTO {
+
+    private Long id;
 
     @NotBlank
     @Size(min=5,message = "Title is too short!")
@@ -30,6 +34,11 @@ public class ProductDTO {
     private String imageUrl;
 
     @NotNull
-    private CategoryEntity category;
+    private String category;
+
+    @NotNull
+    private String user;
+
+
 
 }

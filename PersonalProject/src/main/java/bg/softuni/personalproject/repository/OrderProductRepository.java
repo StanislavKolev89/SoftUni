@@ -12,6 +12,7 @@ import java.util.List;
 @Repository
 public interface OrderProductRepository extends JpaRepository<OrderProductEntity, Long> {
 
+
     @Query("SELECT o FROM OrderProductEntity o where o.order.user.id=:id")
     List<OrderProductEntity> findAllOrdersByUserId(@Param("id") Long id);
 

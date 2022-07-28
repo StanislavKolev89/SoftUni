@@ -1,10 +1,7 @@
 package bg.softuni.personalproject.model.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -13,7 +10,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
-@Accessors(fluent = true)
+@Builder
 @Entity
 @Table(name ="ordered_products")
 
