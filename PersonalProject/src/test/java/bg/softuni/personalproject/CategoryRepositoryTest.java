@@ -20,6 +20,6 @@ class CategoryRepositoryTest {
     void categoriesInserted() {
         List<CategoryEntity> categories = categoryRepository.findAll();
 
-        Assertions.assertEquals(3, categories.size());
+        Assertions.assertEquals(5, categories.size());
     }
 }

@@ -1,5 +1,3 @@
-Use personal_data_base;
-
 INSERT INTO categories(id, image_url, name,deleted)
 VALUES (1, '/images/CategoryTools.jpg', 'TOOLS',false),
        (2, '/images/CategoryClearcoat.jpg', 'CLEAR',false),
