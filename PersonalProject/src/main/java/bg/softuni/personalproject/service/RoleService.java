@@ -16,9 +16,7 @@ public class RoleService {
     public void initRoles() {
         if(roleRepository.count()==0) {
             Arrays.stream(RoleEnum.values()).forEach(roleEnum -> {
-                RoleEntity roleEntity = new RoleEntity();
-                roleEntity.setName(roleEnum);
-                roleRepository.save(roleEntity);
+                roleRepository.save(new RoleEntity().name(roleEnum));
             });
         }
     }
