@@ -23,6 +23,7 @@ public class CategoryService {
         return categoryRepository.findAll().stream().filter(categoryEntity -> categoryEntity.isDeleted()==false).
         map(categoryEntity -> {
             CategoryDTO dto = modelMapper.map(categoryEntity, CategoryDTO.class);
+
             return dto;
         }).collect(Collectors.toList());
     }
@@ -53,4 +54,5 @@ public class CategoryService {
     public void addCategory(CategoryDTO categoryDTO) {
          categoryRepository.save(modelMapper.map(categoryDTO, CategoryEntity.class));
     }
+
 }

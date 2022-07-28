@@ -21,8 +21,9 @@ public class UsedProductService {
     public List<UsedProductDTO> getAllProducts() {
         return usedProductRepository.findAll().stream().map(usedProductEntity -> {
             UsedProductDTO usedProductDTO = modelMapper.map(usedProductEntity, UsedProductDTO.class);
-            usedProductDTO.setUser(usedProductEntity.getUser().getEmail());
+            usedProductDTO.setUser("adsdasdasda");
             usedProductDTO.setCategory(usedProductEntity.getCategory().getName());
+
             return usedProductDTO;
         }).collect(Collectors.toList());
     }

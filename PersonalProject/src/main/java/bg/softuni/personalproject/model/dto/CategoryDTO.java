@@ -7,15 +7,14 @@ import lombok.NoArgsConstructor;
 
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+
 import javax.validation.constraints.Size;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryDTO {
-
-    @Positive   
+    
     private Long id;
     @NotNull
     @Size(min=5,message = "Category name too short. Has to be at least 5 letters long!")

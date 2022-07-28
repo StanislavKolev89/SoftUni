@@ -3,6 +3,7 @@ package bg.softuni.personalproject.web;
 
 import bg.softuni.personalproject.model.dto.CategoryDTO;
 import bg.softuni.personalproject.model.dto.ProductDTO;
+import bg.softuni.personalproject.model.view.CategoryViewModel;
 import bg.softuni.personalproject.model.view.OrderViewModel;
 import bg.softuni.personalproject.model.view.ProductViewModel;
 import bg.softuni.personalproject.service.*;
@@ -72,7 +73,9 @@ public class AdminController {
 
     @GetMapping("/categories/all")
     public String allCategoriesPage(Model model) {
-        model.addAttribute("categories", categoryService.getAllCategories());
+        model.addAttribute("categories", categoryService.getAllCategories()
+                .stream().map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
+                .collect(Collectors.toList()));
         return "category-admin";
     }
 
@@ -146,7 +149,7 @@ public class AdminController {
     @GetMapping("/products/all")
     public String allProductsPage(Model model) {
         model.addAttribute("products", productService.getAllProducts()
-                .stream().map(productDTO->modelMapper.map(productDTO,ProductViewModel.class)).collect(Collectors.toList()));
+                .stream().map(productDTO -> modelMapper.map(productDTO, ProductViewModel.class)).collect(Collectors.toList()));
         model.addAttribute("count", productService.getAllProducts().size());
         return "products-admin";
     }
@@ -169,7 +172,7 @@ public class AdminController {
 
     public String deleteProduct(@PathVariable("id") Long id) {
         productService.deleteProduct(id);
-    return "redirect:/admin/products/all";
+        return "redirect:/admin/products/all";
     }
 
     @ModelAttribute
