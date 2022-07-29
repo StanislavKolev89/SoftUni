@@ -1,7 +1,6 @@
 package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.dto.OrderDTO;
-import bg.softuni.personalproject.model.dto.UserLoginDTO;
 import bg.softuni.personalproject.model.entity.OrderEntity;
 import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.model.entity.UserEntity;
@@ -14,7 +13,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -22,6 +20,7 @@ import java.util.stream.Collectors;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final ModelMapper modelMapper;
+    private final UserService userService;
 
     private final OrderProductService orderProductService;
 
@@ -42,7 +41,11 @@ public class OrderService {
     }
 
     public List<OrderDTO> getAllOrders() {
-        return orderRepository.findAll().stream().map(orderEntity-> modelMapper.map(orderEntity,OrderDTO.class)).collect(Collectors.toList());
+        return orderRepository.findAll().stream().filter(orderEntity -> orderEntity.isDeleted() == false).map(orderEntity -> {
+            OrderDTO orderDTO = modelMapper.map(orderEntity, OrderDTO.class);
+            orderDTO.setUser(orderEntity.getUser().getEmail());
+            return orderDTO;
+        }).collect(Collectors.toList());
     }
     //ToDo decide what exception to throw
 
@@ -57,7 +60,12 @@ public class OrderService {
 
     public void deleteOrder(Long id) {
         OrderEntity order = orderRepository.findById(id).orElse(null);
-            order.setDeleted(true);
+        order.setDeleted(true);
+        orderRepository.save(order);
 
+    }
+
+    public boolean buyerIsAdmin(String username) {
+        return userService.existsByEmail(username);
     }
 }

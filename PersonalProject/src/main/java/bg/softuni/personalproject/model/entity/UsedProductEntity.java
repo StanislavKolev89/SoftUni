@@ -32,7 +32,7 @@ public class UsedProductEntity {
     @Column(name="phone_number",nullable = false)
     private String phoneNumber;
 
-    @Column(name = "image_url" )
+    @Column(name = "image_url")
     private String imageUrl;
 
     @ManyToOne

@@ -14,17 +14,16 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "users")
-
 public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(name = "first_name",nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
     @Column(name = "last_name", nullable = false)
@@ -40,19 +39,12 @@ public class UserEntity {
     private String address;
 
     @Column(nullable = false)
-    private boolean active=true;
+    private boolean active = true;
 
     @Column(nullable = false)
-    private boolean deleted=false;
+    private boolean deleted = false;
 
     @ManyToOne
     private RoleEntity role;
-
-
-    @OneToMany(mappedBy = "user")
-    private List<OrderEntity> orders;
-
-    @OneToMany(mappedBy = "user")
-    private List<UsedProductEntity> usedProducts;
 
 }

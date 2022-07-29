@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+//ToDO add Annotations
+
 public class UsedProductDTO {
 
     private Long id;

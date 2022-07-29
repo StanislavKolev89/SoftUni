@@ -26,16 +26,11 @@ public class OrderEntity {
     @Column(nullable = false)
     private LocalDateTime date;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private UserEntity user;
 
     @Column(nullable = false)
     private boolean deleted=false;
-
-
-    //ToDO have to decide if we want to use cascade= cascadeType.ALL
-  @OneToMany(mappedBy="order",fetch = FetchType.EAGER)
-    private List<OrderProductEntity> products = new ArrayList<>();
 
 
 }

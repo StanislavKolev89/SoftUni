@@ -4,7 +4,6 @@ package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.dto.ProductDTO;
 import bg.softuni.personalproject.model.entity.ProductEntity;
-import bg.softuni.personalproject.model.view.ProductViewModel;
 import bg.softuni.personalproject.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -24,20 +23,22 @@ public class ProductService {
 
     public List<ProductDTO> getAllProducts() {
         return productRepository.findAll().stream().
-                filter(productEntity -> productEntity.getCategory().isDeleted()==false)
+                filter(productEntity -> productEntity.getCategory().isDeleted()==false).
+                filter(productEntity -> productEntity.isDeleted()==false)
                 .map(productEntity -> {
                     ProductDTO productDTO = modelMapper.map(productEntity, ProductDTO.class);
                     productDTO.setCategory(productEntity.getCategory().getName());
-
                     return productDTO;
                 }).collect(Collectors.toList());
     }
 
 
 
-    public ProductEntity findProductById(Long id) {
-
-        return productRepository.findById(id).orElse(null);
+    public ProductDTO findProductById(Long id) {
+        ProductEntity productEntity = productRepository.findById(id).orElseThrow();
+        ProductDTO productDTO = modelMapper.map(productEntity, ProductDTO.class);
+        productDTO.setCategory(productEntity.getCategory().getName());
+        return productDTO;
 
     }
     //ToDO -Make method return ProductViewModel

@@ -46,7 +46,8 @@ public class OrderProductService {
 
     public BigDecimal findTurnover() {
         return orderProductRepository.findAll().stream().filter(orderProductEntity -> orderProductEntity.getOrder().getUser().getId() != 1).
-                map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
+                filter(orderProductEntity -> orderProductEntity.getOrder().isDeleted()==false).
+                map(orderProductEntity -> orderProductEntity.getProduct().getPrice().multiply(BigDecimal.valueOf(orderProductEntity.getQuantity())))
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
     }

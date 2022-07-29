@@ -18,7 +18,6 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
     private final ModelMapper modelMapper;
 
-
     public List<CategoryDTO> getAllCategories() {
         return categoryRepository.findAll().stream().filter(categoryEntity -> categoryEntity.isDeleted()==false).
         map(categoryEntity -> {
@@ -27,8 +26,6 @@ public class CategoryService {
             return dto;
         }).collect(Collectors.toList());
     }
-
-
 
     public CategoryDTO getCategoryDTO(Long id) {
         CategoryEntity categoryEntity = categoryRepository.findById(id).get();
@@ -42,7 +39,6 @@ public class CategoryService {
         categoryEntity.setName(categoryDto.getName().toUpperCase(Locale.ROOT));
         categoryEntity.setImageUrl(categoryDto.getImageUrl());
         categoryRepository.save(categoryEntity);
-
     }
 
     public void deleteCategory(Long id) {

@@ -42,8 +42,7 @@ public class ProductEntity {
     private boolean deleted=false;
 
     //ToDO have to decide if we want to use cascade= cascadeType.ALL
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
-//    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
 
-    private List<OrderProductEntity> orders = new ArrayList<>();
+//    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
+//    private List<OrderProductEntity> orders = new ArrayList<>();
 }

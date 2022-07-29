@@ -26,5 +26,4 @@ public class ProductViewModel {
 
     private String category;
 
-    private String user;
 }

@@ -1,10 +1,9 @@
 package bg.softuni.personalproject.config;
 
 
+import bg.softuni.personalproject.interceptors.LoggingInterceptor;
 import  org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
@@ -13,8 +12,10 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
         private final LocaleChangeInterceptor localeChangeInterceptor;
 
+
     public WebConfiguration(LocaleChangeInterceptor localeChangeInterceptor) {
         this.localeChangeInterceptor = localeChangeInterceptor;
+
     }
 
 //    @Override
@@ -26,6 +27,7 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
         @Override
          public void addInterceptors(InterceptorRegistry registry) {
           registry.addInterceptor(localeChangeInterceptor);
+          registry.addInterceptor( new LoggingInterceptor());
         }
 
 

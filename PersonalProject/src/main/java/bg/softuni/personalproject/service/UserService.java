@@ -1,7 +1,9 @@
 package bg.softuni.personalproject.service;
 
+import bg.softuni.personalproject.model.dto.UserDTO;
 import bg.softuni.personalproject.model.dto.UserRegisterDTO;
 import bg.softuni.personalproject.model.entity.UserEntity;
+import bg.softuni.personalproject.model.view.UserViewModel;
 import bg.softuni.personalproject.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -14,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -56,15 +59,15 @@ public class UserService {
         return userRepository.findByEmail(principalName).orElse(null);
     }
 
-    public List<UserEntity> findAll() {
-        //ToDo
-        return userRepository.findAll().stream().filter(userEntity -> userEntity.isDeleted()==false).collect(Collectors.toList());
+    public List<UserDTO> findAll() {
+        return userRepository.findAll().stream().filter(userEntity -> userEntity.isDeleted()==false)
+                .map(userEntity ->modelMapper.map(userEntity,UserDTO.class)).collect(Collectors.toList());
 //        return userRepository.findAll().stream().skip(1).collect(Collectors.toList());
     }
 
-    public BigDecimal userPurchaseTotal(UserEntity userEntity) {
+    public BigDecimal userPurchaseTotal(UserViewModel userViewModel) {
 
-      return orderProductService.findAllUsersProducts(userEntity.getId()).stream()
+      return orderProductService.findAllUsersProducts(userViewModel.getId()).stream()
                .map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
                .reduce(BigDecimal::add)
                .orElse(BigDecimal.ZERO);
@@ -94,5 +97,11 @@ public class UserService {
         UserEntity user = userRepository.findById(id).get();
         user.setDeleted(true);
         userRepository.save(user);
+    }
+
+
+
+    public boolean existsByEmail(String username) {
+       return userRepository.findByEmail(username).get().getId()==1;
     }
 }

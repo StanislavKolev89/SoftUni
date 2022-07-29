@@ -32,13 +32,13 @@
         <tr scope="row" th:each="order: ${allOrders}">
 
             <td th:text="${order.date}"></td>
-            <td th:text="${order.user.email}"></td>
+            <td th:text="${order.user}"></td>
             <td th:text="|${orderService.getTotalPriceOfOrder(order.id)} $|"></td>
             </td>
 
 
-            <td th:if="${order.user.id}==1" class="text-info rounded">TEST ORDER</td>
-            <td th:if="${order.user.id}!=1">
+            <td th:if="${orderService.buyerIsAdmin(order.user)}==true" class="text-info rounded">TEST ORDER</td>
+            <td th:if="${orderService.buyerIsAdmin(order.user)}==false">
                 <a th:href="@{/admin/orders/delete/{id}(id=${order.id})}" class="text-danger rounded">REMOVE ORDER</a>
             </td>
             <td>
@@ -47,7 +47,6 @@
 
         </tr>
         <tr>
-            <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col">Estimated Total:</th>
             <th scope="col" th:text="|${totalTurnover} $|">223.45 $</th>

@@ -36,9 +36,4 @@ public class ProductDTO {
     @NotNull
     private String category;
 
-    @NotNull
-    private String user;
-
-
-
 }

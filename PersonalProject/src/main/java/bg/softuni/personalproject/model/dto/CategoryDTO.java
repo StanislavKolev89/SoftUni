@@ -14,12 +14,12 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryDTO {
-    
+
     private Long id;
     @NotNull
-    @Size(min=5,message = "Category name too short. Has to be at least 5 letters long!")
+    @Size(min = 5, message = "Category name too short. Has to be at least 5 letters long!")
     private String name;
     @NotNull
-    @Size(min=10,message="Image url too short!")
+    @Size(min = 10, message = "Image url too short!")
     private String imageUrl;
 }

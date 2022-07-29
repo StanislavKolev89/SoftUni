@@ -322,3 +322,15 @@ input[type=number]::-webkit-outer-spin-button {
 .hidden-table:hover {
     background-color: transparent !important;
 }
+
+.logo-image{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+}
+
+/*.navbar {*/
+/*    min-height: 120px;*/
+/*}*/

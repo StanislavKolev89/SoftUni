@@ -6,6 +6,7 @@ import bg.softuni.personalproject.model.dto.ProductDTO;
 import bg.softuni.personalproject.model.view.CategoryViewModel;
 import bg.softuni.personalproject.model.view.OrderViewModel;
 import bg.softuni.personalproject.model.view.ProductViewModel;
+import bg.softuni.personalproject.model.view.UserViewModel;
 import bg.softuni.personalproject.service.*;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -94,8 +95,8 @@ public class AdminController {
 
     @GetMapping("/users/all")
     public String allUsersPage(Model model, Principal principal) {
-        userService.userPurchaseTotal(userService.findByName(principal.getName()));
-        model.addAttribute("users", userService.findAll());
+        model.addAttribute("users", userService.findAll()
+                .stream().map(userDTO -> modelMapper.map(userDTO, UserViewModel.class)).collect(Collectors.toList()));
         model.addAttribute("userService", userService);
         model.addAttribute("count", userService.findAll().size());
         return "users-admin";
@@ -121,7 +122,7 @@ public class AdminController {
 
 
     @GetMapping("/orders/all")
-    public String allOrdersPage(Model model) {
+    public String allOrdersPage(Model model,Principal principal) {
         model.addAttribute("allOrders", orderService.getAllOrders().stream()
                 .map(orderDTO -> modelMapper.map(orderDTO, OrderViewModel.class)).
                 collect(Collectors.toList()));
