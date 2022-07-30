@@ -35,14 +35,10 @@ public class ProductEntity {
     @Column(name = "image_url", nullable = false)
     private String imageUrl;
 
-    @ManyToOne
+    @ManyToOne()
     private CategoryEntity category;
 
     @Column(nullable = false)
     private boolean deleted=false;
 
-    //ToDO have to decide if we want to use cascade= cascadeType.ALL
-
-//    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
-//    private List<OrderProductEntity> orders = new ArrayList<>();
 }

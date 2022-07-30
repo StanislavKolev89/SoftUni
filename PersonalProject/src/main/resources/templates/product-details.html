@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/commons::head"></head>
+
 <body>
 <nav th:replace="fragments/commons::nav"></nav>
 
@@ -56,7 +57,7 @@
                 </button>
             </div>
             <div th:if="${active==false}" class="text-danger">
-                Your rights don't allow you to buy this product!Please contact us for more information!
+                You are not allowed to buy this product!Please contact us for more information!
                 <a href="/contacts" class="text-dark">Contact Us</a>
             </div>
 
@@ -64,6 +65,9 @@
 
     </form>
 </div>
+
+</br>
+
 
 </body>
 </html>

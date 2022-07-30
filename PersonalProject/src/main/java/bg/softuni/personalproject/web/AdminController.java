@@ -94,11 +94,12 @@ public class AdminController {
 
 
     @GetMapping("/users/all")
-    public String allUsersPage(Model model, Principal principal) {
+    public String allUsersPage(Model model,Principal principal) {
         model.addAttribute("users", userService.findAll()
                 .stream().map(userDTO -> modelMapper.map(userDTO, UserViewModel.class)).collect(Collectors.toList()));
         model.addAttribute("userService", userService);
         model.addAttribute("count", userService.findAll().size());
+        model.addAttribute("loggedUserId",userService.loggedUserId(principal));
         return "users-admin";
     }
 
@@ -114,6 +115,18 @@ public class AdminController {
         return "redirect:/admin/users/all";
     }
 
+    @GetMapping("/users/makeAdmin/{id}")
+    public String giveUserAdminRights(@PathVariable("id") Long id) {
+        userService.giveUserAdminRights(id);
+        return "redirect:/admin/users/all";
+    }
+
+    @GetMapping("/users/removeAdmin/{id}")
+    public String removeUserAdminRights(@PathVariable("id") Long id) {
+        userService.removeUserAdminRights(id);
+        return "redirect:/admin/users/all";
+    }
+
     @GetMapping("/users/delete/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
@@ -122,7 +135,7 @@ public class AdminController {
 
 
     @GetMapping("/orders/all")
-    public String allOrdersPage(Model model,Principal principal) {
+    public String allOrdersPage(Model model, Principal principal) {
         model.addAttribute("allOrders", orderService.getAllOrders().stream()
                 .map(orderDTO -> modelMapper.map(orderDTO, OrderViewModel.class)).
                 collect(Collectors.toList()));

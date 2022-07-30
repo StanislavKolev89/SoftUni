@@ -1,5 +1,6 @@
 package bg.softuni.personalproject.model.view;
 
+import bg.softuni.personalproject.model.entity.RoleEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,5 +25,5 @@ public class UserViewModel {
 
     private boolean active;
 
-    private boolean deleted;
+    private RoleEntity roleEntity;
 }

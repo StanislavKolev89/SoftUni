@@ -3,7 +3,7 @@ const categoryOption = document.getElementById('categoryOption');
 
 
 categoryOption.addEventListener('change', filterByCategory)
-
+//TODO not WORKING WHEN NO CATEGORY IS CHOSEN
 
 function filterByCategory() {
   for (const div of document.getElementsByClassName('filter')) {

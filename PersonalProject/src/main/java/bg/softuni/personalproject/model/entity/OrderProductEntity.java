@@ -1,9 +1,6 @@
 package bg.softuni.personalproject.model.entity;
 
-
 import lombok.*;
-import lombok.experimental.Accessors;
-
 import javax.persistence.*;
 
 @Data
@@ -19,7 +16,7 @@ public class OrderProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name="order_id")
     private OrderEntity order;
 
@@ -29,8 +26,5 @@ public class OrderProductEntity {
 
     @Column(nullable = false)
     private int quantity;
-
-
-
 
 }

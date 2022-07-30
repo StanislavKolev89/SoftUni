@@ -1,6 +1,7 @@
 package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.dto.UserDTO;
+import bg.softuni.personalproject.model.dto.UserEditDTO;
 import bg.softuni.personalproject.model.dto.UserRegisterDTO;
 import bg.softuni.personalproject.model.entity.UserEntity;
 import bg.softuni.personalproject.model.view.UserViewModel;
@@ -56,31 +57,32 @@ public class UserService {
 
 
     public UserEntity findByName(String principalName) {
-        return userRepository.findByEmail(principalName).orElse(null);
+        return userRepository.findByEmail(principalName).get();
     }
 
     public List<UserDTO> findAll() {
-        return userRepository.findAll().stream().filter(userEntity -> userEntity.isDeleted()==false)
-                .map(userEntity ->modelMapper.map(userEntity,UserDTO.class)).collect(Collectors.toList());
+        return userRepository.findAll().stream()
+                .map(userEntity -> modelMapper.map(userEntity, UserDTO.class)).collect(Collectors.toList());
 //        return userRepository.findAll().stream().skip(1).collect(Collectors.toList());
     }
 
     public BigDecimal userPurchaseTotal(UserViewModel userViewModel) {
 
-      return orderProductService.findAllUsersProducts(userViewModel.getId()).stream()
-               .map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
-               .reduce(BigDecimal::add)
-               .orElse(BigDecimal.ZERO);
-    }
-
-    //Usage in template
-    public BigDecimal grossSales(){
-        return orderProductService.findAll().stream().filter(order->order.getOrder().getUser().getId()!=1)
+        return orderProductService.findAllUsersProducts(userViewModel.getId()).stream()
                 .map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
     }
-        //ToDO SOFT DELETE
+
+    //Usage in template
+    public BigDecimal grossSales() {
+        return orderProductService.findAll().stream().filter(order -> order.getOrder().getUser().getId() != 1)
+                .map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
+                .reduce(BigDecimal::add)
+                .orElse(BigDecimal.ZERO);
+    }
+
+    //ToDO SOFT DELETE
     public void makeUserNotActive(Long id) {
         UserEntity user = userRepository.findById(id).orElseThrow();
         user.setActive(false);
@@ -95,13 +97,42 @@ public class UserService {
 
     public void deleteUser(Long id) {
         UserEntity user = userRepository.findById(id).get();
-        user.setDeleted(true);
+        userRepository.delete(user);
+
+    }
+
+    public boolean existsByEmail(String username) {
+        return userRepository.findByEmail(username).get().getId() == 1;
+    }
+
+    public UserDTO getLoggedUserDetails(Principal principal) {
+        UserEntity user = userRepository.findByEmail(principal.getName()).get();
+        return modelMapper.map(user, UserDTO.class);
+    }
+
+    public void changeUserData(UserEditDTO userEditDTO, Principal principal) {
+        UserEntity user = userRepository.findByEmail(principal.getName()).get();
+        user.setUsername(userEditDTO.getUsername());
+        user.setFirstName(userEditDTO.getFirstName());
+        user.setLastName(userEditDTO.getLastName());
+        user.setAddress(userEditDTO.getAddress());
         userRepository.save(user);
     }
 
 
+    public void removeUserAdminRights(Long id) {
+        UserEntity userEntity = userRepository.findById(id).get();
+        userEntity.setRole(roleService.getUserRole());
+        userRepository.save(userEntity);
+    }
 
-    public boolean existsByEmail(String username) {
-       return userRepository.findByEmail(username).get().getId()==1;
+    public void giveUserAdminRights(Long id) {
+        UserEntity user = userRepository.findById(id).get();
+        user.setRole(roleService.getAdminRole());
+        userRepository.save(user);
+    }
+
+    public Long loggedUserId(Principal principal){
+        return userRepository.findByEmail(principal.getName()).get().getId();
     }
 }

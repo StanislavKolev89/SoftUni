@@ -28,8 +28,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
         if(modelAndView == null) {
             return;
         }
-        System.out.println(request.getHeader("Cache-Control"));
-        System.out.println(request.getHeader("Cookie"));
+
         System.out.println(request.getHeader("User-Agent"));
         for(String entry : modelAndView.getModel().keySet()) {
             System.out.println(entry + ": " + modelAndView.getModel().get(entry));

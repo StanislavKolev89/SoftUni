@@ -3,6 +3,8 @@ package bg.softuni.personalproject.model.entity;
 
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -26,11 +28,11 @@ public class OrderEntity {
     @Column(nullable = false)
     private LocalDateTime date;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private UserEntity user;
-
     @Column(nullable = false)
     private boolean deleted=false;
 
+
+    @ManyToOne
+    private UserEntity user;
 
 }

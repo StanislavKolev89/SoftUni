@@ -1,27 +1,30 @@
 package bg.softuni.personalproject.web;
 
-import bg.softuni.personalproject.model.dto.UserLoginDTO;
+import bg.softuni.personalproject.model.dto.UserDTO;
+import bg.softuni.personalproject.model.dto.UserEditDTO;
 import bg.softuni.personalproject.model.dto.UserRegisterDTO;
+import bg.softuni.personalproject.model.view.UserViewModel;
 import bg.softuni.personalproject.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
-
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/users")
 public class UserController {
 
-
     private final UserService userService;
+    private final ModelMapper modelMapper;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping("/login")
     public String loginPage() {
@@ -49,7 +52,7 @@ public class UserController {
     @PostMapping("/register")
     public String registerConfirm(@Valid UserRegisterDTO userRegisterDTO, BindingResult bindingResult,
                                   RedirectAttributes redirectAttributes) {
-        System.out.println();
+
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("userRegisterDTO", userRegisterDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegisterDTO", bindingResult);
@@ -61,11 +64,29 @@ public class UserController {
         return "redirect:/";
     }
 
-//    @ModelAttribute
-//    public UserLoginDTO userLoginDto() {
-//        return new UserLoginDTO();
-//    }
 
+    @GetMapping("/profile")
+    public String myProfilePage(Principal principal, Model model) {
+        if(!model.containsAttribute("userEditDTO")){
+            model.addAttribute("userEditDTO",new UserEditDTO());
+        }
+        UserDTO loggedUserDetails = userService.getLoggedUserDetails(principal);
+        model.addAttribute("loggedUser", modelMapper.map(loggedUserDetails, UserViewModel.class));
+        return "profile";
+    }
+
+    @PostMapping("/profile")
+    public String profileChangeConfirm(Principal principal,@Valid UserEditDTO userEditDTO,BindingResult bindingResult,RedirectAttributes redirectAttributes){
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("userEditDTO", userEditDTO);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userEditDTO", bindingResult);
+
+            return "redirect:/users/profile";
+        }
+        userService.changeUserData(userEditDTO,principal);
+
+        return "redirect:/users/profile";
+    }
     @ModelAttribute
     public UserRegisterDTO userRegisterDTO() {
         return new UserRegisterDTO();

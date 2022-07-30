@@ -60,6 +60,7 @@ public class OrderService {
 
     public void deleteOrder(Long id) {
         OrderEntity order = orderRepository.findById(id).orElse(null);
+        orderProductService.deleteByOrderId(id);
         order.setDeleted(true);
         orderRepository.save(order);
 

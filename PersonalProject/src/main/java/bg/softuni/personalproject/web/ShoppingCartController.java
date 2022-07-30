@@ -3,6 +3,8 @@ package bg.softuni.personalproject.web;
 import bg.softuni.personalproject.model.dto.QuantityHolderDTO;
 import bg.softuni.personalproject.service.ProductService;
 import bg.softuni.personalproject.service.ShoppingCartService;
+import bg.softuni.personalproject.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,18 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
 
-
+@RequiredArgsConstructor
 @Controller
 public class ShoppingCartController {
 
     private final ShoppingCartService shoppingCartService;
-
     private final ProductService productService;
-
-    public ShoppingCartController(ShoppingCartService shoppingCartService, ProductService productService) {
-        this.shoppingCartService = shoppingCartService;
-        this.productService = productService;
-    }
+    private final UserService userService;
 
     @PostMapping("/products/addToCart/{id}")
     public String cartItemAdd(@PathVariable Long id, QuantityHolderDTO quantityHolderDTO) {
@@ -31,8 +28,9 @@ public class ShoppingCartController {
     }
 
     @GetMapping("/products/fromCart/{id}/{quantity}")
-    public String productDetails(@PathVariable Long id, @PathVariable int quantity, Model model, QuantityHolderDTO quantityHolderDTO) {
+    public String productDetails(Principal principal,@PathVariable Long id, @PathVariable int quantity, Model model, QuantityHolderDTO quantityHolderDTO) {
         model.addAttribute("productViewModel", productService.findProductById(id));
+        model.addAttribute("active",userService.findByName(principal.getName()).isActive());
         quantityHolderDTO.setQuantity(quantity);
         return "product-details";
     }
@@ -41,16 +39,13 @@ public class ShoppingCartController {
     public String orderDetails(Model model) {
         model.addAttribute("cartItems", shoppingCartService.getAllProducts());
         model.addAttribute("totalPrice", shoppingCartService.findTotalSum());
-        model.addAttribute("service",shoppingCartService);
-
+        model.addAttribute("service", shoppingCartService);
         return "cart-details";
     }
 
     @GetMapping("/shoppingCart/finishOrder")
     public String finishOrders(Principal principal) {
         shoppingCartService.finishOrder(principal.getName());
-        System.out.println();
-
         return "redirect:/";
     }
 

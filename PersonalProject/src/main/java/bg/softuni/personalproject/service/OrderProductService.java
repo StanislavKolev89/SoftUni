@@ -6,6 +6,7 @@ import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.repository.OrderProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
+@Transactional
 public class OrderProductService {
 
     private final OrderProductRepository orderProductRepository;
@@ -50,5 +52,10 @@ public class OrderProductService {
                 map(orderProductEntity -> orderProductEntity.getProduct().getPrice().multiply(BigDecimal.valueOf(orderProductEntity.getQuantity())))
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
+    }
+
+
+    public void deleteByOrderId(Long id) {
+        orderProductRepository.deleteAllOrdersProductEntitiesByOrderId(id);
     }
 }

@@ -18,4 +18,6 @@ public interface OrderProductRepository extends JpaRepository<OrderProductEntity
 
 
     List<OrderProductEntity> findOrderProductEntitiesByOrder_Id(Long orderId);
+
+    void deleteAllOrdersProductEntitiesByOrderId(Long id);
 }
