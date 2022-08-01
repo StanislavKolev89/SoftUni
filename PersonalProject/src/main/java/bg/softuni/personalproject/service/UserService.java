@@ -46,7 +46,7 @@ public class UserService {
 
     public void registerAndLoginUser(UserRegisterDTO userRegisterDto) {
         UserEntity user = modelMapper.map(userRegisterDto, UserEntity.class);
-            user.setRole(roleService.getUserRole());
+        user.setRole(roleService.getUserRole());
 
         user.setPassword(passwordEncoder.encode(userRegisterDto.getPassword()));
         userRepository.save(user);
@@ -56,7 +56,7 @@ public class UserService {
 
 
     public UserEntity findByName(String principalName) {
-        return userRepository.findByEmail(principalName).orElseThrow(()-> new ObjectNotFoundException());
+        return userRepository.findByEmail(principalName).orElseThrow(() -> new ObjectNotFoundException());
     }
 
     public List<UserDTO> findAll() {
@@ -83,7 +83,7 @@ public class UserService {
 
     //ToDO SOFT DELETE
     public void makeUserNotActive(Long id) {
-        UserEntity user = userRepository.findById(id).orElseThrow();
+        UserEntity user = userRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
         user.setActive(false);
         userRepository.save(user);
     }
@@ -97,7 +97,9 @@ public class UserService {
     //TODO
     public void deleteUser(Long id) {
         UserEntity user = userRepository.findById(id).get();
-        userRepository.delete(user);
+        user.setUsername("*** " + user.getUsername() + " DELETED");
+        user.setActive(false);
+        userRepository.save(user);
 
     }
 
@@ -132,7 +134,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public Long loggedUserId(Principal principal){
+    public Long loggedUserId(Principal principal) {
         return userRepository.findByEmail(principal.getName()).get().getId();
     }
 

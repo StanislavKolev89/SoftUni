@@ -1,6 +1,6 @@
 package bg.softuni.personalproject.model.dto;
 
-import bg.softuni.personalproject.model.entity.CategoryEntity;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,21 +21,22 @@ public class ProductDTO {
 
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Must enter Title for this product")
     @Size(min=5,message = "Title is too short!")
     private String title;
 
-    @NotBlank
+    @NotBlank(message = "Must enter some description")
     @Size(min=15,message = "Description is too short!")
     private String description;
 
+    @NotNull(message = "Enter valid price")
     @Positive(message="Value must be positive number!")
     private BigDecimal price;
 
-    @NotBlank
+    @NotBlank(message = "It's not possible to create product without image url")
     private String imageUrl;
 
-    @NotNull
+    @NotNull(message = "Must choose category!")
     private String category;
 
 }

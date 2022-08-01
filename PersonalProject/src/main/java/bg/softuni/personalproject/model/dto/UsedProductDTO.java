@@ -16,28 +16,30 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
-
 public class UsedProductDTO {
 
     private Long id;
 
-    @Size(min=5)
+    @NotBlank
+
+    @Size(min=5,max=20,message = "Title must be between 5 and 20 characters.")
     private String title;
 
-    @NotBlank
-    @Size(min=10)
+    @NotBlank(message = "You must enter some description.")
+    @Size(min=10,message = "Description too short!")
     private String description;
 
+    @NotNull(message = "You must enter some price")
     @Positive
     private BigDecimal price;
 
-    @NotBlank
+    @NotNull(message = "You should give number for contact!")
+    @Size(min=10,max=15 ,message="Enter valid phone number!")
     private String phoneNumber;
 
     private String imageUrl;
 
-    @NotNull
+    @NotBlank(message = "You have to choose category!")
     private String category;
 
     private String user;

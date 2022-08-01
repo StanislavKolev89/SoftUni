@@ -54,22 +54,39 @@ public class UsedProductController {
         return "used-product-details";
     }
 
+
+    @PostMapping("/products/details/{id}")
+    public String confirmEdit(@PathVariable("id") Long id, Model model, @Valid UsedProductDTO usedProductDTO, BindingResult bindingResult,
+                              RedirectAttributes redirectAttributes) {
+        model.addAttribute("allCategories", categoryService.getAllCategories());
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("usedProductDTO", usedProductDTO);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.usedProductDTO", bindingResult);
+
+            return "redirect:/used/products/details/{id}";
+        }
+        usedProductService.editProducts(usedProductDTO, id);
+        return "redirect:/used/products/forSale";
+    }
+
+
     @GetMapping("/products/add")
-    public String secondHandProductAddPage() {
+    public String secondHandProductAddPage(Model model) {
+        model.addAttribute("allCategories", categoryService.getAllCategories());
         return "add-used-product";
     }
 
     @PostMapping("/products/add")
-    private String editProductConfirm(Principal principal, Model model, @Valid ProductDTO productDTO
+    private String editProductConfirm(Principal principal, Model model, @Valid UsedProductDTO usedProductDTO
             , BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         model.addAttribute("allCategories", categoryService.getAllCategories());
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("productDTO", productDTO);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.productDTO", bindingResult);
+            redirectAttributes.addFlashAttribute("usedProductDTO", usedProductDTO);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.usedProductDTO", bindingResult);
 
             return "redirect:/used/products/add";
         }
-        usedProductService.addNewProduct(productDTO, principal);
+        usedProductService.addNewProduct(usedProductDTO, principal);
         return "redirect:/used/products/forSale";
     }
 

@@ -1,94 +1,98 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/commons::head">
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/commons::head"></head>
+<script src="/js/comments.js" defer></script>
+<script src="/js/itemChecker.js" defer></script>
 <body>
-
 <nav th:replace="fragments/commons::nav"></nav>
 
+
 <div class="p-5 bg-blur text-center my-main">
+
     <form th:action="@{/used/products/add}" th:method="post"
           th:object="${usedProductDTO}">
         <div class="card">
-            <h2 class="mt-5">CREATE NEW PRODUCT </h2>
+            <h2 class="mt-5">Add new Product</h2>
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-7 col-md-7 col-sm-6">
                         <div class="form-group">
+                            <H5>TITLE</H5>
                             <input th:field="*{title}"
                                    id="title" type="text" name="name" class="form-control"
-                                   placeholder="Title">
-                            <div class="col-auto">
-                                <small th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
-                                       id="titleError" class="text-light form-text bg-danger rounded">Length must
-                                    between 3
-                                    and 20 characters</small>
-                            </div>
+                                   placeholder="TITLE">
+                            <small th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+                                   id="titleError" class="text-light form-text bg-danger rounded">Length must
+                                between 3
+                                and 20 characters</small>
                         </div>
                         <div class="form-group">
+                            <H5>DESCRIPTION</H5>
                             <input th:field="*{description}"
-                                   id="description" type="text" name="name" class="form-control"
-                                   placeholder="Description">
-                            <div class="col-auto">
-                                <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
-                                       id="descriptionError" class="text-light form-text bg-danger rounded">Length must
-                                    between 3
-                                    and 20 characters</small>
-                            </div>
+                                   id="description" type="text" class="form-control"
+                                   placeholder="DESCRIPTION">
+                            <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                                   id="descriptionError" class="text-light form-text bg-danger rounded">Length must
+                                between 3
+                                and 20 characters</small>
                         </div>
                         <div class="form-group">
-                            <input th:field="*{price}"
-                                   id="name" type="text" name="name" class="form-control"
-                                   placeholder="Price">
-                            <div class="col-auto">
-                                <small th:if="${#fields.hasErrors('price')}" th:errors="*{price}"
-                                       id="priceError" class="text-light form-text bg-danger rounded">Length must
-                                   </small>
-                            </div>
-                        </div>
-                        <div class="form-group">
+                            <H5>IMAGE URL</H5>
                             <input th:field="*{imageUrl}"
-                                   id="imageUrl" type="text" name="name" class="form-control"
-                                   placeholder="ImageUrl">
-                            <div class="col-auto">
-                                <small th:if="${#fields.hasErrors('price')}" th:errors="*{price}"
-                                       id="imageError" class="text-light form-text bg-danger rounded">Length must
-                                    between 3
-                                    and 20 characters</small>
-                            </div>
+                                   id="description" type="text" class="form-control"
+                                   placeholder="IMAGE LINK">
                         </div>
                         <div class="form-group">
+                            <H5>PRICE</H5>
+                            <input th:field="*{price}"
+                                   id="description" type="text" class="form-control"
+                                   placeholder="PRICE">
+                            <small th:if="${#fields.hasErrors('price')}" th:errors="*{price}"
+                                   id="priceError" class="text-light form-text bg-danger rounded">Length must
+                                between 3
+                                and 20 characters</small>
+                        </div>
+
+                        <div class="form-group">
+                            <H5>PHONE NUMBER</H5>
                             <input th:field="*{phoneNumber}"
-                                   id="imageUrl" type="text" name="name" class="form-control"
-                                   placeholder="ImageUrl">
-                            <div class="col-auto">
-                                <small th:if="${#fields.hasErrors('price')}" th:errors="*{price}"
-                                       id="imageError" class="text-light form-text bg-danger rounded">Length must
-                                    between 3
-                                    and 20 characters</small>
-                            </div>
+                                   id="description" type="text" class="form-control"
+                                   placeholder="PHONE NUMBER">
+                            <small th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"
+                                   id="imageError" class="text-light form-text bg-danger rounded">Length must
+                                between 3
+                                and 20 characters</small>
                         </div>
                         <div class="form-group">
+                            <H5>CATEGORY</H5>
                             <select th:field="*{category}" class="form-control" id="categoryOption">
-                                <option value="" selected>Select Category</option>
+                                <option value="" selected>SELECT CATEGORY</option>
                                 <option th:each="c:${allCategories}"
                                         th:value="${c.getName()}"
                                         th:text="${c.getName()}">
                                 </option>
                             </select>
+                            <small th:if="${#fields.hasErrors('category')}" th:errors="*{category}"
+                                   id="categoryError" class="text-light form-text bg-danger rounded">Length must
+                                between 3
+                                and 20 characters</small>
                         </div>
                     </div>
                 </div>
             </div>
             <button type="submit"
-                    id="addToCart" class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title=""
+                    id="changeProduct" class="btn btn-info rounded btn-rounded mr-1" data-toggle="tooltip" title=""
                     data-original-title="Add to cart">Add Product
             </button>
+            <p><a class="btn btn-success center-block btn-rounded mr-1" href="/">Go back</a></p>
         </div>
 
     </form>
 </div>
-<footer th:replace="fragments/commons::footer"></footer>
+</form>
+
+</div>
 
 </body>
-</html>ml>
+</html>
