@@ -23,6 +23,7 @@ public class ShoppingCartService {
     public void addToCart(Long productById, QuantityHolderDTO quantityHolderDTO) {
         productRepository.findById(productById).ifPresent(productEntity ->
               cartProducts.put(productEntity, quantityHolderDTO.getQuantity()));
+
     }
 
     public void finishOrder(String principalName) {

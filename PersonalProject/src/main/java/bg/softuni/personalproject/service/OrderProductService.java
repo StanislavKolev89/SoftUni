@@ -1,5 +1,6 @@
 package bg.softuni.personalproject.service;
 
+import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.entity.OrderEntity;
 import bg.softuni.personalproject.model.entity.OrderProductEntity;
 import bg.softuni.personalproject.model.entity.ProductEntity;
@@ -10,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -30,7 +30,7 @@ public class OrderProductService {
 
 
     public List<OrderProductEntity> findAllUsersProducts(Long id) {
-        return orderProductRepository.findAllOrdersByUserId(id);
+        return orderProductRepository.findAllOrdersByUserId(id).orElseThrow(()->new ObjectNotFoundException());
     }
 
     public List<OrderProductEntity> findAll() {
@@ -38,7 +38,7 @@ public class OrderProductService {
     }
 
     public List<OrderProductEntity> findAllOrderProducts(Long orderId) {
-        return orderProductRepository.findOrderProductEntitiesByOrder_Id(orderId);
+        return orderProductRepository.findOrderProductEntitiesByOrder_Id(orderId).orElseThrow(()->new ObjectNotFoundException());
     }
 
     //Usage in template

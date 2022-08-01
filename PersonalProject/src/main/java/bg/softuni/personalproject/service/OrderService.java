@@ -21,6 +21,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final ModelMapper modelMapper;
     private final UserService userService;
+    private final ProductQuantityService productQuantityService;
 
     private final OrderProductService orderProductService;
 
@@ -28,16 +29,13 @@ public class OrderService {
     //      if buyer is null do nothing! Not so sure about that
     public void createOrder(Map<ProductEntity, Integer> cartItems, UserEntity buyer) {
         OrderEntity order = new OrderEntity();
-        if (buyer != null) {
             order.setUser(buyer);
-            order.setDate(LocalDateTime.now());
+            order.setCreatedAt(LocalDateTime.now());
             orderRepository.save(order);
             cartItems.entrySet().stream().forEach(product -> {
-
                 orderProductService.addOrderAndProduct(order, product.getKey(), product.getValue());
-            });
-
-        }
+                productQuantityService.decreaseStock(product.getKey().getId(),product.getValue());
+        });
     }
 
     public List<OrderDTO> getAllOrders() {

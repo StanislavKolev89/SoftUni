@@ -25,6 +25,7 @@ public class CategoryEntity {
     @Column(nullable = false, name = "image_url")
     private String imageUrl;
 
+
     @Column(nullable = false)
     private boolean deleted = false;
 

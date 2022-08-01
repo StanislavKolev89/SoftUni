@@ -32,7 +32,7 @@ public class ProductEntity {
     @Column(nullable = false)
     private BigDecimal price;
 
-    @Column(name = "image_url", nullable = false)
+    @Column(columnDefinition = "LONGTEXT", name = "image_url", nullable = false)
     private String imageUrl;
 
     @ManyToOne()

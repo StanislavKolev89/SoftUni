@@ -2,6 +2,7 @@ package bg.softuni.personalproject.model.dto;
 
 import bg.softuni.personalproject.model.entity.CategoryEntity;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +16,7 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ProductDTO {
 
     private Long id;
@@ -27,7 +29,7 @@ public class ProductDTO {
     @Size(min=15,message = "Description is too short!")
     private String description;
 
-    @Positive
+    @Positive(message="Value must be positive number!")
     private BigDecimal price;
 
     @NotBlank

@@ -14,7 +14,7 @@
         <h2 class="text-success">SELECT CATEGORY</h2>
 
         <select class="form-control" id="categoryOption">
-            <option value="" selected>Choose category</option>
+            <option value="noCategory" selected>SHOW ALL</option>
             <option th:each="c:${allCategories}"
                     th:value="${c.getName()}"
                     th:text="${c.getName()}">
@@ -24,7 +24,6 @@
     </div>
 
     <div class="row">
-
         <div th:each="product :${products}" class="col-md-4">
                 <div class="filter" th:id="${product.category}">
                     <div class="card-body" style="width: 19rem;">
@@ -42,8 +41,6 @@
                     </div>
                 </div>
             </div>
-
-
     </div>
 </div>
 

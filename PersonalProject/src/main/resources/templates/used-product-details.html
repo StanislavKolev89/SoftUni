@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/commons::head"></head>
+<script src="/js/comments.js" defer></script>
+<script src="/js/itemChecker.js" defer></script>
+<body>
+<nav th:replace="fragments/commons::nav"></nav>
+
+
+<div class="p-5 bg-blur text-center my-main" >
+
+    <form th:action="" th:method="post"
+          th:object="${productViewModel}">
+        <div class="card">
+            <h2 class="mt-5">Product Details </h2>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-6">
+                        <div class="white-box text-center"><img th:src="*{imageUrl}"
+                                                                class="img-responsive"></div>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-6">
+                        <div class="form-group">
+                            <input th:field="*{title}"
+                                   id="title" type="text" name="name" class="form-control"
+                                   th:placeholder="*{title}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input th:field="*{description}"
+                                   id="description" type="text"  class="form-control"
+                                   th:placeholder="*{description}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input th:field="*{price}"
+                                   id="description" type="text"  class="form-control"
+                                   th:placeholder="*{price}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input th:field="*{category}"
+                                   id="description" type="text"  class="form-control"
+                                   th:placeholder="*{description}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input th:field="*{phoneNumber}"
+                                   id="description" type="text"  class="form-control"
+                                   th:placeholder="*{phoneNumber}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <input th:field="*{user}"
+                                   id="description" type="text"  class="form-control"
+                                   th:placeholder="*{user}" disabled>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <button th:if="${principalUsername}==${productViewModel.user}" type="submit"
+                    id="changeProduct" class="btn btn-info  btn-rounded mr-1" data-toggle="tooltip" title=""
+                    data-original-title="Add to cart">Edit Product
+            </button>
+            <p> <a class="btn btn-success center-block btn-rounded mr-1" href="/used/products/forSale">Go back</a></p>
+        </div>
+
+    </form>
+</div>
+</form>
+
+</div>
+
+</body>
+</html>

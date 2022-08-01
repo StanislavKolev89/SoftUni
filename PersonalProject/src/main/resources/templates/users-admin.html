@@ -57,7 +57,8 @@
                     Rights</a>
             </td>
             <td th:if="${user.active==false} and ${user.id!=1} and ${user.roleEntity.id}!=1">
-                <a th:href="@{/admin/users/activate/{id}(id=${user.id})}" class="text-success rounded">Activate User Rights</a>
+                <a th:href="@{/admin/users/activate/{id}(id=${user.id})}" class="text-success rounded">Activate User
+                    Rights</a>
             </td>
             <td th:if="${user.id!=1} and ${loggedUserId}!=${user.id}">
                 <a th:href="@{/admin/users/delete/{id}(id=${user.id})}"

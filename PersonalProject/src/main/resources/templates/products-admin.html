@@ -46,8 +46,13 @@
                 <a th:href="@{/admin/products/delete/{id}(id=${product.id})}" class="text-danger  rounded">Delete Product</a>
             </td>
         </tr>
-
         </tbody>
+
+        <tr>
+
+            <th scope="col"><a lass="card-link text-white bg-success rounded"
+                               href="/admin/products/add">Add New Product</a></th>
+        </tr>
 
     </table>
 </div>

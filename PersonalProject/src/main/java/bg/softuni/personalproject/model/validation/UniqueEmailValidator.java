@@ -1,25 +1,27 @@
-package bg.softuni.personalproject.validation;
+package bg.softuni.personalproject.model.validation;
 
 import bg.softuni.personalproject.repository.UserRepository;
+
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class UniqueUsernameValidator implements ConstraintValidator<UniqueUsername, String> {
+
+public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail,String> {
 
     private final UserRepository userRepository;
 
-    public UniqueUsernameValidator(UserRepository userRepository) {
+    public UniqueEmailValidator(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
-    public void initialize(UniqueUsername constraintAnnotation) {
+    public void initialize(UniqueEmail constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        return userRepository.findByUsername(value) == null;
+        return userRepository.findByEmail(value).isEmpty();
     }
 }

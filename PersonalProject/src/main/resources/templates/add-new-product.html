@@ -7,35 +7,36 @@
 <nav th:replace="fragments/commons::nav"></nav>
 
 <div class="p-5 bg-blur text-center my-main">
-    <form th:action="@{/admin/products/edit/{id}(id=${productData.id})}" th:method="post"
+    <form th:action="@{/admin/products/add}" th:method="post"
           th:object="${productDTO}">
         <div class="card">
-            <h2 class="mt-5">PRODUCT DETAILS </h2>
+            <h2 class="mt-5">CREATE NEW PRODUCT </h2>
             <div class="card-body">
                 <div class="row">
+
                     <div class="col-lg-5 col-md-5 col-sm-6">
-                        <div class="white-box text-center"><img th:src="${productData.imageUrl}"
+                        <div class="white-box text-center"><img th:src="@{/images/add-product.webp}"
                                                                 class="img-responsive"></div>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-6">
                         <div class="form-group">
                             <input th:field="*{title}"
-                                   id="name" type="text" name="name" class="form-control"
-                                   th:placeholder="${productData.title}">
+                                   id="title" type="text" name="name" class="form-control"
+                                   placeholder="Title">
                             <div class="col-auto">
-                                <small  th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
-                                        id="nameError" class="text-light form-text bg-danger rounded">Length must
+                                <small th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+                                       id="titleError" class="text-light form-text bg-danger rounded">Length must
                                     between 3
                                     and 20 characters</small>
                             </div>
                         </div>
                         <div class="form-group">
                             <input th:field="*{description}"
-                                   id="name" type="text" name="name" class="form-control"
-                                   th:placeholder="${productData.description}">
+                                   id="description" type="text" name="name" class="form-control"
+                                   placeholder="Description">
                             <div class="col-auto">
-                                <small  th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
-                                        id="nameError" class="text-light form-text bg-danger rounded">Length must
+                                <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                                       id="descriptionError" class="text-light form-text bg-danger rounded">Length must
                                     between 3
                                     and 20 characters</small>
                             </div>
@@ -43,17 +44,28 @@
                         <div class="form-group">
                             <input th:field="*{price}"
                                    id="name" type="text" name="name" class="form-control"
-                                   th:placeholder="${productData.price}">
+                                   placeholder="Price">
                             <div class="col-auto">
-                                <small  th:if="${#fields.hasErrors('price')}" th:errors="*{price}"
-                                        id="nameError" class="text-light form-text bg-danger rounded">Length must
+                                <small th:if="${#fields.hasErrors('price')}" th:errors="*{price}"
+                                       id="priceError" class="text-light form-text bg-danger rounded">Length must
                                     between 3
                                     and 20 characters</small>
                             </div>
                         </div>
                         <div class="form-group">
-                            <select class="form-control" id="categoryOption" >
-                                <option value="" selected >Select Category</option>
+                            <input th:field="*{imageUrl}"
+                                   id="imageUrl" type="text" name="name" class="form-control"
+                                   placeholder="ImageUrl">
+                            <div class="col-auto">
+                                <small th:if="${#fields.hasErrors('price')}" th:errors="*{price}"
+                                       id="imageError" class="text-light form-text bg-danger rounded">Length must
+                                    between 3
+                                    and 20 characters</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select th:field="*{category}" class="form-control" id="categoryOption">
+                                <option value="" selected>Select Category</option>
                                 <option th:each="c:${categories}"
                                         th:value="${c.getName()}"
                                         th:text="${c.getName()}">
@@ -65,7 +77,7 @@
             </div>
             <button type="submit"
                     id="addToCart" class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title=""
-                    data-original-title="Add to cart">Confirm Changes
+                    data-original-title="Add to cart">Add Product
             </button>
         </div>
 

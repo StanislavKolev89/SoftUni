@@ -1,4 +1,4 @@
-package bg.softuni.personalproject.validation;
+package bg.softuni.personalproject.model.validation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -7,11 +7,12 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Constraint(validatedBy = UniqueUsernameValidator.class)
+@Constraint(validatedBy = UniqueEmailValidator.class)
 @Target(  ElementType.FIELD )
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UniqueUsername {
-    String message() default "Username already exists.";
+public @interface UniqueEmail {
+
+    String message() default "Email already exists.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

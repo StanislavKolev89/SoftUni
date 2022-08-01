@@ -87,6 +87,8 @@ public class UserController {
 
         return "redirect:/users/profile";
     }
+
+
     @ModelAttribute
     public UserRegisterDTO userRegisterDTO() {
         return new UserRegisterDTO();

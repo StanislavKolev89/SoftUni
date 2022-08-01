@@ -1,8 +1,8 @@
 package bg.softuni.personalproject.model.dto;
 
-import bg.softuni.personalproject.validation.PasswordMatch;
-import bg.softuni.personalproject.validation.UniqueEmail;
-import bg.softuni.personalproject.validation.UniqueUsername;
+import bg.softuni.personalproject.model.validation.PasswordMatch;
+import bg.softuni.personalproject.model.validation.UniqueEmail;
+import bg.softuni.personalproject.model.validation.UniqueUsername;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +18,7 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @PasswordMatch(field = "password",fieldMatch = "confirmPassword",message = "Passwords do not match!")
 public class UserRegisterDTO {
 

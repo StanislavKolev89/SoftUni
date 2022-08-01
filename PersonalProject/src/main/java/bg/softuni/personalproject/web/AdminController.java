@@ -40,7 +40,7 @@ public class AdminController {
     @GetMapping("/category/edit/{id}")
     private String categoryEditPage(@PathVariable("id") Long id, Model model) {
 
-        //ToDo make category View Model
+
         model.addAttribute("categoryData", categoryService.getCategoryDTO(id));
         return "change-category";
     }
@@ -48,7 +48,6 @@ public class AdminController {
     @PostMapping("/category/edit/{id}")
 
     private String categoryEditConfirm(@PathVariable("id") Long id, @Valid CategoryDTO categoryDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-
 
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("categoryDTO", categoryDTO);
@@ -67,39 +66,39 @@ public class AdminController {
     }
 
 
-    @GetMapping("/category/add")
+    @GetMapping("/categories/add")
     public String categoryAddPage() {
         return "add-category";
     }
 
     @GetMapping("/categories/all")
     public String allCategoriesPage(Model model) {
-        model.addAttribute("categories", categoryService.getAllCategories()
+        model.addAttribute("categories", categoryService.filterDeleteDCategories()
                 .stream().map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
                 .collect(Collectors.toList()));
         return "category-admin";
     }
 
-    @PostMapping("/category/add")
+    @PostMapping("/categories/add")
     public String categoryAddConfirm(@Valid CategoryDTO categoryDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("categoryDTO", categoryDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.categoryDTO", bindingResult);
 
-            return "redirect:/admin/category/add";
+            return "redirect:/admin/categories/add";
         }
         categoryService.addCategory(categoryDTO);
-        return "redirect:/admin";
+        return "redirect:/admin/categories/all";
     }
 
 
     @GetMapping("/users/all")
-    public String allUsersPage(Model model,Principal principal) {
+    public String allUsersPage(Model model, Principal principal) {
         model.addAttribute("users", userService.findAll()
                 .stream().map(userDTO -> modelMapper.map(userDTO, UserViewModel.class)).collect(Collectors.toList()));
         model.addAttribute("userService", userService);
         model.addAttribute("count", userService.findAll().size());
-        model.addAttribute("loggedUserId",userService.loggedUserId(principal));
+        model.addAttribute("loggedUserId", userService.loggedUserId(principal));
         return "users-admin";
     }
 
@@ -169,23 +168,58 @@ public class AdminController {
     }
 
     @GetMapping("/products/edit/{id}")
-    private String editProduct(@PathVariable("id") Long id, Model model) {
+    private String editProductPage(@PathVariable("id") Long id, Model model) {
         model.addAttribute("productData",
                 modelMapper.map(productService.getViewModel(id), ProductViewModel.class));
-        model.addAttribute("categories", categoryService.getAllCategories());
-        return "change-product";
+        model.addAttribute("categories", categoryService.getAllCategories().
+                stream().filter(categoryDTO -> categoryDTO.isDeleted() == false)
+                .map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
+                .collect(Collectors.toList()));
+        return "edit-product";
     }
 
-//    @GetMapping("/products/edit/{id}")
-//    private String editProductConfirm(@PathVariable("id") Long id, @Valid CategoryDTO categoryDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes){
-//
-//    }
+    @PostMapping("/products/edit/{id}")
+    private String editProductConfirm(@PathVariable("id") Long id,Model model, @Valid ProductDTO productDTO
+            , BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        model.addAttribute("categories", categoryService.getAllCategories().
+                stream().filter(categoryDTO -> categoryDTO.isDeleted() == false)
+                .map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
+                .collect(Collectors.toList()));
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("productDTO", productDTO);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.productDTO", bindingResult);
 
+            return "redirect:/admin/products/edit/{id}";
+        }
+        productService.editProduct(productDTO,id);
+        return "redirect:/admin/products/all";
+    }
 
+    @GetMapping("/products/add")
+    private String addProductPage(Model model){
+        model.addAttribute("categories", categoryService.getAllCategories().
+                stream().filter(categoryDTO -> categoryDTO.isDeleted() == false)
+                .map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
+                .collect(Collectors.toList()));
+        return "add-new-product";
+    }
+
+    @PostMapping("/products/add")
+    public String addProductConfirm(@Valid ProductDTO productDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("productDTO", productDTO);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.productDTO", bindingResult);
+
+            return "redirect:/admin/products/add";
+        }
+        productService.addNewProduct(productDTO);
+        return "redirect:/admin/products/all";
+    }
     @GetMapping("/products/delete/{id}")
 
     public String deleteProduct(@PathVariable("id") Long id) {
         productService.deleteProduct(id);
+
         return "redirect:/admin/products/all";
     }
 

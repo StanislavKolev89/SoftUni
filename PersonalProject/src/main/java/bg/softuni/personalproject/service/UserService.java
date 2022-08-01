@@ -1,5 +1,6 @@
 package bg.softuni.personalproject.service;
 
+import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.dto.UserDTO;
 import bg.softuni.personalproject.model.dto.UserEditDTO;
 import bg.softuni.personalproject.model.dto.UserRegisterDTO;
@@ -15,13 +16,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+@Transactional
 @RequiredArgsConstructor
 @Service
 public class UserService {
@@ -44,11 +46,8 @@ public class UserService {
 
     public void registerAndLoginUser(UserRegisterDTO userRegisterDto) {
         UserEntity user = modelMapper.map(userRegisterDto, UserEntity.class);
-        if (userRepository.count() == 0) {
-            user.setRole(roleService.getAdminRole());
-        } else {
             user.setRole(roleService.getUserRole());
-        }
+
         user.setPassword(passwordEncoder.encode(userRegisterDto.getPassword()));
         userRepository.save(user);
 
@@ -57,7 +56,7 @@ public class UserService {
 
 
     public UserEntity findByName(String principalName) {
-        return userRepository.findByEmail(principalName).get();
+        return userRepository.findByEmail(principalName).orElseThrow(()-> new ObjectNotFoundException());
     }
 
     public List<UserDTO> findAll() {
@@ -95,6 +94,7 @@ public class UserService {
         userRepository.save(user);
     }
 
+    //TODO
     public void deleteUser(Long id) {
         UserEntity user = userRepository.findById(id).get();
         userRepository.delete(user);
@@ -134,5 +134,9 @@ public class UserService {
 
     public Long loggedUserId(Principal principal){
         return userRepository.findByEmail(principal.getName()).get().getId();
+    }
+
+    public String getPrincipalUsername(Principal principal) {
+        return userRepository.findByEmail(principal.getName()).get().getUsername();
     }
 }

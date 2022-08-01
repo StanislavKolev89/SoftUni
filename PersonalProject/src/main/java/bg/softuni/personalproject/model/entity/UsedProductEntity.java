@@ -29,10 +29,10 @@ public class UsedProductEntity {
     @Column(nullable = false)
     private BigDecimal price;
 
-    @Column(name="phone_number",nullable = false)
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
-    @Column(name = "image_url")
+    @Column(columnDefinition = "LONGTEXT", name = "image_url")
     private String imageUrl;
 
     @ManyToOne

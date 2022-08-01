@@ -1,4 +1,4 @@
-package bg.softuni.personalproject.validation;
+package bg.softuni.personalproject.model.validation;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.PropertyAccessorFactory;

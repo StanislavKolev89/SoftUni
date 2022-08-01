@@ -2,6 +2,7 @@ package bg.softuni.personalproject.model.dto;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class CategoryDTO {
 
     private Long id;
@@ -22,4 +24,6 @@ public class CategoryDTO {
     @NotNull
     @Size(min = 10, message = "Image url too short!")
     private String imageUrl;
+
+    private boolean deleted;
 }

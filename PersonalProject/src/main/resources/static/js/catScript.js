@@ -1,18 +1,24 @@
 
 const categoryOption = document.getElementById('categoryOption');
 
-
 categoryOption.addEventListener('change', filterByCategory)
 //TODO not WORKING WHEN NO CATEGORY IS CHOSEN
+let elementsByClassName = document.getElementsByClassName('filter');
 
 function filterByCategory() {
-  for (const div of document.getElementsByClassName('filter')) {
-    div.parentElement.style.display='block';
-  };
+  if(categoryOption.value=="noCategory"){
+    for (const div of elementsByClassName) {
+        div.parentElement.style.display='block';
+      }
+    return;
+    }
 
-  for (const div of document.getElementsByClassName('filter')) {
+  for (const div of elementsByClassName) {
     if(div.id!=categoryOption.value){
       div.parentElement.style.display='none';
+    }else{
+      div.parentElement.style.display='block';
     }
+  }
   };
-}
+

@@ -1,28 +1,35 @@
 package bg.softuni.personalproject.web;
 
+import bg.softuni.personalproject.model.dto.ProductDTO;
+import bg.softuni.personalproject.model.dto.UsedProductDTO;
 import bg.softuni.personalproject.model.view.CategoryViewModel;
 import bg.softuni.personalproject.model.view.UsedProductViewModel;
 import bg.softuni.personalproject.service.CategoryService;
 import bg.softuni.personalproject.service.UsedProductService;
+import bg.softuni.personalproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
+import java.security.Principal;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/products")
+@RequestMapping("/used")
 public class UsedProductController {
 
     private final UsedProductService usedProductService;
     private final CategoryService categoryService;
     private final ModelMapper modelMapper;
+    private final UserService userService;
 
-    @GetMapping("/users/forSale")
+    @GetMapping("/products/forSale")
     private String secondHandProducts(Model model) {
         model.addAttribute("usedProducts", usedProductService.getAllProducts()
                 .stream().map(usedProductDTO -> modelMapper.map(usedProductDTO, UsedProductViewModel.class))
@@ -33,4 +40,42 @@ public class UsedProductController {
 
         return "second-hand-products";
     }
+
+
+    @GetMapping("/products/details/{id}")
+    private String secondHandProducts(@PathVariable("id") Long id, Model model, Principal principal) {
+        model.addAttribute("sellerName", usedProductService.getSellerName(id));
+        model.addAttribute("productViewModel", modelMapper
+                .map(usedProductService.getProductById(id), UsedProductViewModel.class));
+        model.addAttribute("allCategories", categoryService.getAllCategories()
+                .stream().map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
+                .collect(Collectors.toList()));
+        model.addAttribute("principalUsername", userService.getPrincipalUsername(principal));
+        return "used-product-details";
+    }
+
+    @GetMapping("/products/add")
+    public String secondHandProductAddPage() {
+        return "add-used-product";
+    }
+
+    @PostMapping("/products/add")
+    private String editProductConfirm(Principal principal, Model model, @Valid ProductDTO productDTO
+            , BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        model.addAttribute("allCategories", categoryService.getAllCategories());
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("productDTO", productDTO);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.productDTO", bindingResult);
+
+            return "redirect:/used/products/add";
+        }
+        usedProductService.addNewProduct(productDTO, principal);
+        return "redirect:/used/products/forSale";
+    }
+
+    @ModelAttribute
+    public UsedProductDTO usedProductDTO() {
+        return new UsedProductDTO();
+    }
+
 }

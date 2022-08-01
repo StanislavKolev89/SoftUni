@@ -13,14 +13,6 @@ import java.util.Arrays;
 public class RoleService {
     private final RoleRepository roleRepository;
 
-    public void initRoles() {
-        if(roleRepository.count()==0) {
-            Arrays.stream(RoleEnum.values()).forEach(roleEnum -> {
-                roleRepository.save(new RoleEntity().name(roleEnum));
-            });
-        }
-    }
-
     public RoleEntity getAdminRole() {
         return roleRepository.findRoleEntityByName(RoleEnum.ADMIN);
     }
@@ -28,5 +20,15 @@ public class RoleService {
 
     public RoleEntity getUserRole() {
         return roleRepository.findRoleEntityByName(RoleEnum.USER);
+    }
+
+    public void initRoles() {
+        if (roleRepository.count() == 0) {
+            Arrays.stream(RoleEnum.values()).forEach(roleEnum -> {
+                RoleEntity roleEntity = new RoleEntity();
+                roleEntity.setName(roleEnum);
+                roleRepository.save(roleEntity);
+            });
+        }
     }
 }

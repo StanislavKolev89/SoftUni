@@ -7,7 +7,7 @@
 <nav th:replace="fragments/commons::nav"></nav>
 
 <div class="p-5 bg-blur text-center my-main">
-    <form th:action="@{/admin/category/edit/{id}(id=${categoryData.id})}" th:method="post"
+    <form th:action="@{/admin/categories/edit/{id}(id=${categoryData.id})}" th:method="post"
           th:object="${categoryDTO}">
         <div class="card">
             <h2 class="mt-5">CATEGORY DETAILS </h2>

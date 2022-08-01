@@ -1,9 +1,10 @@
 package bg.softuni.personalproject.model.dto;
 
 import bg.softuni.personalproject.model.entity.RoleEntity;
-import bg.softuni.personalproject.validation.UniqueEmail;
-import bg.softuni.personalproject.validation.UniqueUsername;
+import bg.softuni.personalproject.model.validation.UniqueEmail;
+import bg.softuni.personalproject.model.validation.UniqueUsername;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +16,7 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class UserDTO {
 
     private Long id;

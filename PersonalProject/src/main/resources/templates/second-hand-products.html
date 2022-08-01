@@ -11,16 +11,6 @@
 <div class="p-5 bg-blur text-center my-main">
     <div class="row">
         <h1 class="display-4 text-white">SECOND HAND PRODUCTS</h1>
-        <!--        <h2 class="text-success">SELECT CATEGORY</h2>-->
-
-        <!--        <select class="form-control" id="categoryOption">-->
-        <!--            <option value="" selected>Choose category</option>-->
-        <!--            <option th:each="c:${allCategories}"-->
-        <!--                    th:value="${c.getName()}"-->
-        <!--                    th:text="${c.getName()}">-->
-        <!--            </option>-->
-        <!--        </select>-->
-
     </div>
 
     <div class="row">
@@ -35,7 +25,7 @@
                             card's content. Replace it with your own text anytime.</p>
                     </div>
                     <div class="card-body bg-white">
-                        <a th:href="@{/products/{id}(id=${product.id})}" class="card-link text-white">Product
+                        <a th:href="@{/used/products/details/{id}(id=${product.id})}" class="card-link text-white">Product
                             Details</a>
                     </div>
                 </div>
@@ -46,67 +36,6 @@
 </div>
 </div>
 
-</br>
-
-<div class="container bg-light">
-    </section>
-    <section id="map"></section>
-
-    <section class="comments">
-
-        <h1>Comments</h1>
-        <div>
-            <!-- Comments submission -->
-            <form id="commentForm" method="POST"
-                  action="/">
-                <div class="form-group">
-                    <h4>Leave a comment</h4>
-                    <label for="message">Message</label>
-
-                    <textarea name="message"
-                              id="message"
-                              cols="30"
-                              rows="5"
-                              class="form-control"
-                              style="background-color: white;"></textarea>
-                    <small id="messageError" class="invalid-feedback">
-                        Message should be at least 10 characters.
-                    </small>
-                </div>
-
-                <div class="form-group btn btn-dark btn-rounded mr-1">
-                    <input type="submit"
-                           class="btn text-white"
-                           id="postComment"
-                           value="Post Comment"/>
-                </div>
-            </form>
-            <!-- Comments submission -->
-        </div>
-
-        <!-- All comments section -->
-        <div>
-            <span id="commentCtnr">
-            <div>
-               <h3>-----------------------</h3>
-                <h4>${comment.authorName}</h4>
-                <p>${comment.message}</p>
-            </div>
-                  <div>
-               <h3>-----------------------</h3>
-                <h4>${comment.authorName}</h4>
-                <p>${comment.message}</p>
-            </div>
-                  <div>
-               <h3>-----------------------</h3>
-                <h4>${comment.authorName}</h4>
-                <p>${comment.message}</p>
-            </div>
-            </span>
-        </div>
-
-    </section>
-</div>
 <footer th:replace="fragments/commons::footer"></footer>
 
 </body>

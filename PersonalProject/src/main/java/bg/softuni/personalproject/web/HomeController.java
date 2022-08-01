@@ -1,5 +1,6 @@
 package bg.softuni.personalproject.web;
 
+import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.dto.CategoryDTO;
 import bg.softuni.personalproject.model.view.CategoryViewModel;
 import bg.softuni.personalproject.service.CategoryService;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 @Controller
@@ -22,8 +24,12 @@ public class HomeController {
 
     @GetMapping("/")
     public String indexPage(Model model){
-        model.addAttribute("firstCategoryItem", getFirstCategory(categoryService.getAllCategories()));
-        model.addAttribute("allOtherItems",getOtherCategories(categoryService.getAllCategories()));
+        List<CategoryViewModel> collection = categoryService.getAllCategories()
+                .stream().map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
+                .collect(Collectors.toList());
+
+        model.addAttribute("firstCategoryItem", collection.get(0));
+        model.addAttribute("allOtherItems",collection.stream().skip(1).collect(Collectors.toList()));
 
         return "index";
     }

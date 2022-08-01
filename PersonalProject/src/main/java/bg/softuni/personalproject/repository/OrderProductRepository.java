@@ -8,16 +8,17 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface OrderProductRepository extends JpaRepository<OrderProductEntity, Long> {
 
 
     @Query("SELECT o FROM OrderProductEntity o where o.order.user.id=:id")
-    List<OrderProductEntity> findAllOrdersByUserId(@Param("id") Long id);
+    Optional<List<OrderProductEntity>> findAllOrdersByUserId(@Param("id") Long id);
 
 
-    List<OrderProductEntity> findOrderProductEntitiesByOrder_Id(Long orderId);
+    Optional<List<OrderProductEntity>> findOrderProductEntitiesByOrder_Id(Long orderId);
 
     void deleteAllOrdersProductEntitiesByOrderId(Long id);
 }

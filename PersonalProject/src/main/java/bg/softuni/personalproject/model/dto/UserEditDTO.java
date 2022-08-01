@@ -1,7 +1,8 @@
 package bg.softuni.personalproject.model.dto;
 
-import bg.softuni.personalproject.validation.UniqueUsername;
+import bg.softuni.personalproject.model.validation.UniqueUsername;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class UserEditDTO {
 
     @NotBlank(message = "Username can not be blank!")
