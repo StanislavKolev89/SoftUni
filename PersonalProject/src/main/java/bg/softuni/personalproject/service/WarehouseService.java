@@ -1,7 +1,7 @@
 package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.entity.ProductQuantityTracker;
-import bg.softuni.personalproject.repository.ProductQuantityTrackerRepository;
+import bg.softuni.personalproject.repository.WarehouseTrackerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -12,30 +12,30 @@ import java.util.stream.Collectors;
 
 
 @Service
-public class ProductQuantityService {
+public class WarehouseService {
 
-    private Logger LOGGER = LoggerFactory.getLogger(ProductQuantityService.class);
-    private final ProductQuantityTrackerRepository productQuantityTrackerRepository;
+    private Logger LOGGER = LoggerFactory.getLogger(WarehouseService.class);
+    private final WarehouseTrackerRepository warehouseTrackerRepository;
 
-    public ProductQuantityService(ProductQuantityTrackerRepository productQuantityTrackerRepository) {
-        this.productQuantityTrackerRepository = productQuantityTrackerRepository;
+    public WarehouseService(WarehouseTrackerRepository warehouseTrackerRepository) {
+        this.warehouseTrackerRepository = warehouseTrackerRepository;
     }
 
     public void decreaseStock(Long id, Integer value) {
-        ProductQuantityTracker productQuantityTracker = productQuantityTrackerRepository.findById(id).get();
+        ProductQuantityTracker productQuantityTracker = warehouseTrackerRepository.findById(id).get();
         productQuantityTracker.setQuantity(productQuantityTracker.getQuantity() - value);
-        productQuantityTrackerRepository.save(productQuantityTracker);
+        warehouseTrackerRepository.save(productQuantityTracker);
     }
 
     public int itemsLeft(Long id){
-        ProductQuantityTracker productQuantityTracker = productQuantityTrackerRepository.findById(id).get();
+        ProductQuantityTracker productQuantityTracker = warehouseTrackerRepository.findById(id).get();
         return productQuantityTracker.getQuantity();
 
     }
     @Scheduled(cron = "* 1 * * * *")
     public void alertIfInventoryLow() {
 
-        List<ProductQuantityTracker> trackers = productQuantityTrackerRepository.findAll()
+        List<ProductQuantityTracker> trackers = warehouseTrackerRepository.findAll()
                 .stream().filter(productQuantityTracker -> productQuantityTracker.getQuantity() < 20)
                 .collect(Collectors.toList());
         if (!trackers.isEmpty()) {
@@ -46,7 +46,7 @@ public class ProductQuantityService {
     @Scheduled(cron = "* 1 * * * *")
     public void trackInventory() {
         StringBuilder builder = new StringBuilder();
-        productQuantityTrackerRepository.findAll().stream()
+        warehouseTrackerRepository.findAll().stream()
                 .forEach(product -> builder.append(String.format("PRODUCT %s -> Quantity %d ", product.getProduct().getTitle(), product.getQuantity()))
                         .append(System.lineSeparator()));
         LOGGER.info(builder.toString());

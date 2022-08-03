@@ -21,7 +21,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final ModelMapper modelMapper;
     private final UserService userService;
-    private final ProductQuantityService productQuantityService;
+    private final WarehouseService productQuantityService;
 
     private final OrderProductService orderProductService;
 

@@ -57,7 +57,7 @@ public class UserController {
             redirectAttributes.addFlashAttribute("userRegisterDTO", userRegisterDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegisterDTO", bindingResult);
 
-            return "redirect:register";
+            return "redirect:/users/register";
         }
 
         userService.registerAndLoginUser(userRegisterDTO);

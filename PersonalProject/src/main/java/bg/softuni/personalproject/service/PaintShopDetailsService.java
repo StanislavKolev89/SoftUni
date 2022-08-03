@@ -11,11 +11,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-public class ProductShopDetailsService implements UserDetailsService {
+public class PaintShopDetailsService implements UserDetailsService {
 
    private final UserRepository userRepository;
 
-   public ProductShopDetailsService(UserRepository userRepository) {
+   public PaintShopDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
    }
 

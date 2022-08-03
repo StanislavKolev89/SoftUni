@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "inventory")
+@Table(name = "warehouse")
 public class ProductQuantityTracker {
 
     @Id
