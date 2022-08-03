@@ -1,16 +1,15 @@
-package bg.softuni.personalproject;
+package bg.softuni.personalproject.repository;
 
 import bg.softuni.personalproject.model.entity.CategoryEntity;
-import bg.softuni.personalproject.repository.CategoryRepository;
+
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+
 
 @SpringBootTest
-@ActiveProfiles("test")
 class CategoryRepositoryTest {
 
     @Autowired

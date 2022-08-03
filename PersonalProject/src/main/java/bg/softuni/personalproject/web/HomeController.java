@@ -1,6 +1,6 @@
 package bg.softuni.personalproject.web;
 
-import bg.softuni.personalproject.exception.ObjectNotFoundException;
+
 import bg.softuni.personalproject.model.dto.CategoryDTO;
 import bg.softuni.personalproject.model.view.CategoryViewModel;
 import bg.softuni.personalproject.service.CategoryService;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 @RequiredArgsConstructor
 @Controller

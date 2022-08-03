@@ -19,7 +19,7 @@ values (1, 'first description', '/images/New-Spray-Gun.webp', 22.99, 'Spraygun',
        (4, 'forth description', '/images/CategoryBasecoat.jpg', 33.99, 'Basecoat', 4,false),
        (5, 'fifth description', '/images/protectionGoggles.jpg', 33.99, 'Protection', 5,false);;
 
-INSERT INTO inventory(id, quantity, product_id)
+INSERT INTO warehouse(id, quantity, product_id)
 VALUES (1,100,1),
        (2,100,2),
        (3,100,3),

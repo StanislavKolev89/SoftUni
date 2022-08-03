@@ -5,7 +5,7 @@ import bg.softuni.personalproject.model.dto.QuantityHolderDTO;
 import bg.softuni.personalproject.model.view.CategoryViewModel;
 import bg.softuni.personalproject.model.view.ProductViewModel;
 import bg.softuni.personalproject.service.CategoryService;
-import bg.softuni.personalproject.service.ProductQuantityService;
+import bg.softuni.personalproject.service.WarehouseService;
 import bg.softuni.personalproject.service.ProductService;
 
 import bg.softuni.personalproject.service.UserService;
@@ -27,7 +27,7 @@ public class ProductController {
     private final ProductService productService;
     private final CategoryService categoryService;
     private final UserService userService;
-    private final ProductQuantityService productQuantityService;
+    private final WarehouseService productQuantityService;
     private final ModelMapper modelMapper;
 
 

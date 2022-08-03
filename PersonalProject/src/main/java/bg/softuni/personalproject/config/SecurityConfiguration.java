@@ -3,7 +3,7 @@ package bg.softuni.personalproject.config;
 
 import bg.softuni.personalproject.model.enums.RoleEnum;
 import bg.softuni.personalproject.repository.UserRepository;
-import bg.softuni.personalproject.service.ProductShopDetailsService;
+import bg.softuni.personalproject.service.PaintShopDetailsService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -71,6 +71,6 @@ public class SecurityConfiguration {
 
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository) {
-        return new ProductShopDetailsService(userRepository);
+        return new PaintShopDetailsService(userRepository);
     }
 }

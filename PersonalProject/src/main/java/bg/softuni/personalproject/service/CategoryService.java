@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -28,15 +27,17 @@ public class CategoryService {
 
                     return dto;
                 }).collect(Collectors.toList());
-        if(categoryDTOS==null){
+        if(categoryDTOS.isEmpty()){
             throw new ObjectNotFoundException();
         }
         return categoryDTOS;
     }
 
-    public CategoryDTO getCategoryDTO(Long id) {
-        CategoryEntity categoryEntity = categoryRepository.findById(id).orElseThrow(()-> new ObjectNotFoundException());
-        //ToDo Check why model mapper cannot map all fields
+    public CategoryDTO  getCategoryDTO(Long id) {
+        Optional<CategoryEntity> categoryEntity = categoryRepository.findById(id);
+        if(categoryEntity==null){
+            throw new ObjectNotFoundException();
+        }
         CategoryDTO categoryDTO = modelMapper.map(categoryEntity, CategoryDTO.class);
         return categoryDTO;
     }
