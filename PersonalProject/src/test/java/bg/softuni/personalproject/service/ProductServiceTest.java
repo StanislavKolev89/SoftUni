@@ -56,6 +56,9 @@ class ProductServiceTest {
 
     @Test
     void getAllProducts() {
+        when(productRepository.findAll()).thenReturn(List.of(productOne,productTwo));
+        List<ProductDTO> allProducts = mockService.getAllProducts();
+        Assertions.assertThat(allProducts.size()).isEqualTo(2);
     }
 
     @Test

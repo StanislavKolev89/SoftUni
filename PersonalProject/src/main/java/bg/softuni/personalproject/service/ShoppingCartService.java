@@ -1,5 +1,6 @@
 package bg.softuni.personalproject.service;
 
+import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.dto.QuantityHolderDTO;
 import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.model.entity.UserEntity;
@@ -49,14 +50,11 @@ public class ShoppingCartService {
     }
 
     public void removeProduct(Long productById) {
-        ProductEntity productEntity = null;
-        for (Map.Entry<ProductEntity, Integer> product : cartProducts.entrySet()) {
-            if (product.getKey().getId() == productById) {
-                productEntity = product.getKey();
-                break;
-            }
+        Optional<ProductEntity> byId = productRepository.findById(productById);
+        if(byId==null){
+            throw new ObjectNotFoundException();
         }
 
-        cartProducts.remove(productEntity);
+        cartProducts.remove(byId.get());
     }
 }

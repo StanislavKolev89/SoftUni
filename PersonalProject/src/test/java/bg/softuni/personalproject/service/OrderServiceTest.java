@@ -78,7 +78,6 @@ class OrderServiceTest {
 
     @Test
     void createOrder() {
-       when(orderRepository.save(orderOne)).thenReturn(orderOne);
         mockService.createOrder(cartItems,userEntity);
         verify(orderRepository, times(1)).save(any());
     }
