@@ -22,8 +22,7 @@ public class CommentServiceTest {
     private UserEntity userEntity = new UserEntity();
 
     @BeforeEach
-
-    void setUp(){
+    void setUp() {
         RoleEntity role = new RoleEntity();
         role.setName(RoleEnum.ADMIN);
         userEntity.setLastName("Kolev");
@@ -32,12 +31,10 @@ public class CommentServiceTest {
         userEntity.setRole(role);
         userEntity.setEmail("kolevone@gmail.com");
         userEntity.setPassword("12345");
-                userEntity.setAddress("sdasdadasddsa");
-                userEntity.setActive(true);
+        userEntity.setAddress("sdasdadasddsa");
+        userEntity.setActive(true);
 
     }
-
-
 
 
 }

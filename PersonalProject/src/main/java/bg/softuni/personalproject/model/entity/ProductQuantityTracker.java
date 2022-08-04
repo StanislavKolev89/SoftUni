@@ -17,7 +17,6 @@ public class ProductQuantityTracker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @ManyToOne
     private ProductEntity product;
 

@@ -18,6 +18,7 @@ import org.modelmapper.internal.util.Assert;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,14 +30,13 @@ import static org.mockito.Mockito.*;
 class CategoryServiceTest {
 
     @InjectMocks
-    private CategoryService categoryServiceTest;
+    private CategoryService mockedService;
 
     @Mock
     private CategoryRepository categoryRepository;
+
     @Spy
     private ModelMapper modelMapper;
-
-
 
     private CategoryEntity categoryOne;
 
@@ -45,6 +45,7 @@ class CategoryServiceTest {
 
     @BeforeEach
     void setUp() {
+        categoryRepository.deleteAll();
         modelMapper = new ModelMapper();
         categoryOne = new CategoryEntity();
         categoryOne.setName("CATONE");
@@ -57,61 +58,87 @@ class CategoryServiceTest {
 
     }
 
+
+
     @Test
     void getAllCategories() {
 
         when(categoryRepository.findAll()).thenReturn(List.of(categoryOne, categoryTwo));
-        categoryRepository.save(categoryOne);
-        categoryRepository.save(categoryTwo);
-        List<CategoryDTO> allCategories = categoryServiceTest.getAllCategories();
+        List<CategoryDTO> allCategories = mockedService.getAllCategories();
+//        assertThat(allCategories).isNotNull();
         assertThat(allCategories.size()).isEqualTo(2);
 
     }
 
     @Test
     void getAllCategoriesThrowsException() {
+        when(categoryRepository.findAll()).thenReturn(Collections.EMPTY_LIST);
         Assertions.assertThrows(ObjectNotFoundException.class, () -> {
-            categoryServiceTest.getAllCategories();
+            mockedService.getAllCategories();
         });
 
     }
 
     @Test
     void getCategoryDTOThrowsException() {
-        when(categoryRepository.findById(1l)).thenReturn(Optional.of(categoryOne)).thenReturn(null);
+        when(categoryRepository.findById(1l)).thenReturn(null);
         Assertions.assertThrows(ObjectNotFoundException.class, () -> {
-            categoryServiceTest.getCategoryDTO(1L);
+            mockedService.getCategoryDTO(1L);
         });
     }
+
 
 
     @Test
     void getCategoryDTO() {
         categoryRepository.save(categoryOne);
         when(categoryRepository.findById(1l)).thenReturn(Optional.of(categoryOne));
-        CategoryDTO categoryDTO = categoryServiceTest.getCategoryDTO(1L);
+        CategoryDTO categoryDTO = mockedService.getCategoryDTO(1L);
         Assert.notNull(categoryDTO);
     }
 
     @Test
     void changeCategory() {
-        CategoryEntity save = categoryRepository.save(categoryOne);
+        when(categoryRepository.findById(1L)).thenReturn(Optional.of(categoryOne));
+        when(categoryRepository.save(categoryOne)).thenReturn(categoryOne);
         CategoryDTO categoryDTO = new CategoryDTO();
-        categoryServiceTest.changeCategory(categoryDTO, 1L);
-     verify(categoryRepository,times(1)).save(any());
+        categoryDTO.setName("CLEAR");
+        categoryDTO.setImageUrl("lasdasdasd");
+        mockedService.changeCategory(categoryDTO, 1L);
+        assertThat(categoryOne.getName()).isEqualTo("CLEAR");
+        verify(categoryRepository, times(1)).save(any());
 
+    }
+
+    @Test
+    void changeCategory_ThrowsException() {
+        Assertions.assertThrows(ObjectNotFoundException.class, () ->
+                mockedService.changeCategory(new CategoryDTO(), 1L));
     }
 
     @Test
     void deleteCategory() {
+      when(categoryRepository.findById(1L)).thenReturn(Optional.of(categoryOne));
+        mockedService.deleteCategory(1L);
+        verify(categoryRepository,times(1)).findById(1L);
     }
 
     @Test
     void addCategory() {
+
+        when(categoryRepository.findByName("CATONE")).thenReturn(Optional.of(categoryOne));
+        CategoryDTO categoryDTO = new CategoryDTO();
+        categoryDTO.setName("CATONE");
+        categoryDTO.setImageUrl("IMAGEURL");
+
+        mockedService.addCategory(categoryDTO);
+        CategoryEntity save = verify(categoryRepository, times(1)).save(any());
     }
 
     @Test
     void passedCategoryExists() {
+        when(categoryRepository.existsByName("Name")).thenReturn(true);
+        mockedService.passedCategoryExists("Name");
     }
 
     @Test
@@ -120,5 +147,8 @@ class CategoryServiceTest {
 
     @Test
     void findCategoryByName() {
+        when(categoryRepository.findByName("CATONE")).thenReturn(Optional.of(categoryOne));
+        CategoryEntity catOne = mockedService.findCategoryByName("CATONE");
+        assertThat(catOne).isNotNull();
     }
 }

@@ -4,6 +4,7 @@ import bg.softuni.personalproject.model.entity.OrderEntity;
 import bg.softuni.personalproject.model.entity.OrderProductEntity;
 import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.repository.OrderProductRepository;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,9 +14,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
+import static org.mockito.BDDMockito.willDoNothing;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class OrderProductServiceTest {
@@ -30,7 +33,9 @@ class OrderProductServiceTest {
 
     private OrderEntity order;
 
-    private OrderProductEntity orderProductEntity;
+    private OrderProductEntity orderProductEntityOne;
+
+    private OrderProductEntity orderProductEntityTwo;
 
     @BeforeEach
     void setUp() {
@@ -39,36 +44,71 @@ class OrderProductServiceTest {
         product.setPrice(BigDecimal.TEN);
         order = new OrderEntity();
         order.setCreatedAt(LocalDateTime.now());
-        orderProductEntity = new OrderProductEntity();
+        orderProductEntityOne = new OrderProductEntity();
+        orderProductEntityTwo = new OrderProductEntity();
+
 
     }
 
-//    @Test
-//    void addOrderAndProduct() {
-//       verify(mockedService.addOrderAndProduct(order,product,2));
-//    }
+    @Test
+    void addOrderAndProduct() {
+        orderProductEntityOne.setProduct(product);
+        orderProductEntityOne.setOrder(order);
+        orderProductEntityOne.setQuantity(2);
+        mockedService.addOrderAndProduct(order, product, 2);
+
+        verify(orderProductRepository, times(1)).save(any());
+    }
 
     @Test
     void findAllUsersProducts() {
+        orderProductEntityOne.setProduct(product);
+        orderProductEntityOne.setOrder(order);
+        orderProductEntityOne.setQuantity(2);
+        when(orderProductRepository.findAllOrdersByUserId(1L)).
+                thenReturn(Optional.of(List.of(orderProductEntityOne, orderProductEntityTwo)));
+        List<OrderProductEntity> allUsersProducts = mockedService.findAllUsersProducts(1L);
+        Assertions.assertThat(allUsersProducts).size().isEqualTo(2);
     }
 
     @Test
     void findAll() {
+        when(orderProductRepository.findAll()).thenReturn(List.of(orderProductEntityOne, orderProductEntityTwo));
+        List<OrderProductEntity> allUsersProducts = mockedService.findAll();
+        Assertions.assertThat(allUsersProducts).isNotEmpty();
+        Assertions.assertThat(allUsersProducts).size().isEqualTo(2);
+
     }
 
     @Test
     void findAllOrderProducts() {
+        when(orderProductRepository.findOrderProductEntitiesByOrder_Id(1L)).
+                thenReturn(Optional.of(List.of(orderProductEntityOne,orderProductEntityTwo)));
+        List<OrderProductEntity> allOrderProducts = mockedService.findAllOrderProducts(1L);
+  Assertions.assertThat(allOrderProducts).isNotEmpty();
     }
 
     @Test
     void pricePerProduct() {
+        orderProductEntityOne.setOrder(order);
+        orderProductEntityOne.setProduct(product);
+        orderProductEntityOne.setQuantity(1);
+        BigDecimal bigDecimal = mockedService.pricePerProduct(orderProductEntityOne);
+        Assertions.assertThat(bigDecimal).isEqualTo(BigDecimal.TEN);
     }
 
     @Test
     void findTurnover() {
+        BigDecimal bigDecimal = mockedService.findTurnover();
+        Assertions.assertThat(bigDecimal).isEqualTo(BigDecimal.ZERO);
     }
 
     @Test
     void deleteByOrderId() {
+        orderProductRepository.save(orderProductEntityOne);
+        willDoNothing().given(orderProductRepository).deleteAllOrdersProductEntitiesByOrderId(1L);
+        mockedService.deleteByOrderId(1l);
+        verify(orderProductRepository, times(1)).delete(any());
+
     }
 }

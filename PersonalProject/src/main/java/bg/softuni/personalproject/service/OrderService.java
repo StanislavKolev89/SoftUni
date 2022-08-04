@@ -1,5 +1,6 @@
 package bg.softuni.personalproject.service;
 
+import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.dto.OrderDTO;
 import bg.softuni.personalproject.model.entity.OrderEntity;
 import bg.softuni.personalproject.model.entity.ProductEntity;
@@ -57,14 +58,14 @@ public class OrderService {
     }
 
     public void deleteOrder(Long id) {
-        OrderEntity order = orderRepository.findById(id).orElse(null);
+        OrderEntity order = orderRepository.findById(id).orElseThrow(()->new ObjectNotFoundException());
         orderProductService.deleteByOrderId(id);
         order.setDeleted(true);
         orderRepository.save(order);
 
     }
 
-    public boolean buyerIsAdmin(String username) {
-        return userService.existsByEmail(username);
-    }
+//    public boolean buyerIsAdmin(String username) {
+//        return userService.existsByEmail(username);
+//    }
 }

@@ -52,16 +52,9 @@ public class ProductService {
         return productDTOS;
     }
 
-
-//    public boolean isExisting(Long id) {
-//        return productRepository.existsById(id);
-//    }
-
-    //TODO PROBLEM WITH MODEL MAPPER
     public ProductDTO getViewModel(Long id) {
         ProductEntity productEntity = productRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
-        ProductDTO pr = modelMapper.map(productEntity, ProductDTO.class);
-        return pr;
+        return  modelMapper.map(productEntity, ProductDTO.class);
     }
 
     public void deleteProduct(Long id) {
@@ -71,7 +64,7 @@ public class ProductService {
     }
 
     public ProductEntity returnProduct(Long productId) {
-        return productRepository.findById(productId).get();
+        return productRepository.findById(productId).orElseThrow(()->new ObjectNotFoundException());
     }
 
     public void addNewProduct(ProductDTO productDTO) {
@@ -88,7 +81,6 @@ public class ProductService {
         productEntity.setPrice(productDTO.getPrice());
         productEntity.setDescription(productDTO.getDescription());
         productRepository.save(productEntity);
-
     }
 
 
