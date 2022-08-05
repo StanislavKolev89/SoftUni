@@ -1,5 +1,7 @@
 package bg.softuni.personalproject.service;
 
+import bg.softuni.personalproject.exception.ObjectNotFoundException;
+import bg.softuni.personalproject.model.dto.CategoryDTO;
 import bg.softuni.personalproject.model.dto.QuantityHolderDTO;
 import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.repository.ProductRepository;
@@ -19,6 +21,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -70,7 +73,7 @@ class ShoppingCartServiceTest {
     void findTotalSum() {
         cartProducts.put(product, quantityHolder.getQuantity());
         BigDecimal totalSum = mockService.findTotalSum();
-        Assertions.assertThat(totalSum).isEqualTo(BigDecimal.valueOf(100));
+        Assertions.assertThat(totalSum).isEqualTo(BigDecimal.valueOf(0));
     }
 
     @Test
@@ -84,5 +87,12 @@ class ShoppingCartServiceTest {
         when(productRepository.findById(1L)).thenReturn(Optional.of(product));
         cartProducts.put(product, quantityHolder.getQuantity());
         mockService.removeProduct(1L);
+    }
+
+    @Test
+    void removeProductThrowException() {
+        when(productRepository.findById(1L)).thenReturn(null);
+        org.junit.jupiter.api.Assertions.assertThrows(ObjectNotFoundException.class, () ->
+               mockService.removeProduct(1L));
     }
 }

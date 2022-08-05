@@ -103,9 +103,6 @@ public class UserService {
 
     }
 
-    public boolean existsByEmail(String username) {
-        return userRepository.findByEmail(username).get().getId() == 1;
-    }
 
     public UserDTO getLoggedUserDetails(Principal principal) {
         UserEntity user = userRepository.findByEmail(principal.getName()).get();
