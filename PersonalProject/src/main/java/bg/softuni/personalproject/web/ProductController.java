@@ -5,15 +5,17 @@ import bg.softuni.personalproject.model.dto.QuantityHolderDTO;
 import bg.softuni.personalproject.model.view.CategoryViewModel;
 import bg.softuni.personalproject.model.view.ProductViewModel;
 import bg.softuni.personalproject.service.CategoryService;
-import bg.softuni.personalproject.service.WarehouseService;
 import bg.softuni.personalproject.service.ProductService;
-
 import bg.softuni.personalproject.service.UserService;
+import bg.softuni.personalproject.service.WarehouseService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
 import java.util.List;

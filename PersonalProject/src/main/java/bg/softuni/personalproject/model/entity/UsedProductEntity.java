@@ -1,7 +1,6 @@
 package bg.softuni.personalproject.model.entity;
 
 import lombok.*;
-import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

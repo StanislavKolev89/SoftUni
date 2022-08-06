@@ -16,12 +16,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.management.relation.Role;
-import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;

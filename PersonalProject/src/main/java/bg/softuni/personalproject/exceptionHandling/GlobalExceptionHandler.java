@@ -2,7 +2,6 @@ package bg.softuni.personalproject.exceptionHandling;
 
 
 import bg.softuni.personalproject.exception.ObjectNotFoundException;
-
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;

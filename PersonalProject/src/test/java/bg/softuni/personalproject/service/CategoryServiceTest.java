@@ -4,7 +4,6 @@ import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.dto.CategoryDTO;
 import bg.softuni.personalproject.model.entity.CategoryEntity;
 import bg.softuni.personalproject.repository.CategoryRepository;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,13 +15,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.internal.util.Assert;
 
-import static org.assertj.core.api.Assertions.*;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 

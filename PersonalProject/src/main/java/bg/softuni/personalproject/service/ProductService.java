@@ -7,11 +7,9 @@ import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor

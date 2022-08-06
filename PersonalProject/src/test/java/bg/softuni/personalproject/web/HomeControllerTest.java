@@ -1,22 +1,12 @@
 package bg.softuni.personalproject.web;
 
-import bg.softuni.personalproject.model.dto.CategoryDTO;
-import bg.softuni.personalproject.model.view.CategoryViewModel;
-import bg.softuni.personalproject.service.CategoryService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Spy;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 

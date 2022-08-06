@@ -7,7 +7,6 @@ import bg.softuni.personalproject.repository.OrderRepository;
 import bg.softuni.personalproject.repository.ProductRepository;
 import bg.softuni.personalproject.repository.RoleRepository;
 import bg.softuni.personalproject.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 

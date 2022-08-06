@@ -2,7 +2,6 @@ package bg.softuni.personalproject.model.entity;
 
 import bg.softuni.personalproject.model.enums.RoleEnum;
 import lombok.*;
-import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 

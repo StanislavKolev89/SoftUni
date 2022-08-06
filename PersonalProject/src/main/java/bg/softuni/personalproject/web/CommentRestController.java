@@ -1,7 +1,7 @@
 package bg.softuni.personalproject.web;
 
-import bg.softuni.personalproject.model.dto.ApiErrorDTO;
 import bg.softuni.personalproject.exception.CommentNotFoundException;
+import bg.softuni.personalproject.model.dto.ApiErrorDTO;
 import bg.softuni.personalproject.model.dto.CommentCreationDTO;
 import bg.softuni.personalproject.model.dto.CommentDTO;
 import bg.softuni.personalproject.model.dto.ContentConsumerDto;

@@ -1,10 +1,12 @@
 package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.dto.OrderDTO;
-import bg.softuni.personalproject.model.entity.*;
+import bg.softuni.personalproject.model.entity.CategoryEntity;
+import bg.softuni.personalproject.model.entity.OrderEntity;
+import bg.softuni.personalproject.model.entity.ProductEntity;
+import bg.softuni.personalproject.model.entity.UserEntity;
 import bg.softuni.personalproject.repository.OrderProductRepository;
 import bg.softuni.personalproject.repository.OrderRepository;
-
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +18,6 @@ import org.modelmapper.ModelMapper;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 

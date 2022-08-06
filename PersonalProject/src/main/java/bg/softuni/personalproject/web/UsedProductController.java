@@ -1,6 +1,5 @@
 package bg.softuni.personalproject.web;
 
-import bg.softuni.personalproject.model.dto.ProductDTO;
 import bg.softuni.personalproject.model.dto.UsedProductDTO;
 import bg.softuni.personalproject.model.view.CategoryViewModel;
 import bg.softuni.personalproject.model.view.UsedProductViewModel;
