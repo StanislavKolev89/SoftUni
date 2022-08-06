@@ -42,7 +42,7 @@ class AdminControllerTest {
 
     @Test
     void deleteCategory() throws Exception {
-        mockMvc.perform(get("/admin/category/delete/{id}", 1)).
+        mockMvc.perform(get("/admin/categories/delete/{id}", 1)).
                 andExpect(status().is3xxRedirection()).andExpect(view().name("redirect:/admin/categories/all"));
     }
 
