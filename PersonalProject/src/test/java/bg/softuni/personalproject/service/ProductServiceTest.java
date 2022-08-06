@@ -5,7 +5,6 @@ import bg.softuni.personalproject.model.dto.ProductDTO;
 import bg.softuni.personalproject.model.entity.CategoryEntity;
 import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.repository.ProductRepository;
-
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

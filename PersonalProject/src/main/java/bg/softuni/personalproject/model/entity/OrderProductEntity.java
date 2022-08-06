@@ -1,6 +1,7 @@
 package bg.softuni.personalproject.model.entity;
 
 import lombok.*;
+
 import javax.persistence.*;
 
 @Data

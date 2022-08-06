@@ -2,7 +2,6 @@ package bg.softuni.personalproject.model.validation;
 
 import bg.softuni.personalproject.repository.UserRepository;
 
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 

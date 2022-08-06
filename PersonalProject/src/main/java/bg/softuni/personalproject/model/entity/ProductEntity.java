@@ -1,13 +1,10 @@
 package bg.softuni.personalproject.model.entity;
 
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.*;
-
 import lombok.*;
-import lombok.experimental.Accessors;
+
+import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Data
 @EqualsAndHashCode(of = "id")

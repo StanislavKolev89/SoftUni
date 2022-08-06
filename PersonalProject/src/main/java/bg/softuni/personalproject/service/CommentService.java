@@ -2,7 +2,6 @@ package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.dto.CommentCreationDTO;
 import bg.softuni.personalproject.model.dto.CommentDTO;
-
 import bg.softuni.personalproject.model.entity.CommentEntity;
 import bg.softuni.personalproject.model.entity.UserEntity;
 import bg.softuni.personalproject.repository.CommentRepository;

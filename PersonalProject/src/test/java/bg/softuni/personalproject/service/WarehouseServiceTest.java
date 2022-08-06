@@ -1,6 +1,5 @@
 package bg.softuni.personalproject.service;
 
-import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.model.entity.ProductQuantityTracker;
 import bg.softuni.personalproject.repository.WarehouseTrackerRepository;

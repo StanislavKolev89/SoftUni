@@ -1,12 +1,10 @@
 package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.exception.ObjectNotFoundException;
-import bg.softuni.personalproject.model.dto.CategoryDTO;
 import bg.softuni.personalproject.model.dto.QuantityHolderDTO;
 import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.repository.ProductRepository;
 import org.assertj.core.api.Assertions;
-import org.assertj.core.error.ShouldBeUnmodifiable;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,14 +12,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.lang.instrument.UnmodifiableClassException;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

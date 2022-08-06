@@ -1,59 +1,21 @@
 package bg.softuni.personalproject.web;
 
 import bg.softuni.personalproject.model.dto.CategoryDTO;
-import bg.softuni.personalproject.model.entity.OrderEntity;
-import bg.softuni.personalproject.model.view.CategoryViewModel;
-import bg.softuni.personalproject.repository.OrderRepository;
-import bg.softuni.personalproject.repository.UserRepository;
-import bg.softuni.personalproject.service.*;
-import org.apache.catalina.Authenticator;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.security.authentication.TestingAuthenticationToken;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.security.test.context.support.WithUserDetails;
-import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
-import java.math.BigDecimal;
-import java.security.Principal;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-//@Sql(scripts = "classpath:web/comments-controller.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-//@Sql(scripts = "classpath:web/delete-data.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+
 @SpringBootTest
 @AutoConfigureMockMvc
-@WithMockUser(roles = "ADMIN")
+@WithMockUser(username = "admin@gmail.com", roles = "ADMIN")
 class AdminControllerTest {
 
     @Autowired
@@ -257,4 +219,10 @@ class AdminControllerTest {
     void productDTO() {
     }
 
+    @Test
+    void allUsersPage() throws Exception {
+        mockMvc.perform(get("/admin/users/all")).
+                andExpect(status().isOk()).andExpect(view().name("users-admin"));
+    }
 }
+

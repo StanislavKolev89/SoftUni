@@ -3,9 +3,7 @@ package bg.softuni.personalproject.model.entity;
 
 import lombok.*;
 
-
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @EqualsAndHashCode(of = "id")
