@@ -141,4 +141,6 @@ public class UserService {
     public String getPrincipalUsername(Principal principal) {
         return userRepository.findByEmail(principal.getName()).map(UserEntity::getUsername).orElse(null);
     }
+
+
 }

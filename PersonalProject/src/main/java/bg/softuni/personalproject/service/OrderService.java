@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final ModelMapper modelMapper;
+    private final UserService userService;
     private final WarehouseService productQuantityService;
 
     private final OrderProductService orderProductService;
@@ -45,9 +46,7 @@ public class OrderService {
             return orderDTO;
         }).collect(Collectors.toList());
     }
-    //ToDo decide what exception to throw
 
-    //Usage in template
     public BigDecimal getTotalPriceOfOrder(Long orderId) {
         return orderProductService.findAllOrderProducts(orderId).stream().
                 map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
@@ -62,5 +61,9 @@ public class OrderService {
         order.setDeleted(true);
         orderRepository.save(order);
 
+    }
+
+    public boolean buyerIsAdmin(String username) {
+        return userService.findByName(username).getId()==1;
     }
 }
