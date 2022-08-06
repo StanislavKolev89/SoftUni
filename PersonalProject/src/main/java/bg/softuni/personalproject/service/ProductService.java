@@ -22,8 +22,8 @@ public class ProductService {
 
     public List<ProductDTO> getAllProducts() {
         return productRepository.findAll().stream().
-                filter(productEntity -> productEntity.getCategory().isDeleted() == false).
-                filter(productEntity -> productEntity.isDeleted() == false)
+                filter(productEntity -> !productEntity.getCategory().isDeleted()).
+                filter(productEntity -> !productEntity.isDeleted())
                 .map(productEntity -> {
                     ProductDTO productDTO = modelMapper.map(productEntity, ProductDTO.class);
                     productDTO.setCategory(productEntity.getCategory().getName());
@@ -33,7 +33,7 @@ public class ProductService {
 
 
     public ProductDTO findProductById(Long id) {
-        ProductEntity productEntity = productRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
+        ProductEntity productEntity = productRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
         ProductDTO productDTO = modelMapper.map(productEntity, ProductDTO.class);
         productDTO.setCategory(productEntity.getCategory().getName());
         return productDTO;
@@ -41,28 +41,26 @@ public class ProductService {
     }
 
     public List<ProductDTO> getFilteredProducts(String category) {
-        List<ProductDTO> productDTOS = productRepository.findAll().stream().
+        return productRepository.findAll().stream().
                 filter(productEntity -> productEntity.getCategory().getName().equals(category))
-                .filter(productEntity -> productEntity.isDeleted() == false).
+                .filter(productEntity -> !productEntity.isDeleted()).
                 map(productEntity -> modelMapper.map(productEntity, ProductDTO.class))
                 .collect(Collectors.toList());
-
-        return productDTOS;
     }
 
     public ProductDTO getViewModel(Long id) {
-        ProductEntity productEntity = productRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
+        ProductEntity productEntity = productRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
         return modelMapper.map(productEntity, ProductDTO.class);
     }
 
     public void deleteProduct(Long id) {
-        ProductEntity productEntity = productRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
+        ProductEntity productEntity = productRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
         productEntity.setDeleted(true);
         productRepository.save(productEntity);
     }
 
     public ProductEntity returnProduct(Long productId) {
-        return productRepository.findById(productId).orElseThrow(() -> new ObjectNotFoundException());
+        return productRepository.findById(productId).orElseThrow(ObjectNotFoundException::new);
     }
 
     public void addNewProduct(ProductDTO productDTO) {
@@ -73,7 +71,7 @@ public class ProductService {
     }
 
     public void editProduct(ProductDTO productDTO, Long id) {
-        ProductEntity productEntity = productRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
+        ProductEntity productEntity = productRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
         productEntity.setTitle(productDTO.getTitle());
         productEntity.setCategory(categoryService.findCategoryByName(productDTO.getCategory()));
         productEntity.setPrice(productDTO.getPrice());

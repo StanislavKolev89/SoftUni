@@ -39,7 +39,7 @@ public class UserService {
         UserDetails userDetails = userDetailsService.loadUserByUsername(userEntity.getEmail());
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails,
-                userDetails.getPassword(), userDetails.getAuthorities());
+              userDetails.getPassword(), userDetails.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
     }
@@ -56,34 +56,33 @@ public class UserService {
 
 
     public UserEntity findByName(String principalName) {
-        return userRepository.findByEmail(principalName).orElseThrow(() -> new ObjectNotFoundException());
+        return userRepository.findByEmail(principalName).orElseThrow(ObjectNotFoundException::new);
     }
 
     public List<UserDTO> findAll() {
         return userRepository.findAll().stream()
-                .map(userEntity -> modelMapper.map(userEntity, UserDTO.class)).collect(Collectors.toList());
-//        return userRepository.findAll().stream().skip(1).collect(Collectors.toList());
+              .map(userEntity -> modelMapper.map(userEntity, UserDTO.class)).collect(Collectors.toList());
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     public BigDecimal userPurchaseTotal(UserViewModel userViewModel) {
-
         return orderProductService.findAllUsersProducts(userViewModel.getId()).stream()
-                .map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
-                .reduce(BigDecimal::add)
-                .orElse(BigDecimal.ZERO);
+              .map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
+              .reduce(BigDecimal::add)
+              .orElse(BigDecimal.ZERO);
     }
 
     //Usage in template
     public BigDecimal grossSales() {
         return orderProductService.findAll().stream().filter(order -> order.getOrder().getUser().getId() != 1)
-                .map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
-                .reduce(BigDecimal::add)
-                .orElse(BigDecimal.ZERO);
+              .map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
+              .reduce(BigDecimal::add)
+              .orElse(BigDecimal.ZERO);
     }
 
     //ToDO SOFT DELETE
     public void makeUserNotActive(Long id) {
-        UserEntity user = userRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
+        UserEntity user = userRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
         user.setActive(false);
         userRepository.save(user);
     }
@@ -96,46 +95,50 @@ public class UserService {
 
     //TODO
     public void deleteUser(Long id) {
-        UserEntity user = userRepository.findById(id).get();
-        user.setUsername("*** " + user.getUsername() + " DELETED");
-        user.setActive(false);
-        userRepository.save(user);
-
+        userRepository.findById(id).ifPresent(user -> {
+            user.setUsername("*** " + user.getUsername() + " DELETED");
+            user.setActive(false);
+            userRepository.save(user);
+        });
     }
 
 
     public UserDTO getLoggedUserDetails(Principal principal) {
-        UserEntity user = userRepository.findByEmail(principal.getName()).get();
-        return modelMapper.map(user, UserDTO.class);
+        return userRepository.findByEmail(principal.getName())
+              .map(user -> modelMapper.map(user, UserDTO.class))
+              .orElse(null);
     }
 
     public void changeUserData(UserEditDTO userEditDTO, Principal principal) {
-        UserEntity user = userRepository.findByEmail(principal.getName()).get();
-        user.setUsername(userEditDTO.getUsername());
-        user.setFirstName(userEditDTO.getFirstName());
-        user.setLastName(userEditDTO.getLastName());
-        user.setAddress(userEditDTO.getAddress());
-        userRepository.save(user);
+        userRepository.findByEmail(principal.getName()).ifPresent(user -> {
+            user.setUsername(userEditDTO.getUsername());
+            user.setFirstName(userEditDTO.getFirstName());
+            user.setLastName(userEditDTO.getLastName());
+            user.setAddress(userEditDTO.getAddress());
+            userRepository.save(user);
+        });
     }
 
 
     public void removeUserAdminRights(Long id) {
-        UserEntity userEntity = userRepository.findById(id).get();
-        userEntity.setRole(roleService.getUserRole());
-        userRepository.save(userEntity);
+        userRepository.findById(id).ifPresent(userEntity -> {
+            userEntity.setRole(roleService.getUserRole());
+            userRepository.save(userEntity);
+        });
     }
 
     public void giveUserAdminRights(Long id) {
-        UserEntity user = userRepository.findById(id).get();
-        user.setRole(roleService.getAdminRole());
-        userRepository.save(user);
+        userRepository.findById(id).ifPresent(user -> {
+            user.setRole(roleService.getAdminRole());
+            userRepository.save(user);
+        });
     }
 
     public Long loggedUserId(Principal principal) {
-        return userRepository.findByEmail(principal.getName()).get().getId();
+        return userRepository.findByEmail(principal.getName()).map(UserEntity::getId).orElse(null);
     }
 
     public String getPrincipalUsername(Principal principal) {
-        return userRepository.findByEmail(principal.getName()).get().getUsername();
+        return userRepository.findByEmail(principal.getName()).map(UserEntity::getUsername).orElse(null);
     }
 }

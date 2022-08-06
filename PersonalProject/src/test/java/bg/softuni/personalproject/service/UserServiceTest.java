@@ -1,5 +1,10 @@
 package bg.softuni.personalproject.service;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.dto.UserDTO;
 import bg.softuni.personalproject.model.dto.UserEditDTO;
@@ -9,22 +14,22 @@ import bg.softuni.personalproject.model.entity.UserEntity;
 import bg.softuni.personalproject.model.enums.RoleEnum;
 import bg.softuni.personalproject.model.view.UserViewModel;
 import bg.softuni.personalproject.repository.UserRepository;
+import java.security.Principal;
+import java.util.List;
+import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.*;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.security.Principal;
-import java.util.List;
-import java.util.Optional;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -97,7 +102,6 @@ class UserServiceTest {
 
     @Test
     void userPurchaseTotal() {
-
         userViewModel.setId(1L);
         mockedService.userPurchaseTotal(userViewModel);
     }

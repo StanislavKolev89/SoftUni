@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final ModelMapper modelMapper;
-    private final UserService userService;
     private final WarehouseService productQuantityService;
 
     private final OrderProductService orderProductService;
@@ -33,14 +32,14 @@ public class OrderService {
         order.setUser(buyer);
         order.setCreatedAt(LocalDateTime.now());
         orderRepository.save(order);
-        cartItems.entrySet().stream().forEach(product -> {
-            orderProductService.addOrderAndProduct(order, product.getKey(), product.getValue());
-            productQuantityService.decreaseStock(product.getKey().getId(), product.getValue());
+        cartItems.forEach((product, orderedItemsCount) -> {
+            orderProductService.addOrderAndProduct(order, product, orderedItemsCount);
+            productQuantityService.decreaseStock(product.getId(), orderedItemsCount);
         });
     }
 
     public List<OrderDTO> getAllOrders() {
-        return orderRepository.findAll().stream().filter(orderEntity -> orderEntity.isDeleted() == false).map(orderEntity -> {
+        return orderRepository.findAll().stream().filter(orderEntity -> !orderEntity.isDeleted()).map(orderEntity -> {
             OrderDTO orderDTO = modelMapper.map(orderEntity, OrderDTO.class);
             orderDTO.setUser(orderEntity.getUser().getEmail());
             return orderDTO;
@@ -58,14 +57,10 @@ public class OrderService {
     }
 
     public void deleteOrder(Long id) {
-        OrderEntity order = orderRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
+        OrderEntity order = orderRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
         orderProductService.deleteByOrderId(id);
         order.setDeleted(true);
         orderRepository.save(order);
 
     }
-
-//    public boolean buyerIsAdmin(String username) {
-//        return userService.existsByEmail(username);
-//    }
 }

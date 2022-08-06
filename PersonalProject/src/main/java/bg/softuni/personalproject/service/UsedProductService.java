@@ -33,12 +33,12 @@ public class UsedProductService {
 
 
     public String getSellerName(Long id) {
-        return usedProductRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException()).getUser().getUsername();
+        return usedProductRepository.findById(id).orElseThrow(ObjectNotFoundException::new).getUser().getUsername();
 
     }
 
     public UsedProductDTO getProductById(Long id) {
-        UsedProductEntity usedProductEntity = usedProductRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
+        UsedProductEntity usedProductEntity = usedProductRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
         UsedProductDTO usedProductDTO = modelMapper.map(usedProductEntity, UsedProductDTO.class);
         usedProductDTO.setUser(usedProductEntity.getUser().getUsername());
         usedProductDTO.setCategory(usedProductEntity.getCategory().getName());
@@ -54,7 +54,7 @@ public class UsedProductService {
     }
 
     public void editProducts(UsedProductDTO usedProductDTO, Long id) {
-        UsedProductEntity usedProductEntity = usedProductRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
+        UsedProductEntity usedProductEntity = usedProductRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
         usedProductEntity.setCategory(categoryService.findCategoryByName(usedProductDTO.getCategory()));
         usedProductEntity.setPrice(usedProductDTO.getPrice());
         usedProductEntity.setTitle(usedProductDTO.getTitle());

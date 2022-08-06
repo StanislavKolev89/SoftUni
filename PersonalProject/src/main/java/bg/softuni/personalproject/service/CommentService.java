@@ -38,15 +38,12 @@ public class CommentService {
     }
 
     public List<CommentDTO> getAllCommentsOfCurrentProduct(Long productId) {
-        List<CommentDTO> commentDTOS = commentRepository.findAllByProductId(productId).stream()
+        return commentRepository.findAllByProductId(productId).stream()
                 .map(commentEntity -> {
                     CommentDTO commentDTO = modelMapper.map(commentEntity, CommentDTO.class);
                     commentDTO.setCommentCreator(commentEntity.getAuthor().getUsername());
                     return commentDTO;
                 })
                 .collect(Collectors.toList());
-
-        return commentDTOS;
-
     }
 }

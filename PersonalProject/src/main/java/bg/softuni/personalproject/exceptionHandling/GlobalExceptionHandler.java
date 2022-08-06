@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class GlobalExceptionHandler {
     @ExceptionHandler(ObjectNotFoundException.class)
     public ModelAndView globalHandler(ObjectNotFoundException onfe) {
-        ModelAndView modelAndView = new ModelAndView("error");
-        return modelAndView;
+        return new ModelAndView("error");
     }
 }
