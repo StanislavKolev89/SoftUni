@@ -27,36 +27,36 @@ public class CommentRestController {
 
     @GetMapping("/{productId}/comments")
 
-    public  List<CommentViewModel> getComments(@PathVariable("productId") Long productId){
+    public List<CommentViewModel> getComments(@PathVariable("productId") Long productId) {
         List<CommentDTO> allCommentsOfCurrentProduct = commentService.getAllCommentsOfCurrentProduct(productId);
-        if(allCommentsOfCurrentProduct.isEmpty()){
+        if (allCommentsOfCurrentProduct.isEmpty()) {
             throw new CommentNotFoundException(productId);
         }
         return allCommentsOfCurrentProduct.stream()
-                .map(commentDTO -> modelMapper.map(commentDTO,CommentViewModel.class))
+                .map(commentDTO -> modelMapper.map(commentDTO, CommentViewModel.class))
                 .collect(Collectors.toList());
     }
 
-    @PostMapping(value = "/{productId}/comments",consumes = "application/json",produces = "application/json")
+    @PostMapping(value = "/{productId}/comments", consumes = "application/json", produces = "application/json")
     public ResponseEntity<CommentViewModel> createNewComment(@PathVariable("productId") Long productId,
-                                                            @AuthenticationPrincipal UserDetails principal,
-                                                            @RequestBody ContentConsumerDto contentConsumerDto){
+                                                             @AuthenticationPrincipal UserDetails principal,
+                                                             @RequestBody ContentConsumerDto contentConsumerDto) {
 
 
         CommentCreationDTO commentCreationDTO = new CommentCreationDTO();
         commentCreationDTO.setUsername(principal.getUsername());
         commentCreationDTO.setContent(contentConsumerDto.getContent());
-            commentCreationDTO.setProductId(productId);
+        commentCreationDTO.setProductId(productId);
 
-        CommentViewModel comment= modelMapper.map(commentService.createComment(commentCreationDTO),CommentViewModel.class);
+        CommentViewModel comment = modelMapper.map(commentService.createComment(commentCreationDTO), CommentViewModel.class);
 
-        return ResponseEntity.created(URI.create(String.format("/api/%d/comments/%d",productId,comment.getId())))
+        return ResponseEntity.created(URI.create(String.format("/api/%d/comments/%d", productId, comment.getId())))
                 .body(comment);
 
     }
 
     @ExceptionHandler({CommentNotFoundException.class})
     public ResponseEntity<ApiErrorDTO> handleProductNotFound(CommentNotFoundException cmne) {
-        return ResponseEntity.status(404).body(new ApiErrorDTO(cmne.getId(),"No comments found for this product!"));
+        return ResponseEntity.status(404).body(new ApiErrorDTO(cmne.getId(), "No comments found for this product!"));
     }
 }

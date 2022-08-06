@@ -55,7 +55,7 @@ public class CategoryService {
     }
 
     public void addCategory(CategoryDTO categoryDTO) {
-        CategoryEntity category = categoryRepository.findByName(categoryDTO.getName()).orElseThrow(()-> new ObjectNotFoundException());
+        CategoryEntity category = categoryRepository.findByName(categoryDTO.getName()).orElseThrow(() -> new ObjectNotFoundException());
         if (category != null) {
             category.setImageUrl(categoryDTO.getImageUrl());
             category.setDeleted(false);
@@ -75,6 +75,6 @@ public class CategoryService {
 
     public CategoryEntity findCategoryByName(String name) {
 
-        return categoryRepository.findByName(name).orElseThrow(()-> new ObjectNotFoundException());
+        return categoryRepository.findByName(name).orElseThrow(() -> new ObjectNotFoundException());
     }
 }

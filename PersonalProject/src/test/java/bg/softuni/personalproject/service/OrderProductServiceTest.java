@@ -83,9 +83,9 @@ class OrderProductServiceTest {
     @Test
     void findAllOrderProducts() {
         when(orderProductRepository.findOrderProductEntitiesByOrder_Id(1L)).
-                thenReturn(Optional.of(List.of(orderProductEntityOne,orderProductEntityTwo)));
+                thenReturn(Optional.of(List.of(orderProductEntityOne, orderProductEntityTwo)));
         List<OrderProductEntity> allOrderProducts = mockedService.findAllOrderProducts(1L);
-  Assertions.assertThat(allOrderProducts).isNotEmpty();
+        Assertions.assertThat(allOrderProducts).isNotEmpty();
     }
 
     @Test

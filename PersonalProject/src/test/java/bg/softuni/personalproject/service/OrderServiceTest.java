@@ -45,7 +45,7 @@ class OrderServiceTest {
     @Mock
     private WarehouseService productQuantityService;
 
-    private OrderDTO orderDTOOne =new OrderDTO();
+    private OrderDTO orderDTOOne = new OrderDTO();
 
     private OrderDTO orderDTOTwo = new OrderDTO();
 
@@ -57,7 +57,7 @@ class OrderServiceTest {
 
     private Map<ProductEntity, Integer> cartItems = new HashMap<>();
 
-    private ProductEntity productOne= new ProductEntity();
+    private ProductEntity productOne = new ProductEntity();
 
     private ProductEntity productTwo = new ProductEntity();
 
@@ -73,13 +73,13 @@ class OrderServiceTest {
         productOne.setPrice(BigDecimal.TEN);
         productTwo.setTitle("CLEARCOAT");
         productTwo.setCategory(new CategoryEntity());
-        cartItems.put(productOne,10);
-        cartItems.put(productTwo,10);
+        cartItems.put(productOne, 10);
+        cartItems.put(productTwo, 10);
     }
 
     @Test
     void createOrder() {
-        mockService.createOrder(cartItems,userEntity);
+        mockService.createOrder(cartItems, userEntity);
         verify(orderRepository, times(1)).save(any());
     }
 //

@@ -55,7 +55,7 @@ class ProductServiceTest {
 
     @Test
     void getAllProducts() {
-        when(productRepository.findAll()).thenReturn(List.of(productOne,productTwo));
+        when(productRepository.findAll()).thenReturn(List.of(productOne, productTwo));
         List<ProductDTO> allProducts = mockService.getAllProducts();
         Assertions.assertThat(allProducts.size()).isEqualTo(2);
     }
@@ -124,7 +124,7 @@ class ProductServiceTest {
         productDTO.setCategory("CATEGORY");
         productDTO.setPrice(BigDecimal.TEN);
         when(productRepository.findById(1L)).thenReturn(Optional.of(productOne));
-        mockService.editProduct(productDTO,1L);
+        mockService.editProduct(productDTO, 1L);
         verify(productRepository, times(1)).save(any());
 
     }

@@ -42,7 +42,7 @@ public class ProductController {
         }
         model.addAttribute("chosenCategoryProducts", productViewModels);
         model.addAttribute("categoryName", category);
-        model.addAttribute("itemCount",productViewModels.size());
+        model.addAttribute("itemCount", productViewModels.size());
 
         return "one-category-products";
     }
@@ -62,9 +62,9 @@ public class ProductController {
 
     @GetMapping("/all/{id}")
     public String productDetails(@PathVariable Long id, Model model, Principal principal) {
-        model.addAttribute("productViewModel", modelMapper.map(productService.findProductById(id),ProductViewModel.class));
+        model.addAttribute("productViewModel", modelMapper.map(productService.findProductById(id), ProductViewModel.class));
         model.addAttribute("active", userService.findByName(principal.getName()).isActive());
-        model.addAttribute("itemsLeft",productQuantityService.itemsLeft(id));
+        model.addAttribute("itemsLeft", productQuantityService.itemsLeft(id));
         return "product-details";
     }
 

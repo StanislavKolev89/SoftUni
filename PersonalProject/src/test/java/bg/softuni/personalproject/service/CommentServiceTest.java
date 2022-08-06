@@ -31,14 +31,14 @@ class CommentServiceTest {
     private UserService userService;
 
     @Mock
-    private  ProductService productService;
+    private ProductService productService;
 
     @Spy
     private ModelMapper modelMapper;
 
-   private CommentEntity commentEntityOne = new CommentEntity();
+    private CommentEntity commentEntityOne = new CommentEntity();
 
-   private CommentEntity commentEntityTwo = new CommentEntity();
+    private CommentEntity commentEntityTwo = new CommentEntity();
     private UserEntity userEntity = new UserEntity();
 
     private CommentCreationDTO commentCreationDTO = new CommentCreationDTO();
@@ -48,7 +48,7 @@ class CommentServiceTest {
     private CommentDTO commentDTOTwo = new CommentDTO();
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         userEntity.setUsername("USER");
         commentCreationDTO.setUsername(userEntity.getUsername());
         commentEntityOne.setAuthor(userEntity);
@@ -70,7 +70,7 @@ class CommentServiceTest {
 
     @Test
     void getAllCommentsOfCurrentProduct() {
-        Mockito.when(commentRepository.findAllByProductId(1L)).thenReturn(List.of(commentEntityOne,commentEntityTwo));
+        Mockito.when(commentRepository.findAllByProductId(1L)).thenReturn(List.of(commentEntityOne, commentEntityTwo));
         mockedService.getAllCommentsOfCurrentProduct(1L);
     }
 }

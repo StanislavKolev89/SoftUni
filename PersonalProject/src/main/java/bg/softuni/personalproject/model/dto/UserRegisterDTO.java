@@ -17,7 +17,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@PasswordMatch(field = "password",fieldMatch = "confirmPassword",message = "Passwords do not match!")
+@PasswordMatch(field = "password", fieldMatch = "confirmPassword", message = "Passwords do not match!")
 public class UserRegisterDTO {
 
     @NotBlank(message = "Username can not be blank!")
@@ -30,7 +30,7 @@ public class UserRegisterDTO {
     private String firstName;
 
     @NotBlank
-    @Size(min=5,max=20)
+    @Size(min = 5, max = 20)
     private String lastName;
 
     @NotBlank
@@ -38,16 +38,16 @@ public class UserRegisterDTO {
     @UniqueEmail(message = "Email already taken!")
     private String email;
 
-    @NotBlank( message = "You must enter some address!")
+    @NotBlank(message = "You must enter some address!")
     @Size(min = 10, max = 50)
     private String address;
 
     @NotBlank(message = "Password is too short.")
-    @Size(min = 5, max = 20,message = "Password must be between 5 and 20 characters!")
+    @Size(min = 5, max = 20, message = "Password must be between 5 and 20 characters!")
     private String password;
 
     @NotBlank
-    @Size(min = 5, max = 20,message = "Password must be between 5 and 20 characters!")
+    @Size(min = 5, max = 20, message = "Password must be between 5 and 20 characters!")
     private String confirmPassword;
 
 }

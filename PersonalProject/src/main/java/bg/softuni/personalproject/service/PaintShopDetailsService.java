@@ -13,18 +13,18 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 public class PaintShopDetailsService implements UserDetailsService {
 
-   private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
-   public PaintShopDetailsService(UserRepository userRepository) {
+    public PaintShopDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
-   }
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.
                 findByEmail(username).
                 map(this::map).
-                orElseThrow(() -> new UsernameNotFoundException("User not found!" ));
+                orElseThrow(() -> new UsernameNotFoundException("User not found!"));
     }
 
     private UserDetails map(UserEntity userEntity) {
@@ -34,11 +34,11 @@ public class PaintShopDetailsService implements UserDetailsService {
                         password(userEntity.getPassword()).
                         authorities(map(userEntity.getRole())).
                         build();
-   }
+    }
 
-   private GrantedAuthority map(RoleEntity userRole) {
+    private GrantedAuthority map(RoleEntity userRole) {
         return new SimpleGrantedAuthority("ROLE_" +
-               userRole.
-                       getName().name());
-   }
+                userRole.
+                        getName().name());
+    }
 }

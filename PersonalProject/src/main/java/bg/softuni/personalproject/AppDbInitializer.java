@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 public class AppDbInitializer implements CommandLineRunner {
 
     private final RoleService roleService;
+
     @Override
     public void run(String... args) throws Exception {
         roleService.initRoles();

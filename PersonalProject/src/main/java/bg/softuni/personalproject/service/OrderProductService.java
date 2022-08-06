@@ -30,7 +30,7 @@ public class OrderProductService {
 
 
     public List<OrderProductEntity> findAllUsersProducts(Long id) {
-        return orderProductRepository.findAllOrdersByUserId(id).orElseThrow(()->new ObjectNotFoundException());
+        return orderProductRepository.findAllOrdersByUserId(id).orElseThrow(() -> new ObjectNotFoundException());
     }
 
     public List<OrderProductEntity> findAll() {
@@ -38,7 +38,7 @@ public class OrderProductService {
     }
 
     public List<OrderProductEntity> findAllOrderProducts(Long orderId) {
-        return orderProductRepository.findOrderProductEntitiesByOrder_Id(orderId).orElseThrow(()->new ObjectNotFoundException());
+        return orderProductRepository.findOrderProductEntitiesByOrder_Id(orderId).orElseThrow(() -> new ObjectNotFoundException());
     }
 
     //Usage in template
@@ -48,7 +48,7 @@ public class OrderProductService {
 
     public BigDecimal findTurnover() {
         return orderProductRepository.findAll().stream().filter(orderProductEntity -> orderProductEntity.getOrder().getUser().getId() != 1).
-                filter(orderProductEntity -> orderProductEntity.getOrder().isDeleted()==false).
+                filter(orderProductEntity -> orderProductEntity.getOrder().isDeleted() == false).
                 map(orderProductEntity -> orderProductEntity.getProduct().getPrice().multiply(BigDecimal.valueOf(orderProductEntity.getQuantity())))
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);

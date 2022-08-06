@@ -54,8 +54,8 @@ public class UserControllerTest {
     void testUserEditProfile() throws Exception {
 
         mockMvc.perform(get("/users/profile")).
-                      andExpect(status().isOk()).
-        andExpect(view().name("profile"));
+                andExpect(status().isOk()).
+                andExpect(view().name("profile"));
 
     }
 

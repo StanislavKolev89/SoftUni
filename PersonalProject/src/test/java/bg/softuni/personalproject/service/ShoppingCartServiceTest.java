@@ -26,12 +26,12 @@ class ShoppingCartServiceTest {
     private ShoppingCartService mockService;
 
     @Mock
-    private  ProductRepository productRepository;
+    private ProductRepository productRepository;
 
     @Mock
     private OrderService orderService;
     @Mock
-    private  UserService userService;
+    private UserService userService;
 
     private Map<ProductEntity, Integer> cartProducts = new HashMap<>();
 
@@ -40,14 +40,15 @@ class ShoppingCartServiceTest {
     private ProductEntity product = new ProductEntity();
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         quantityHolder.setQuantity(10);
         product.setPrice(BigDecimal.TEN);
     }
+
     @Test
     void addToCart() {
         when(productRepository.findById(1L)).thenReturn(Optional.of(product));
-        mockService.addToCart(1L,quantityHolder);
+        mockService.addToCart(1L, quantityHolder);
 
     }
 
@@ -58,8 +59,8 @@ class ShoppingCartServiceTest {
 
     @Test
     void pricePerProduct() {
-         cartProducts.put(product, quantityHolder.getQuantity());
-        Map.Entry<ProductEntity,Integer> entry = cartProducts.entrySet().iterator().next();
+        cartProducts.put(product, quantityHolder.getQuantity());
+        Map.Entry<ProductEntity, Integer> entry = cartProducts.entrySet().iterator().next();
         BigDecimal bigDecimal = mockService.pricePerProduct(entry);
         Assertions.assertThat(bigDecimal).isEqualTo(BigDecimal.valueOf(100));
     }
@@ -88,6 +89,6 @@ class ShoppingCartServiceTest {
     void removeProductThrowException() {
         when(productRepository.findById(1L)).thenReturn(null);
         org.junit.jupiter.api.Assertions.assertThrows(ObjectNotFoundException.class, () ->
-               mockService.removeProduct(1L));
+                mockService.removeProduct(1L));
     }
 }

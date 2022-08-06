@@ -28,7 +28,7 @@ class RoleServiceTest {
     private RoleEntity user = new RoleEntity();
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         admin.setName(RoleEnum.ADMIN);
         user.setName(RoleEnum.USER);
     }
@@ -50,6 +50,6 @@ class RoleServiceTest {
     @Test
     void initRoles() {
         mockService.initRoles();
-        verify(roleRepository,times(2)).save(any());
+        verify(roleRepository, times(2)).save(any());
     }
 }
