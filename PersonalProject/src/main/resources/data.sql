@@ -35,3 +35,8 @@ values (1, 'first description', '/images/New-Spray-Gun.webp','1123123213121', 21
        (2, 'second description', '/images/New-Spray-Gun.webp','1123123213122', 22.99, 'DRILL',1,1 ),
        (3, 'third description', '/images/New-Spray-Gun.webp','1123123213a123', 23.99, 'Glasses',1,1 ),
        (4, 'first description', '/images/New-Spray-Gun.webp','1123123213124', 24.99, 'Filler',1,1 );
+
+INSERT INTO orders(id, created_at, deleted, user_id) VALUES (1,now(),false,1);
+
+INSERT INTO comments (id, content, created_at, product_id)
+VALUES (1, 'pra6ki', now(), 1);

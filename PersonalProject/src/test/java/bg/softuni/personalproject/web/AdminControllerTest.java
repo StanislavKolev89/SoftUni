@@ -33,6 +33,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.security.test.context.support.WithUserDetails;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 
 import javax.validation.constraints.NotBlank;
@@ -48,7 +49,8 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
+//@Sql(scripts = "classpath:web/comments-controller.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+//@Sql(scripts = "classpath:web/delete-data.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 @SpringBootTest
 @AutoConfigureMockMvc
 @WithMockUser(roles = "ADMIN")
@@ -97,7 +99,7 @@ class AdminControllerTest {
     @Test
     void categoryAddConfirm() throws Exception {
         mockMvc.perform(post("/admin/categories/add").
-                        param("id", "1").
+                        param("id", "6").
                         param("name", "TOOLS").
                         param("imageUrl", "ASDASDASDASDASD").
                         param("deleted", "false").
@@ -154,7 +156,7 @@ class AdminControllerTest {
     void deleteOrder() throws Exception {
 
         mockMvc.perform(get("/admin/orders/delete/{id}", 1L)).
-                andExpect(status().isOk()).andExpect(view().name("orders-admin"));
+                andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("/admin/orders/all"));
     }
 
     @Test

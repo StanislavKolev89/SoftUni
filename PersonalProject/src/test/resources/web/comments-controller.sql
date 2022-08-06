@@ -1,1 +1,0 @@
-INSERT INTO comments (id, content, created_at, product_id) VALUES (1, 'pra6ki', now(), 1)
