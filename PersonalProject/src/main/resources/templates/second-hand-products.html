@@ -18,7 +18,7 @@
         <div th:each="product :${usedProducts}" class="col-md-4">
             <div class="filter" th:id="${product.category}">
                 <div class="card-body" style="width: 19rem;">
-                    <img th:src="${product.imageUrl}" class="w-80 " style="border: none;" alt="...">
+                    <img th:src="${product.imageUrl}" class="w-80 img-fluid " style="border: none;" alt="...">
                     <div class="card-body bg-success">
                         <h5 th:text="${product.title}" class="card-title"></h5>
                         <p th:text="${product.description}" class="card-text">Here is some example text to make up the

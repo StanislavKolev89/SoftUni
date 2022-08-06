@@ -123,9 +123,7 @@ INSERT INTO used_products(id, description, image_url, phone_number, price, title
 values (1, 'Lightweight and ergonomically styled for comfort, Balanced air valve design for lighter
             trigger pull and improved air flow',
         '/images/devilbiss-forsale.jpg', '+3598842341235', 200.99, 'Spraygun Devilbiss 1.3', 1, 2),
-       (2, 'STAHLWERK compressed air whisper compressor ST 1510 Pro - 150 L boiler,
-            10 Bar, oil free, 840 L/min, very quiet, very compact, white, 7 years warranty.
-            This compressor is the lightest and strongest in its weight class!',
+       (2, 'STAHLWERK compressed air whisper compressor ST 1510 Pro - 150 L boiler.',
         '/images/compressor-forsale.jpg', '+3598842341235', 699.99, 'Compressor', 1, 2);
 
 INSERT INTO orders(id, created_at, deleted, user_id)

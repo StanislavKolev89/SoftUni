@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -23,15 +25,14 @@ public class OrderService {
     private final ModelMapper modelMapper;
     private final UserService userService;
     private final WarehouseService productQuantityService;
-
     private final OrderProductService orderProductService;
 
-    //    ToDO Pass user To The Order and make (nullable=false) User in OrderEntity
-    //      if buyer is null do nothing! Not so sure about that
     public void createOrder(Map<ProductEntity, Integer> cartItems, UserEntity buyer) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
         OrderEntity order = new OrderEntity();
         order.setUser(buyer);
-        order.setCreatedAt(LocalDateTime.now());
+        order.setCreatedAt(now.truncatedTo(ChronoUnit.SECONDS));
         orderRepository.save(order);
         cartItems.forEach((product, orderedItemsCount) -> {
             orderProductService.addOrderAndProduct(order, product, orderedItemsCount);

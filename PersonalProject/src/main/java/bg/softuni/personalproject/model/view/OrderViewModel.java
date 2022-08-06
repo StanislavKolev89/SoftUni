@@ -14,7 +14,7 @@ public class OrderViewModel {
 
     private Long id;
 
-    private LocalDateTime date;
+    private LocalDateTime createdAt;
 
     private String user;
 }

@@ -16,7 +16,7 @@ public class OrderDTO {
 
     private Long id;
 
-    private LocalDateTime date;
+    private LocalDateTime createdAt;
 
     private String user;
 

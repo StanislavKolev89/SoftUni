@@ -30,8 +30,7 @@
 
         <tbody class="table-primary">
         <tr scope="row" th:each="order: ${allOrders}">
-
-            <td th:text="${order.date}"></td>
+            <td th:text="${order.createdAt}"></td>
             <td th:text="${order.user}"></td>
             <td th:text="|${orderService.getTotalPriceOfOrder(order.id)} $|"></td>
             </td>
