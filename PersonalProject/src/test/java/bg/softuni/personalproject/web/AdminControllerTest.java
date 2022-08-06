@@ -42,7 +42,7 @@ class AdminControllerTest {
 
     @Test
     void deleteCategory() throws Exception {
-        mockMvc.perform(get("/admin/category/delete/{id}", 1)).
+        mockMvc.perform(get("/admin/categories/delete/{id}", 1)).
                 andExpect(status().is3xxRedirection()).andExpect(view().name("redirect:/admin/categories/all"));
     }
 
@@ -222,7 +222,22 @@ class AdminControllerTest {
     @Test
     void allUsersPage() throws Exception {
         mockMvc.perform(get("/admin/users/all")).
+                andExpect(model().attributeExists("users")).
+                andExpect(model().attributeExists("userService")).
+                andExpect(model().attributeExists("count")).
+                andExpect(model().attributeExists("loggedUserId")).
                 andExpect(status().isOk()).andExpect(view().name("users-admin"));
+    }
+
+
+    @Test
+    void allOrdersPage() throws Exception {
+        mockMvc.perform(get("/admin/orders/all")).
+                andExpect(model().attributeExists("allOrders")).
+                andExpect(model().attributeExists("count")).
+                andExpect(model().attributeExists("orderService")).
+                andExpect(model().attributeExists("totalTurnover")).
+                andExpect(status().isOk()).andExpect(view().name("orders-admin"));
     }
 }
 

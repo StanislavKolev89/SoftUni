@@ -46,9 +46,7 @@ public class OrderService {
             return orderDTO;
         }).collect(Collectors.toList());
     }
-    //ToDo decide what exception to throw
 
-    //Usage in template
     public BigDecimal getTotalPriceOfOrder(Long orderId) {
         return orderProductService.findAllOrderProducts(orderId).stream().
                 map(order -> order.getProduct().getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
@@ -65,7 +63,7 @@ public class OrderService {
 
     }
 
-//    public boolean buyerIsAdmin(String username) {
-//        return userService.existsByEmail(username);
-//    }
+    public boolean buyerIsAdmin(String username) {
+        return userService.findByName(username).getId()==1;
+    }
 }

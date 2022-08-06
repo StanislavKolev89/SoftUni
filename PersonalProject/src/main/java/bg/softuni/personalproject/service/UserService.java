@@ -138,4 +138,6 @@ public class UserService {
     public String getPrincipalUsername(Principal principal) {
         return userRepository.findByEmail(principal.getName()).get().getUsername();
     }
+
+
 }
