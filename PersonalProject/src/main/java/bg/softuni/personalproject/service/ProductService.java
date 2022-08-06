@@ -52,7 +52,7 @@ public class ProductService {
 
     public ProductDTO getViewModel(Long id) {
         ProductEntity productEntity = productRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
-        return  modelMapper.map(productEntity, ProductDTO.class);
+        return modelMapper.map(productEntity, ProductDTO.class);
     }
 
     public void deleteProduct(Long id) {
@@ -62,7 +62,7 @@ public class ProductService {
     }
 
     public ProductEntity returnProduct(Long productId) {
-        return productRepository.findById(productId).orElseThrow(()->new ObjectNotFoundException());
+        return productRepository.findById(productId).orElseThrow(() -> new ObjectNotFoundException());
     }
 
     public void addNewProduct(ProductDTO productDTO) {

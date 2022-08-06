@@ -177,7 +177,7 @@ public class AdminController {
     }
 
     @PostMapping("/products/edit/{id}")
-    private String editProductConfirm(@PathVariable("id") Long id,Model model, @Valid ProductDTO productDTO
+    private String editProductConfirm(@PathVariable("id") Long id, Model model, @Valid ProductDTO productDTO
             , BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         model.addAttribute("categories", categoryService.getAllCategories().
@@ -190,12 +190,12 @@ public class AdminController {
 
             return "redirect:/admin/products/edit/{id}";
         }
-        productService.editProduct(productDTO,id);
+        productService.editProduct(productDTO, id);
         return "redirect:/admin/products/all";
     }
 
     @GetMapping("/products/add")
-    private String addProductPage(Model model){
+    private String addProductPage(Model model) {
         model.addAttribute("categories", categoryService.getAllCategories().
                 stream().filter(categoryDTO -> categoryDTO.isDeleted() == false)
                 .map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))

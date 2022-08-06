@@ -70,8 +70,8 @@ public class UserController {
 
     @GetMapping("/profile")
     public String myProfilePage(Principal principal, Model model) {
-        if(!model.containsAttribute("userEditDTO")){
-            model.addAttribute("userEditDTO",new UserEditDTO());
+        if (!model.containsAttribute("userEditDTO")) {
+            model.addAttribute("userEditDTO", new UserEditDTO());
         }
         UserDTO loggedUserDetails = userService.getLoggedUserDetails(principal);
         model.addAttribute("loggedUser", modelMapper.map(loggedUserDetails, UserViewModel.class));
@@ -79,14 +79,14 @@ public class UserController {
     }
 
     @PostMapping("/profile")
-    public String profileChangeConfirm(Principal principal,@Valid UserEditDTO userEditDTO,BindingResult bindingResult,RedirectAttributes redirectAttributes){
+    public String profileChangeConfirm(Principal principal, @Valid UserEditDTO userEditDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("userEditDTO", userEditDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userEditDTO", bindingResult);
 
             return "redirect:/users/profile";
         }
-        userService.changeUserData(userEditDTO,principal);
+        userService.changeUserData(userEditDTO, principal);
 
         return "redirect:/users/profile";
     }

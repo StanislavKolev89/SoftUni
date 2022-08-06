@@ -56,7 +56,6 @@ class CategoryServiceTest {
     }
 
 
-
     @Test
     void getAllCategories() {
 
@@ -83,7 +82,6 @@ class CategoryServiceTest {
             mockedService.getCategoryDTO(1L);
         });
     }
-
 
 
     @Test
@@ -115,9 +113,9 @@ class CategoryServiceTest {
 
     @Test
     void deleteCategory() {
-      when(categoryRepository.findById(1L)).thenReturn(Optional.of(categoryOne));
+        when(categoryRepository.findById(1L)).thenReturn(Optional.of(categoryOne));
         mockedService.deleteCategory(1L);
-        verify(categoryRepository,times(1)).findById(1L);
+        verify(categoryRepository, times(1)).findById(1L);
     }
 
     @Test

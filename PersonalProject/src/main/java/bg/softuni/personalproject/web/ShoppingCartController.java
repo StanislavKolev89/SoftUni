@@ -28,9 +28,9 @@ public class ShoppingCartController {
     }
 
     @GetMapping("/products/fromCart/{id}/{quantity}")
-    public String productDetails(Principal principal,@PathVariable Long id, @PathVariable int quantity, Model model, QuantityHolderDTO quantityHolderDTO) {
+    public String productDetails(Principal principal, @PathVariable Long id, @PathVariable int quantity, Model model, QuantityHolderDTO quantityHolderDTO) {
         model.addAttribute("productViewModel", productService.findProductById(id));
-        model.addAttribute("active",userService.findByName(principal.getName()).isActive());
+        model.addAttribute("active", userService.findByName(principal.getName()).isActive());
         quantityHolderDTO.setQuantity(quantity);
         return "product-details";
     }

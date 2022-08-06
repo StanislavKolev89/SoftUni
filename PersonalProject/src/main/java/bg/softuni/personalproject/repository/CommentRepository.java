@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CommentRepository extends JpaRepository<CommentEntity,Long> {
+public interface CommentRepository extends JpaRepository<CommentEntity, Long> {
 
     List<CommentEntity> findAllByProductId(Long productId);
 }

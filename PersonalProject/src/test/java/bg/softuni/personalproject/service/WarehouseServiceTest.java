@@ -53,7 +53,7 @@ class WarehouseServiceTest {
     @Test
     void decreaseStock() {
         Mockito.when(warehouseTrackerRepository.findById(1L)).thenReturn(Optional.of(productQuantityTrackerOne));
-        mockedService.decreaseStock(1L,10);
+        mockedService.decreaseStock(1L, 10);
     }
 
     @Test
@@ -65,7 +65,7 @@ class WarehouseServiceTest {
 
     @Test
     void alertIfInventoryLowNotThrowingException() {
-        Mockito.when(warehouseTrackerRepository.findAll()).thenReturn(List.of(productQuantityTrackerOne,productQuantityTrackerTwo));
+        Mockito.when(warehouseTrackerRepository.findAll()).thenReturn(List.of(productQuantityTrackerOne, productQuantityTrackerTwo));
         mockedService.alertIfInventoryLow();
     }
 
@@ -73,13 +73,14 @@ class WarehouseServiceTest {
     void alertIfInventoryLowThrowingException() {
         productQuantityTrackerOne.setQuantity(15);
         productQuantityTrackerTwo.setQuantity(17);
-        Mockito.when(warehouseTrackerRepository.findAll()).thenReturn(List.of(productQuantityTrackerOne,productQuantityTrackerTwo));
+        Mockito.when(warehouseTrackerRepository.findAll()).thenReturn(List.of(productQuantityTrackerOne, productQuantityTrackerTwo));
         org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class, () ->
                 mockedService.alertIfInventoryLow());
     }
+
     @Test
     void trackInventory() {
-        Mockito.when(warehouseTrackerRepository.findAll()).thenReturn(List.of(productQuantityTrackerOne,productQuantityTrackerTwo));
+        Mockito.when(warehouseTrackerRepository.findAll()).thenReturn(List.of(productQuantityTrackerOne, productQuantityTrackerTwo));
         mockedService.trackInventory();
     }
 }

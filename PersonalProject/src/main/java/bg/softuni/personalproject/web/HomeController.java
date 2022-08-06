@@ -21,29 +21,29 @@ public class HomeController {
     private final ModelMapper modelMapper;
 
     @GetMapping("/")
-    public String indexPage(Model model){
+    public String indexPage(Model model) {
         List<CategoryViewModel> collection = categoryService.getAllCategories()
                 .stream().map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
                 .collect(Collectors.toList());
 
         model.addAttribute("firstCategoryItem", getFirstCategory(collection));
-        model.addAttribute("allOtherItems",getOtherCategories(collection));
+        model.addAttribute("allOtherItems", getOtherCategories(collection));
 
         return "index";
     }
 
     @GetMapping("/contacts")
-    public String contactsPage(){
+    public String contactsPage() {
         return "contacts-page";
     }
 
 
-    private CategoryViewModel getFirstCategory(List<CategoryViewModel> categories){
+    private CategoryViewModel getFirstCategory(List<CategoryViewModel> categories) {
         return categories.stream().map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
                 .collect(Collectors.toList()).get(0);
     }
 
-    private List<CategoryViewModel> getOtherCategories(List<CategoryViewModel> categories){
+    private List<CategoryViewModel> getOtherCategories(List<CategoryViewModel> categories) {
         return categories.stream().skip(1).map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
                 .collect(Collectors.toList());
 

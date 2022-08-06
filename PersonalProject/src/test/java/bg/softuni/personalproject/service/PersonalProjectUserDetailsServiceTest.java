@@ -27,17 +27,17 @@ public class PersonalProjectUserDetailsServiceTest {
     private PaintShopDetailsService toTest;
 
     @BeforeEach
-    void setUp(){
-        toTest= new PaintShopDetailsService(
-            mockUserRepo
+    void setUp() {
+        toTest = new PaintShopDetailsService(
+                mockUserRepo
         );
     }
 
     @Test
-    void testLoadUserByUsername_UserExists(){
-        RoleEntity roleEntity= new RoleEntity();
+    void testLoadUserByUsername_UserExists() {
+        RoleEntity roleEntity = new RoleEntity();
         roleEntity.setName(RoleEnum.ADMIN);
-        UserEntity testUserEntity=new UserEntity();
+        UserEntity testUserEntity = new UserEntity();
         testUserEntity.setUsername("testcho");
         testUserEntity.setEmail("test@test.com");
         testUserEntity.setFirstName("Test");
@@ -47,12 +47,12 @@ public class PersonalProjectUserDetailsServiceTest {
         testUserEntity.setPassword("12345");
         testUserEntity.setRole(roleEntity);
 
-    when(mockUserRepo.findByEmail(testUserEntity.getEmail())).
-            thenReturn(Optional.of(testUserEntity));
+        when(mockUserRepo.findByEmail(testUserEntity.getEmail())).
+                thenReturn(Optional.of(testUserEntity));
 
         UserDetails userDetails = toTest.loadUserByUsername(testUserEntity.getEmail());
 
-        Assertions.assertEquals(testUserEntity.getEmail(),userDetails.getUsername());
+        Assertions.assertEquals(testUserEntity.getEmail(), userDetails.getUsername());
 
         var authorities = userDetails.getAuthorities();
 
@@ -67,10 +67,8 @@ public class PersonalProjectUserDetailsServiceTest {
     }
 
 
-
     @Test
-
-    void testLoadUserByUsername_UserDoesNotExists(){
+    void testLoadUserByUsername_UserDoesNotExists() {
         Assertions.assertThrows(
                 UsernameNotFoundException.class,
                 () -> toTest.loadUserByUsername("non-existant@example.com")

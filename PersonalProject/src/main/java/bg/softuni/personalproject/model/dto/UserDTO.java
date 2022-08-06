@@ -30,7 +30,7 @@ public class UserDTO {
     private String firstName;
 
     @NotBlank
-    @Size(min=5,max=20)
+    @Size(min = 5, max = 20)
     private String lastName;
 
     @NotBlank
@@ -38,8 +38,8 @@ public class UserDTO {
     @UniqueEmail(message = "Email already taken!")
     private String email;
 
-    @NotBlank( message = "You must enter some address!")
-    @Size(min = 10, max = 50,message="Address too short!")
+    @NotBlank(message = "You must enter some address!")
+    @Size(min = 10, max = 50, message = "Address too short!")
     private String address;
 
     private boolean active;

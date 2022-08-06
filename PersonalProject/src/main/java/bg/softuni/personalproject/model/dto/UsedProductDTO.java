@@ -22,11 +22,11 @@ public class UsedProductDTO {
 
     @NotBlank
 
-    @Size(min=5,max=20,message = "Title must be between 5 and 20 characters.")
+    @Size(min = 5, max = 20, message = "Title must be between 5 and 20 characters.")
     private String title;
 
     @NotBlank(message = "You must enter some description.")
-    @Size(min=10,message = "Description too short!")
+    @Size(min = 10, message = "Description too short!")
     private String description;
 
     @NotNull(message = "You must enter some price")
@@ -34,7 +34,7 @@ public class UsedProductDTO {
     private BigDecimal price;
 
     @NotNull(message = "You should give number for contact!")
-    @Size(min=10,max=15 ,message="Enter valid phone number!")
+    @Size(min = 10, max = 15, message = "Enter valid phone number!")
     private String phoneNumber;
 
     private String imageUrl;

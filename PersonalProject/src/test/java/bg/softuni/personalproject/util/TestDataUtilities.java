@@ -10,7 +10,6 @@ import bg.softuni.personalproject.repository.UserRepository;
 import org.springframework.stereotype.Component;
 
 
-
 @Component
 public class TestDataUtilities {
 

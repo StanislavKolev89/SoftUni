@@ -7,7 +7,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 
-public class PasswordMatchValidator implements ConstraintValidator<PasswordMatch,Object> {
+public class PasswordMatchValidator implements ConstraintValidator<PasswordMatch, Object> {
 
     private String field;
     private String fieldMatch;

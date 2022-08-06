@@ -26,7 +26,7 @@ public class ShoppingCartService {
 
     public void addToCart(Long productById, QuantityHolderDTO quantityHolderDTO) {
         productRepository.findById(productById).ifPresent(productEntity ->
-              cartProducts.put(productEntity, quantityHolderDTO.getQuantity()));
+                cartProducts.put(productEntity, quantityHolderDTO.getQuantity()));
 
     }
 
@@ -35,16 +35,17 @@ public class ShoppingCartService {
         orderService.createOrder(cartProducts, buyer);
         cartProducts.clear();
     }
+
     //Usage in template
-    public BigDecimal pricePerProduct(Map.Entry<ProductEntity,Integer> singleProduct){
+    public BigDecimal pricePerProduct(Map.Entry<ProductEntity, Integer> singleProduct) {
         return singleProduct.getKey().getPrice().multiply(BigDecimal.valueOf(singleProduct.getValue()));
     }
 
     public BigDecimal findTotalSum() {
         return cartProducts.entrySet().stream()
-              .map(entry -> entry.getKey().getPrice().multiply(BigDecimal.valueOf(entry.getValue())))
-              .reduce(BigDecimal::add)
-              .orElse(BigDecimal.ZERO);
+                .map(entry -> entry.getKey().getPrice().multiply(BigDecimal.valueOf(entry.getValue())))
+                .reduce(BigDecimal::add)
+                .orElse(BigDecimal.ZERO);
 
     }
 
@@ -54,7 +55,7 @@ public class ShoppingCartService {
 
     public void removeProduct(Long productById) {
         Optional<ProductEntity> byId = productRepository.findById(productById);
-        if(byId==null){
+        if (byId == null) {
             throw new ObjectNotFoundException();
         }
 

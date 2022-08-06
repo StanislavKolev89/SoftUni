@@ -24,11 +24,12 @@ public class WarehouseService {
         warehouseTrackerRepository.save(productQuantityTracker);
     }
 
-    public int itemsLeft(Long id){
+    public int itemsLeft(Long id) {
         ProductQuantityTracker productQuantityTracker = warehouseTrackerRepository.findById(id).get();
         return productQuantityTracker.getQuantity();
 
     }
+
     @Scheduled(cron = "* 1 * * * *")
     public void alertIfInventoryLow() {
 

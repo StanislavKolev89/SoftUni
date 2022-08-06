@@ -55,7 +55,6 @@ class UserServiceTest {
     private OrderProductService orderProductService;
 
 
-
     private UserEntity userOne = new UserEntity();
 
     private UserEntity userTwo = new UserEntity();

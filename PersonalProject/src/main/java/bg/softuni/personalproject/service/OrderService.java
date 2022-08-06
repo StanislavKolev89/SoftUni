@@ -30,12 +30,12 @@ public class OrderService {
     //      if buyer is null do nothing! Not so sure about that
     public void createOrder(Map<ProductEntity, Integer> cartItems, UserEntity buyer) {
         OrderEntity order = new OrderEntity();
-            order.setUser(buyer);
-            order.setCreatedAt(LocalDateTime.now());
-            orderRepository.save(order);
-            cartItems.entrySet().stream().forEach(product -> {
-                orderProductService.addOrderAndProduct(order, product.getKey(), product.getValue());
-                productQuantityService.decreaseStock(product.getKey().getId(),product.getValue());
+        order.setUser(buyer);
+        order.setCreatedAt(LocalDateTime.now());
+        orderRepository.save(order);
+        cartItems.entrySet().stream().forEach(product -> {
+            orderProductService.addOrderAndProduct(order, product.getKey(), product.getValue());
+            productQuantityService.decreaseStock(product.getKey().getId(), product.getValue());
         });
     }
 
@@ -58,7 +58,7 @@ public class OrderService {
     }
 
     public void deleteOrder(Long id) {
-        OrderEntity order = orderRepository.findById(id).orElseThrow(()->new ObjectNotFoundException());
+        OrderEntity order = orderRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
         orderProductService.deleteByOrderId(id);
         order.setDeleted(true);
         orderRepository.save(order);

@@ -36,6 +36,6 @@ public class ProductEntity {
     private CategoryEntity category;
 
     @Column(nullable = false)
-    private boolean deleted=false;
+    private boolean deleted = false;
 
 }

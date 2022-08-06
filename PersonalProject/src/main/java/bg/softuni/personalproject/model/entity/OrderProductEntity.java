@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name ="ordered_products")
+@Table(name = "ordered_products")
 
 public class OrderProductEntity {
     @Id
@@ -18,11 +18,11 @@ public class OrderProductEntity {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="order_id")
+    @JoinColumn(name = "order_id")
     private OrderEntity order;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="product_id")
+    @JoinColumn(name = "product_id")
     private ProductEntity product;
 
     @Column(nullable = false)

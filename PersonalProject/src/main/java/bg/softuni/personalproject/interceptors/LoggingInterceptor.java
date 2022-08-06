@@ -14,7 +14,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
         System.out.println("PREHANDLE");
         System.out.println(request.getRequestURL() + " " + request.getMethod());
         Iterator<String> iter = request.getHeaderNames().asIterator();
-        while(iter.hasNext()) {
+        while (iter.hasNext()) {
             String headerName = iter.next();
             String headerValue = request.getHeader(headerName);
             System.out.println(headerName + ": " + headerValue);
@@ -25,12 +25,12 @@ public class LoggingInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         System.out.println("POSTHANDLE");
-        if(modelAndView == null) {
+        if (modelAndView == null) {
             return;
         }
 
         System.out.println(request.getHeader("User-Agent"));
-        for(String entry : modelAndView.getModel().keySet()) {
+        for (String entry : modelAndView.getModel().keySet()) {
             System.out.println(entry + ": " + modelAndView.getModel().get(entry));
         }
     }
@@ -38,7 +38,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         System.out.println("AFTERCOMPLETION");
-        if(ex != null) {
+        if (ex != null) {
             ex.printStackTrace();
         }
         response.setStatus(200);

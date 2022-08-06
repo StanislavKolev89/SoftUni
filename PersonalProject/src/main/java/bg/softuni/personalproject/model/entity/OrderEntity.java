@@ -24,7 +24,7 @@ public class OrderEntity {
     private LocalDateTime createdAt;
 
     @Column(nullable = false)
-    private boolean deleted=false;
+    private boolean deleted = false;
 
 
     @ManyToOne
