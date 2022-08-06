@@ -26,14 +26,29 @@ public class UserControllerTest {
                 andExpect(status().isOk()).andExpect(view().name("register"));
     }
 
+    @Test
+    void testLoginPage() throws Exception {
+        mockMvc.perform(get("/users/login")).
+                andExpect(status().isOk()).andExpect(view().name("login"));
+    }
+
+    @Test
+    void testLoginPageConfirmRedirect() throws Exception {
+        mockMvc.perform(get("/users//login-error").with(csrf()).
+                        param("username", "a").
+                        param("password", "1")).
+                andExpect(status().is3xxRedirection()).
+                andExpect(redirectedUrl("http://localhost/users/login"));
+    }
+
 
     @Test
     void testUserRegistration() throws Exception {
         mockMvc.perform(post("/users/register").
                         param("email", "admain@gmail.com").
-                        param("firstName", "Admin").
-                        param("lastName", "Adminsov").
-                        param("username", "Adminscho").
+                        param("firstName", "Admiddn").
+                        param("lastName", "Adminddsov").
+                        param("username", "Adminscdho").
                         param("address", "ADMIN ADMIN STR 1").
                         param("password", "12345").
                         param("confirmPassword", "12345").
@@ -59,5 +74,28 @@ public class UserControllerTest {
 
     }
 
+    @Test
+    @WithMockUser(username = "admin@gmail.com",roles = "ADMIN")
+    void profileChangeConfirm() throws Exception {
+        mockMvc.perform(post("/users/profile").with(csrf()).
+                        param("firstName", "Admin").
+                        param("lastName", "Adminsov").
+                        param("username", "Adminscho").
+                        param("address", "ADMIN ADMIN STR 1")).
+                andExpect(status().is3xxRedirection()).
+                andExpect(redirectedUrl("/users/profile"));
+    }
+
+    @Test
+    @WithMockUser(username = "admin@gmail.com",roles = "ADMIN")
+    void profileChangeConfirmRedirect() throws Exception {
+        mockMvc.perform(post("/users/profile").with(csrf()).
+                        param("firstName", "Ad").
+                        param("lastName", "Admv").
+                        param("username", "Adminscho").
+                        param("address", "ADMIN ADMIN STR 1")).
+                andExpect(status().is3xxRedirection()).
+                andExpect(redirectedUrl("/users/profile"));
+    }
 
 }

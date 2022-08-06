@@ -33,19 +33,18 @@ public class AdminController {
     private final OrderProductService orderProductService;
 
     @GetMapping
-    public String adminPage(Model model) {
+    public String adminPage() {
         return "admin-panel";
     }
 
-    @GetMapping("/category/edit/{id}")
+    @GetMapping("/categories/edit/{id}")
     private String categoryEditPage(@PathVariable("id") Long id, Model model) {
 
         model.addAttribute("categoryData", categoryService.getCategoryDTO(id));
         return "change-category";
     }
 
-    @PostMapping("/category/edit/{id}")
-
+    @PostMapping("/categories/edit/{id}")
     private String categoryEditConfirm(@PathVariable("id") Long id, @Valid CategoryDTO categoryDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
@@ -132,7 +131,7 @@ public class AdminController {
 
 
     @GetMapping("/orders/all")
-    public String allOrdersPage(Model model, Principal principal) {
+    public String allOrdersPage(Model model) {
         model.addAttribute("allOrders", orderService.getAllOrders().stream()
                 .map(orderDTO -> modelMapper.map(orderDTO, OrderViewModel.class)).
                 collect(Collectors.toList()));
@@ -170,7 +169,7 @@ public class AdminController {
         model.addAttribute("productData",
                 modelMapper.map(productService.getViewModel(id), ProductViewModel.class));
         model.addAttribute("categories", categoryService.getAllCategories().
-                stream().filter(categoryDTO -> categoryDTO.isDeleted() == false)
+                stream().filter(categoryDTO -> !categoryDTO.isDeleted())
                 .map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
                 .collect(Collectors.toList()));
         return "edit-product";
@@ -181,7 +180,7 @@ public class AdminController {
             , BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         model.addAttribute("categories", categoryService.getAllCategories().
-                stream().filter(categoryDTO -> categoryDTO.isDeleted() == false)
+                stream().filter(categoryDTO -> !categoryDTO.isDeleted())
                 .map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
                 .collect(Collectors.toList()));
         if (bindingResult.hasErrors()) {
@@ -197,7 +196,7 @@ public class AdminController {
     @GetMapping("/products/add")
     private String addProductPage(Model model) {
         model.addAttribute("categories", categoryService.getAllCategories().
-                stream().filter(categoryDTO -> categoryDTO.isDeleted() == false)
+                stream().filter(categoryDTO -> !categoryDTO.isDeleted())
                 .map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
                 .collect(Collectors.toList()));
         return "add-new-product";

@@ -23,7 +23,7 @@ public class ProductEntity {
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
+    @Column(nullable = false,columnDefinition = "LONGTEXT")
     private String description;
 
     @Column(nullable = false)

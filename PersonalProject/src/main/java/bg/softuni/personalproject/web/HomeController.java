@@ -39,8 +39,7 @@ public class HomeController {
 
 
     private CategoryViewModel getFirstCategory(List<CategoryViewModel> categories) {
-        return categories.stream().map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
-                .collect(Collectors.toList()).get(0);
+        return categories.stream().map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class)).toList().get(0);
     }
 
     private List<CategoryViewModel> getOtherCategories(List<CategoryViewModel> categories) {

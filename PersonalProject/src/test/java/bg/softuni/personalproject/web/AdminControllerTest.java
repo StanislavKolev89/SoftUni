@@ -1,13 +1,11 @@
 package bg.softuni.personalproject.web;
 
-import bg.softuni.personalproject.model.dto.CategoryDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
-
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -29,15 +27,29 @@ class AdminControllerTest {
 
     @Test
     void CategoryEditPage() throws Exception {
-        CategoryDTO categoryOne = new CategoryDTO();
-        categoryOne.setName("TOOLS");
-        categoryOne.setImageUrl("/images/CategoryTools.jpg");
-        categoryOne.setDeleted(false);
-        categoryOne.setId(1L);
-        mockMvc.perform(get("/admin/category/edit/{id}", 1)).
+        mockMvc.perform(get("/admin/categories/edit/{id}", 1)).
                 andExpect(model().attributeExists("categoryData")).
                 andExpect(status().isOk()).andExpect(view().name("change-category"));
 
+    }
+
+    @Test
+    void CategoryEditPageConfirm() throws Exception {
+        mockMvc.perform(post("/admin/categories/edit/{id}", 1).
+                        param("name", "TOOLS").
+                        param("imageUrl", "ASDASDASDASDASD").
+                        with(csrf())).andExpect(status().is3xxRedirection()).
+                andExpect(redirectedUrl("/admin"));
+
+    }
+
+    @Test
+    void CategoryEditPageConfirmRedirect() throws Exception {
+        mockMvc.perform(post("/admin/categories/edit/{id}", 1).
+                        param("name", "T").
+                        param("imageUrl", "ASDASDASDASDASD").
+                        with(csrf())).andExpect(status().is3xxRedirection()).
+                andExpect(redirectedUrl("/admin/category/edit/1"));
     }
 
     @Test
