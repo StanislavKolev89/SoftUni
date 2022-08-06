@@ -27,15 +27,16 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
+        //@formatter:off
         http.
                 // define which requests are allowed and which not
                         authorizeRequests().
                 // everyone can download static resources (css, js, images)
                         requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
                 // everyone can login and register
-                        antMatchers("/", "/users/login", "/users/register", "/products/users/forSale").permitAll().
-                antMatchers("/", "/users/login", "/users/register", "/api/**").permitAll().
-                antMatchers("/products/all", "/products/users/forSale", "/contacts").permitAll().
+                        antMatchers("/", "/users/login","/users/register","/products/users/forSale").permitAll().
+                        antMatchers("/", "/users/login","/users/register","/api/**").permitAll().
+                antMatchers("/products/all","/products/users/forSale","/contacts").permitAll().
 
                 // pages available only for admins
                         antMatchers("/admin/**").hasRole(RoleEnum.ADMIN.name()).
@@ -60,10 +61,10 @@ public class SecurityConfiguration {
                         logout().
                 // which is the logout url
                         logoutUrl("/users/logout").
-                // invalidate the session and delete the cookies
+        // invalidate the session and delete the cookies
                         invalidateHttpSession(true).
                 deleteCookies("JSESSIONID");
-
+        //@formatter:off
 
         return http.build();
     }
