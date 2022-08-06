@@ -1,9 +1,18 @@
 package bg.softuni.personalproject.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.dto.CategoryDTO;
 import bg.softuni.personalproject.model.entity.CategoryEntity;
 import bg.softuni.personalproject.repository.CategoryRepository;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,13 +23,6 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.internal.util.Assert;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -77,7 +79,7 @@ class CategoryServiceTest {
 
     @Test
     void getCategoryDTOThrowsException() {
-        when(categoryRepository.findById(1l)).thenReturn(null);
+        when(categoryRepository.findById(1l)).thenReturn(Optional.empty());
         Assertions.assertThrows(ObjectNotFoundException.class, () -> {
             mockedService.getCategoryDTO(1L);
         });

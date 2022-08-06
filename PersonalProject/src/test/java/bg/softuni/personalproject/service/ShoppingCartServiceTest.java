@@ -1,9 +1,15 @@
 package bg.softuni.personalproject.service;
 
+import static org.mockito.Mockito.when;
+
 import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.dto.QuantityHolderDTO;
 import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.repository.ProductRepository;
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,13 +17,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class ShoppingCartServiceTest {
@@ -87,7 +86,7 @@ class ShoppingCartServiceTest {
 
     @Test
     void removeProductThrowException() {
-        when(productRepository.findById(1L)).thenReturn(null);
+        when(productRepository.findById(1L)).thenReturn(Optional.empty());
         org.junit.jupiter.api.Assertions.assertThrows(ObjectNotFoundException.class, () ->
                 mockService.removeProduct(1L));
     }

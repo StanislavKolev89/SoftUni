@@ -5,15 +5,13 @@ import bg.softuni.personalproject.model.dto.QuantityHolderDTO;
 import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.model.entity.UserEntity;
 import bg.softuni.personalproject.repository.ProductRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.web.context.annotation.SessionScope;
-
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 
 @RequiredArgsConstructor
 @Service
@@ -22,11 +20,11 @@ public class ShoppingCartService {
     private final ProductRepository productRepository;
     private final OrderService orderService;
     private final UserService userService;
-    private Map<ProductEntity, Integer> cartProducts = new HashMap<>();
+    private final Map<ProductEntity, Integer> cartProducts = new HashMap<>();
 
     public void addToCart(Long productById, QuantityHolderDTO quantityHolderDTO) {
         productRepository.findById(productById).ifPresent(productEntity ->
-                cartProducts.put(productEntity, quantityHolderDTO.getQuantity()));
+              cartProducts.put(productEntity, quantityHolderDTO.getQuantity()));
 
     }
 
@@ -43,9 +41,9 @@ public class ShoppingCartService {
 
     public BigDecimal findTotalSum() {
         return cartProducts.entrySet().stream()
-                .map(entry -> entry.getKey().getPrice().multiply(BigDecimal.valueOf(entry.getValue())))
-                .reduce(BigDecimal::add)
-                .orElse(BigDecimal.ZERO);
+              .map(entry -> entry.getKey().getPrice().multiply(BigDecimal.valueOf(entry.getValue())))
+              .reduce(BigDecimal::add)
+              .orElse(BigDecimal.ZERO);
 
     }
 
@@ -54,11 +52,9 @@ public class ShoppingCartService {
     }
 
     public void removeProduct(Long productById) {
-        Optional<ProductEntity> byId = productRepository.findById(productById);
-        if (byId == null) {
-            throw new ObjectNotFoundException();
-        }
-
-        cartProducts.remove(byId.get());
+        productRepository.findById(productById)
+              .ifPresentOrElse(cartProducts::remove, () -> {
+                  throw new ObjectNotFoundException();
+              });
     }
 }

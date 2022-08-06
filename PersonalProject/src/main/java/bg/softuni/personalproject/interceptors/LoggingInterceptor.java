@@ -10,7 +10,7 @@ import java.util.Iterator;
 
 public class LoggingInterceptor implements HandlerInterceptor {
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         System.out.println("PREHANDLE");
         System.out.println(request.getRequestURL() + " " + request.getMethod());
         Iterator<String> iter = request.getHeaderNames().asIterator();
@@ -23,7 +23,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) {
         System.out.println("POSTHANDLE");
         if (modelAndView == null) {
             return;
@@ -36,7 +36,7 @@ public class LoggingInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         System.out.println("AFTERCOMPLETION");
         if (ex != null) {
             ex.printStackTrace();

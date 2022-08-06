@@ -4,14 +4,12 @@ import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.dto.CategoryDTO;
 import bg.softuni.personalproject.model.entity.CategoryEntity;
 import bg.softuni.personalproject.repository.CategoryRepository;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -22,10 +20,7 @@ public class CategoryService {
 
     public List<CategoryDTO> getAllCategories() {
         List<CategoryDTO> categoryDTOS = categoryRepository.findAll().stream().
-                map(categoryEntity -> {
-                    CategoryDTO dto = modelMapper.map(categoryEntity, CategoryDTO.class);
-                    return dto;
-                }).collect(Collectors.toList());
+              map(categoryEntity -> modelMapper.map(categoryEntity, CategoryDTO.class)).collect(Collectors.toList());
         if (categoryDTOS.isEmpty()) {
             throw new ObjectNotFoundException();
         }
@@ -33,29 +28,26 @@ public class CategoryService {
     }
 
     public CategoryDTO getCategoryDTO(Long id) {
-        Optional<CategoryEntity> categoryEntity = categoryRepository.findById(id);
-        if (categoryEntity == null) {
-            throw new ObjectNotFoundException();
-        }
-        CategoryDTO categoryDTO = modelMapper.map(categoryEntity, CategoryDTO.class);
-        return categoryDTO;
+        return categoryRepository.findById(id)
+              .map(categoryEntity -> modelMapper.map(categoryEntity, CategoryDTO.class))
+              .orElseThrow(ObjectNotFoundException::new);
     }
 
     public void changeCategory(CategoryDTO categoryDto, Long productId) {
-        CategoryEntity categoryEntity = categoryRepository.findById(productId).orElseThrow(() -> new ObjectNotFoundException());
+        CategoryEntity categoryEntity = categoryRepository.findById(productId).orElseThrow(ObjectNotFoundException::new);
         categoryEntity.setName(categoryDto.getName().toUpperCase(Locale.ROOT));
         categoryEntity.setImageUrl(categoryDto.getImageUrl());
         categoryRepository.save(categoryEntity);
     }
 
     public void deleteCategory(Long id) {
-        CategoryEntity categoryEntity = categoryRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException());
+        CategoryEntity categoryEntity = categoryRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
         categoryEntity.setDeleted(true);
         categoryRepository.save(categoryEntity);
     }
 
     public void addCategory(CategoryDTO categoryDTO) {
-        CategoryEntity category = categoryRepository.findByName(categoryDTO.getName()).orElseThrow(() -> new ObjectNotFoundException());
+        CategoryEntity category = categoryRepository.findByName(categoryDTO.getName()).orElseThrow(ObjectNotFoundException::new);
         if (category != null) {
             category.setImageUrl(categoryDTO.getImageUrl());
             category.setDeleted(false);
@@ -63,18 +55,19 @@ public class CategoryService {
         categoryRepository.save(modelMapper.map(categoryDTO, CategoryEntity.class));
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     public boolean passedCategoryExists(String category) {
         return categoryRepository.existsByName(category);
     }
 
 
     public List<CategoryDTO> filterDeleteDCategories() {
-        return getAllCategories().stream().filter(categoryDTO -> categoryDTO.isDeleted() == false)
-                .collect(Collectors.toList());
+        return getAllCategories().stream().filter(categoryDTO -> !categoryDTO.isDeleted())
+              .collect(Collectors.toList());
     }
 
     public CategoryEntity findCategoryByName(String name) {
 
-        return categoryRepository.findByName(name).orElseThrow(() -> new ObjectNotFoundException());
+        return categoryRepository.findByName(name).orElseThrow(ObjectNotFoundException::new);
     }
 }
