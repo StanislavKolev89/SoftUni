@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -26,35 +27,13 @@ class HomeControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Spy
-    private ModelMapper modelMapper;
-
-    @Mock
-     private CategoryService mockService;
-
-
-@Test
+    @Test
     void testHomePage() throws Exception {
-    CategoryDTO categoryOne = new CategoryDTO();
-    categoryOne.setName("TOOLS");
-    categoryOne.setImageUrl("/images/CategoryTools.jpg");
-    categoryOne.setDeleted(false);
-    categoryOne.setId(1L);
+        mockMvc.perform(get("/")).
+                andExpect(status().isOk()).andExpect(view().name("index")).
+                andExpect(model().attributeExists("firstCategoryItem"));
 
-    CategoryDTO categoryTwo = new CategoryDTO();
-    categoryTwo.setName("TOOLS");
-    categoryTwo.setImageUrl("/images/CategoryTools.jpg");
-    categoryTwo.setDeleted(false);
-    categoryTwo.setId(2L);
-    List<CategoryDTO> categories= new ArrayList<>();
-    categories.add(categoryOne);
-    categories.add(categoryTwo);
-    when(mockService.getAllCategories()).thenReturn((categories));
-    mockMvc.perform(get("/")).
-            andExpect(status().isOk()).andExpect(view().name("index")).
-            andExpect(model().attribute("firstCategoryItem", modelMapper.map(categoryOne,CategoryViewModel.class)));
-
-}
+    }
 
     @Test
     void testContactsPage() throws Exception {
