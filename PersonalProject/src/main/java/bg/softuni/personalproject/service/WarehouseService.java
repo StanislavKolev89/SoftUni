@@ -2,6 +2,7 @@ package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.entity.ProductQuantityTracker;
 import bg.softuni.personalproject.repository.WarehouseTrackerRepository;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -10,16 +11,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+@RequiredArgsConstructor
 @Service
 public class WarehouseService {
 
     private Logger LOGGER = LoggerFactory.getLogger(WarehouseService.class);
     private final WarehouseTrackerRepository warehouseTrackerRepository;
-
-    public WarehouseService(WarehouseTrackerRepository warehouseTrackerRepository) {
-        this.warehouseTrackerRepository = warehouseTrackerRepository;
-    }
 
     public void decreaseStock(Long id, Integer value) {
         ProductQuantityTracker productQuantityTracker = warehouseTrackerRepository.findById(id).get();

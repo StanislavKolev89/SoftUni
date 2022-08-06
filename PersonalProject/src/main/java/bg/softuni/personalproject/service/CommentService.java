@@ -6,6 +6,7 @@ import bg.softuni.personalproject.model.dto.CommentDTO;
 import bg.softuni.personalproject.model.entity.CommentEntity;
 import bg.softuni.personalproject.model.entity.UserEntity;
 import bg.softuni.personalproject.repository.CommentRepository;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@RequiredArgsConstructor
 @Service
 public class CommentService {
 
@@ -20,13 +22,6 @@ public class CommentService {
     private final UserService userService;
     private final ProductService productService;
     private final ModelMapper modelMapper;
-
-    public CommentService(CommentRepository commentRepository, UserService userService, ProductService productService, ModelMapper modelMapper) {
-        this.commentRepository = commentRepository;
-        this.userService = userService;
-        this.productService = productService;
-        this.modelMapper = modelMapper;
-    }
 
 
     public CommentDTO createComment(CommentCreationDTO commentCreationDTO) {

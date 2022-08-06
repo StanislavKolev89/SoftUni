@@ -1,40 +1,76 @@
 package bg.softuni.personalproject.service;
 
-import bg.softuni.personalproject.model.entity.RoleEntity;
+import bg.softuni.personalproject.model.dto.CommentCreationDTO;
+import bg.softuni.personalproject.model.dto.CommentDTO;
+import bg.softuni.personalproject.model.entity.CommentEntity;
 import bg.softuni.personalproject.model.entity.UserEntity;
-import bg.softuni.personalproject.model.enums.RoleEnum;
 import bg.softuni.personalproject.repository.CommentRepository;
-import bg.softuni.personalproject.repository.UserRepository;
-import org.apache.catalina.Role;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
+
+import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-public class CommentServiceTest {
+class CommentServiceTest {
 
+    @InjectMocks
+    private CommentService mockedService;
 
     @Mock
-    private CommentRepository mockCommentRepo;
+    private CommentRepository commentRepository;
 
+    @Mock
+    private UserService userService;
+
+    @Mock
+    private  ProductService productService;
+
+    @Spy
+    private ModelMapper modelMapper;
+
+   private CommentEntity commentEntityOne = new CommentEntity();
+
+   private CommentEntity commentEntityTwo = new CommentEntity();
     private UserEntity userEntity = new UserEntity();
 
+    private CommentCreationDTO commentCreationDTO = new CommentCreationDTO();
+
+    private CommentDTO commentDTOOne = new CommentDTO();
+
+    private CommentDTO commentDTOTwo = new CommentDTO();
+
     @BeforeEach
-    void setUp() {
-        RoleEntity role = new RoleEntity();
-        role.setName(RoleEnum.ADMIN);
-        userEntity.setLastName("Kolev");
-        userEntity.setFirstName("Stanislav");
-        userEntity.setUsername("Kolevoncho");
-        userEntity.setRole(role);
-        userEntity.setEmail("kolevone@gmail.com");
-        userEntity.setPassword("12345");
-        userEntity.setAddress("sdasdadasddsa");
-        userEntity.setActive(true);
+    void setUp(){
+        userEntity.setUsername("USER");
+        commentCreationDTO.setUsername(userEntity.getUsername());
+        commentEntityOne.setAuthor(userEntity);
+        commentDTOOne.setId(1L);
+        commentDTOOne.setContent("CONTENT");
+        commentDTOTwo.setId(2L);
+        commentDTOTwo.setContent("CONTENT");
+        commentEntityOne.setAuthor(userEntity);
+        commentEntityTwo.setAuthor(userEntity);
 
     }
 
+    @Test
+    void createComment() {
+        Mockito.when(commentRepository.save(commentEntityOne)).thenReturn(commentEntityOne);
+        CommentDTO comment = mockedService.createComment(commentCreationDTO);
+        Assertions.assertThat(comment).isNotNull();
+    }
 
+    @Test
+    void getAllCommentsOfCurrentProduct() {
+        Mockito.when(commentRepository.findAllByProductId(1L)).thenReturn(List.of(commentEntityOne,commentEntityTwo));
+        mockedService.getAllCommentsOfCurrentProduct(1L);
+    }
 }

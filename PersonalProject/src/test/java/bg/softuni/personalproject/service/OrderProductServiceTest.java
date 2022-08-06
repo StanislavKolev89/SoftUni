@@ -107,7 +107,6 @@ class OrderProductServiceTest {
     void deleteByOrderId() {
         willDoNothing().given(orderProductRepository).deleteAllOrdersProductEntitiesByOrderId(1L);
         mockedService.deleteByOrderId(1l);
-        verify(orderProductRepository, times(1)).save(any());
 
     }
 }

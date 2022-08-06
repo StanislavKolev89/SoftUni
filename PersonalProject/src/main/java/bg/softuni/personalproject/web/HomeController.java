@@ -1,16 +1,13 @@
 package bg.softuni.personalproject.web;
 
 
-import bg.softuni.personalproject.model.dto.CategoryDTO;
 import bg.softuni.personalproject.model.view.CategoryViewModel;
 import bg.softuni.personalproject.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

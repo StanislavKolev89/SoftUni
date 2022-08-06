@@ -3,7 +3,10 @@ package bg.softuni.personalproject.service;
 import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.dto.UserDTO;
 import bg.softuni.personalproject.model.dto.UserEditDTO;
+import bg.softuni.personalproject.model.dto.UserRegisterDTO;
+import bg.softuni.personalproject.model.entity.RoleEntity;
 import bg.softuni.personalproject.model.entity.UserEntity;
+import bg.softuni.personalproject.model.enums.RoleEnum;
 import bg.softuni.personalproject.model.view.UserViewModel;
 import bg.softuni.personalproject.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
@@ -13,9 +16,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.management.relation.Role;
 import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.List;
@@ -52,6 +57,8 @@ class UserServiceTest {
     @Mock
     private OrderProductService orderProductService;
 
+
+
     private UserEntity userOne = new UserEntity();
 
     private UserEntity userTwo = new UserEntity();
@@ -62,15 +69,22 @@ class UserServiceTest {
 
     private UserEditDTO userEditDTO = new UserEditDTO();
 
+    private UserRegisterDTO userRegisterDTO = new UserRegisterDTO();
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(principal);
+        MockitoAnnotations.openMocks(userDetailsService);
+        RoleEntity roleEntity = new RoleEntity();
+        roleEntity.setName(RoleEnum.ADMIN);
         userOne.setId(1L);
         userOne.setEmail("emailOne@gmail.com");
+        userOne.setRole(roleEntity);
         userTwo.setId(2L);
         userTwo.setEmail("emailTwo@gmail.com");
 
     }
+
 
     @Test
     void findByNameThrowsException() {
@@ -125,22 +139,30 @@ class UserServiceTest {
     @Test
     void changeUserData() {
         when(userRepository.findByEmail(principal.getName())).thenReturn(Optional.of(userOne));
-        mockedService.changeUserData(userEditDTO,principal);
+        mockedService.changeUserData(userEditDTO, principal);
     }
 
     @Test
     void removeUserAdminRights() {
+        when(userRepository.findById(1L)).thenReturn(Optional.of(userOne));
+        mockedService.removeUserAdminRights(1L);
     }
 
     @Test
     void giveUserAdminRights() {
+        when(userRepository.findById(1L)).thenReturn(Optional.of(userOne));
+        mockedService.giveUserAdminRights(1L);
     }
 
     @Test
     void loggedUserId() {
+        when(userRepository.findByEmail(principal.getName())).thenReturn(Optional.of(userOne));
+        mockedService.loggedUserId(principal);
     }
 
     @Test
     void getPrincipalUsername() {
+        when(userRepository.findByEmail(principal.getName())).thenReturn(Optional.of(userOne));
+        mockedService.getPrincipalUsername(principal);
     }
 }

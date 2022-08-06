@@ -40,7 +40,6 @@ public class AdminController {
     @GetMapping("/category/edit/{id}")
     private String categoryEditPage(@PathVariable("id") Long id, Model model) {
 
-
         model.addAttribute("categoryData", categoryService.getCategoryDTO(id));
         return "change-category";
     }
@@ -64,7 +63,6 @@ public class AdminController {
         categoryService.deleteCategory(id);
         return "redirect:/admin/categories/all";
     }
-
 
     @GetMapping("/categories/add")
     public String categoryAddPage() {
@@ -181,6 +179,7 @@ public class AdminController {
     @PostMapping("/products/edit/{id}")
     private String editProductConfirm(@PathVariable("id") Long id,Model model, @Valid ProductDTO productDTO
             , BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+
         model.addAttribute("categories", categoryService.getAllCategories().
                 stream().filter(categoryDTO -> categoryDTO.isDeleted() == false)
                 .map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
@@ -215,11 +214,10 @@ public class AdminController {
         productService.addNewProduct(productDTO);
         return "redirect:/admin/products/all";
     }
-    @GetMapping("/products/delete/{id}")
 
+    @GetMapping("/products/delete/{id}")
     public String deleteProduct(@PathVariable("id") Long id) {
         productService.deleteProduct(id);
-
         return "redirect:/admin/products/all";
     }
 

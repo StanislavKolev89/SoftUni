@@ -7,6 +7,7 @@ import bg.softuni.personalproject.model.dto.CommentDTO;
 import bg.softuni.personalproject.model.dto.ContentConsumerDto;
 import bg.softuni.personalproject.model.view.CommentViewModel;
 import bg.softuni.personalproject.service.CommentService;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,27 +18,23 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
 public class CommentRestController {
     private final CommentService commentService;
     private final ModelMapper modelMapper;
 
-    public CommentRestController(CommentService commentService, ModelMapper modelMapper) {
-        this.commentService = commentService;
-        this.modelMapper = modelMapper;
-    }
-
     @GetMapping("/{productId}/comments")
 
-    public  ResponseEntity<List<CommentViewModel>> getComments(@PathVariable("productId") Long productId){
+    public  List<CommentViewModel> getComments(@PathVariable("productId") Long productId){
         List<CommentDTO> allCommentsOfCurrentProduct = commentService.getAllCommentsOfCurrentProduct(productId);
         if(allCommentsOfCurrentProduct.isEmpty()){
             throw new CommentNotFoundException(productId);
         }
-        return ResponseEntity.ok(allCommentsOfCurrentProduct.stream()
+        return allCommentsOfCurrentProduct.stream()
                 .map(commentDTO -> modelMapper.map(commentDTO,CommentViewModel.class))
-                .collect(Collectors.toList()));
+                .collect(Collectors.toList());
     }
 
     @PostMapping(value = "/{productId}/comments",consumes = "application/json",produces = "application/json")
