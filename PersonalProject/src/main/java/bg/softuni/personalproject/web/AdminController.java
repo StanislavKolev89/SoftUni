@@ -51,7 +51,7 @@ public class AdminController {
             redirectAttributes.addFlashAttribute("categoryDTO", categoryDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.categoryDTO", bindingResult);
 
-            return "redirect:/admin/category/edit/{id}";
+            return "redirect:/admin/categories/edit/{id}";
         }
         categoryService.changeCategory(categoryDTO, id);
         return "redirect:/admin";
