@@ -34,7 +34,7 @@
         <div th:each="product :${chosenCategoryProducts}" class="col-md-4">
             <div class="filter" th:id="${product.category}">
                 <div class="car-body" style="width: 19rem;">
-                    <img th:src="${product.imageUrl}" class="w-100 border-bottom" alt="...">
+                    <img th:src="${product.imageUrl}" class="w-100 border-bottom img-fluid" alt="...">
                     <div class="card-body bg-success">
                         <h5 th:text="${product.title}" class="card-title"></h5>
                         <p th:text="${product.description}" class="card-text">Here is some example text to make up the
