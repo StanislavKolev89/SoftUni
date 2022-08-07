@@ -89,6 +89,13 @@ public class UsedProductController {
         return "redirect:/used/products/forSale";
     }
 
+    @GetMapping("/products/delete/{id}")
+    public String secondHandProductAddPage(@PathVariable("id") Long id) {
+        usedProductService.deleteProduct(id);
+
+        return "redirect:/used/products/forSale";
+    }
+
     @ModelAttribute
     public UsedProductDTO usedProductDTO() {
         return new UsedProductDTO();

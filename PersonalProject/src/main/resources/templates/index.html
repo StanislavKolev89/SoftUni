@@ -7,7 +7,6 @@
 <nav th:replace="/fragments/commons::nav" class="navbar">
 </nav>
 
-
 <main class="p-5 text-center my-main">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 
@@ -18,31 +17,30 @@
                     <h5 class="text-dark" th:text="${firstCategoryItem.getName()}">First slide label</h5>
 
                 </div>
-                <a th:if="${firstCategoryItem.deleted}==false" class="photo" th:href="@{/products/{category}(category=${firstCategoryItem.getName()})}"
+                <a th:if="${firstCategoryItem.deleted}==false" class="photo"
+                   th:href="@{/products/{category}(category=${firstCategoryItem.getName()})}"
                    target="_blank">
-                    <img   class="d-block w-400"
+                    <img class="d-block w-400"
                          th:src="${firstCategoryItem.imageUrl}" alt="...">
                 </a>
                 <a th:if="${firstCategoryItem.deleted}==true" class="photo" target="_blank">
-                    <img  style="opacity: 0.5;" class="d-block w-400"
-                          th:src="${firstCategoryItem.imageUrl}" alt="...">
+                    <img style="opacity: 0.5;" class="d-block w-400"
+                         th:src="${firstCategoryItem.imageUrl}" alt="...">
                 </a>
             </div>
-
             <div th:each="category : ${allOtherItems}" class="carousel-item">
-
+                <h1 th:if="${category.deleted}==true" class="text-danger">NOT AVAILABLE</h1>
                 <div class="carousel-caption d-block d-md-block">
-                    <h1 th:if="${category.deleted}==true" class="text-danger">NOT AVAILABLE</h1>
                     <h5 class="text-dark" th:text="${category.name}">First slide label</h5>
-
                 </div>
-                <a th:if="${category.deleted}==false"class="photo" th:href="@{/products/{category}(category=${category.getName()})}" target="_blank">
-                    <img   class="d-block w-400" alt="..."
+                <a th:if="${category.deleted}==false" class="photo"
+                   th:href="@{/products/{category}(category=${category.getName()})}" target="_blank">
+                    <img class="d-block w-400" alt="..."
                          th:src="${category.imageUrl}">
                 </a>
                 <a th:if="${category.deleted}==true" class="photo" target="_blank">
-                    <img  style="opacity: 0.5;"  class="d-block w-400" alt="..."
-                          th:src="${category.imageUrl}">
+                    <img style="opacity: 0.5;" class="d-block w-400" alt="..."
+                         th:src="${category.imageUrl}">
                 </a>
             </div>
 

@@ -5,16 +5,16 @@
 <body>
 <nav th:replace="fragments/commons::nav"></nav>
 
-<div class="container-fluid" style="overflow: auto">
+<div class="p-5 bg-blur text-center my-main" style="overflow: auto;">
 
-    <table id="AdminCategories" class="table table-responsive table-hover bg-light text-dark rounded"
-           style="overflow-x:scroll">
+    <table id="AdminCategories" class="table table-responsive table-hover text-dark rounded"
+           style="overflow-x:scroll; background-color: rgba(255,255,255,0.5)">
         <thead>
 
         <h1 class="display-4 text-white">ALL USERS
             <th:block th:text="|( ${count} )|"></th:block>
         </h1>
-        <tr scope="row" class="bg-transparent">
+        <tr scope="row" class="bg-transparent" >
             <th scope="col">Username</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
@@ -26,8 +26,8 @@
         </tr>
         </thead>
 
-        <tbody class="table-primary">
-        <tr scope="row" th:each="user: ${users}">
+        <tbody class="table">
+        <tr scope="row" th:each="user: ${users}" style=" background-color: rgba(255,255,255,0.5)">
             <td th:text="${user.username}"></td>
             <td th:text="${user.firstName}"></td>
             <td th:text="${user.lastName}"></td>
@@ -41,9 +41,7 @@
             <td th:if="${user.id}!=1 and ${user.roleEntity.id}==1" class="text-info"> USER-ADMIN</td>
             <td th:if="${user.id}==1" class="text-info rounded"></td>
             <td th:if="${user.id}==1" class="text-info rounded"></td>
-            <td th:if="${user.id}==1" class="text-info rounded"></td>
-            <td th:if="${user.id}!=1 and ${user.roleEntity.id}!=1" class="text-info"></td>
-            <td th:if="${user.id}!=1 and ${user.roleEntity.id}==1" class="text-info"></td>
+            <td th:if="${user.id}==1" class="text-info"></td>
             <td th:if="${user.active==true} and ${user.id!=1} and ${user.roleEntity.id}!=1">
                 <a th:href="@{/admin/users/deactivate/{id}(id=${user.id})}" class="text-danger rounded">Deactivate User
                     Rights</a>
@@ -62,14 +60,15 @@
             </td>
             <td th:if="${user.id!=1} and ${loggedUserId}!=${user.id}">
                 <a th:href="@{/admin/users/delete/{id}(id=${user.id})}"
-                   class="text-info rounded"
+                   class="text-primary rounded"
                    th:onclick="if(!(confirm('Are you sure you want to delete this employee ?'+
                    'All related data with this user will be lost!') )) return false">Delete User</a>
             </td>
         </tr>
 
         </tbody>
-        <tr>
+        <tr style="background-color: rgba(255,255,255,0.5)">
+            <td></td>
             <td></td>
             <td></td>
             <td></td>

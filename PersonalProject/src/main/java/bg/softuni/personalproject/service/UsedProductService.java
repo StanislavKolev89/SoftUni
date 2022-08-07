@@ -64,4 +64,8 @@ public class UsedProductService {
         }
         usedProductEntity.setPhoneNumber(usedProductDTO.getPhoneNumber());
     }
+
+    public void deleteProduct(Long id) {
+        usedProductRepository.deleteById(id);
+    }
 }

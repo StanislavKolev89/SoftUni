@@ -97,16 +97,15 @@
 
                     </div>
                 </div>
+                <button th:if="${principalUsername==productViewModel.user}" type="submit"
+                        id="changeProduct" class="btn btn-info center-block btn-rounded" data-toggle="tooltip" title=""
+                        data-original-title="Add to cart">Edit Product
+                </button>
             </div>
-            <button th:if="${principalUsername==productViewModel.user}" type="submit"
-                    id="changeProduct" class="btn btn-info  btn-rounded mr-1" data-toggle="tooltip" title=""
-                    data-original-title="Add to cart">Edit Product
-            </button>
-<!--            <button th:if="${productViewModel.id eq 1}" type="submit"-->
-<!--                    id="changeProduct" class="btn btn-info  btn-rounded mr-1" data-toggle="tooltip" title=""-->
-<!--                    data-original-title="Add to cart">Edit Product-->
-<!--            </button>-->
 
+            <p th:if="${principalUsername==productViewModel.user}">
+                <a class="btn btn-danger btn-rounded mr-1"
+                   th:href="@{/used/products/delete/{id}(id=${productViewModel.id})}">Delete</a></p>
             <p><a class="btn btn-success center-block btn-rounded mr-1" href="/used/products/forSale">Go back</a></p>
         </div>
 
