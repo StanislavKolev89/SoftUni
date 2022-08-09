@@ -19,6 +19,7 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryService categoryService;
     private final ModelMapper modelMapper;
+    private final WarehouseService warehouseService;
 
     public List<ProductDTO> getAllProducts() {
         return productRepository.findAll().stream().
@@ -68,6 +69,7 @@ public class ProductService {
         productEntity.setDeleted(false);
         productEntity.setCategory(categoryService.findCategoryByName(productDTO.getCategory()));
         productRepository.save(productEntity);
+        warehouseService.saveNewProduct(productEntity);
     }
 
     public void editProduct(ProductDTO productDTO, Long id) {
@@ -77,6 +79,7 @@ public class ProductService {
         productEntity.setPrice(productDTO.getPrice());
         productEntity.setDescription(productDTO.getDescription());
         productRepository.save(productEntity);
+
     }
 
 

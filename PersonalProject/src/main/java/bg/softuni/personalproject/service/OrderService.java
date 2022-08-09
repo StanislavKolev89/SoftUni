@@ -58,7 +58,6 @@ public class OrderService {
 
     public void deleteOrder(Long id) {
         OrderEntity order = orderRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
-        orderProductService.deleteByOrderId(id);
         order.setDeleted(true);
         orderRepository.save(order);
 

@@ -50,6 +50,7 @@ public class UsedProductController {
                 .stream().map(categoryDTO -> modelMapper.map(categoryDTO, CategoryViewModel.class))
                 .collect(Collectors.toList()));
         model.addAttribute("principalUsername", userService.getPrincipalUsername(principal));
+        model.addAttribute("adminIsLogged",userService.loggedUserId(principal));
         return "used-product-details";
     }
 

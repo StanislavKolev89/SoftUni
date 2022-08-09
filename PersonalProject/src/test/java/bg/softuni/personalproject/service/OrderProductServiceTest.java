@@ -103,10 +103,4 @@ class OrderProductServiceTest {
         Assertions.assertThat(bigDecimal).isEqualTo(BigDecimal.ZERO);
     }
 
-    @Test
-    void deleteByOrderId() {
-        willDoNothing().given(orderProductRepository).deleteAllOrdersProductEntitiesByOrderId(1L);
-        mockedService.deleteByOrderId(1l);
-
-    }
 }

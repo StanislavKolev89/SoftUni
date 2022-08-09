@@ -7,14 +7,11 @@ import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.repository.OrderProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.math.BigDecimal;
 import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-@Transactional
 public class OrderProductService {
 
     private final OrderProductRepository orderProductRepository;
@@ -54,8 +51,4 @@ public class OrderProductService {
                 .orElse(BigDecimal.ZERO);
     }
 
-
-    public void deleteByOrderId(Long id) {
-        orderProductRepository.deleteAllOrdersProductEntitiesByOrderId(id);
-    }
 }

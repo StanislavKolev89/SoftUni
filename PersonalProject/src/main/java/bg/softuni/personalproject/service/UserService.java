@@ -142,5 +142,4 @@ public class UserService {
         return userRepository.findByEmail(principal.getName()).map(UserEntity::getUsername).orElse(null);
     }
 
-
 }

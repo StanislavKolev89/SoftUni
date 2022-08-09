@@ -5,7 +5,7 @@
 <body>
 <nav th:replace="fragments/commons::nav"></nav>
 
-<div class="p-5 bg-blur text-center my-maind" style="overflow: auto">
+<div class="p-5 bg-blur text-center my-main" style="overflow: auto">
 
     <table id="AdminCategories" class="table table-responsive table-hover text-dark rounded"
            style="overflow-x:scroll; background-color: rgba(255,255,255,0.5)">
@@ -30,7 +30,7 @@
             <td>
                 <a class="photo "
                    target="_blank">
-                    <img th:src="${product.imageUrl}" alt="" style="width:30px ; height: 30px;">
+                    <img th:src="${product.imageUrl}" alt="" style="width:60px ; height: 60px;">
                 </a>
             </td>
             <td th:text="${product.description}"></td>

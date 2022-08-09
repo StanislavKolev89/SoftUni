@@ -103,7 +103,7 @@
                 </button>
             </div>
 
-            <p th:if="${principalUsername==productViewModel.user}">
+            <p th:if="${principalUsername==productViewModel.user or adminIsLogged==1}">
                 <a class="btn btn-danger btn-rounded mr-1"
                    th:href="@{/used/products/delete/{id}(id=${productViewModel.id})}">Delete</a></p>
             <p><a class="btn btn-success center-block btn-rounded mr-1" href="/used/products/forSale">Go back</a></p>

@@ -1,5 +1,6 @@
 package bg.softuni.personalproject.service;
 
+import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.model.entity.ProductQuantityTracker;
 import bg.softuni.personalproject.repository.WarehouseTrackerRepository;
 import java.util.List;
@@ -49,4 +50,10 @@ public class WarehouseService {
         log.info(builder.toString());
     }
 
+    public void saveNewProduct(ProductEntity productEntity) {
+        ProductQuantityTracker productQuantityTracker = new ProductQuantityTracker();
+        productQuantityTracker.setProduct(productEntity);
+        productQuantityTracker.setQuantity(100);
+        warehouseTrackerRepository.save(productQuantityTracker);
+    }
 }

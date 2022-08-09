@@ -49,7 +49,7 @@ class AdminControllerTest {
                         param("name", "T").
                         param("imageUrl", "ASDASDASDASDASD").
                         with(csrf())).andExpect(status().is3xxRedirection()).
-                andExpect(redirectedUrl("/admin/category/edit/1"));
+                andExpect(redirectedUrl("/admin/categories/edit/1"));
     }
 
     @Test
