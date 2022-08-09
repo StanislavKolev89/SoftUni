@@ -57,6 +57,7 @@ public class ProductService {
     public void deleteProduct(Long id) {
         ProductEntity productEntity = productRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
         productEntity.setDeleted(true);
+        warehouseService.deleteProduct(id);
         productRepository.save(productEntity);
     }
 

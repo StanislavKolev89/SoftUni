@@ -80,7 +80,7 @@ public class UserService {
               .orElse(BigDecimal.ZERO);
     }
 
-    //ToDO SOFT DELETE
+
     public void makeUserNotActive(Long id) {
         UserEntity user = userRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
         user.setActive(false);
@@ -93,7 +93,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    //TODO
+
     public void deleteUser(Long id) {
         userRepository.findById(id).ifPresent(user -> {
             user.setUsername("*** " + user.getUsername() + " DELETED");

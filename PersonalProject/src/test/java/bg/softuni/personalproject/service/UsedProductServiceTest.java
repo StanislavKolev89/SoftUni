@@ -2,6 +2,7 @@ package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.dto.UsedProductDTO;
 import bg.softuni.personalproject.model.entity.CategoryEntity;
+import bg.softuni.personalproject.model.entity.OrderProductEntity;
 import bg.softuni.personalproject.model.entity.UsedProductEntity;
 import bg.softuni.personalproject.model.entity.UserEntity;
 import bg.softuni.personalproject.repository.UsedProductRepository;
@@ -20,7 +21,7 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class UsedProductServiceTest {
@@ -116,5 +117,11 @@ class UsedProductServiceTest {
         usedProductDTO.setImageUrl("IMAGE URL");
         when(usedProductRepository.findById(1L)).thenReturn(Optional.of(productOne));
         mockedService.editProducts(usedProductDTO, 1L);
+    }
+
+    @Test
+    void deleteProduct(){
+        mockedService.deleteProduct(1L);
+        verify(usedProductRepository, times(1)).deleteById(1L);
     }
 }

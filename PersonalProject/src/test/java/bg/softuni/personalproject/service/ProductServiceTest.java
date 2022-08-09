@@ -26,14 +26,18 @@ class ProductServiceTest {
 
     @InjectMocks
     private ProductService mockService;
+
     @Mock
     private ProductRepository productRepository;
 
     @Mock
     private CategoryService categoryService;
 
+    @Mock
+    private WarehouseService warehouseService;
+
     @Spy
-    private ModelMapper modelMapper;
+    private ModelMapper modelMapper = new ModelMapper();
 
     private ProductEntity productOne;
 
@@ -49,9 +53,8 @@ class ProductServiceTest {
         productOne.setCategory(category);
         productTwo = new ProductEntity();
         productTwo.setCategory(category);
-        modelMapper = new ModelMapper();
-    }
 
+    }
 
     @Test
     void getAllProducts() {
@@ -64,7 +67,7 @@ class ProductServiceTest {
     void findProductById() {
 
         when(productRepository.findById(1L)).thenReturn(Optional.of(productOne));
-        ProductDTO productById = mockService.findProductById(1l);
+        ProductDTO productById = mockService.findProductById(1L);
         Assertions.assertThat(productById).isNotNull();
     }
 
@@ -84,9 +87,7 @@ class ProductServiceTest {
 
     @Test
     void getViewModelThrowsException() {
-        org.junit.jupiter.api.Assertions.assertThrows(ObjectNotFoundException.class, () -> {
-            mockService.getViewModel(1L);
-        });
+        org.junit.jupiter.api.Assertions.assertThrows(ObjectNotFoundException.class, () -> mockService.getViewModel(1L));
     }
 
     @Test

@@ -39,6 +39,7 @@ class CommentServiceTest {
     private CommentEntity commentEntityOne = new CommentEntity();
 
     private CommentEntity commentEntityTwo = new CommentEntity();
+
     private UserEntity userEntity = new UserEntity();
 
     private CommentCreationDTO commentCreationDTO = new CommentCreationDTO();

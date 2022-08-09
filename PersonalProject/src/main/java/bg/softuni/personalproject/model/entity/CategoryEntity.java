@@ -27,7 +27,5 @@ public class CategoryEntity {
     @Column(nullable = false)
     private boolean deleted = false;
 
-//    //ToDo have to decide if we want ot delete all products related to this category.
-//    @OneToMany(mappedBy = "category")
-//    private Set<ProductEntity> products;
+
 }

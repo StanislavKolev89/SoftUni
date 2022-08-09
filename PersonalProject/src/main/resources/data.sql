@@ -115,7 +115,7 @@ VALUES (1, 100, 1),
 INSERT INTO users(id, active, address, email, first_name, last_name, password, username, role_id)
 
 VALUES (1, true, 'ADMINADMIN23', 'admin@gmail.com', 'Admin', 'Adminov',
-        '25716ae4e2ae20a33f3cc5e42ca30d5862034fa853f3eefa3affc71afd5e781dadd2072b56f04206', 'Admincho', 1),
+        '25716ae4e2ae20a33f3cc5e42ca30d5862034fa853f3eefa3affc71afd5e781dadd2072b56f04206', 'Admin', 1),
        (2, true, 'Na Pesho Adresa', 'peshkata@gmail.com', 'Pesho', 'Peshev',
         '49f84e0413a83011562b88f71949e3ae5aafdd831e1b5e8246cbe16839dae7dcb5d71ce5c3769060', 'Peshko', 2);
 INSERT INTO used_products(id, description, image_url, phone_number, price, title, category_id, user_id)

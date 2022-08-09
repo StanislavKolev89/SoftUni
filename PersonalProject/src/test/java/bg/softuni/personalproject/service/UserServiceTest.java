@@ -51,7 +51,7 @@ class UserServiceTest {
     private UserDetailsService userDetailsService;
 
     @Spy
-    private ModelMapper modelMapper;
+    private ModelMapper modelMapper= new ModelMapper();
 
     @Mock
     private Principal principal;

@@ -29,6 +29,7 @@ class ShoppingCartServiceTest {
 
     @Mock
     private OrderService orderService;
+
     @Mock
     private UserService userService;
 

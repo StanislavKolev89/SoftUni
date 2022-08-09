@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
 import java.security.Principal;
 
 @RequiredArgsConstructor
@@ -48,6 +49,7 @@ public class ShoppingCartController {
         shoppingCartService.finishOrder(principal.getName());
         return "redirect:/";
     }
+
 
     @GetMapping("/shoppingCart/removeProduct/{id}")
     public String removeProductFromCart(@PathVariable("id") Long productId) {

@@ -37,6 +37,7 @@ public class OrderService {
         cartItems.forEach((product, orderedItemsCount) -> {
             orderProductService.addOrderAndProduct(order, product, orderedItemsCount);
             productQuantityService.decreaseStock(product.getId(), orderedItemsCount);
+
         });
     }
 
@@ -62,8 +63,8 @@ public class OrderService {
         orderRepository.save(order);
 
     }
-
+    //Usage
     public boolean buyerIsAdmin(String username) {
-        return userService.findByName(username).getId()==1;
+        return userService.findByName(username).getId() == 1;
     }
 }

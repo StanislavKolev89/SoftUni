@@ -18,6 +18,7 @@ import org.modelmapper.ModelMapper;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -38,6 +39,12 @@ class OrderServiceTest {
 
     @Mock
     private OrderProductService mockOrderProductService;
+
+    @Mock
+    private WarehouseService warehouseService;
+
+    @Mock
+    private UserService userService;
 
     @Mock
     private ModelMapper modelMapper = new ModelMapper();
@@ -82,16 +89,7 @@ class OrderServiceTest {
         mockService.createOrder(cartItems, userEntity);
         verify(orderRepository, times(1)).save(any());
     }
-//
-//    @Test
-//    void getAllOrders() {
-//        orderOne.setUser(userEntity);
-//        orderTwo.setUser(userEntity);
-////        when(orderRepository.findAll()).thenReturn(List.of(orderOne,orderTwo));
-//        List<OrderDTO> allOrders = mockService.getAllOrders();
-//        productQuantityService.decreaseStock(1L,1);
-//        Assertions.assertThat(allOrders.size()).isEqualTo(0);
-//    }
+
 
     @Test
     void getTotalPriceOfOrder() {
@@ -104,12 +102,6 @@ class OrderServiceTest {
     void deleteOrder() {
         when(orderRepository.findById(1L)).thenReturn(Optional.of(orderOne));
         mockService.deleteOrder(1L);
-    }
-
-
-    @Test
-    void deleteOrderThrowsException() {
-
     }
 
 }
