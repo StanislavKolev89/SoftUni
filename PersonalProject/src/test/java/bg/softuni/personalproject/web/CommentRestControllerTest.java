@@ -20,8 +20,7 @@ class CommentRestControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
-    private CommentService commentService;
+
 
     @Test
     void getComments() throws Exception {
