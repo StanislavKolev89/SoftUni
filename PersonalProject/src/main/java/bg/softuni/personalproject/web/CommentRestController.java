@@ -26,7 +26,6 @@ public class CommentRestController {
     private final ModelMapper modelMapper;
 
     @GetMapping("/{productId}/comments")
-
     public List<CommentViewModel> getComments(@PathVariable("productId") Long productId) {
         List<CommentDTO> allCommentsOfCurrentProduct = commentService.getAllCommentsOfCurrentProduct(productId);
         if (allCommentsOfCurrentProduct.isEmpty()) {

@@ -1,40 +1,48 @@
 package bg.softuni.personalproject.web;
-
-import bg.softuni.personalproject.repository.CommentRepository;
+import bg.softuni.personalproject.service.CommentService;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.jdbc.Sql;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
-//        (classes = {CommentRestController.class, ApplicationConfig.class})
+@WithMockUser(roles = "ADMIN")
 @AutoConfigureMockMvc
-@Sql(scripts = "classpath:web/comments-controller.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 class CommentRestControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
-    private CommentRepository commentRepository;
+    @MockBean
+    private CommentService commentService;
 
-////    @MockBean
-////    private CommentService commentService;
-//
+    @Test
+    void getComments() throws Exception {
+        mockMvc.perform(get("/api/{productId}/comments", 1)).
+                andExpect(status().isOk());
+    }
+
+
+    @Test
+    void getCommentsThrowsCommentNotFoundException() throws Exception {
+        mockMvc.perform(get("/api/{productId}/comments", 2)).
+                andExpect(status().isNotFound());
+    }
+
 //    @Test
 //    @WithMockUser(roles = "ADMIN")
-////    @Sql(statements = "INSERT INTO comments (id, content, created_at) VALUES (1, 'pra6ki', now())")
-//    @Sql(statements = "delete from comments", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-//    @Disabled
+//    void createNewComment() throws Exception {
 //
-//    void getComments() throws Exception {
-////        Mockito.when(commentService.getAllCommentsOfCurrentProduct(1L))
-////                .thenReturn(List.of(
-////                        CommentDTO.builder()
-////                                .id(2L)
-////                        .build()));
-//
-//        mockMvc.perform(get("/api/{productId}/comments", 1)).
-//                andExpect(status().isOk());
+//        mockMvc.perform(post("/api/{productId}/comments", 1).with(csrf()).
+//                        contentType("application/json").accept("application/json").
+//                param("content","content").param("commentCreator","Creator")).
+//                andExpect(status().is(201));
 //    }
 }
