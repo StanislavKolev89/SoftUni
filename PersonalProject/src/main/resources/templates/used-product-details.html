@@ -62,15 +62,15 @@
                                    th:placeholder="${productViewModel.category}"
                                    th:disabled="${principalUsername!=productViewModel.user}">
                             <small th:if="${#fields.hasErrors('price')}" th:errors="*{category}"
-                                   id="imageError" class="text-light form-text bg-danger rounded">Length must
-                                between 3
-                                and 20 characters</small>
+                                   id="imageError" class="text-light form-text bg-danger rounded"></small>
                         </div>
-                        <div th:if="${principalUsername==productViewModel.user}" class="form-group">
-                            <H5>IMAGE LINK</H5>
-                            <input th:field="*{imageUrl}"
-                                   id="description" type="text" class="form-control"
-                                   th:placeholder="${productViewModel.imageUrl}">
+                        <div class="form-group" th:if="${principalUsername==productViewModel.user}">
+                            <div  class="form-group">
+                                <H5>IMAGE URL</H5>
+                                <input th:field="*{imageUrl}"
+                                       id="description" type="text" class="form-control"
+                                       th:placeholder="${productViewModel.imageUrl}">
+                            </div>
                         </div>
                         <div class="form-group">
                             <H5>PHONE NUMBER</H5>
@@ -90,9 +90,7 @@
                                    th:placeholder="${productViewModel.user}"
                                    th:disabled="${principalUsername!=productViewModel.user}">
                             <small th:if="${#fields.hasErrors('user')}" th:errors="*{user}"
-                                   id="imageError" class="text-light form-text bg-danger rounded">Length must
-                                between 3
-                                and 20 characters</small>
+                                   id="imageError" class="text-light form-text bg-danger rounded"></small>
                         </div>
 
                     </div>

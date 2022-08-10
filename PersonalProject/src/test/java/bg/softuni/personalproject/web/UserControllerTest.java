@@ -67,7 +67,6 @@ public class UserControllerTest {
     @Test
     @WithMockUser(username = "admin@gmail.com")
     void testUserEditProfile() throws Exception {
-
         mockMvc.perform(get("/users/profile")).
                 andExpect(status().isOk()).
                 andExpect(view().name("profile"));

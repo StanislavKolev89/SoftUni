@@ -25,9 +25,7 @@
                                    placeholder="Title">
                             <div class="col-auto">
                                 <small th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
-                                       id="titleError" class="text-light form-text bg-danger rounded">Length must
-                                    between 3
-                                    and 20 characters</small>
+                                       id="titleError" class="text-light form-text bg-danger rounded"></small>
                             </div>
                         </div>
                         <div class="form-group">
@@ -37,9 +35,7 @@
                                    placeholder="Description">
                             <div class="col-auto">
                                 <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
-                                       id="descriptionError" class="text-light form-text bg-danger rounded">Length must
-                                    between 3
-                                    and 20 characters</small>
+                                       id="descriptionError" class="text-light form-text bg-danger rounded"></small>
                             </div>
                         </div>
                         <div class="form-group">
@@ -49,21 +45,17 @@
                                    placeholder="Price">
                             <div class="col-auto">
                                 <small th:if="${#fields.hasErrors('price')}" th:errors="*{price}"
-                                       id="priceError" class="text-light form-text bg-danger rounded">Length must
-                                    between 3
-                                    and 20 characters</small>
+                                       id="priceError" class="text-light form-text bg-danger rounded"></small>
                             </div>
                         </div>
                         <div class="form-group">
                             <H5>IMAGE URL</H5>
                             <input th:field="*{imageUrl}"
                                    id="imageUrl" type="text" name="name" class="form-control"
-                                   placeholder="ImageUrl">
+                                   placeholder="Image Url">
                             <div class="col-auto">
                                 <small th:if="${#fields.hasErrors('price')}" th:errors="*{price}"
-                                       id="imageError" class="text-light form-text bg-danger rounded">Length must
-                                    between 3
-                                    and 20 characters</small>
+                                       id="imageError" class="text-light form-text bg-danger rounded"></small>
                             </div>
                         </div>
                         <div class="form-group">

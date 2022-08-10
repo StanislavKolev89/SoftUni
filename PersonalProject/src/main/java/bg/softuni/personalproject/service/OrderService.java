@@ -26,6 +26,7 @@ public class OrderService {
     private final UserService userService;
     private final WarehouseService productQuantityService;
     private final OrderProductService orderProductService;
+    private final WarehouseService warehouseService;
 
     public void createOrder(Map<ProductEntity, Integer> cartItems, UserEntity buyer) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -60,10 +61,16 @@ public class OrderService {
     public void deleteOrder(Long id) {
         OrderEntity order = orderRepository.findById(id).orElseThrow(ObjectNotFoundException::new);
         order.setDeleted(true);
+        orderProductService.findAllOrderProducts(id).stream().forEach(orderProductEntity -> {
+            ProductEntity product = orderProductEntity.getProduct();
+            int quantity = orderProductEntity.getQuantity();
+            warehouseService.restoreQuantityOfProduct(product, quantity);
+        });
+        orderProductService.removeAllProductOfOrderById(id);
         orderRepository.save(order);
 
     }
-    //Usage
+
     public boolean buyerIsAdmin(String username) {
         return userService.findByName(username).getId() == 1;
     }

@@ -1,5 +1,6 @@
 package bg.softuni.personalproject.web;
 
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -35,14 +36,6 @@ class ProductControllerTest {
                 andExpect(status().isOk()).andExpect(view().name("products"));
     }
 
-    @Test
-    void productDetails() throws Exception {
-        mockMvc.perform(get("/products/all/{id}", 1)).
-                andExpect(model().attributeExists("productViewModel")).
-                andExpect(model().attributeExists("active")).
-                andExpect(model().attributeExists("itemsLeft")).
-                andExpect(status().isOk()).andExpect(view().name("product-details"));
-    }
 
     @Test
     void quantityHolderDTO() {

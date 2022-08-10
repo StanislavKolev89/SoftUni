@@ -14,7 +14,7 @@
         <h1 class="display-4 text-white">ALL USERS
             <th:block th:text="|( ${count} )|"></th:block>
         </h1>
-        <tr scope="row" class="bg-transparent" >
+        <tr scope="row" class="bg-transparent">
             <th scope="col">Username</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
@@ -61,8 +61,8 @@
             <td th:if="${user.id!=1} and ${loggedUserId}!=${user.id}">
                 <a th:href="@{/admin/users/delete/{id}(id=${user.id})}"
                    class="text-primary rounded"
-                   th:onclick="if(!(confirm('Are you sure you want to delete this employee ?'+
-                   'All related data with this user will be lost!') )) return false">Delete User</a>
+                   th:onclick="if(!(confirm('Are you sure you want to delete this user ?') )) return false">Delete
+                    User</a>
             </td>
         </tr>
 

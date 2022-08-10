@@ -1,7 +1,7 @@
-#server:
-#  servlet:
-#    session:
-#      persistent: false
+server:
+  servlet:
+    session:
+      persistent: false
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver

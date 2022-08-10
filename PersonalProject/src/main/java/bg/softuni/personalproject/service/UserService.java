@@ -60,7 +60,7 @@ public class UserService {
     }
 
     public List<UserDTO> findAll() {
-        return userRepository.findAll().stream()
+        return userRepository.findAll().stream().filter(userEntity -> userEntity.isActive())
               .map(userEntity -> modelMapper.map(userEntity, UserDTO.class)).collect(Collectors.toList());
     }
 
@@ -97,6 +97,7 @@ public class UserService {
     public void deleteUser(Long id) {
         userRepository.findById(id).ifPresent(user -> {
             user.setUsername("*** " + user.getUsername() + " DELETED");
+            user.setEmail("*** "+ user.getEmail()+" DELETED");
             user.setActive(false);
             userRepository.save(user);
         });

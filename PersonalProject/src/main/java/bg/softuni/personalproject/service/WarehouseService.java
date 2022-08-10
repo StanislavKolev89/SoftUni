@@ -1,9 +1,12 @@
 package bg.softuni.personalproject.service;
 
+import bg.softuni.personalproject.exception.ObjectNotFoundException;
 import bg.softuni.personalproject.model.entity.ProductEntity;
 import bg.softuni.personalproject.model.entity.ProductQuantityTracker;
 import bg.softuni.personalproject.repository.WarehouseTrackerRepository;
 import java.util.List;
+import java.util.Optional;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -59,5 +62,12 @@ public class WarehouseService {
 
     public void deleteProduct(Long id) {
         warehouseTrackerRepository.deleteById(id);
+    }
+
+
+    public void restoreQuantityOfProduct(ProductEntity product, int quantity) {
+        ProductQuantityTracker prTracker = warehouseTrackerRepository.findById(product.getId())
+                .orElseThrow(ObjectNotFoundException::new);
+        prTracker.setQuantity(prTracker.getQuantity()+quantity);
     }
 }
