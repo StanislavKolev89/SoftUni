@@ -27,7 +27,7 @@
                             <small class="text-success">(36%off)</small>
                         </h2>
 
-                        <div th:if="${active==true}" class="number-input">
+                        <div th:if="${active}" class="number-input">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown();return false"
                                     class="minus"></button>
                             <input th:field="*{quantity}" id="quantity" min="1" name="quantity"
@@ -46,14 +46,14 @@
                     </div>
                 </div>
             </div>
-            <div th:if="${active==true}">
+            <div th:if="${active}">
                 <button type="submit"
                         id="addToCart" class="btn btn-dark btn-rounded mr-1" data-toggle="tooltip" title=""
                         data-original-title="Add to cart">AddToCart
                     <i class="fa fa-shopping-cart"></i>
                 </button>
             </div>
-            <div th:if="${active==false}" class="text-danger">
+            <div th:if="${!active}" class="text-danger">
                 You are not allowed to buy this product!Please contact us for more information!
                 <a href="/contacts" class="text-dark">Contact Us</a>
             </div>

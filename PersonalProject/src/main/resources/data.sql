@@ -129,5 +129,8 @@ values (1, 'Lightweight and ergonomically styled for comfort, Balanced air valve
 INSERT INTO orders(id, created_at, deleted, user_id)
 VALUES (1, now(), false, 1);
 
+INSERT INTO ordered_products(id, quantity, order_id, product_id)
+VALUES (1,1,1,1);
+
 INSERT INTO comments (id, content, created_at, author_id, product_id)
 VALUES (1, 'ADMINCOMMENT', now(), 1, 1);
