@@ -60,7 +60,7 @@ public class UserService {
     }
 
     public List<UserDTO> findAll() {
-        return userRepository.findAll().stream().filter(userEntity -> userEntity.isActive())
+        return userRepository.findAll().stream().filter(userEntity -> !userEntity.getEmail().contains("DELETED"))
               .map(userEntity -> modelMapper.map(userEntity, UserDTO.class)).collect(Collectors.toList());
     }
 

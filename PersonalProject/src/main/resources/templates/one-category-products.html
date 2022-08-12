@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/commons::head"></head>
 
 <body>
@@ -10,6 +9,14 @@
 
 <div class="p-5 bg-blur text-center my-main" >
     <div class="row">
+        <div th:if="${itemCount==0}"class="jumbotron">
+            <h1 th:text="|For now we have zero available products of category ${categoryName}|" class="display-4 text-white"></h1>
+            <hr class="my-4">
+            <p class="text-white">If you want to see all our products go to section Products</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="/products/all" role="button">All Products</a>
+            </p>
+        </div>
         <div th:if="${itemCount==1}"class="jumbotron">
             <h1 th:text="|This is our only product of category ${categoryName}|" class="display-4 text-white"></h1>
             <hr class="my-4">

@@ -37,9 +37,6 @@ public class ProductController {
     public String oneCategoryPage(@PathVariable String category, Model model) {
         List<ProductViewModel> productViewModels = productService.getFilteredProducts(category)
                 .stream().map(productDTO -> modelMapper.map(productDTO, ProductViewModel.class)).collect(Collectors.toList());
-        if (productViewModels.isEmpty()) {
-            throw new ObjectNotFoundException();
-        }
         model.addAttribute("chosenCategoryProducts", productViewModels);
         model.addAttribute("categoryName", category);
         model.addAttribute("itemCount", productViewModels.size());

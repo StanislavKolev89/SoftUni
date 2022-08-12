@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/commons::head"></head>
 <body>
 <nav th:replace="fragments/commons::nav"></nav>
@@ -50,7 +49,6 @@
             </td>
             <td><a th:href="@{/shoppingCart/removeProduct/{id}(id=${item.key.id})}"
                    class="text-white bg-danger rounded">Remove product from cart</a></td>
-
         </tr>
 
         </tbody>
@@ -60,9 +58,10 @@
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col">Estimated Total:</th>
-            <th scope="col" th:text="|${totalPrice} $|">223.45 $</th>
-            <th scope="col text-white bg-success rounded"><a lass="card-link "
-                                                             href="/shoppingCart/finishOrder">Finish Your Order</a></th>
+            <th scope="col" th:text="|${totalPrice} $|"></th>
+            <th scope="col text-white bg-success rounded">
+                <a lass="card-link" href="/shoppingCart/finishOrder">Finish Your Order</a>
+            </th>
         </tr>
 
     </table>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/commons::head"></head>
 <body>
 <nav th:replace="fragments/commons::nav"></nav>
@@ -10,7 +9,6 @@
     <table id="AdminCategories" class="table table-responsive table-hover text-dark rounded"
            style="overflow-x:scroll; background-color: rgba(255,255,255,0.5)">
         <thead>
-
         <h1 class="display-4 text-white">ALL USERS
             <th:block th:text="|( ${count} )|"></th:block>
         </h1>
@@ -65,8 +63,8 @@
                     User</a>
             </td>
         </tr>
-
         </tbody>
+
         <tr style="background-color: rgba(255,255,255,0.5)">
             <td></td>
             <td></td>
@@ -81,8 +79,5 @@
 
 <div class="container" id="content"></div>
 <footer th:replace="fragments/commons::footer"></footer>
-
-
 </body>
-
 </html>

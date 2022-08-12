@@ -5,7 +5,6 @@ import bg.softuni.personalproject.model.enums.RoleEnum;
 import bg.softuni.personalproject.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.Arrays;
 
 @RequiredArgsConstructor

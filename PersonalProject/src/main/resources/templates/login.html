@@ -14,9 +14,9 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-lg-4">
-                    <div class="login-content card">
+                    <div class="login-content card" style="background-color: rgba(255,255,255,0.6)">
                         <div style="text-align: center;">
-                            <h3 class="bg-info">Login Account</h3>
+                            <h3 class="bg-transparent">Login Account</h3>
                         </div>
                         <div class="login-form">
                             <form data-toggle="validator"
@@ -30,7 +30,9 @@
                                             id="username"
                                             th:value="${username}"
                                             type="text" name="username" class="form-control" placeholder="Email"
-                                            data-error="This email is invalid" required>
+                                            data-error="This email is invalid"
+                                            style="background-color: rgba(255,255,255,0.6)"
+                                            required>
                                     <div class="col-auto">
                                     </div>
 
@@ -40,8 +42,9 @@
                                     <input
                                             id="password" type="password" name="password" class="form-control"
                                             placeholder="Password" data-minlength="8"
-                                            data-error="Minimum of 8 characters" required>
-
+                                            data-error="Minimum of 8 characters"
+                                            style="background-color: rgba(255,255,255,0.6)"
+                                            required>
                                     <div class="col-auto">
                                     </div>
                                 </div>

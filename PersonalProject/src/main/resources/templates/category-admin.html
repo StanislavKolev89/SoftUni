@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/commons::head"></head>
 <body>
 <nav th:replace="fragments/commons::nav"></nav>
@@ -11,11 +10,9 @@
 
         <h1 class="display-4 text-white">ALL CATEGORIES</h1>
         <tr scope="row" class="bg-transparent">
-
             <th scope="col">CategoryName</th>
             <th scope="col"></th>
             <th scope="col">ImageURl</th>
-
             <th scope="col"><a class="card-link text-white bg-success" href="/admin">Back to Admin panel</a></th>
         </tr>
         </thead>
@@ -39,8 +36,9 @@
 
         </tbody>
         <tr>
-            <th scope="col"><a lass="card-link text-white bg-success rounded"
-                               href="/admin/categories/add">Add New Category</a></th>
+            <th scope="col">
+                <a lass="card-link text-white bg-success rounded" href="/admin/categories/add">Add New Category</a>
+            </th>
         </tr>
 
     </table>

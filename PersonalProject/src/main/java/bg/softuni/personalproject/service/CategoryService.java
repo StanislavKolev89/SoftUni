@@ -6,6 +6,7 @@ import bg.softuni.personalproject.model.entity.CategoryEntity;
 import bg.softuni.personalproject.repository.CategoryRepository;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -47,11 +48,12 @@ public class CategoryService {
     }
 
     public void addCategory(CategoryDTO categoryDTO) {
-        CategoryEntity category = categoryRepository.findByName(categoryDTO.getName()).orElseThrow(ObjectNotFoundException::new);
-        if (category != null) {
-            category.setImageUrl(categoryDTO.getImageUrl());
-            category.setDeleted(false);
+        Optional<CategoryEntity> category = categoryRepository.findByName(categoryDTO.getName());
+        if (!category.isEmpty()) {
+            category.get().setImageUrl(categoryDTO.getImageUrl());
+            category.get().setDeleted(false);
         }
+        categoryDTO.setName(categoryDTO.getName().toUpperCase(Locale.ROOT));
         categoryRepository.save(modelMapper.map(categoryDTO, CategoryEntity.class));
     }
 

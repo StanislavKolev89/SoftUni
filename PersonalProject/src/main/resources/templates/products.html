@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/commons::head"></head>
 <script src="/js/catScript.js" defer></script>
 <body>
@@ -20,7 +19,6 @@
                     th:text="${c.getName()}">
             </option>
         </select>
-
     </div>
 
     <div class="row">
@@ -28,7 +26,7 @@
                 <div class="filter" th:id="${product.category}">
                     <div class="card-body" style="width: 19rem;">
                         <img th:src="${product.imageUrl}" class="w-80 img-fluid" style="border: none;" alt="...">
-                        <div class="card-body bg-success">
+                        <div class="card-body" style="background-color: rgba(255,255,255,0.6)">
                             <h5 th:text="${product.title}" class="card-title"></h5>
                             <p th:text="${product.description}" class="card-text">Here is some example text to make up
                                 the

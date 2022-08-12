@@ -10,8 +10,8 @@
 <main class="p-5 text-center my-main">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 
-        <div class="carousel-inner bg-transparent">
-            <div class="carousel-item active rounded">
+        <div class="carousel-inner">
+            <div class="carousel-item active ">
                 <h1 th:if="${firstCategoryItem.deleted}" class="text-danger">NOT AVAILABLE</h1>
                 <div class="carousel-caption d-block d-md-block">
                     <h5 class="text-dark" th:text="${firstCategoryItem.getName()}">First slide label</h5>
