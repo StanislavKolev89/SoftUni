@@ -24,7 +24,7 @@ values (1, 'The PHASER spray gun was developed with its special design, special 
        (3, 'The SATAjet 1500 B has been developed for the cost effective application
             of basecoats, clear coats and 2K solid topcoats in car refinishing.
             The compact nozzle spectrum and robust construction ensures excellent results quickly and easily.',
-        '/images/1500.jpg', 13.99, 'Spray gun SATAjet 1500 B', 1, false),
+        '/images/1500.jpg', 1333.99, 'Spray gun SATAjet 1500 B', 1, false),
        (4, 'The ideal intermediate sander in the compact class.
             Strengths and benefits
             * Stepless speed preselection, constant speed even under load

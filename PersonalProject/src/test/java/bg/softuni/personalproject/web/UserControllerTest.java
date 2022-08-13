@@ -34,7 +34,7 @@ public class UserControllerTest {
 
     @Test
     void testLoginPageConfirmRedirect() throws Exception {
-        mockMvc.perform(get("/users//login-error").with(csrf()).
+        mockMvc.perform(get("/users/login-error").with(csrf()).
                         param("username", "a").
                         param("password", "1")).
                 andExpect(status().is3xxRedirection()).

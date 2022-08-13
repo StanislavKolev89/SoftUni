@@ -53,8 +53,10 @@ public class CategoryService {
             category.get().setImageUrl(categoryDTO.getImageUrl());
             category.get().setDeleted(false);
         }
-        categoryDTO.setName(categoryDTO.getName().toUpperCase(Locale.ROOT));
-        categoryRepository.save(modelMapper.map(categoryDTO, CategoryEntity.class));
+        CategoryEntity categoryEntity = modelMapper.map(categoryDTO, CategoryEntity.class);
+        categoryEntity.setName(categoryDTO.getName().toUpperCase(Locale.ROOT));
+        categoryEntity.setDeleted(false);
+        categoryRepository.save(categoryEntity);
     }
 
     @SuppressWarnings("UnusedReturnValue")
