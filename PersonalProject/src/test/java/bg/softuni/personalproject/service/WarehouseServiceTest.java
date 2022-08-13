@@ -1,7 +1,7 @@
 package bg.softuni.personalproject.service;
 
 import bg.softuni.personalproject.model.entity.ProductEntity;
-import bg.softuni.personalproject.model.entity.ProductQuantityTracker;
+import bg.softuni.personalproject.model.entity.ProductQuantityTrackerEntity;
 import bg.softuni.personalproject.repository.WarehouseTrackerRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,9 +26,9 @@ class WarehouseServiceTest {
     @Mock
     private WarehouseTrackerRepository warehouseTrackerRepository;
 
-    private ProductQuantityTracker productQuantityTrackerOne = new ProductQuantityTracker();
+    private ProductQuantityTrackerEntity productQuantityTrackerEntityOne = new ProductQuantityTrackerEntity();
 
-    private ProductQuantityTracker productQuantityTrackerTwo = new ProductQuantityTracker();
+    private ProductQuantityTrackerEntity productQuantityTrackerEntityTwo = new ProductQuantityTrackerEntity();
 
     private Logger LOGGER = LoggerFactory.getLogger(WarehouseService.class);
 
@@ -41,46 +41,46 @@ class WarehouseServiceTest {
     void setUp() {
         productOne.setId(1L);
         productOne.setTitle("DRILL");
-        productQuantityTrackerOne.setQuantity(100);
-        productQuantityTrackerOne.setId(1L);
-        productQuantityTrackerOne.setProduct(productOne);
+        productQuantityTrackerEntityOne.setQuantity(100);
+        productQuantityTrackerEntityOne.setId(1L);
+        productQuantityTrackerEntityOne.setProduct(productOne);
 
-        productQuantityTrackerTwo.setQuantity(100);
-        productQuantityTrackerTwo.setId(2L);
-        productQuantityTrackerTwo.setProduct(productTwo);
+        productQuantityTrackerEntityTwo.setQuantity(100);
+        productQuantityTrackerEntityTwo.setId(2L);
+        productQuantityTrackerEntityTwo.setProduct(productTwo);
     }
 
     @Test
     void decreaseStock() {
-        Mockito.when(warehouseTrackerRepository.findById(1L)).thenReturn(Optional.of(productQuantityTrackerOne));
+        Mockito.when(warehouseTrackerRepository.findById(1L)).thenReturn(Optional.of(productQuantityTrackerEntityOne));
         mockedService.decreaseStock(1L, 10);
     }
 
     @Test
     void itemsLeft() {
-        Mockito.when(warehouseTrackerRepository.findById(1L)).thenReturn(Optional.of(productQuantityTrackerOne));
+        Mockito.when(warehouseTrackerRepository.findById(1L)).thenReturn(Optional.of(productQuantityTrackerEntityOne));
         int itemsLeft = mockedService.itemsLeft(1L);
         Assertions.assertThat(itemsLeft).isEqualTo(100);
     }
 
     @Test
     void alertIfInventoryLowNotThrowingException() {
-        Mockito.when(warehouseTrackerRepository.findAll()).thenReturn(List.of(productQuantityTrackerOne, productQuantityTrackerTwo));
+        Mockito.when(warehouseTrackerRepository.findAll()).thenReturn(List.of(productQuantityTrackerEntityOne, productQuantityTrackerEntityTwo));
         mockedService.alertIfInventoryLow();
     }
 
     @Test
     void alertIfInventoryLowThrowingException() {
-        productQuantityTrackerOne.setQuantity(15);
-        productQuantityTrackerTwo.setQuantity(17);
-        Mockito.when(warehouseTrackerRepository.findAll()).thenReturn(List.of(productQuantityTrackerOne, productQuantityTrackerTwo));
+        productQuantityTrackerEntityOne.setQuantity(15);
+        productQuantityTrackerEntityTwo.setQuantity(17);
+        Mockito.when(warehouseTrackerRepository.findAll()).thenReturn(List.of(productQuantityTrackerEntityOne, productQuantityTrackerEntityTwo));
         org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class, () ->
                 mockedService.alertIfInventoryLow());
     }
 
     @Test
     void trackInventory() {
-        Mockito.when(warehouseTrackerRepository.findAll()).thenReturn(List.of(productQuantityTrackerOne, productQuantityTrackerTwo));
+        Mockito.when(warehouseTrackerRepository.findAll()).thenReturn(List.of(productQuantityTrackerEntityOne, productQuantityTrackerEntityTwo));
         mockedService.trackInventory();
     }
 }

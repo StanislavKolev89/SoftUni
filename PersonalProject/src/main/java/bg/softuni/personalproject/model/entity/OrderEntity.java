@@ -26,7 +26,6 @@ public class OrderEntity {
     @Column(nullable = false)
     private boolean deleted = false;
 
-
     @ManyToOne
     private UserEntity user;
 

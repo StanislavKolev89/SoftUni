@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "warehouse")
-public class ProductQuantityTracker {
+public class ProductQuantityTrackerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
