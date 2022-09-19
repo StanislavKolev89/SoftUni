@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: bg.softuni.personalproject.PersonalProjectApplicationTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.619 s - in bg.softuni.personalproject.PersonalProjectApplicationTest
