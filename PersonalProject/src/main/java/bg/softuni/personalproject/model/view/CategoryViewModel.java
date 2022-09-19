@@ -12,7 +12,10 @@ import lombok.NoArgsConstructor;
 public class CategoryViewModel {
 
     private Long id;
+
     private String name;
+
     private String imageUrl;
+
     private boolean deleted;
 }

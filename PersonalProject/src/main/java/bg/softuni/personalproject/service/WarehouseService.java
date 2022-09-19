@@ -40,7 +40,7 @@ public class WarehouseService {
                 .filter(productQuantityTrackerEntity -> productQuantityTrackerEntity.getQuantity() < 20)
                 .toList();
         if (!trackers.isEmpty()) {
-            throw new IllegalArgumentException("You have to check stock on hand and reorder if needed   ");
+            throw new IllegalArgumentException("You have to check stock on hand and reorder if needed ");
         }
     }
 

@@ -9,6 +9,7 @@ import bg.softuni.personalproject.model.view.CommentViewModel;
 import bg.softuni.personalproject.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -56,6 +57,6 @@ public class CommentRestController {
 
     @ExceptionHandler({CommentNotFoundException.class})
     public ResponseEntity<ApiErrorDTO> handleProductNotFound(CommentNotFoundException cmne) {
-        return ResponseEntity.status(404).body(new ApiErrorDTO(cmne.getId(), "No comments found for this product!"));
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ApiErrorDTO(cmne.getId(), "No comments found for this product!"));
     }
 }
