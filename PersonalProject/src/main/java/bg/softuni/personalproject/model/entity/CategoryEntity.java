@@ -20,7 +20,7 @@ public class CategoryEntity {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, name = "image_url")
+    @Column(nullable = false, columnDefinition = "LONGTEXT", name = "image_url")
     private String imageUrl;
 
 
