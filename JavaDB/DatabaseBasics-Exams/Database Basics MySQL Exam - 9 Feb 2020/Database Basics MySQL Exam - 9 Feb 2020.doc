@@ -1,0 +1,97 @@
+#1
+SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_SCHEMA = DATABASE()
+ORDER BY TABLE_NAME, COLUMN_NAME;
+
+#2
+INSERT INTO `coaches`(`first_name`, `last_name` , `salary` , `coach_level`)
+ SELECT `first_name`, `last_name` ,`salary` * 2, char_length(`first_name`) FROM `players`
+ WHERE `age`>45;
+
+#3
+ UPDATE `coaches` AS c 
+ JOIN `players_coaches` AS pc
+ ON c.`id` = pc.`coach_id`
+ SET `coach_level` = `coach_level` +1
+ WHERE c.`first_name` LIKE 'A%';
+
+#4
+ DELETE FROM `players` 
+ WHERE `age`>=45;
+
+#5
+SELECT `first_name` , `age`, `salary` FROM `players`
+ORDER BY `salary` DESC;
+
+#6
+SELECT p.`id`,CONCAT(p.`first_name`,' ',p.`last_name`) AS `full_name`,p.`age`, p.`position`, p.`hire_date` FROM `players` AS p 
+LEFT JOIN `skills_data` AS sd
+ON p.`skills_data_id` = sd.`id`
+WHERE p.`hire_date` IS NULL AND sd.`strength`>50
+ORDER BY p.`salary`, p.`age`;
+
+#7
+SELECT t.`name`,t.`established`, t.`fan_base` ,COUNT(p.`id`) AS `players_count` FROM `teams` AS t
+LEFT JOIN `players` AS p
+ON t.`id` = p.`team_id`
+GROUP BY t.`name`
+ORDER BY `players_count` DESC, t.`fan_base` DESC;
+
+#8
+SELECT MAX(sd.`speed`) AS `max_speed`,
+t.`name` AS `town_name` FROM `towns` AS t
+LEFT JOIN `stadiums` AS s
+ON s.`town_id` = t.`id`
+LEFT JOIN `teams` AS teams
+ON teams.`stadium_id` = s.`id`
+LEFT JOIN `players` AS p
+ON p.`team_id` = teams.`id`
+LEFT JOIN `skills_data` AS sd
+ON sd.`id` = p.`skills_data_id`
+WHERE teams.`name` !='Devify'
+GROUP BY `town_name`
+ORDER BY `max_speed` DESC , `town_name`;
+
+#9
+SELECT co.`name` AS `name`, COUNT(p.`id`) AS `total_count_of_players`, SUM(p.`salary`) FROM
+`countries` AS co
+LEFT JOIN `towns` AS tw
+ON tw.`country_id` = co.`id`
+LEFT JOIN `stadiums` AS st
+ON tw.`id` = st.`town_id`
+LEFT JOIN `teams` AS t
+ON t.`stadium_id` = st.`id`
+LEFT JOIN `players` AS p
+ON t.`id` = p.`team_id`
+GROUP BY co.`id`
+ORDER BY `total_count_of_players` DESC,`name`;
+
+#10
+CREATE FUNCTION udf_stadium_players_count (stadium_name VARCHAR(30))
+RETURNS INT 
+DETERMINISTIC
+BEGIN
+RETURN(SELECT COUNT(p.`id`) FROM `stadiums` AS st
+JOIN `teams` AS t
+ON st.`id` = t.`stadium_id`
+JOIN `players` AS p
+ON p.`team_id` = t.`id`
+WHERE st.`name` = stadium_name);
+
+END
+
+#11
+CREATE PROCEDURE udp_find_playmaker(min_dribbling_points INT,team_name VARCHAR(45))
+BEGIN
+SELECT CONCAT(p.`first_name`,' ',p.`last_name`) AS `full_name`,
+p.`age`, p.`salary`, sd.`dribbling` AS `dribbling`,sd.`speed` AS `speed`,
+t.`name` AS `team_name` FROM `teams` AS t
+LEFT JOIN `players` AS p
+ON t.`id` = p.`team_id`
+LEFT JOIN `skills_data` AS sd
+ON p.`skills_data_id` = sd.`id`
+WHERE t.`name` = team_name AND sd.`dribbling`> min_dribbling_points AND sd.`speed`> (SELECT AVG(`speed`) FROM `skills_data`)
+ORDER BY sd.`speed` DESC 
+LIMIT 1;
+END
+
