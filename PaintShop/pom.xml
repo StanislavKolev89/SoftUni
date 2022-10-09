@@ -100,9 +100,14 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>com.heroku.sdk</groupId>
-                <artifactId>heroku-maven-plugin</artifactId>
-                <version>3.0.3</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>16</release>
+                    <source>16</source>
+                    <target>16</target>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -141,10 +146,10 @@
                 </executions>
                 <configuration>
                     <excludes>
-                        <exclude>bg/softuni/personalproject/model/dto/**/*</exclude>
-                        <exclude>bg/softuni/personalproject/model/entity/**/*</exclude>
-                        <exclude>bg/softuni/personalproject/model/enums/**/*</exclude>
-                        <exclude>bg/softuni/personalproject/model/view/**/*</exclude>
+                        <exclude>bg/softuni/paintShop/model/dto/**/*</exclude>
+                        <exclude>bg/softuni/paintShop/model/entity/**/*</exclude>
+                        <exclude>bg/softuni/paintShop/model/enums/**/*</exclude>
+                        <exclude>bg/softuni/paintShop/model/view/**/*</exclude>
                     </excludes>
                 </configuration>
             </plugin>
