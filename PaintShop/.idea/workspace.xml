@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fa7a82ea-ff4e-4924-aa52-4b76c4a7c2b0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PersonalProject-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/PersonalProject-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PersonalProject-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/ApplicationConfig.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/ApplicationConfig.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/SecurityConfiguration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/SecurityConfiguration.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/WebConfiguration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/WebConfiguration.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exception/CommentNotFoundException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exception/CommentNotFoundException.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exception/ObjectNotFoundException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exception/ObjectNotFoundException.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exception/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exception/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exceptionHandling/GlobalExceptionHandler.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exceptionHandling/GlobalExceptionHandler.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exceptionHandling/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exceptionHandling/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.interceptors/LoggingInterceptor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.interceptors/LoggingInterceptor.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.interceptors/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.interceptors/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/PasswordMatchValidator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/PasswordMatchValidator.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/UniqueEmailValidator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/UniqueEmailValidator.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/UniqueUsernameValidator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/UniqueUsernameValidator.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/CategoryService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/CategoryService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/CommentService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/CommentService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/OrderProductService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/OrderProductService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/OrderService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/OrderService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/PaintShopDetailsService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/PaintShopDetailsService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/ProductService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/ProductService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/RoleService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/RoleService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/ShoppingCartService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/ShoppingCartService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/UsedProductService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/UsedProductService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/UserService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/UserService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/WarehouseService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/WarehouseService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/AdminController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/AdminController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/CommentRestController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/CommentRestController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/HomeController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/HomeController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/OrderController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/OrderController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/ProductController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/ProductController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/ShoppingCartController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/ShoppingCartController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/UsedProductController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/UsedProductController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/UserController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/UserController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop/AppDbInitializer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop/AppDbInitializer.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop/PersonalProjectApplication.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop/PersonalProjectApplication.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchfc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchnc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchpc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/bundle.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/class.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/down.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/greenbar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/group.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/method.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/package.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/redbar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/session.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/source.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/up.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.PersonalProjectApplicationTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.CategoryServiceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.CommentServiceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.OrderProductServiceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.OrderServiceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.PersonalProjectUserDetailsServiceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.ProductServiceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.RoleServiceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.ShoppingCartServiceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.UsedProductServiceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.UserServiceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.WarehouseServiceTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.AdminControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.CommentRestControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.HomeControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.ProductControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.ShoppingCartControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.UsedProductControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.UserControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.PersonalProjectApplicationTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.CategoryServiceTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.CommentServiceTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.OrderProductServiceTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.OrderServiceTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.PersonalProjectUserDetailsServiceTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.ProductServiceTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.RoleServiceTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.ShoppingCartServiceTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.UsedProductServiceTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.UserServiceTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.WarehouseServiceTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.AdminControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.CommentRestControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.HomeControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.ProductControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.ShoppingCartControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.UsedProductControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.UserControllerTest.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="com.haulmont.jpb.JpaEntity" />
+        <option value="Enum" />
+        <option value="AnnotationType" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="kolevone" />
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/.." source="kolevone" />
+                <branch-info repo="$PROJECT_DIR$/.." source="ManyNotWokringTests" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="kolevone" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2BOTu3r6g0apoXhqBYRjdK0T793" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PaintShop" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="bg.softuni.personalproject.web" />
+      <recent name="bg.softuni.personalproject.service" />
+      <recent name="bg.softuni.personalproject.model.view" />
+      <recent name="bg.softuni.personalproject.model.dto" />
+      <recent name="bg.softuni.personalproject.validation" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\templates\error" />
+      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources" />
+      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\java\bg\softuni\personalproject\validation" />
+      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\static\css" />
+      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kolev\Desktop\SoftUni\PaintShop" />
+      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\templates" />
+      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\templates\error" />
+      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\static1" />
+      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\static\css" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="bg.softuni.personalproject.repository" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="bg.softuni.personalproject.web" />
+      <recent name="bg.softuni.personalproject.service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="bg.softuni.personalproject.model.dto" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.PersonalProjectApplication">
+    <configuration name="All in PersonalProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PersonalProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsedProductControllerTest.editProductConfirm" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PersonalProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bg.softuni.paintShop.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bg.softuni.personalproject.web" />
+      <option name="MAIN_CLASS_NAME" value="bg.softuni.paintShop.web.UsedProductControllerTest" />
+      <option name="METHOD_NAME" value="editProductConfirm" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testUserEditProfile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PersonalProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bg.softuni.paintShop.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bg.softuni.personalproject.web" />
+      <option name="MAIN_CLASS_NAME" value="bg.softuni.paintShop.web.UserControllerTest" />
+      <option name="METHOD_NAME" value="testUserEditProfile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bg.softuni.paintShop.service in PersonalProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PersonalProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bg.softuni.paintShop.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bg.softuni.paintShop.service" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="bg.softuni.paintShop.web in PersonalProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PersonalProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bg.softuni.paintShop.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="bg.softuni.paintShop.web" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonalProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="PersonalProject" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="bg.softuni.paintShop.PersonalProjectApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.UserControllerTest.testUserEditProfile" />
+      <item itemvalue="JUnit.UsedProductControllerTest.editProductConfirm" />
+      <item itemvalue="JUnit.All in PersonalProject" />
+      <item itemvalue="JUnit.bg.softuni.paintShop.web in PersonalProject" />
+      <item itemvalue="JUnit.bg.softuni.paintShop.service in PersonalProject" />
+      <item itemvalue="Spring Boot.PersonalProjectApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.bg.softuni.paintShop.service in PersonalProject" />
+        <item itemvalue="JUnit.bg.softuni.paintShop.web in PersonalProject" />
+        <item itemvalue="JUnit.All in PersonalProject" />
+        <item itemvalue="JUnit.UsedProductControllerTest.editProductConfirm" />
+        <item itemvalue="JUnit.UserControllerTest.testUserEditProfile" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa7a82ea-ff4e-4924-aa52-4b76c4a7c2b0" name="Changes" comment="" />
+      <created>1656776374818</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656776374818</updated>
+      <workItem from="1656776376388" duration="8637000" />
+      <workItem from="1656789649152" duration="8794000" />
+      <workItem from="1656859354413" duration="7212000" />
+      <workItem from="1656878966891" duration="707000" />
+      <workItem from="1656954054242" duration="10000" />
+      <workItem from="1656967160749" duration="1370000" />
+      <workItem from="1657138866515" duration="36000" />
+      <workItem from="1657352861193" duration="34943000" />
+      <workItem from="1657477277399" duration="5978000" />
+      <workItem from="1657513497345" duration="16302000" />
+      <workItem from="1657647625956" duration="16790000" />
+      <workItem from="1657904253337" duration="41867000" />
+      <workItem from="1658000439895" duration="31711000" />
+      <workItem from="1658165235175" duration="5957000" />
+      <workItem from="1658174301003" duration="3173000" />
+      <workItem from="1658177600251" duration="21359000" />
+      <workItem from="1658331026717" duration="9330000" />
+      <workItem from="1658342941052" duration="282000" />
+      <workItem from="1658343275446" duration="367000" />
+      <workItem from="1658343671331" duration="9375000" />
+      <workItem from="1658586817018" duration="2709000" />
+      <workItem from="1658590909306" duration="2845000" />
+      <workItem from="1658647597787" duration="9012000" />
+      <workItem from="1658690363502" duration="82971000" />
+      <workItem from="1658904366568" duration="4977000" />
+      <workItem from="1658910646334" duration="38598000" />
+      <workItem from="1658989252837" duration="27456000" />
+      <workItem from="1659076814851" duration="1180000" />
+      <workItem from="1659093957405" duration="25765000" />
+      <workItem from="1659162190120" duration="42074000" />
+      <workItem from="1659214768470" duration="4097000" />
+      <workItem from="1659252749366" duration="71270000" />
+      <workItem from="1659368682175" duration="51000" />
+      <workItem from="1659371994061" duration="11766000" />
+      <workItem from="1659415661199" duration="5671000" />
+      <workItem from="1659423055165" duration="1845000" />
+      <workItem from="1659424949520" duration="29330000" />
+      <workItem from="1659504322639" duration="39586000" />
+      <workItem from="1659591764193" duration="7988000" />
+      <workItem from="1659607545220" duration="21685000" />
+      <workItem from="1659641319319" duration="4784000" />
+      <workItem from="1659646371654" duration="423000" />
+      <workItem from="1659687910748" duration="10404000" />
+      <workItem from="1659698950555" duration="4581000" />
+      <workItem from="1659703600574" duration="17099000" />
+      <workItem from="1659767881449" duration="2282000" />
+      <workItem from="1659770218458" duration="34871000" />
+      <workItem from="1659816617071" duration="5447000" />
+      <workItem from="1659891747341" duration="7353000" />
+      <workItem from="1660027397032" duration="21107000" />
+      <workItem from="1660049709035" duration="7565000" />
+      <workItem from="1660105334727" duration="7688000" />
+      <workItem from="1660163128426" duration="792000" />
+      <workItem from="1660163998824" duration="669000" />
+      <workItem from="1660164865621" duration="649000" />
+      <workItem from="1660166494666" duration="36000" />
+      <workItem from="1660191884557" duration="1484000" />
+      <workItem from="1660324205041" duration="9645000" />
+      <workItem from="1660374154129" duration="8293000" />
+      <workItem from="1660394228604" duration="6031000" />
+      <workItem from="1663619019941" duration="111000" />
+      <workItem from="1663701354643" duration="1169000" />
+      <workItem from="1664118867476" duration="5222000" />
+      <workItem from="1664167141135" duration="462000" />
+      <workItem from="1664738398636" duration="626000" />
+      <workItem from="1664739227715" duration="2075000" />
+      <workItem from="1665316320197" duration="506000" />
+      <workItem from="1665321788089" duration="555000" />
+      <workItem from="1665326503130" duration="50000" />
+      <workItem from="1665333768864" duration="1366000" />
+      <workItem from="1665335238760" duration="8441000" />
+      <workItem from="1665343989080" duration="1042000" />
+      <workItem from="1665598278499" duration="811000" />
+      <workItem from="1665601061445" duration="22000" />
+      <workItem from="1666289130437" duration="726000" />
+      <workItem from="1666431402959" duration="3386000" />
+      <workItem from="1666434988973" duration="4593000" />
+      <workItem from="1666449117814" duration="7673000" />
+      <workItem from="1666472440057" duration="1751000" />
+    </task>
+    <task id="LOCAL-00001" summary="asdasd">
+      <created>1658338795584</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1658338795584</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fixed Home Controller.">
+      <created>1659780731161</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1659780731161</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Optimize improts">
+      <created>1659783609971</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1659783609971</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Format code">
+      <created>1659783804787</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1659783804787</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Format code - formatter on/off">
+      <created>1659784119511</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1659784119511</updated>
+    </task>
+    <task id="LOCAL-00006" summary="adding methods in UserService and OrderService">
+      <created>1659791623733</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1659791623733</updated>
+    </task>
+    <task id="LOCAL-00007" summary="change in path in one method in AdminController.">
+      <created>1659792649126</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1659792649126</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Preparing for deployment">
+      <created>1664739835282</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1664739835282</updated>
+    </task>
+    <task id="LOCAL-00009" summary=".gitignore file change">
+      <created>1665344801174</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1665344801174</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="asdasd" />
+    <MESSAGE value="fixed Home Controller." />
+    <MESSAGE value="Optimize improts" />
+    <MESSAGE value="Format code" />
+    <MESSAGE value="Format code - formatter on/off" />
+    <MESSAGE value="adding methods in UserService and OrderService" />
+    <MESSAGE value="change in path in one method in AdminController." />
+    <MESSAGE value="Preparing for deployment" />
+    <MESSAGE value=".gitignore file change" />
+    <option name="LAST_COMMIT_MESSAGE" value=".gitignore file change" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.3.21/spring-web-5.3.21-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java</url>
+          <line>219</line>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bg/softuni/paintShop/service/CategoryService.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="230" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/bg/softuni/paintShop/service/OrderProductServiceTest.java</url>
+          <line>52</line>
+          <properties class="bg.softuni.paintShop.service.OrderProductServiceTest" method="addOrderAndProduct">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="bg.softuni.personalproject.web.AdminController" memberName="orderService" />
+        <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="key" />
+        <PinnedItemInfo parentTag="bg.softuni.personalproject.model.entity.model.UserEntity" memberName="id" />
+        <PinnedItemInfo parentTag="bg.softuni.personalproject.model.entity.model.UserEntity" memberName="lastName" />
+        <PinnedItemInfo parentTag="bg.softuni.personalproject.model.entity.model.UserEntity" memberName="email" />
+        <PinnedItemInfo parentTag="bg.softuni.personalproject.model.entity.model.UserEntity" memberName="username" />
+        <PinnedItemInfo parentTag="bg.softuni.personalproject.model.entity.model.UserEntity" memberName="firstName" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="cartItemDto" language="JAVA" />
+        <watch expression="    productRepository.findById(productById).ifPresent(productEntity -&gt;&#10;              cartProducts.computeIfAbsent(productEntity, key -&gt; quantityHolderDTO.getQuantity()));" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartServiceTest_removeProduct.ic" NAME="ShoppingCartServiceTest.removeProduct Coverage Results" MODIFIED="1659645939619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderServiceTest_getTotalPriceOfOrder.ic" NAME="OrderServiceTest.getTotalPriceOfOrder Coverage Results" MODIFIED="1659632157537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderServiceTest_createOrder.ic" NAME="OrderServiceTest.createOrder Coverage Results" MODIFIED="1660037368003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$RoleServiceTest_getAdminRole.ic" NAME="RoleServiceTest.getAdminRole Coverage Results" MODIFIED="1659642669225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserControllerTest_profileChangeConfirm.ic" NAME="UserControllerTest.profileChangeConfirm Coverage Results" MODIFIED="1659802355817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserControllerTest_profileChangeConfirmRedirect.ic" NAME="UserControllerTest.profileChangeConfirmRedirect Coverage Results" MODIFIED="1659802413037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductServiceTest.ic" NAME="UsedProductServiceTest Coverage Results" MODIFIED="1660039473043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductControllerTest_editProductConfirm.ic" NAME="UsedProductControllerTest.editProductConfirm Coverage Results" MODIFIED="1660385999363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductControllerTest.ic" NAME="UsedProductControllerTest Coverage Results" MODIFIED="1660048387978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_findByNameThrowsException.ic" NAME="UserServiceTest.findByNameThrowsException Coverage Results" MODIFIED="1659695479701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserControllerIT_testUserRegistration_and_1_more.ic" NAME="UserControllerIT,testUserRegistration and 1 more Coverage Results" MODIFIED="1659613406280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CommentRestControllerTest_createNewComment.ic" NAME="CommentRestControllerTest.createNewComment Coverage Results" MODIFIED="1660070674886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ProductServiceTest_findProductById.ic" NAME="ProductServiceTest.findProductById Coverage Results" MODIFIED="1659638198779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_changeUserData.ic" NAME="UserServiceTest.changeUserData Coverage Results" MODIFIED="1659697572195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_getLoggedUserDetails.ic" NAME="UserServiceTest.getLoggedUserDetails Coverage Results" MODIFIED="1659697610320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1660165317392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderServiceTest_deleteOrder.ic" NAME="OrderServiceTest.deleteOrder Coverage Results" MODIFIED="1659632492239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_editProductPage.ic" NAME="AdminControllerTest.editProductPage Coverage Results" MODIFIED="1659773917114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$HomeControllerTest.ic" NAME="HomeControllerTest Coverage Results" MODIFIED="1659801232776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderServiceTest_getAllOrders.ic" NAME="OrderServiceTest.getAllOrders Coverage Results" MODIFIED="1660037744407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ProductServiceTest_getAllProducts.ic" NAME="ProductServiceTest.getAllProducts Coverage Results" MODIFIED="1659641833265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$bg_in_PersonalProject.ic" NAME="bg in PersonalProject Coverage Results" MODIFIED="1659422587443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$bg_softuni_personalproject_in_PersonalProject.ic" NAME="bg.softuni.personalproject in PersonalProject Coverage Results" MODIFIED="1660162803852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderProductServiceTest.ic" NAME="OrderProductServiceTest Coverage Results" MODIFIED="1659641870671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$bg_softuni_personalproject_service_in_PersonalProject.ic" NAME="bg.softuni.personalproject.service in PersonalProject Coverage Results" MODIFIED="1660380360574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductServiceTest_getProductById.ic" NAME="UsedProductServiceTest.getProductById Coverage Results" MODIFIED="1659690951345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$WarehouseServiceTest_alertIfInventoryLowThrowingException.ic" NAME="WarehouseServiceTest.alertIfInventoryLowThrowingException Coverage Results" MODIFIED="1659701517840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserControllerTest_testUserRegistration.ic" NAME="UserControllerTest.testUserRegistration Coverage Results" MODIFIED="1659802669315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$WarehouseServiceTest.ic" NAME="WarehouseServiceTest Coverage Results" MODIFIED="1660043889694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$WarehouseServiceTest_alertIfInventoryLow.ic" NAME="WarehouseServiceTest.alertIfInventoryLow Coverage Results" MODIFIED="1659701394241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ProductServiceTest_getViewModel.ic" NAME="ProductServiceTest.getViewModel Coverage Results" MODIFIED="1659638473094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$PersonalProjectUserDetailsServiceTest.ic" NAME="PersonalProjectUserDetailsServiceTest Coverage Results" MODIFIED="1659434633703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$All_in_PersonalProject.ic" NAME="All in PersonalProject Coverage Results" MODIFIED="1660402943250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryServiceTest_changeCategory_ThrowsException.ic" NAME="CategoryServiceTest.changeCategory_ThrowsException Coverage Results" MODIFIED="1659593619613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_removeUserAdminRights.ic" NAME="UserServiceTest.removeUserAdminRights Coverage Results" MODIFIED="1659699158070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_loggedUserId.ic" NAME="UserServiceTest.loggedUserId Coverage Results" MODIFIED="1659699207488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_userPurchaseTotal.ic" NAME="UserServiceTest.userPurchaseTotal Coverage Results" MODIFIED="1659696115628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_addProductConfirm.ic" NAME="AdminControllerTest.addProductConfirm Coverage Results" MODIFIED="1659773838877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderProductServiceTest_findTurnover.ic" NAME="OrderProductServiceTest.findTurnover Coverage Results" MODIFIED="1659625587352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_categoryAddConfirm.ic" NAME="AdminControllerTest.categoryAddConfirm Coverage Results" MODIFIED="1659731625529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_makeUserActive.ic" NAME="UserServiceTest.makeUserActive Coverage Results" MODIFIED="1659696311638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserControllerIT_testUserEditProfile.ic" NAME="UserControllerIT.testUserEditProfile Coverage Results" MODIFIED="1659613441789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_deleteUser.ic" NAME="UserServiceTest.deleteUser Coverage Results" MODIFIED="1659696482410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ProductRepositoryTest.ic" NAME="ProductRepositoryTest Coverage Results" MODIFIED="1659437779877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.repository.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$HomeControllerTest_testContactsPage.ic" NAME="HomeControllerTest.testContactsPage Coverage Results" MODIFIED="1659553121139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_allUsersPage.ic" NAME="AdminControllerTest.allUsersPage Coverage Results" MODIFIED="1659790103891" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductControllerTest_secondHandProductAddPage.ic" NAME="UsedProductControllerTest.secondHandProductAddPage Coverage Results" MODIFIED="1660048677787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderProductServiceTest_findAllOrderProducts.ic" NAME="OrderProductServiceTest.findAllOrderProducts Coverage Results" MODIFIED="1659618995000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductServiceTest_getSellerName.ic" NAME="UsedProductServiceTest.getSellerName Coverage Results" MODIFIED="1659690955890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CommentRestControllerTest_getCommentsThrowsCommentNotFoundException.ic" NAME="CommentRestControllerTest.getCommentsThrowsCommentNotFoundException Coverage Results" MODIFIED="1660070281596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserControllerTest_testUserEditProfile.ic" NAME="UserControllerTest.testUserEditProfile Coverage Results" MODIFIED="1660334458765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryServiceTest.ic" NAME="CategoryServiceTest Coverage Results" MODIFIED="1659641855094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_makeUserNotActive.ic" NAME="UserServiceTest.makeUserNotActive Coverage Results" MODIFIED="1659696372223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryServiceTest_getCategoryDTO.ic" NAME="CategoryServiceTest.getCategoryDTO Coverage Results" MODIFIED="1659609154593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductServiceTest_getAllProducts.ic" NAME="UsedProductServiceTest.getAllProducts Coverage Results" MODIFIED="1659690962510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryServiceTest_passedCategoryExists.ic" NAME="CategoryServiceTest.passedCategoryExists Coverage Results" MODIFIED="1659610391486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$RoleServiceTest_getUserRole.ic" NAME="RoleServiceTest.getUserRole Coverage Results" MODIFIED="1659642764014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserControllerIT_testRegistrationPage.ic" NAME="UserControllerIT.testRegistrationPage Coverage Results" MODIFIED="1659439548190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CommentServiceTest.ic" NAME="CommentServiceTest Coverage Results" MODIFIED="1660040767789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$WarehouseServiceTest_trackInventory.ic" NAME="WarehouseServiceTest.trackInventory Coverage Results" MODIFIED="1659701677968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_allProductsPage.ic" NAME="AdminControllerTest.allProductsPage Coverage Results" MODIFIED="1659770882859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderProductServiceTest_deleteByOrderId.ic" NAME="OrderProductServiceTest.deleteByOrderId Coverage Results" MODIFIED="1659626141726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ProductServiceTest_getViewModelThrowsException.ic" NAME="ProductServiceTest.getViewModelThrowsException Coverage Results" MODIFIED="1659638951793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_findAll.ic" NAME="UserServiceTest.findAll Coverage Results" MODIFIED="1659695948786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1659699020326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserControllerIT.ic" NAME="UserControllerIT Coverage Results" MODIFIED="1659613708376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductControllerTest_editProductConfirmRedirect.ic" NAME="UsedProductControllerTest.editProductConfirmRedirect Coverage Results" MODIFIED="1660048087920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryServiceTest_getAllCategoriesThrowsException.ic" NAME="CategoryServiceTest.getAllCategoriesThrowsException Coverage Results" MODIFIED="1659608649539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductControllerTest_confirmEditRedirect.ic" NAME="UsedProductControllerTest.confirmEditRedirect Coverage Results" MODIFIED="1660047635719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryServiceTest_addCategory.ic" NAME="CategoryServiceTest.addCategory Coverage Results" MODIFIED="1659608446323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartControllerTest_finishOrders.ic" NAME="ShoppingCartControllerTest.finishOrders Coverage Results" MODIFIED="1660043363312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderProductServiceTest_addOrderAndProduct.ic" NAME="OrderProductServiceTest.addOrderAndProduct Coverage Results" MODIFIED="1659617925652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_orderDetails.ic" NAME="AdminControllerTest.orderDetails Coverage Results" MODIFIED="1659769649628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartServiceTest_removeProductThrowException.ic" NAME="ShoppingCartServiceTest.removeProductThrowException Coverage Results" MODIFIED="1659646630348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartServiceTest_addToCart.ic" NAME="ShoppingCartServiceTest.addToCart Coverage Results" MODIFIED="1659644212200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartControllerTest_orderDetails.ic" NAME="ShoppingCartControllerTest.orderDetails Coverage Results" MODIFIED="1660044157487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserControllerIT_testUserRegistration.ic" NAME="UserControllerIT.testUserRegistration Coverage Results" MODIFIED="1659613663456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_grossSales.ic" NAME="UserServiceTest.grossSales Coverage Results" MODIFIED="1659696237507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$WarehouseServiceTest_itemsLeft.ic" NAME="WarehouseServiceTest.itemsLeft Coverage Results" MODIFIED="1659700766303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_allOrdersPage.ic" NAME="AdminControllerTest.allOrdersPage Coverage Results" MODIFIED="1659790300509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryServiceTest_changeCategory.ic" NAME="CategoryServiceTest.changeCategory Coverage Results" MODIFIED="1659609902819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryServiceTest_getAllCategories.ic" NAME="CategoryServiceTest.getAllCategories Coverage Results" MODIFIED="1659608701190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryServiceTest_deleteCategory.ic" NAME="CategoryServiceTest.deleteCategory Coverage Results" MODIFIED="1659609807854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$RoleServiceTest_initRoles.ic" NAME="RoleServiceTest.initRoles Coverage Results" MODIFIED="1659642831511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$PersonalProjectApplication.ic" NAME="PersonalProjectApplication Coverage Results" MODIFIED="1658828433090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_categoryAddConfirmHasErrors.ic" NAME="AdminControllerTest.categoryAddConfirmHasErrors Coverage Results" MODIFIED="1659732104217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartServiceTest.ic" NAME="ShoppingCartServiceTest Coverage Results" MODIFIED="1659646435800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_editProductConfirmRedirect.ic" NAME="AdminControllerTest.editProductConfirmRedirect Coverage Results" MODIFIED="1659772650607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_makeUserActive.ic" NAME="AdminControllerTest.makeUserActive Coverage Results" MODIFIED="1659768256267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartServiceTest_pricePerProduct.ic" NAME="ShoppingCartServiceTest.pricePerProduct Coverage Results" MODIFIED="1659644627912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartServiceTest_finishOrder.ic" NAME="ShoppingCartServiceTest.finishOrder Coverage Results" MODIFIED="1659644309210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ProductServiceTest.ic" NAME="ProductServiceTest Coverage Results" MODIFIED="1660038242086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderServiceTest.ic" NAME="OrderServiceTest Coverage Results" MODIFIED="1660037531519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ProductControllerTest.ic" NAME="ProductControllerTest Coverage Results" MODIFIED="1660165245946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryRepositoryTest.ic" NAME="CategoryRepositoryTest Coverage Results" MODIFIED="1659593659392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.repository.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryRepositoryTest_categoriesInserted.ic" NAME="CategoryRepositoryTest.categoriesInserted Coverage Results" MODIFIED="1659612829759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.repository.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartServiceTest_findTotalSum.ic" NAME="ShoppingCartServiceTest.findTotalSum Coverage Results" MODIFIED="1659644995878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_addProductPage.ic" NAME="AdminControllerTest.addProductPage Coverage Results" MODIFIED="1659772997550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_deleteOrder.ic" NAME="AdminControllerTest.deleteOrder Coverage Results" MODIFIED="1659769765484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductControllerTest_confirmEdit.ic" NAME="UsedProductControllerTest.confirmEdit Coverage Results" MODIFIED="1660049549540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ProductServiceTest_getFilteredProducts.ic" NAME="ProductServiceTest.getFilteredProducts Coverage Results" MODIFIED="1659638364026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartControllerTest_productDetails.ic" NAME="ShoppingCartControllerTest.productDetails Coverage Results" MODIFIED="1660042204272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$HomeControllerTest_testHomePage.ic" NAME="HomeControllerTest.testHomePage Coverage Results" MODIFIED="1659611864362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductServiceTest_deleteProduct.ic" NAME="UsedProductServiceTest.deleteProduct Coverage Results" MODIFIED="1660039153105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_findByName.ic" NAME="UserServiceTest.findByName Coverage Results" MODIFIED="1659695150205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartControllerTest.ic" NAME="ShoppingCartControllerTest Coverage Results" MODIFIED="1660044724322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryServiceTest_findCategoryByName.ic" NAME="CategoryServiceTest.findCategoryByName Coverage Results" MODIFIED="1659610552829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderProductServiceTest_findAllUsersProducts.ic" NAME="OrderProductServiceTest.findAllUsersProducts Coverage Results" MODIFIED="1659618614534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_allCategoriesPage.ic" NAME="AdminControllerTest.allCategoriesPage Coverage Results" MODIFIED="1659730517013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_deleteProduct.ic" NAME="AdminControllerTest.deleteProduct Coverage Results" MODIFIED="1659773878294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CommentServiceTest_createComment.ic" NAME="CommentServiceTest.createComment Coverage Results" MODIFIED="1659703619006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$bg_softuni_personalproject_web_in_PersonalProject.ic" NAME="bg.softuni.personalproject.web in PersonalProject Coverage Results" MODIFIED="1660380372012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest.ic" NAME="AdminControllerTest Coverage Results" MODIFIED="1659799658628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderProductServiceTest_findAll.ic" NAME="OrderProductServiceTest.findAll Coverage Results" MODIFIED="1659618776339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_adminPage.ic" NAME="AdminControllerTest.adminPage Coverage Results" MODIFIED="1659715117411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserControllerTest_testLoginPageConfirmRedirect.ic" NAME="UserControllerTest.testLoginPageConfirmRedirect Coverage Results" MODIFIED="1659801930593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_editProductConfirm.ic" NAME="AdminControllerTest.editProductConfirm Coverage Results" MODIFIED="1659773728016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CommentRestControllerTest_getComments.ic" NAME="CommentRestControllerTest.getComments Coverage Results" MODIFIED="1660070178871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ProductServiceTest_addNewProduct.ic" NAME="ProductServiceTest.addNewProduct Coverage Results" MODIFIED="1659639715871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$CategoryServiceTest_getCategoryDTOThrowsException.ic" NAME="CategoryServiceTest.getCategoryDTOThrowsException Coverage Results" MODIFIED="1659610060300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartServiceTest_getAllProducts.ic" NAME="ShoppingCartServiceTest.getAllProducts Coverage Results" MODIFIED="1659645530906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductServiceTest_addNewProduct.ic" NAME="UsedProductServiceTest.addNewProduct Coverage Results" MODIFIED="1659692620239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ProductServiceTest_editProduct.ic" NAME="ProductServiceTest.editProduct Coverage Results" MODIFIED="1659639896278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UserServiceTest_giveUserAdminRights.ic" NAME="UserServiceTest.giveUserAdminRights Coverage Results" MODIFIED="1659699166071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$OrderProductServiceTest_pricePerProduct.ic" NAME="OrderProductServiceTest.pricePerProduct Coverage Results" MODIFIED="1659619462575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ProductServiceTest_deleteProduct.ic" NAME="ProductServiceTest.deleteProduct Coverage Results" MODIFIED="1659639624106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$WarehouseServiceTest_decreaseStock.ic" NAME="WarehouseServiceTest.decreaseStock Coverage Results" MODIFIED="1659700776078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$ProductServiceTest_returnProduct.ic" NAME="ProductServiceTest.returnProduct Coverage Results" MODIFIED="1659640051001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$PersonalProjectApplicationTest.ic" NAME="PersonalProjectApplicationTest Coverage Results" MODIFIED="1660067288004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$UsedProductServiceTest_editProducts.ic" NAME="UsedProductServiceTest.editProducts Coverage Results" MODIFIED="1659692626409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/PersonalProject$AdminControllerTest_CategoryEditPage.ic" NAME="AdminControllerTest.CategoryEditPage Coverage Results" MODIFIED="1659799437610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>bg.softuni.personalproject.web.*</FILTER>
+    </SUITE>
+  </component>
+</project>
