@@ -4,296 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa7a82ea-ff4e-4924-aa52-4b76c4a7c2b0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
+    <list default="true" id="49a33aff-d203-4803-9b59-5733d30d3e86" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/PersonalProject-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/PersonalProject-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/PersonalProject-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/ApplicationConfig.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/ApplicationConfig.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/SecurityConfiguration.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/SecurityConfiguration.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/WebConfiguration.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/WebConfiguration.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.config/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exception/CommentNotFoundException.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exception/CommentNotFoundException.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exception/ObjectNotFoundException.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exception/ObjectNotFoundException.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exception/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exception/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exceptionHandling/GlobalExceptionHandler.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exceptionHandling/GlobalExceptionHandler.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exceptionHandling/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.exceptionHandling/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.interceptors/LoggingInterceptor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.interceptors/LoggingInterceptor.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.interceptors/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.interceptors/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/PasswordMatchValidator.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/PasswordMatchValidator.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/UniqueEmailValidator.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/UniqueEmailValidator.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/UniqueUsernameValidator.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/UniqueUsernameValidator.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.model.validation/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/CategoryService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/CategoryService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/CommentService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/CommentService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/OrderProductService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/OrderProductService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/OrderService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/OrderService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/PaintShopDetailsService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/PaintShopDetailsService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/ProductService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/ProductService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/RoleService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/RoleService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/ShoppingCartService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/ShoppingCartService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/UsedProductService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/UsedProductService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/UserService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/UserService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/WarehouseService.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/WarehouseService.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.service/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/AdminController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/AdminController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/CommentRestController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/CommentRestController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/HomeController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/HomeController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/OrderController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/OrderController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/ProductController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/ProductController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/ShoppingCartController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/ShoppingCartController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/UsedProductController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/UsedProductController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/UserController.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/UserController.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop.web/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop/AppDbInitializer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop/AppDbInitializer.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop/PersonalProjectApplication.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop/PersonalProjectApplication.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/bg.softuni.paintShop/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchfc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchnc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchpc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/bundle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/class.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/down.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/greenbar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/group.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/method.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/package.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/redbar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/session.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/source.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/up.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.PersonalProjectApplicationTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.CategoryServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.CommentServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.OrderProductServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.OrderServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.PersonalProjectUserDetailsServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.ProductServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.RoleServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.ShoppingCartServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.UsedProductServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.UserServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.service.WarehouseServiceTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.AdminControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.CommentRestControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.HomeControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.ProductControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.ShoppingCartControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.UsedProductControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-bg.softuni.paintShop.web.UserControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.PersonalProjectApplicationTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.CategoryServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.CommentServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.OrderProductServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.OrderServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.PersonalProjectUserDetailsServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.ProductServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.RoleServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.ShoppingCartServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.UsedProductServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.UserServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.service.WarehouseServiceTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.AdminControllerTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.CommentRestControllerTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.HomeControllerTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.ProductControllerTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.ShoppingCartControllerTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.UsedProductControllerTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bg.softuni.paintShop.web.UserControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/error.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CoverageOptionsProvider">
-    <option name="myAddOrReplace" value="0" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="Enum" />
-        <option value="AnnotationType" />
-        <option value="JavaScript File" />
-        <option value="HTML File" />
-        <option value="Interface" />
-        <option value="Class" />
-        <option value="JUnit5 Test Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="kolevone" />
-  </component>
   <component name="Git.Settings">
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$/.." source="kolevone" />
-                <branch-info repo="$PROJECT_DIR$/.." source="ManyNotWokringTests" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="kolevone" />
+        <entry key="$PROJECT_DIR$/.." value="docker" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectId" id="2BOTu3r6g0apoXhqBYRjdK0T793" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
-  </component>
-  <component name="ProjectViewState">
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
-    <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PaintShop" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="bg.softuni.personalproject.web" />
-      <recent name="bg.softuni.personalproject.service" />
-      <recent name="bg.softuni.personalproject.model.view" />
-      <recent name="bg.softuni.personalproject.model.dto" />
-      <recent name="bg.softuni.personalproject.validation" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\templates\error" />
-      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources" />
-      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\java\bg\softuni\personalproject\validation" />
-      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\static\css" />
-      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\kolev\Desktop\SoftUni\PaintShop" />
-      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\templates" />
-      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\templates\error" />
-      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\static1" />
-      <recent name="C:\Users\kolev\Desktop\SoftUni\PersonalProject\src\main\resources\static\css" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="bg.softuni.personalproject.repository" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="bg.softuni.personalproject.web" />
-      <recent name="bg.softuni.personalproject.service" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="bg.softuni.personalproject.model.dto" />
-    </key>
   </component>
   <component name="RunManager" selected="Spring Boot.PersonalProjectApplication">
     <configuration name="All in PersonalProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -367,19 +111,17 @@
     <configuration name="PersonalProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="PersonalProject" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="bg.softuni.paintShop.PersonalProjectApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Spring Boot.PersonalProjectApplication" />
       <item itemvalue="JUnit.UserControllerTest.testUserEditProfile" />
       <item itemvalue="JUnit.UsedProductControllerTest.editProductConfirm" />
       <item itemvalue="JUnit.All in PersonalProject" />
       <item itemvalue="JUnit.bg.softuni.paintShop.web in PersonalProject" />
       <item itemvalue="JUnit.bg.softuni.paintShop.service in PersonalProject" />
-      <item itemvalue="Spring Boot.PersonalProjectApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -391,196 +133,20 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="fa7a82ea-ff4e-4924-aa52-4b76c4a7c2b0" name="Changes" comment="" />
-      <created>1656776374818</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1656776374818</updated>
-      <workItem from="1656776376388" duration="8637000" />
-      <workItem from="1656789649152" duration="8794000" />
-      <workItem from="1656859354413" duration="7212000" />
-      <workItem from="1656878966891" duration="707000" />
-      <workItem from="1656954054242" duration="10000" />
-      <workItem from="1656967160749" duration="1370000" />
-      <workItem from="1657138866515" duration="36000" />
-      <workItem from="1657352861193" duration="34943000" />
-      <workItem from="1657477277399" duration="5978000" />
-      <workItem from="1657513497345" duration="16302000" />
-      <workItem from="1657647625956" duration="16790000" />
-      <workItem from="1657904253337" duration="41867000" />
-      <workItem from="1658000439895" duration="31711000" />
-      <workItem from="1658165235175" duration="5957000" />
-      <workItem from="1658174301003" duration="3173000" />
-      <workItem from="1658177600251" duration="21359000" />
-      <workItem from="1658331026717" duration="9330000" />
-      <workItem from="1658342941052" duration="282000" />
-      <workItem from="1658343275446" duration="367000" />
-      <workItem from="1658343671331" duration="9375000" />
-      <workItem from="1658586817018" duration="2709000" />
-      <workItem from="1658590909306" duration="2845000" />
-      <workItem from="1658647597787" duration="9012000" />
-      <workItem from="1658690363502" duration="82971000" />
-      <workItem from="1658904366568" duration="4977000" />
-      <workItem from="1658910646334" duration="38598000" />
-      <workItem from="1658989252837" duration="27456000" />
-      <workItem from="1659076814851" duration="1180000" />
-      <workItem from="1659093957405" duration="25765000" />
-      <workItem from="1659162190120" duration="42074000" />
-      <workItem from="1659214768470" duration="4097000" />
-      <workItem from="1659252749366" duration="71270000" />
-      <workItem from="1659368682175" duration="51000" />
-      <workItem from="1659371994061" duration="11766000" />
-      <workItem from="1659415661199" duration="5671000" />
-      <workItem from="1659423055165" duration="1845000" />
-      <workItem from="1659424949520" duration="29330000" />
-      <workItem from="1659504322639" duration="39586000" />
-      <workItem from="1659591764193" duration="7988000" />
-      <workItem from="1659607545220" duration="21685000" />
-      <workItem from="1659641319319" duration="4784000" />
-      <workItem from="1659646371654" duration="423000" />
-      <workItem from="1659687910748" duration="10404000" />
-      <workItem from="1659698950555" duration="4581000" />
-      <workItem from="1659703600574" duration="17099000" />
-      <workItem from="1659767881449" duration="2282000" />
-      <workItem from="1659770218458" duration="34871000" />
-      <workItem from="1659816617071" duration="5447000" />
-      <workItem from="1659891747341" duration="7353000" />
-      <workItem from="1660027397032" duration="21107000" />
-      <workItem from="1660049709035" duration="7565000" />
-      <workItem from="1660105334727" duration="7688000" />
-      <workItem from="1660163128426" duration="792000" />
-      <workItem from="1660163998824" duration="669000" />
-      <workItem from="1660164865621" duration="649000" />
-      <workItem from="1660166494666" duration="36000" />
-      <workItem from="1660191884557" duration="1484000" />
-      <workItem from="1660324205041" duration="9645000" />
-      <workItem from="1660374154129" duration="8293000" />
-      <workItem from="1660394228604" duration="6031000" />
-      <workItem from="1663619019941" duration="111000" />
-      <workItem from="1663701354643" duration="1169000" />
-      <workItem from="1664118867476" duration="5222000" />
-      <workItem from="1664167141135" duration="462000" />
-      <workItem from="1664738398636" duration="626000" />
-      <workItem from="1664739227715" duration="2075000" />
-      <workItem from="1665316320197" duration="506000" />
-      <workItem from="1665321788089" duration="555000" />
-      <workItem from="1665326503130" duration="50000" />
-      <workItem from="1665333768864" duration="1366000" />
-      <workItem from="1665335238760" duration="8441000" />
-      <workItem from="1665343989080" duration="1042000" />
-      <workItem from="1665598278499" duration="811000" />
-      <workItem from="1665601061445" duration="22000" />
-      <workItem from="1666289130437" duration="726000" />
-      <workItem from="1666431402959" duration="3386000" />
-      <workItem from="1666434988973" duration="4593000" />
-      <workItem from="1666449117814" duration="7673000" />
-      <workItem from="1666472440057" duration="1751000" />
-    </task>
-    <task id="LOCAL-00001" summary="asdasd">
-      <created>1658338795584</created>
+    <task id="LOCAL-00001" summary="sa">
+      <created>1666526609508</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1658338795584</updated>
+      <updated>1666526609508</updated>
     </task>
-    <task id="LOCAL-00002" summary="fixed Home Controller.">
-      <created>1659780731161</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1659780731161</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Optimize improts">
-      <created>1659783609971</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1659783609971</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Format code">
-      <created>1659783804787</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1659783804787</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Format code - formatter on/off">
-      <created>1659784119511</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1659784119511</updated>
-    </task>
-    <task id="LOCAL-00006" summary="adding methods in UserService and OrderService">
-      <created>1659791623733</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1659791623733</updated>
-    </task>
-    <task id="LOCAL-00007" summary="change in path in one method in AdminController.">
-      <created>1659792649126</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1659792649126</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Preparing for deployment">
-      <created>1664739835282</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1664739835282</updated>
-    </task>
-    <task id="LOCAL-00009" summary=".gitignore file change">
-      <created>1665344801174</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1665344801174</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-        <option value="Space.CommitStatus" />
-      </list>
-    </option>
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="asdasd" />
-    <MESSAGE value="fixed Home Controller." />
-    <MESSAGE value="Optimize improts" />
-    <MESSAGE value="Format code" />
-    <MESSAGE value="Format code - formatter on/off" />
-    <MESSAGE value="adding methods in UserService and OrderService" />
-    <MESSAGE value="change in path in one method in AdminController." />
-    <MESSAGE value="Preparing for deployment" />
-    <MESSAGE value=".gitignore file change" />
-    <option name="LAST_COMMIT_MESSAGE" value=".gitignore file change" />
+    <MESSAGE value="sa" />
+    <option name="LAST_COMMIT_MESSAGE" value="sa" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -623,10 +189,6 @@
         <watch expression="    productRepository.findById(productById).ifPresent(productEntity -&gt;&#10;              cartProducts.computeIfAbsent(productEntity, key -&gt; quantityHolderDTO.getQuantity()));" language="JAVA" />
       </configuration>
     </watches-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PersonalProject$ShoppingCartServiceTest_removeProduct.ic" NAME="ShoppingCartServiceTest.removeProduct Coverage Results" MODIFIED="1659645939619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
