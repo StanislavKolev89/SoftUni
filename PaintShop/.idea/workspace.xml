@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49a33aff-d203-4803-9b59-5733d30d3e86" name="Changes" comment="" />
+    <list default="true" id="49a33aff-d203-4803-9b59-5733d30d3e86" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b47204b3-4b72-45ae-94bf-06a344e9f300.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b47204b3-4b72-45ae-94bf-06a344e9f300.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fcde35b4-7f39-4aec-983c-3a98867eb122.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fcde35b4-7f39-4aec-983c-3a98867eb122.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PersonalProject-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/PersonalProject-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jib-cache/jib-classpath-file" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jib-cache/jib-main-class-file" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jib-cache/layers/31d3f255278bf17514610ac9b1d5244fe42ca9630b9f4c7616c813342acf289f/85c6cb980761da2d9b7987c9f18e8c17ea6e1f3aa701417c94cbc24001700fe8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jib-cache/layers/715bc9f057f6a4bb9df500868afda07666522075c32ca3526d538f2112e21959/bb3af819330cd23caf895a09bcff8f39d6a282663a57373fc17485d6f2cdcb92" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jib-cache/layers/95b8d76dc90d5e18a91537f115498802971fb10fe85dad92d0e3ead361975eaa/9ca6122d153ab5e652a683437a0c9b046523d8a1e95622efa30c2f23731ae205" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jib-cache/selectors/2f368cf017e49496b76d1aabe677f485c134316d83ee48ba1f7f22e01c425fb8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jib-cache/selectors/31a36901061cd341041ecdc1deec85fe9a39d9e20afb5fe63242fe373feb9e97" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jib-cache/selectors/e56a1ed6a5a7cf9e7c9c8b5fe55cf70a0b8cb4ee10cf05e00c89e3aab4bc9355" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,14 +50,25 @@
       </map>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GXH2VwWR2b5SbJ6TW5w8q9nygo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="Spring Boot.PersonalProjectApplication">
     <configuration name="All in PersonalProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -116,12 +147,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.PersonalProjectApplication" />
       <item itemvalue="JUnit.UserControllerTest.testUserEditProfile" />
       <item itemvalue="JUnit.UsedProductControllerTest.editProductConfirm" />
       <item itemvalue="JUnit.All in PersonalProject" />
       <item itemvalue="JUnit.bg.softuni.paintShop.web in PersonalProject" />
       <item itemvalue="JUnit.bg.softuni.paintShop.service in PersonalProject" />
+      <item itemvalue="Spring Boot.PersonalProjectApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -133,6 +164,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="sa">
       <created>1666526609508</created>
@@ -148,8 +180,27 @@
       <option name="project" value="LOCAL" />
       <updated>1666527142852</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="sa">
+      <created>1666527627564</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666527627564</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="49a33aff-d203-4803-9b59-5733d30d3e86" name="Changes" comment="" />
+      <created>1666527810577</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666527810577</updated>
+      <workItem from="1666527823498" duration="7022000" />
+      <workItem from="1666535188784" duration="2867000" />
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sa" />

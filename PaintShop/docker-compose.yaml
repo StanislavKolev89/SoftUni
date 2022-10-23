@@ -4,9 +4,16 @@ services:
   mysql:
     image: mysql:8
     ports:
-      - 3306:3306
+      - "3307:3306"
     volumes:
       - ~/apps/mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 12345
       MYSQL_DATABASE: '[personal_data_base]'
+  personalproject:
+    image: kolevone/personalproject:v1
+    ports:
+      - "8080:8080"
+    environment:
+     - MYSQL_HOST=mysql
+
